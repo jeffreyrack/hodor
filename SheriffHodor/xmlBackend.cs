@@ -212,7 +212,7 @@ namespace CSUSM
                 public List<int> selectProblemSet(int problemSet)
                 {
                     xDoc = new XmlDocument();
-                    string XML = Cycle1gui.Properties.Resources.problemSet;
+                    string XML = Properties.Resources.problemSet;
                     StringReader str = new StringReader(XML);
                     xDoc.InnerXml = XML;
                     XmlReader xmlr = XmlReader.Create(str);
