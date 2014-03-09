@@ -1,0 +1,6 @@
+# VS
+*.user
+*.suo
+
+# Emacs
+*~
