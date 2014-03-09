@@ -4,29 +4,38 @@
  */
 using System;
 using System.Collections.Generic;
- //Admin class
-public class Admin : User
+namespace CSUSM
 {
-	public Admin()
-	{
-
-	} 
-    
-
-    public bool isTeacher = true;
-
-    private void generateReport(Student s)
+    namespace CS441
     {
+        namespace SheriffHodor
+        {
+            //Admin class
+            public class Admin : User
+            {
+                public Admin()
+                {
 
-    }
+                }
 
-    private void setupGame(List <Student> sList)
-    {
-        
-    }
 
-    private void generateSummary(List <Student> sList)
-    {
+                public bool isTeacher = true;
 
+                private void generateReport(Student s)
+                {
+
+                }
+
+                private void setupGame(List<Student> sList)
+                {
+
+                }
+
+                private void generateSummary(List<Student> sList)
+                {
+
+                }
+            }
+        }
     }
 }

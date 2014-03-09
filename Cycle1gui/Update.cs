@@ -10,42 +10,48 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Cycle1gui
+namespace CSUSM
 {
-    public partial class Update : Form
+    namespace CS441
     {
-        private Student user;
-        Action onClose;
-        public Update(Student user, Action onClose)
+        namespace SheriffHodor
         {
-            this.user = user;
-            InitializeComponent();
-            this.textBox1.Text = user.getName();
-            this.onClose = onClose;
-        }
-        //cancel button
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+            public partial class Update : Form
+            {
+                private Student user;
+                Action onClose;
+                public Update(Student user, Action onClose)
+                {
+                    this.user = user;
+                    InitializeComponent();
+                    this.textBox1.Text = user.getName();
+                    this.onClose = onClose;
+                }
+                //cancel button
+                private void button2_Click(object sender, EventArgs e)
+                {
+                    Close();
+                }
 
-        //THis will display the username
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+                //THis will display the username
+                private void textBox1_TextChanged(object sender, EventArgs e)
+                {
 
-        }
-        //Update button
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.user.setName(textBox1.Text);
-            new xmlBackend().updateStudentName(this.user);
-            this.onClose();
-            Close();
-        }
+                }
+                //Update button
+                private void button1_Click(object sender, EventArgs e)
+                {
+                    this.user.setName(textBox1.Text);
+                    new XmlBackend().updateStudentName(this.user);
+                    this.onClose();
+                    Close();
+                }
 
-        private void formLoad(object sender, EventArgs e)
-        {
-            textBox1.Text = user.getName();
+                private void formLoad(object sender, EventArgs e)
+                {
+                    textBox1.Text = user.getName();
+                }
+            }
         }
     }
 }
