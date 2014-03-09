@@ -33,7 +33,7 @@ namespace CSUSM
                 bool newUser;//to tell if the new user is an admin or not
                 private void button2_Click(object sender, EventArgs e)
                 {
-                    Close();
+                    MainWindow.Instance().SwitchForm("login");
                 }
                 //create button
                 private void button1_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace CSUSM
                         Student stud = new Student(textBox_newUser.Text, radioButton_admin.Checked, Student.maxId + 1);
                         xmlObject.Create(stud);
                         refresh();
-                        Close();
+                    MainWindow.Instance().SwitchForm("login");
                     } else {
                         // Errors have occured.  Follow the error steps mentioned in the Use Cases.
                     }

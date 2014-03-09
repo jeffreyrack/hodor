@@ -16,7 +16,7 @@ namespace CSUSM
     {
         namespace SheriffHodor
         {
-            public partial class Administration : Form
+            public partial class Administration : UserControl
             {
                 List<Student> users;
                 bool isAddition = true;
@@ -218,7 +218,6 @@ namespace CSUSM
                 }
 
                 //Updatebutton to update the changes made by the admin to the selected students
-                //Updatebutton to update the changes made by the admin to the selected students
                 private void btnUpdate_Click(object sender, EventArgs e)
                 {
                     try {
@@ -239,14 +238,13 @@ namespace CSUSM
                     } catch (Exception ex) {
                         MessageBox.Show(ex.Message);
                     }
-
-                    Close();
+                    //MainWindow.Instance().SwitchForm("login");
                 }
 
                 //Cancel button returns you to the Login Menu
                 private void Cancel_Click(object sender, EventArgs e)
                 {
-                    Close();
+                    MainWindow.Instance().SwitchForm("login");
                 }
 
                 /***************

@@ -30,7 +30,7 @@ namespace CSUSM
                 //cancel button
                 private void button2_Click(object sender, EventArgs e)
                 {
-                    Close();
+                    MainWindow.Instance().SwitchForm("login");
                 }
 
                 //THis will display the username
@@ -44,7 +44,7 @@ namespace CSUSM
                     this.user.setName(textBox1.Text);
                     new XmlBackend().updateStudentName(this.user);
                     this.onClose();
-                    Close();
+                    MainWindow.Instance().SwitchForm("login");
                 }
 
                 private void formLoad(object sender, EventArgs e)

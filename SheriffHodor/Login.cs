@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data; 
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,13 +17,13 @@ namespace CSUSM
     {
         namespace SheriffHodor
         {
-            public partial class Login : Form
+            public partial class Login : UserControl
             {
                 public List<Student> users;
                 public Login()
                 {
                     InitializeComponent();
-                    dropDownLogin.DropDownStyle = ComboBoxStyle.DropDownList;
+                    ddl_userList.DropDownStyle = ComboBoxStyle.DropDownList;
                     refreshUserList();
                 }
 
@@ -36,12 +36,6 @@ namespace CSUSM
                 //object for calling functions of the xmlbackend class
                 XmlBackend AA = new XmlBackend();
 
-                //the cancel button for canceling window
-                private void closeButton_Click(object sender, EventArgs e)
-                {
-                    Close();
-                }
-
                 public void refreshUserList()
                 {
                     users = AA.selectAll();
@@ -51,16 +45,16 @@ namespace CSUSM
                         for (int i = 0; i < users.Count; i++) {
                             userValues.Add(i, users[i].getName() + " " + users[i].getId());
                         }
-                        dropDownLogin.DataSource = new BindingSource(userValues, null);
-                        dropDownLogin.DisplayMember = "Value";
-                        dropDownLogin.ValueMember = "Key";
+                        ddl_userList.DataSource = new BindingSource(userValues, null);
+                        ddl_userList.DisplayMember = "Value";
+                        ddl_userList.ValueMember = "Key";
                     }
                 }
 
                 //Update Button
                 private void button2_Click(object sender, EventArgs e)
                 {
-                    Student selectedUser = Student.authenticate_User(users, dropDownLogin.Text);
+                    Student selectedUser = Student.authenticate_User(users, ddl_userList.Text);
                     if (selectedUser.getName() == null) {
                         MessageBox.Show("ERROR: Cannot Login - User is not selected");
                         return;
@@ -91,9 +85,10 @@ namespace CSUSM
                 }
 
                 //The login button that will either take a user to the game or the admin to the admin screen
-                private void button1_Click(object sender, EventArgs e)
+                private void btn_login_Click(object sender, EventArgs e)
                 {
-                    Student selectedUser = Student.authenticate_User(users, dropDownLogin.Text);
+                    // REFACTOR
+                    Student selectedUser = Student.authenticate_User(users, ddl_userList.Text);
                     if (selectedUser.getName() == null) {
                         MessageBox.Show("ERROR: Cannot Login - User is not selected");
                         return;
@@ -109,11 +104,9 @@ namespace CSUSM
                         gs.Show();
                         MessageBox.Show("Welcome to Sheriff Hodor!");
                     } else {
-                        //go to admin screen
-                        Administration AD = new Administration();
-                        AD.Show();
+                        // Go to admin screen
+                        MainWindow.Instance().SwitchForm("admin");
                     }
-
                 }
             }
         }
