@@ -64,7 +64,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         private static SerializableUserList _userList;
         private static SerializableUserList InitializeUserList()
         {
-            var reader = XMLBackend.LoadReader(Global.UsersFilePath);
+            var reader = XmlBackend.LoadReader(Global.UsersFilePath);
             if (reader == null)
                 throw new FileNotFoundException("LoadReader failed (returned null)");
             var Serializer = new XmlSerializer(typeof(SerializableUserList));

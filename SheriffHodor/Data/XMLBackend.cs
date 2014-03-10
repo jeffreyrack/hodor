@@ -15,7 +15,7 @@ using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
-    public static class XMLBackend
+    public static class XmlBackend
     {
         #region Validation
         /// <summary>
