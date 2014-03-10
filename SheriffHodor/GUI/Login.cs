@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CSUSM.CS441.SheriffHodor
+namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class Login : UserControl
     {
@@ -65,7 +65,7 @@ namespace CSUSM.CS441.SheriffHodor
             Action refresh = refreshUserList;
             CreateNewUser fred = new CreateNewUser(refresh);
             fred.Show();
-            fred.FormClosed += new FormClosedEventHandler(MyForm_FormClosed);
+            //fred.FormClosed += new FormClosedEventHandler(MyForm_FormClosed);
 
         }
         //supose to refresh the dropdown menu on this form, it isntdoing that

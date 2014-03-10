@@ -19,9 +19,9 @@ namespace CSUSM
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    var mainWindow = MainWindow.Instance;
-                    mainWindow.RegisterForm("login", new Login());
-                    mainWindow.RegisterForm("admin", new Administration());
+                    var mainWindow = GUI.MainWindow.Instance;
+                    mainWindow.RegisterForm("login", new GUI.Login());
+                    mainWindow.RegisterForm("admin", new GUI.Administration());
                     //mainWindow.RegisterForm("update", new Update());
                     //mainWindow.RegisterForm("gamescreen", new GameScreen());
                     mainWindow.SwitchForm("login");
