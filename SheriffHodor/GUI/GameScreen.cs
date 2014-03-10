@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CSUSM.CS441.SheriffHodor
+namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class GameScreen : UserControl
     {
