@@ -35,6 +35,7 @@
             // 
             // ddl_userList
             // 
+            this.ddl_userList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddl_userList.FormattingEnabled = true;
             this.ddl_userList.Location = new System.Drawing.Point(148, 192);
             this.ddl_userList.Name = "ddl_userList";

@@ -13,8 +13,15 @@ namespace CSUSM.CS441.SheriffHodor.Data
     /// </summary>
     public class User
     {
+        public enum UserType
+        {
+            Teacher,
+            Student
+        }
+
         public string Name { get; set; }
         public byte[] Hash { get; set; }
         public int Id { get; set; }
+        public UserType Status { get; set; }
     }
 }

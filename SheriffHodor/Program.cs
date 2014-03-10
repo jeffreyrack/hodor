@@ -23,7 +23,7 @@ namespace CSUSM
                     mainWindow.RegisterForm("login", new GUI.Login());
                     mainWindow.RegisterForm("admin", new GUI.Administration());
                     //mainWindow.RegisterForm("update", new Update());
-                    //mainWindow.RegisterForm("gamescreen", new GameScreen());
+                    mainWindow.RegisterForm("game", new GUI.GameScreen());
                     mainWindow.SwitchForm("login");
                     Application.Run(mainWindow);
                 }

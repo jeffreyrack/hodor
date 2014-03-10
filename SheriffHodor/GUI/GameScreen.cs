@@ -15,16 +15,36 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class GameScreen : UserControl
     {
+        #region Members
         int size1;
         int size2;
         List<int> returnIndex = new List<int>();
         int somthingMay;//refference for index
         int MM = 0;//counter for the index list
         List<int> questions = new List<int>();
+        bool isAddCheck;
+        Data.Student Stud;
+        int problemSetId;
+        string userName;
+        int operationSet;//will determine what operation is to be used
+        List<bool> answers = new List<bool>();
+        string textboxAnswer;
+        bool ynAnswer;
+        int K = 0;//used to increment pointer of problem list and answer list
+        int j = 1;
+        int problemCount = 0;//this will be set to the numbers of problems for this problem set from the administrators stuff
+        int currentNumOfProb = 0;//current number the user is on
+        DateTime theDate;//this records the current time in which the test is taken
+        int c;
+        static int countDown = 0;//the number used for the clock
+        XmlBackend GS = new XmlBackend();
+        Game thisGame;
+        #endregion
 
-        public GameScreen(Data.Student selectedUser)
+        #region Refactor
+        // Transition method
+        public void GameScreen_FakeCtor(Data.Student selectedUser)
         {
-            InitializeComponent();
             //get lists of the problem set
 
             //set them to be problems1 and problems2
@@ -60,43 +80,18 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             //MessageBox.Show("Welcome to Sheriff Hodor!" + problemCount);
 
             //List<int> questions = GS.selectProblemSet(g.getProblemSetId());
-            //problems1 = GS.selectProblemSet(g.getProblemSetId());
-
+            //problems1 = GS.selectProblemSet(g.getProblemSetId());        
         }
+        #endregion
 
-        bool isAddCheck;
-        Data.Student Stud;
-        int problemSetId;
-        string userName;
-
-        int operationSet;//will determine what operation is to be used
-        List<bool> answers = new List<bool>();
-        string textboxAnswer;
-        bool ynAnswer;
-        int K = 0;//used to increment pointer of problem list and answer list
-        int j = 1;
-
-        int problemCount = 0;//this will be set to the numbers of problems for this problem set from the administrators stuff
-        int currentNumOfProb = 0;//current number the user is on
-        DateTime theDate;//this records the current time in which the test is taken
-
-        int c;
-
-        static int countDown = 0;//the number used for the clock
-
-
-        XmlBackend GS = new XmlBackend();
-
-        Game thisGame;
-
-
+        public GameScreen()
+        {
+            InitializeComponent();
+        }
 
         //Next Button
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-
             if (TryToParse(textBox1.Text) == true) {
 
                 if (textBox1.Text != null && textBox1.Text.Length != 0) {
@@ -107,14 +102,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     if (!finishGameStats())
                         return;
 
-
                     displayNewProblems();
-
-
 
                     //currentNumOfProb++;
                     resetTimer();
-
                 }
             }
 
@@ -134,22 +125,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
         }
 
-
-
         //Answer Box
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
         }
-
 
         //Question Display
         private void label1_Click(object sender, EventArgs e)
         {
-
-
-
-
         }
 
         private void displayCurrentTotal()
