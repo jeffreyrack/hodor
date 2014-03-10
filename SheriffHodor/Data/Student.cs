@@ -27,8 +27,10 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public static Student authenticate_User(List<Student> users, String username)
         {
             Student selectedUser = new Student();
-            foreach (Student user in users) {
-                if (user.Name + " " + user.Id == username) {
+            foreach (Student user in users)
+            {
+                if (user.Name + " " + user.Id == username)
+                {
                     selectedUser = user;
                     break;
                 }

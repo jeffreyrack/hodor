@@ -51,7 +51,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void button2_Click(object sender, EventArgs e)
         {
             var selectedUser = Data.Student.authenticate_User(users, ddl_userList.Text);
-            if (selectedUser.Name == null) {
+            if (selectedUser.Name == null) 
+            {
                 MessageBox.Show("ERROR: Cannot Login - User is not selected");
                 return;
             }
@@ -82,13 +83,16 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             // REFACTOR
             Data.Student selectedUser = Data.Student.authenticate_User(users, ddl_userList.Text);
-            if (selectedUser.Name == null) {
-                MessageBox.Show("ERROR: Cannot Login - User is not selected");
+            if (selectedUser.Name == null) 
+            {
+                MessageBox.Show("ERROR: Cannot Login - User is not selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                 return;
             }
-            if (selectedUser.isTeacher == false) {
-                if (new XmlBackend().selectStudentGameInfo(selectedUser) == null) {
-                    MessageBox.Show("No Available Tests.");
+            if (selectedUser.isTeacher == false)
+            {
+                if (new XmlBackend().selectStudentGameInfo(selectedUser) == null) 
+                {
+                    MessageBox.Show("ERROR: Cannot Login - User is not selected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
                     return;
                 }
                 //needs to know which user it is
@@ -96,10 +100,22 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 GameScreen gs = new GameScreen(selectedUser);
                 gs.Show();
                 MessageBox.Show("Welcome to Sheriff Hodor!");
-            } else {
+            }
+            else 
+            {
                 // Go to admin screen
                 MainWindow.Instance.SwitchForm("admin");
             }
+        }
+
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            //new CreateNewUser().Show();
+            Action refresh = refreshUserList;
+            CreateNewUser newUser = new CreateNewUser(refresh);
+            //MainWindow.Instance.SwitchForm("user");
+            //newUser.Show();
+            //fred.FormClosed += new FormClosedEventHandler(MyForm_FormClosed);
         }
     }
 }

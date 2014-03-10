@@ -29,8 +29,6 @@
         {
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dgvSummary = new System.Windows.Forms.DataGridView();
-            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clstUserList = new System.Windows.Forms.CheckedListBox();
             this.Cancel = new System.Windows.Forms.Button();
             this.optAddition = new System.Windows.Forms.RadioButton();
@@ -43,6 +41,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dudNumRange = new System.Windows.Forms.DomainUpDown();
+            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumOfProb)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -74,22 +74,9 @@
             this.dgvSummary.Name = "dgvSummary";
             this.dgvSummary.ReadOnly = true;
             this.dgvSummary.RowHeadersVisible = false;
-            this.dgvSummary.Size = new System.Drawing.Size(318, 154);
+            this.dgvSummary.Size = new System.Drawing.Size(362, 154);
             this.dgvSummary.TabIndex = 6;
             this.dgvSummary.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSummary_CellClick);
-            // 
-            // clmName
-            // 
-            this.clmName.HeaderText = "Name";
-            this.clmName.Name = "clmName";
-            this.clmName.ReadOnly = true;
-            this.clmName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // clmSummary
-            // 
-            this.clmSummary.HeaderText = "Summary";
-            this.clmSummary.Name = "clmSummary";
-            this.clmSummary.ReadOnly = true;
             // 
             // clstUserList
             // 
@@ -239,11 +226,27 @@
             this.dudNumRange.TabIndex = 19;
             this.dudNumRange.SelectedItemChanged += new System.EventHandler(this.dudNumRange_SelectedItemChanged);
             // 
+            // clmName
+            // 
+            this.clmName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clmName.FillWeight = 101.5228F;
+            this.clmName.HeaderText = "Name";
+            this.clmName.MaxInputLength = 100;
+            this.clmName.Name = "clmName";
+            this.clmName.ReadOnly = true;
+            this.clmName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // clmSummary
+            // 
+            this.clmSummary.FillWeight = 98.47716F;
+            this.clmSummary.HeaderText = "Summary";
+            this.clmSummary.Name = "clmSummary";
+            this.clmSummary.ReadOnly = true;
+            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 412);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -252,10 +255,10 @@
             this.Controls.Add(this.clstUserList);
             this.Controls.Add(this.dgvSummary);
             this.Controls.Add(this.btnUpdate);
-            this.MaximumSize = new System.Drawing.Size(714, 451);
-            this.MinimumSize = new System.Drawing.Size(714, 451);
+            this.MaximumSize = new System.Drawing.Size(735, 451);
+            this.MinimumSize = new System.Drawing.Size(735, 451);
             this.Name = "Administration";
-            this.Text = "Administration";
+            this.Size = new System.Drawing.Size(735, 451);
             this.Load += new System.EventHandler(this.Administration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumOfProb)).EndInit();

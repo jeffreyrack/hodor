@@ -39,9 +39,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             users = users.OrderBy(x => x.Name).ToList();
 
             //for each user
-            foreach (var s in users) {
+            foreach (var s in users) 
+            {
                 //that is a student
-                if (s.isTeacher == false) {
+                if (s.isTeacher == false) 
+                {
                     //display them in the checkbox list
                     clstUserList.Items.Add(s.Name);
                 }
@@ -90,17 +92,20 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void dgvSummary_CellClick(object sender,
         DataGridViewCellEventArgs e)
         {
-            if (dgvSummary.Rows.Count > 0) {
+            if (dgvSummary.Rows.Count > 0) 
+            {
                 object value = dgvSummary.Rows[e.RowIndex].Cells[0].Value;
                 string nameFromDGV = value.ToString();
 
                 //unchecks all other students
 
                 //for every item in the checklist
-                for (int i = 0; i < clstUserList.Items.Count; i++) {
+                for (int i = 0; i < clstUserList.Items.Count; i++) 
+                {
                     //if the item is checked and its not the name they clicked on
                     if (clstUserList.GetItemCheckState(i) == CheckState.Checked &&
-                        clstUserList.Items[i].ToString() != nameFromDGV) {
+                        clstUserList.Items[i].ToString() != nameFromDGV) 
+                    {
                         //uncheck it
                         clstUserList.SetItemCheckState(i, CheckState.Unchecked);
                     }
@@ -112,8 +117,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 int total = 0;
                 //find the student
 
-                foreach (var s in users) {
-                    if (clstUserList.CheckedItems.Contains(s.Name)) {
+                foreach (var s in users) 
+                {
+                    if (clstUserList.CheckedItems.Contains(s.Name))
+                    {
                         //make only that student display in the dgv
                         dgvSummary.Rows.Clear();
                         dgvSummary.Rows.Add(value);
@@ -122,19 +129,24 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                         List<int> factors = new List<int>();
                         List<int> problemSet = new List<int>();
                         summary = AA.readGameStats(s);
-                        foreach (gameResults gr in summary) {
+                        foreach (gameResults gr in summary) 
+                        {
                             problemSet = AA.selectProblemSet(gr.problemSetId);
                             correct = 0;
                             total = 0;
 
                             dgvSummary.Rows.Add("", gr.Date.ToString());
-                            for (int i = 0; i < gr.indexes.Count; i++) {
+                            for (int i = 0; i < gr.indexes.Count; i++) 
+                            {
                                 factors = returnCorrectProblems(problemSet, gr.indexes[i]);
-                                if (gr.correct[i]) {
+                                if (gr.correct[i]) 
+                                {
                                     dgvSummary.Rows.Add("", factors[0] + " " + getOperator(gr.problemSetId) + " "
                                         + factors[1] + "    Correct");
                                     correct++;
-                                } else {
+                                } 
+                                else
+                                {
                                     dgvSummary.Rows.Add("", factors[0] + " " + getOperator(gr.problemSetId) + " "
                                         + factors[1] + "    Incorrect");
                                 }
@@ -142,10 +154,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                                 total++;
                             }
 
-                            if (total > 0) {
+                            if (total > 0) 
+                            {
                                 float average = ((float)correct / (float)total) * 100;
                                 dgvSummary.Rows.Add("", average.ToString() + "%");
-                            } else {
+                            }
+                            else 
+                            {
                                 dgvSummary.Rows.Add("", "No results to display");
                             }
                         }
