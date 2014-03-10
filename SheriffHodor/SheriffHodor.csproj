@@ -63,11 +63,9 @@
     <Compile Include="Data\Helpers.cs" />
     <Compile Include="Data\ObservableList.cs" />
     <Compile Include="Data\User.cs" />
-    <Compile Include="ControlView.cs" />
     <Compile Include="Data\UserList.cs" />
     <Compile Include="Data\XmlBackend.cs" />
     <Compile Include="gameBackend.cs" />
-    <Compile Include="GameControl.cs" />
     <Compile Include="GUI\Administration.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -35,14 +35,14 @@
             this.pnl_display.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_display.Location = new System.Drawing.Point(0, 0);
             this.pnl_display.Name = "pnl_display";
-            this.pnl_display.Size = new System.Drawing.Size(546, 346);
+            this.pnl_display.Size = new System.Drawing.Size(730, 480);
             this.pnl_display.TabIndex = 0;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 346);
+            this.ClientSize = new System.Drawing.Size(730, 480);
             this.Controls.Add(this.pnl_display);
             this.Name = "MainWindow";
             this.Text = "MainWindow";

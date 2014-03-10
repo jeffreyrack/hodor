@@ -11,7 +11,8 @@ namespace CSUSM.CS441.SheriffHodor.Data
     {
         #region Singleton
         private static UserList _instance;
-        private UserList(XmlUserList list) : base()
+        private UserList(XmlUserList list)
+            : base()
         {
             foreach (var usr in list.Users)
                 this.Add(usr);
@@ -26,6 +27,23 @@ namespace CSUSM.CS441.SheriffHodor.Data
             }
         }
         #endregion
+
+        public bool RemoveByName(string name)
+        {
+            int idx = GetByName(name);
+            if (idx >= 0)
+                this.RemoveItem(idx);
+            return (idx >= 0);
+        }
+        public int GetByName(string name)
+        {
+            for (int i = 0; i < this.Count; ++i)
+                if (this[i].Name.Equals(name, StringComparison.InvariantCultureIgnoreCase)) {
+                    return i;
+                }
+            Console.WriteLine("FAILED to get '{0}'.", name);
+            return -1;
+        }
 
         /// <summary>
         /// Save this list's data to the XML file.

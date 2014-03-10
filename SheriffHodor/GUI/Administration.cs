@@ -15,32 +15,36 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class Administration : UserControl
     {
-        int probSetId = 0;
-
         public Administration()
         {
             InitializeComponent();
-            // Hack -- Refactor
-            this.DockChanged += Refresh;
-            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(Refresh);
+            GUIUpdate(null, null);
+            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GUIUpdate);
         }
 
-        //On this screen loading
-        private void Refresh(object sender, EventArgs e)
+        private void GUIUpdate(object o, EventArgs e)
         {
-            dudNumRange.SelectedIndex = 0;
-            rdo_negative.Enabled = false;
-            dgvSummary.AllowUserToAddRows = false;
+            // Users
+            Console.WriteLine("Update");
+            dtg_users_list.DataSource = null;
+            dtg_users_list.DataSource = Data.UserList.Instance;
+            dtg_users_list.Invalidate();
+            dtg_users_list.Refresh();
 
             clstUserList.Items.Clear();
             clstUserList.Items.AddRange(
                 (from usr in Data.UserList.Instance
                  where usr.Status == Data.User.UserType.Student
                  select usr.Name).ToArray());
-
-            nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
 
+        private void Accept() { } // Useless in that context
+        private void Decline()
+        {
+            MainWindow.Instance.SwitchForm("login");
+        }
+
+        // The "Users" tab.
         #region Users Panel
         #region UI Events
         private void btn_users_add_Click(object sender, EventArgs e)
@@ -52,14 +56,42 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
         private void btn_users_del_Click(object sender, EventArgs e)
         {
+            try {
+                // The ToList() is needed, as else it would stay lazy and request invalidated data (from SelectRows).
+                var toDel = (from DataGridViewRow name in dtg_users_list.SelectedRows select name.Cells["Name"].Value).ToList();
+                var count = toDel.Count();
+
+                // No item selected
+                if (count < 1)
+                    return;
+
+                var msg = string.Format("Are you sure you want to delete {0} ?",
+                    (count > 1) ? (string.Format("{0} users", count))
+                    : (string.Format("user '{0}'", toDel.First())));
+
+                if (Helpers.AskQuestion(msg) == DialogResult.Yes)
+                    foreach (string u in toDel)
+                        Data.UserList.Instance.RemoveByName(u);
+            } catch (Exception ex) {
+                // If anything goes wrong, we catch it and log it.
+                // But it isn't much of a problem.
+                Console.WriteLine(ex.Message);
+                throw;
+            }
         }
-        private void btn_users_logout_Click(object sender, EventArgs e)
+        private void btn_logout_Click(object sender, EventArgs e)
         {
-            MainWindow.Instance.SwitchForm("login");
+            Decline();
         }
         #endregion
         #endregion
 
+        // The "Problems" tab.
+        #region Problems
+        #endregion
+
+        // The "Reports" tab.
+        #region Reports
         // Refactor, at least the names
         #region UI Events
         //Addition button
@@ -221,14 +253,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
             //Helpers.DisplayInfo("Tests updated");
         }
-        //Cancel button returns you to the Login Menu
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            MainWindow.Instance.SwitchForm("login");
-        }
+        #endregion
         #endregion
 
         #region Refactor ?
+        int probSetId = 0;
         /***************
          * supporting functions
          * ***********/

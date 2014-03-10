@@ -39,7 +39,7 @@
             this.rdo_subtraction = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.nudNumOfProb = new System.Windows.Forms.NumericUpDown();
-            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_reports_logout = new System.Windows.Forms.Button();
             this.clstUserList = new System.Windows.Forms.CheckedListBox();
             this.dgvSummary = new System.Windows.Forms.DataGridView();
             this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,7 +83,7 @@
             this.pg_report.Controls.Add(this.groupBox1);
             this.pg_report.Controls.Add(this.label1);
             this.pg_report.Controls.Add(this.nudNumOfProb);
-            this.pg_report.Controls.Add(this.btn_cancel);
+            this.pg_report.Controls.Add(this.btn_reports_logout);
             this.pg_report.Controls.Add(this.clstUserList);
             this.pg_report.Controls.Add(this.dgvSummary);
             this.pg_report.Controls.Add(this.btn_update);
@@ -145,6 +145,7 @@
             // rdo_negative
             // 
             this.rdo_negative.AutoSize = true;
+            this.rdo_negative.Enabled = false;
             this.rdo_negative.Location = new System.Drawing.Point(6, 42);
             this.rdo_negative.Name = "rdo_negative";
             this.rdo_negative.Size = new System.Drawing.Size(129, 17);
@@ -217,14 +218,15 @@
             0,
             0});
             // 
-            // btn_cancel
+            // btn_reports_logout
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(610, 310);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel.TabIndex = 30;
-            this.btn_cancel.Text = "Cancel";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_reports_logout.Location = new System.Drawing.Point(610, 310);
+            this.btn_reports_logout.Name = "btn_reports_logout";
+            this.btn_reports_logout.Size = new System.Drawing.Size(75, 23);
+            this.btn_reports_logout.TabIndex = 30;
+            this.btn_reports_logout.Text = "Logout";
+            this.btn_reports_logout.UseVisualStyleBackColor = true;
+            this.btn_reports_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // clstUserList
             // 
@@ -309,12 +311,11 @@
             this.btn_users_logout.TabIndex = 4;
             this.btn_users_logout.Text = "Log out";
             this.btn_users_logout.UseVisualStyleBackColor = true;
-            this.btn_users_logout.Click += new System.EventHandler(this.btn_users_logout_Click);
+            this.btn_users_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // btn_users_del
             // 
             this.btn_users_del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_users_del.Enabled = false;
             this.btn_users_del.Location = new System.Drawing.Point(255, 381);
             this.btn_users_del.Name = "btn_users_del";
             this.btn_users_del.Size = new System.Drawing.Size(120, 23);
@@ -355,7 +356,9 @@
             this.dtg_users_list.Location = new System.Drawing.Point(3, 3);
             this.dtg_users_list.Name = "dtg_users_list";
             this.dtg_users_list.ReadOnly = true;
+            this.dtg_users_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_users_list.Size = new System.Drawing.Size(700, 345);
+            this.dtg_users_list.StandardTab = true;
             this.dtg_users_list.TabIndex = 0;
             // 
             // Administration
@@ -398,7 +401,7 @@
         private System.Windows.Forms.RadioButton rdo_subtraction;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown nudNumOfProb;
-        private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button btn_reports_logout;
         private System.Windows.Forms.CheckedListBox clstUserList;
         private System.Windows.Forms.DataGridView dgvSummary;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;

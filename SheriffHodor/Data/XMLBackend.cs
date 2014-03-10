@@ -109,6 +109,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         }
         #endregion
 
+        #region Refactor
         public static void saveGameStuff(int probSetId, List<int> problemSetIndex, bool isPositive,
             bool isAddition, int nudNumOfProb, User stud)
         {
@@ -268,7 +269,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
             return questions;
         }
 
-
         public static void updateStudentName(User stud)
         {
             var xDoc = new XmlDocument();
@@ -323,5 +323,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
             }
             return results;
         }
+        #endregion
     }
 }

@@ -17,15 +17,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class Login : UserControl
     {
-        // LEGACY //
-
-        public Dictionary<int, string> userValues;
-        //object for calling functions of the xmlbackend class
-        public List<Data.User> users;
-
-
-        // NEW CODE //
-
         public Login()
         {
             InitializeComponent();
@@ -39,29 +30,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             ddl_userList.DataSource = Data.UserList.Instance.Select(x => x.Name).ToList();
         }
-
-        #region Move to administration
-        //Update Button
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //var selectedUser = Data.Student.authenticate_User(users, ddl_userList.Text);
-        //if (selectedUser.Name == null) {
-        //MessageBox.Show("ERROR: Cannot Login - User is not selected");
-        //return;
-        //}
-        //Action refresh = refreshUserList;
-        //new Update(selectedUser, refresh).Show();
-        //}
-        //Create New User Button
-        //private void button3_Click(object sender, EventArgs e)
-        //{
-        //new CreateNewUser().Show();
-        //Action refresh = refreshUserList;
-        //CreateNewUser fred = new CreateNewUser(refresh);
-        //fred.Show();
-        //fred.FormClosed += new FormClosedEventHandler(MyForm_FormClosed);
-        //}
-        #endregion
 
         //The login button that will either take a user to the game or the admin to the admin screen
         private void btn_login_Click(object sender, EventArgs e)

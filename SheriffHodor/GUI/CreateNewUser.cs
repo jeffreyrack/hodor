@@ -34,15 +34,21 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             var type = (rdo_admin.Checked ? Data.User.UserType.Teacher : Data.User.UserType.Student);
             Data.UserList.Instance.Add(Data.User.CreateUser(txt_username.Text, type));
-
-            Helpers.DisplayInfo("User (debug: not) created");
+            Helpers.DisplayInfo(string.Format("User '{0}' successfully created", txt_username.Text));
+            // Cleanup and leave.
+            Decline();
+        }
+        private void Decline()
+        {
+            txt_username.Text = "";
+            rdo_user.Checked = true;
             MainWindow.Instance.SwitchForm("admin");
         }
 
         #region UI Events
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            MainWindow.Instance.SwitchForm("admin");
+            Decline();
         }
         private void btn_create_Click(object sender, EventArgs e)
         {

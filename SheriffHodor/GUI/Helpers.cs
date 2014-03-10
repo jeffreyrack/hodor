@@ -20,5 +20,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             return MessageBox.Show(MainWindow.Instance, message, "Info", 
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        internal static DialogResult AskQuestion(string message)
+        {
+            return MessageBox.Show(MainWindow.Instance, message, "Question", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
     }
 }

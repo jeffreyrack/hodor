@@ -36,7 +36,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
 
         #region Constructor & object inheritance
         // Use this in user code.
-        public static User  CreateUser(string name, UserType status = UserType.Student, byte[] hash = null)
+        public static User CreateUser(string name, UserType status = UserType.Student, byte[] hash = null)
         {
             return new User(name, ++Global.maxId, status, hash);
         }
@@ -90,7 +90,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
         #endregion
 
         #region INotifyPropertyChanged Membres
+        // VS will incorrectly report this as unused
+        // Actually it is used by the collection but it somehow fails to detect it.
+#pragma warning disable 0067
         public event PropertyChangedEventHandler PropertyChanged;
+#pragma warning restore 0067
         #endregion
     }
 
