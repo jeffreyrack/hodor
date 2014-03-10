@@ -18,6 +18,12 @@ namespace CSUSM.CS441.SheriffHodor.Data
     public static class XMLBackend
     {
         #region Validation
+        /// <summary>
+        /// Check whenever a config file is valid, according to it's DTD.
+        /// </summary>
+        /// <param name="path">A path to the config file to check.
+        /// Note that an invalid path will be treated as invalid.</param>
+        /// <returns>True if the file exist and is valid.</returns>
         public static bool IsValid(string path)
         {
             try {
@@ -27,6 +33,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 return false;
             }
         }
+        /// <summary>
+        /// Check whenever a config file is valid, according to it's DTD.
+        /// If a validation error happens, an exception is throw.
+        /// </summary>
+        /// <param name="path">A path to the file to validate.</param>
         public static void Validate(string path)
         {
             var settings = new XmlReaderSettings();
@@ -41,6 +52,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
         }
         #endregion
         #region Read
+        /// <summary>
+        /// Load an XML file without prior validation.
+        /// </summary>
+        /// <param name="path">A valid path to the XML file.</param>
+        /// <returns>An instance of XmlReader representing the file loaded.</returns>
         public static XmlReader LoadReaderUnchecked(string path)
         {
             var settings = new XmlReaderSettings();
@@ -49,6 +65,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
             settings.ValidationType = ValidationType.None;
             return XmlReader.Create(path, settings);
         }
+        /// <summary>
+        /// Validate an XML file then load it.
+        /// </summary>
+        /// <param name="path">A valid path to the XML file.</param>
+        /// <returns>An instance of XmlReader representing the file loaded.</returns>
         public static XmlReader LoadReader(string path)
         {
             Validate(path);

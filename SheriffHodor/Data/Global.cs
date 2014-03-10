@@ -19,13 +19,28 @@ namespace CSUSM.CS441.SheriffHodor.Data
         #endregion
 
         #region Const data
+        /// <summary>
+        /// Path to the configuration folder of the application.
+        /// </summary>
         public const string ConfDirPath = @"C:\ProgramData\SheriffHodor\";
+        /// <summary>
+        /// Path to the XML file holding the User's data.
+        /// </summary>
         public const string UsersFilePath = @"C:\ProgramData\SheriffHodor\Users.xml";
+        /// <summary>
+        /// Path to the XML file holding the questions.
+        /// </summary>
         public const string QCMFilePath = @"C:\ProgramData\SheriffHodor\Questions.xml";
+        /// <summary>
+        /// Path to the XML file holding the problems set.
+        /// </summary>
         public const string ProblemsFilePath = @"C:\ProgramData\SheriffHodor\Problems.xml";
         #endregion
 
         #region Users
+        /// <summary>
+        /// An XML-serializable class holding the list of users.
+        /// </summary>
         [XmlRoot("Students")]
         public class SerializableUserList
         {
