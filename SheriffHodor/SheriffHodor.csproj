@@ -59,8 +59,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminBackend.cs" />
-    <Compile Include="Backend.cs" />
+    <Compile Include="Data\Admin.cs" />
+    <Compile Include="Data\Helpers.cs" />
+    <Compile Include="Data\Student.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,7 +73,7 @@
     <Compile Include="gameBackend.cs" />
     <Compile Include="GameControl.cs" />
     <Compile Include="GameScreen.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
@@ -94,9 +96,8 @@
     <Compile Include="CreateNewUser.Designer.cs">
       <DependentUpon>CreateNewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="studentBackend.cs" />
     <Compile Include="Update.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Update.Designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
@@ -173,6 +174,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

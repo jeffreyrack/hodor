@@ -25,20 +25,20 @@ namespace CSUSM
             public partial class MainWindow : Form
             {
                 /// <summary>
-                /// Instance variable (singleton).
-                /// </summary>
-                private static MainWindow _instance = null;
-                /// <summary>
                 /// Get the instance of this object, instantiate it if necessary.
                 /// Designed for single-threaded environment.
                 /// </summary>
                 /// <returns>A reference to the only instance of this class in the program.</returns>
-                public static MainWindow Instance()
+                public static MainWindow Instance
                 {
-                    if (_instance == null)
-                        _instance = new MainWindow();
-                    return _instance;
+                    get
+                    {
+                        if (_instance == null)
+                            _instance = new MainWindow();
+                        return _instance;
+                    }
                 }
+                private static MainWindow _instance = null;
 
                 /// <summary>
                 /// A list of registered form and their associated names as a key.

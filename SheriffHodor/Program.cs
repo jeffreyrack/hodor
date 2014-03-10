@@ -19,11 +19,11 @@ namespace CSUSM
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    var mainWindow = MainWindow.Instance();
+                    var mainWindow = MainWindow.Instance;
                     mainWindow.RegisterForm("login", new Login());
                     mainWindow.RegisterForm("admin", new Administration());
-                    //mainWindow.RegisterForm("Update", new Update());
-                    //mainWindow.RegisterForm("Login", new Login());
+                    //mainWindow.RegisterForm("update", new Update());
+                    //mainWindow.RegisterForm("gamescreen", new GameScreen());
                     mainWindow.SwitchForm("login");
                     Application.Run(mainWindow);
                 }

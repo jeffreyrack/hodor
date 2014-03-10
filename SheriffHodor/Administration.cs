@@ -18,7 +18,7 @@ namespace CSUSM
         {
             public partial class Administration : UserControl
             {
-                List<Student> users;
+                List<Data.Student> users;
                 bool isAddition = true;
                 bool isPositive = true;
                 int probSetId = 0;
@@ -40,21 +40,18 @@ namespace CSUSM
 
                     //get all the users in the XML
                     users = AA.selectAll();
-                    users = users.OrderBy(x => x.getName()).ToList();
+                    users = users.OrderBy(x => x.Name).ToList();
 
                     //for each user
-                    foreach (Student s in users) {
+                    foreach (var s in users) {
                         //that is a student
-                        if (s.getisTeacher() == false) {
-
+                        if (s.isTeacher == false) {
                             //display them in the checkbox list
-                            clstUserList.Items.Add(s.getName());
+                            clstUserList.Items.Add(s.Name);
                         }
                     }
-
                     nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
                 }
-
 
                 //Addition button
                 private void optAddition_CheckedChanged(object sender, EventArgs e)
@@ -72,9 +69,7 @@ namespace CSUSM
                 private void optSubtraction_CheckedChanged(object sender, EventArgs e)
                 {
                     optNegative.Enabled = true;
-
                     isAddition = false;
-
                     probSetId = determineProblemSet(dudNumRange.Text);
                     nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
                 }
@@ -83,7 +78,6 @@ namespace CSUSM
                 private void optPositive_CheckedChanged(object sender, EventArgs e)
                 {
                     isPositive = true;
-
                     probSetId = determineProblemSet(dudNumRange.Text);
                     nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
                 }
@@ -92,13 +86,9 @@ namespace CSUSM
                 private void optNegative_CheckedChanged(object sender, EventArgs e)
                 {
                     isPositive = false;
-
                     probSetId = determineProblemSet(dudNumRange.Text);
                     nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
                 }
-
-
-
 
                 //Clicking in the datagridview to genereate indepth report and unselect all other selected students
                 private void dgvSummary_CellClick(object sender,
@@ -126,8 +116,8 @@ namespace CSUSM
                         int total = 0;
                         //find the student
 
-                        foreach (Student s in users) {
-                            if (clstUserList.CheckedItems.Contains(s.getName())) {
+                        foreach (var s in users) {
+                            if (clstUserList.CheckedItems.Contains(s.Name)) {
                                 //make only that student display in the dgv
                                 dgvSummary.Rows.Clear();
                                 dgvSummary.Rows.Add(value);
@@ -185,8 +175,8 @@ namespace CSUSM
 
                     //for every item checked
 
-                    foreach (Student s in users) {
-                        if (clstUserList.CheckedItems.Contains(s.getName())) {
+                    foreach (var s in users) {
+                        if (clstUserList.CheckedItems.Contains(s.Name)) {
                             correct = 0;
                             total = 0;
 
@@ -202,9 +192,9 @@ namespace CSUSM
 
                             if (total > 0) {
                                 float average = ((float)correct / (float)total) * 100;
-                                dgvSummary.Rows.Add(s.getName().ToString(), average.ToString() + "%");
+                                dgvSummary.Rows.Add(s.Name.ToString(), average.ToString() + "%");
                             } else {
-                                dgvSummary.Rows.Add(s.getName().ToString(), "No results to display");
+                                dgvSummary.Rows.Add(s.Name.ToString(), "No results to display");
                             }
                         }
                     }
@@ -225,9 +215,9 @@ namespace CSUSM
                         Game newGame = new Game(probSetId, problemSetIndex, isPositive, isAddition, Int32.Parse(nudNumOfProb.Text));
                         string updatedUsers = "";
 
-                        foreach (Student s in users) {
-                            if (clstUserList.CheckedItems.Contains(s.getName())) {
-                                updatedUsers += s.getName() + Environment.NewLine;
+                        foreach (var s in users) {
+                            if (clstUserList.CheckedItems.Contains(s.Name)) {
+                                updatedUsers += s.Name + Environment.NewLine;
                                 AA.saveGameStuff(probSetId, problemSetIndex, isPositive, isAddition, Int32.Parse(nudNumOfProb.Text), s);
                             }
                         }
@@ -244,7 +234,7 @@ namespace CSUSM
                 //Cancel button returns you to the Login Menu
                 private void Cancel_Click(object sender, EventArgs e)
                 {
-                    MainWindow.Instance().SwitchForm("login");
+                    MainWindow.Instance.SwitchForm("login");
                 }
 
                 /***************
