@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,90 +16,75 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class Login : UserControl
     {
+        // LEGACY //
+
+        public Dictionary<int, string> userValues;
+        //object for calling functions of the xmlbackend class
         public List<Data.Student> users;
+
+
+        // NEW CODE //
+
         public Login()
         {
             InitializeComponent();
-            ddl_userList.DropDownStyle = ComboBoxStyle.DropDownList;
-            refreshUserList();
+            UpdateUserList();
         }
 
-
-        //bool IsTeacher = false;//admin or user
-        //string UName;//user name
-
-        public Dictionary<int, string> userValues;
-
-        //object for calling functions of the xmlbackend class
-        XmlBackend AA = new XmlBackend();
-
-        public void refreshUserList()
+        private void UpdateUserList()
         {
-            users = AA.selectAll();
-            users = users.OrderBy(x => x.Name).ToList();
-            userValues = new Dictionary<int, string>();
-            if (users.Count > 0) {
-                for (int i = 0; i < users.Count; i++) {
-                    userValues.Add(i, users[i].Name + " " + users[i].Id);
-                }
-                ddl_userList.DataSource = new BindingSource(userValues, null);
-                ddl_userList.DisplayMember = "Value";
-                ddl_userList.ValueMember = "Key";
-            }
+            ddl_userList.DataSource = Data.Global.UserList.Select(x => x.Name).ToList();
         }
 
+        #region Move to administration
         //Update Button
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var selectedUser = Data.Student.authenticate_User(users, ddl_userList.Text);
-            if (selectedUser.Name == null) {
-                MessageBox.Show("ERROR: Cannot Login - User is not selected");
-                return;
-            }
-            Action refresh = refreshUserList;
-            new Update(selectedUser, refresh).Show();
-        }
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //var selectedUser = Data.Student.authenticate_User(users, ddl_userList.Text);
+        //if (selectedUser.Name == null) {
+        //MessageBox.Show("ERROR: Cannot Login - User is not selected");
+        //return;
+        //}
+        //Action refresh = refreshUserList;
+        //new Update(selectedUser, refresh).Show();
+        //}
         //Create New User Button
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //new CreateNewUser().Show();
-            Action refresh = refreshUserList;
-            CreateNewUser fred = new CreateNewUser(refresh);
-            fred.Show();
-            //fred.FormClosed += new FormClosedEventHandler(MyForm_FormClosed);
-
-        }
-        //supose to refresh the dropdown menu on this form, it isntdoing that
-        void MyForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Refresh();
-        }
-
-        //Dropdown Menu for the list of users
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {}
+        //private void button3_Click(object sender, EventArgs e)
+        //{
+        //new CreateNewUser().Show();
+        //Action refresh = refreshUserList;
+        //CreateNewUser fred = new CreateNewUser(refresh);
+        //fred.Show();
+        //fred.FormClosed += new FormClosedEventHandler(MyForm_FormClosed);
+        //}
+        #endregion
 
         //The login button that will either take a user to the game or the admin to the admin screen
         private void btn_login_Click(object sender, EventArgs e)
         {
-            // REFACTOR
-            Data.Student selectedUser = Data.Student.authenticate_User(users, ddl_userList.Text);
-            if (selectedUser.Name == null) {
-                MessageBox.Show("ERROR: Cannot Login - User is not selected");
+            // We retrive the user currently selected.
+            // It should be either 1 item or 0.
+            var result = from user in Data.Global.UserList
+                         where user.Name.Equals(ddl_userList.Text, StringComparison.InvariantCultureIgnoreCase)
+                         select user;
+
+            if (result.Count() != 1) {
+                // Being paranoid doesn't hurt : We shouldn't get more than 1 result ever.
+                Contract.Assert(result.Count() == 0);
+                Helpers.DisplayError("Then name you entered is not valid !");
                 return;
             }
-            if (selectedUser.isTeacher == false) {
-                if (new XmlBackend().selectStudentGameInfo(selectedUser) == null) {
-                    MessageBox.Show("No Available Tests.");
+            var selectedUser = result.First();
+            if (selectedUser.Status == Data.User.UserType.Teacher) {
+                MainWindow.Instance.SwitchForm("admin");
+            } else {
+                if (new XmlBackend().selectStudentGameInfo(selectedUser as Data.Student) == null) {
+                    Helpers.DisplayError("No Available Tests.");
                     return;
                 }
-                //needs to know which user it is
-                //string StName = selectedUser.getName();
-                GameScreen gs = new GameScreen(selectedUser);
-                gs.Show();
+                var gs = (MainWindow.Instance.SwitchForm("game") as GameScreen);
+                gs.GameScreen_FakeCtor(selectedUser as Data.Student);
                 MessageBox.Show("Welcome to Sheriff Hodor!");
-            } else {
-                // Go to admin screen
-                MainWindow.Instance.SwitchForm("admin");
             }
         }
     }
