@@ -19,10 +19,13 @@ namespace CSUSM.CS441.SheriffHodor.Data
         #endregion
 
         #region Const data
-        public const string StudentFilePath = @"C:\ProgramData\Students.xml";
+        public const string ConfDirPath = @"C:\ProgramData\SheriffHodor\";
+        public const string UsersFilePath = @"C:\ProgramData\SheriffHodor\Users.xml";
+        public const string QCMFilePath = @"C:\ProgramData\SheriffHodor\Questions.xml";
+        public const string ProblemsFilePath = @"C:\ProgramData\SheriffHodor\Problems.xml";
         #endregion
 
-        #region UserList
+        #region Users
         [XmlRoot("Students")]
         public class SerializableUserList
         {
@@ -46,7 +49,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         private static SerializableUserList _userList;
         private static SerializableUserList InitializeUserList()
         {
-            var reader = XmlBackend.LoadReader(Global.StudentFilePath);
+            var reader = XMLBackend.LoadReader(Global.UsersFilePath);
             if (reader == null)
                 throw new FileNotFoundException("LoadReader failed (returned null)");
             var Serializer = new XmlSerializer(typeof(SerializableUserList));

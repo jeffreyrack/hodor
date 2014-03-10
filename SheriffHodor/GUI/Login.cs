@@ -79,7 +79,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (selectedUser.Status == Data.User.UserType.Teacher) {
                 MainWindow.Instance.SwitchForm("admin");
             } else {
-                if (XmlBackend.selectStudentGameInfo(selectedUser) == null) {
+                if (Data.XMLBackend.selectStudentGameInfo(selectedUser) == null) {
                     Helpers.DisplayError("No Available Tests.");
                     return;
                 }

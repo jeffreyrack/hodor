@@ -57,7 +57,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             userName = selectedUser.Name;
             thisGame = selectedUser.nextGame;
-            Game g = XmlBackend.selectStudentGameInfo(selectedUser);
+            Game g = Data.XMLBackend.selectStudentGameInfo(selectedUser);
 
             problemSetId = g.getProblemSetId();
 
@@ -153,7 +153,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         private void getQuestions()
         {
-            questions = XmlBackend.selectProblemSet(problemSetId);
+            questions = Data.XMLBackend.selectProblemSet(problemSetId);
             incrementByTwo();
             displayCurrentTotal();
 
@@ -231,7 +231,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (currentNumOfProb == problemCount) {
                 //call functiont hat saves the list of answers from the user's game to the XML 
 
-                XmlBackend.saveGameStats(answers, returnIndex, Stud);
+                Data.XMLBackend.saveGameStats(answers, returnIndex, Stud);
                 timer1.Stop();
                 //need a close form thing
                 MainWindow.Instance.SwitchForm("login");

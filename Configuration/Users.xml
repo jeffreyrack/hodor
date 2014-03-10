@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!DOCTYPE Students SYSTEM "Users.dtd">
+<Students>
+  <Student id="1">
+    <Name>Root</Name>
+    <Status>Teacher</Status>
+  </Student>
+  <Student id="2">
+    <Name>Zoidberg</Name>
+    <Status>Student</Status>
+  </Student>
+  <Student id="3">
+    <Name>Mr Spock</Name>
+    <Status>Teacher</Status>
+  </Student>
+  <Student id="4">
+    <Name>Zorro</Name>
+    <Status>Student</Status>
+  </Student>
+ </Students>

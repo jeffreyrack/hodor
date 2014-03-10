@@ -38,7 +38,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             this.user.Name = textBox1.Text;
-            XmlBackend.updateStudentName(this.user);
+            Data.XMLBackend.updateStudentName(this.user);
             this.onClose();
             MainWindow.Instance.SwitchForm("login");
         }

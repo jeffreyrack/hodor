@@ -119,9 +119,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
                         List<int> factors = new List<int>();
                         List<int> problemSet = new List<int>();
-                        summary = XmlBackend.readGameStats(s);
+                        summary = Data.XMLBackend.readGameStats(s);
                         foreach (gameResults gr in summary) {
-                            problemSet = XmlBackend.selectProblemSet(gr.problemSetId);
+                            problemSet = Data.XMLBackend.selectProblemSet(gr.problemSetId);
                             correct = 0;
                             total = 0;
 
@@ -168,7 +168,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     correct = 0;
                     total = 0;
 
-                    summary = XmlBackend.readGameStats(s);
+                    summary = Data.XMLBackend.readGameStats(s);
                     foreach (gameResults gr in summary) {
                         foreach (bool answer in gr.correct) {
                             if (answer) {
@@ -205,7 +205,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 foreach (var s in Data.Global.UserList) {
                     if (clstUserList.CheckedItems.Contains(s.Name)) {
                         updatedUsers += s.Name + Environment.NewLine;
-                        XmlBackend.saveGameStuff(probSetId, problemSetIndex, rdo_positive.Checked, rdo_addition.Checked,
+                        Data.XMLBackend.saveGameStuff(probSetId, problemSetIndex, rdo_positive.Checked, rdo_addition.Checked,
                             Int32.Parse(nudNumOfProb.Text), s);
                     }
                 }
