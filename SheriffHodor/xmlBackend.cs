@@ -14,72 +14,58 @@ using System.IO;
 
 namespace CSUSM.CS441.SheriffHodor
 {
-    public class XmlBackend
+    public static class XmlBackend
     {
-        public XmlBackend()
+        public static void saveGameStuff(int probSetId, List<int> problemSetIndex, bool isPositive,
+            bool isAddition, int nudNumOfProb, Data.Student stud)
         {
-            //idk why this is here, just because
-            //InitializeComponent();
-        }
+            if (!File.Exists(Data.Global.StudentFilePath))
+                return;
+            var xDoc = new XmlDocument();
+            xDoc.Load(Data.Global.StudentFilePath);
 
-        //
-        XmlDocument xDoc;
-        //the file name needs to be a direct path to the file from the C drive
-        string fileName = "C:\\ProgramData\\Students.xml";
-        //List<int> questionTime;
-        //OpenFileDialog ofd = new OpenFileDialog();
-        //ofd.Filter = "XML|* .xml";
+            XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
 
+            XmlAttribute attr = xDoc.CreateAttribute("problemSetID");
+            attr.Value = probSetId.ToString();
 
-        public void saveGameStuff(int probSetId, List<int> problemSetIndex, bool isPositive, bool isAddition, int nudNumOfProb, Data.Student stud)
-        {
-            xDoc = new XmlDocument();
-            if (File.Exists(fileName)) {
-                xDoc.Load(fileName);
-
-                XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
-
-                XmlAttribute attr = xDoc.CreateAttribute("problemSetID");
-                attr.Value = probSetId.ToString();
-
-                XmlAttribute attr2 = xDoc.CreateAttribute("numOfProblems");
-                attr2.Value = nudNumOfProb.ToString();
-                XmlNode xNode;
-                if (node.SelectSingleNode("problems") == null) {
-                    xNode = xDoc.CreateElement("problems");
-                } else {
-                    xNode = node.SelectSingleNode("problems");
-                    xNode.InnerText = "";
-                }
-                xNode.Attributes.Append(attr);
-                xNode.Attributes.Append(attr2);
-                node.AppendChild(xNode);
-
-
-                for (int i = 0; i < problemSetIndex.Count; i++) {
-                    XmlNode pNode = xDoc.CreateElement("problem");
-                    pNode.InnerXml = problemSetIndex[i].ToString();
-                    xNode.AppendChild(pNode);
-                }
-
-                XmlNode positive = xDoc.CreateElement("isPositive");
-                XmlNode addition = xDoc.CreateElement("isAddition");
-
-                positive.InnerText = isPositive.ToString();
-                addition.InnerText = isAddition.ToString();
-
-                xNode.AppendChild(positive);
-                xNode.AppendChild(addition);
-                xDoc.Save(fileName);
+            XmlAttribute attr2 = xDoc.CreateAttribute("numOfProblems");
+            attr2.Value = nudNumOfProb.ToString();
+            XmlNode xNode;
+            if (node.SelectSingleNode("problems") == null) {
+                xNode = xDoc.CreateElement("problems");
+            } else {
+                xNode = node.SelectSingleNode("problems");
+                xNode.InnerText = "";
             }
+            xNode.Attributes.Append(attr);
+            xNode.Attributes.Append(attr2);
+            node.AppendChild(xNode);
+
+
+            for (int i = 0; i < problemSetIndex.Count; i++) {
+                XmlNode pNode = xDoc.CreateElement("problem");
+                pNode.InnerXml = problemSetIndex[i].ToString();
+                xNode.AppendChild(pNode);
+            }
+
+            XmlNode positive = xDoc.CreateElement("isPositive");
+            XmlNode addition = xDoc.CreateElement("isAddition");
+
+            positive.InnerText = isPositive.ToString();
+            addition.InnerText = isAddition.ToString();
+
+            xNode.AppendChild(positive);
+            xNode.AppendChild(addition);
+            xDoc.Save(Data.Global.StudentFilePath);
         }
 
         //This method will create a new student in the XMl file
-        public void Create(Data.Student stud)
+        public static void Create(Data.Student stud)
         {
-            xDoc = new XmlDocument();
-            if (File.Exists(fileName)) {
-                xDoc.Load(fileName);
+            var xDoc = new XmlDocument();
+            if (File.Exists(Data.Global.StudentFilePath)) {
+                xDoc.Load(Data.Global.StudentFilePath);
             } else {
                 XmlElement ele = xDoc.CreateElement("Students");
                 xDoc.AppendChild(ele);
@@ -98,34 +84,36 @@ namespace CSUSM.CS441.SheriffHodor
             xNode.AppendChild(name);
             xNode.AppendChild(isTeach);
             xDoc.DocumentElement.AppendChild(xNode);
-            xDoc.Save(fileName);
+            xDoc.Save(Data.Global.StudentFilePath);
 
             //createGame(Name);
         }
 
         //This method will select all student nodes and return them in the XML document
-        public List<Data.Student> selectAll()
+        public static List<Data.Student> selectAll__()
         {
-            xDoc = new XmlDocument();
-            if (File.Exists(fileName)) {
-                xDoc.Load(fileName);
-            } else
-                return new List<Data.Student>();
-            xDoc.Load(fileName);
             var users = new List<Data.Student>();
+            if (!File.Exists(Data.Global.StudentFilePath))
+                return users;
+
+            var xDoc = new XmlDocument();
+            xDoc.Load(Data.Global.StudentFilePath);
             foreach (XmlNode node in xDoc.SelectNodes("Students/Student")) {
-                String id = node.Attributes["id"].Value;
-                users.Add(new Data.Student(node.SelectSingleNode("Name").InnerText,
-                    node.SelectSingleNode("isTeacher").InnerText == "True", Convert.ToInt32(id)));
+                string id = node.Attributes["id"].Value;
+                var tmp = new Data.Student(
+                    node.SelectSingleNode("Name").InnerText,
+                    node.SelectSingleNode("isTeacher").InnerText.Equals("True"),
+                    Convert.ToInt32(id));
+                Console.WriteLine("[{0}] => {1} is a {2}.", tmp.Id, tmp.Name, (tmp.isTeacher) ? ("teacher") : ("student"));
+                users.Add(tmp);
             }
             return users;
-
         }
 
-        public Game selectStudentGameInfo(Data.Student stud)
+        public static Game selectStudentGameInfo(Data.Student stud)
         {
-            xDoc = new XmlDocument();
-            xDoc.Load(fileName);
+            var xDoc = new XmlDocument();
+            xDoc.Load(Data.Global.StudentFilePath);
             XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
             node = node.SelectSingleNode("problems");
             if (node == null)
@@ -149,20 +137,15 @@ namespace CSUSM.CS441.SheriffHodor
         }
 
         //function to save data for a students game. 
-        public void saveGameStats(List<bool> answers, List<int> index, Data.Student stud)
+        public static void saveGameStats(List<bool> answers, List<int> index, Data.Student stud)
         {
-            xDoc = new XmlDocument();
-            if (File.Exists(fileName)) {
-                xDoc.Load(fileName);
+            var xDoc = new XmlDocument();
+            if (File.Exists(Data.Global.StudentFilePath)) {
+                xDoc.Load(Data.Global.StudentFilePath);
             }
-
 
             DateTime theDate;
             theDate = DateTime.Now;
-
-
-
-
 
             XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
 
@@ -195,19 +178,14 @@ namespace CSUSM.CS441.SheriffHodor
                 answerSet.InnerText = Convert.ToString(blarghonk);
                 game.AppendChild(answerSet);
             }
-
-
-            xDoc.Save(fileName);
-
+            xDoc.Save(Data.Global.StudentFilePath);
         }
-
-
 
         //this function returns a list of the correct probme sets, the correct problem set is
         //sent to this function as a parameter
-        public List<int> selectProblemSet(int problemSet)
+        public static List<int> selectProblemSet(int problemSet)
         {
-            xDoc = new XmlDocument();
+            var xDoc = new XmlDocument();
             string XML = Properties.Resources.problemSet;
             StringReader str = new StringReader(XML);
             xDoc.InnerXml = XML;
@@ -248,43 +226,39 @@ namespace CSUSM.CS441.SheriffHodor
         }
 
 
-        public void updateStudentName(Data.Student stud)
+        public static void updateStudentName(Data.Student stud)
         {
-            xDoc = new XmlDocument();
-            if (File.Exists(fileName)) {
-                xDoc.Load(fileName);
-            } else
+            var xDoc = new XmlDocument();
+            if (!File.Exists(Data.Global.StudentFilePath))
                 return;
 
+            xDoc.Load(Data.Global.StudentFilePath);
             XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
             var fillNode = node.SelectSingleNode("Name");
             fillNode.InnerText = stud.Name;
-            xDoc.Save(fileName);
-            return;
+            xDoc.Save(Data.Global.StudentFilePath);
         }
 
         //this will save the game information for a user that has just done a game
-        public void saveUserGame(List<string> savedGame)
+        public static void saveUserGame(List<string> savedGame)
         {
-            xDoc = new XmlDocument();
-            if (File.Exists(fileName)) {
-                xDoc.Load(fileName);
+            var xDoc = new XmlDocument();
+            if (File.Exists(Data.Global.StudentFilePath)) {
+                xDoc.Load(Data.Global.StudentFilePath);
             } else {
                 //i dont know somthing
             }
 
             //find the correct spot ont he XMl and save the game
-
-
-            xDoc.Save(fileName);
+            xDoc.Save(Data.Global.StudentFilePath);
         }
 
 
-        public List<gameResults> readGameStats(Data.Student stud)
+        public static List<gameResults> readGameStats(Data.Student stud)
         {
-            xDoc = new XmlDocument();
-            if (File.Exists(fileName)) {
-                xDoc.Load(fileName);
+            var xDoc = new XmlDocument();
+            if (File.Exists(Data.Global.StudentFilePath)) {
+                xDoc.Load(Data.Global.StudentFilePath);
             }
             List<gameResults> results = new List<gameResults>();
             XmlNode studNode = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
@@ -307,167 +281,5 @@ namespace CSUSM.CS441.SheriffHodor
             }
             return results;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-            List<string> probSet = new List<string>();
-
-            foreach (XmlNode node in xDoc.SelectNodes("the select nodes go here"))
-            {
-                //probSet.Add();//this will add the problems to the list
-
-            }
-
-
-            return problemSet1;
-        }
-        */
-
-
-
-
-        /*
-         * //Some stuff i was experimenting with
-        static void setXMlStuff()
-        {
-            using (XmlWriter writer = XmlWriter.Create("students.xml"))
-            {
- 
-                foreach(Student student in student)
-                {
-                writer.WriteStartElement("FirstTHing");
-                writer.WriteElementString("Stuff");
-
-                writer.WriteEndElement();
-                }
-
-            writer.WriteEndElement();
-            writer.WriteEndDocument();
-
-            }
-        }
-        */
-
-        /*
-        //This method will update a students node
-        public void Update(string original, string Name, bool isTeacher)
-        {
-            xDoc = new XmlDocument();
-            xDoc.Load(fileName);
-
-            foreach (XmlNode node in fileName.SelectNodes("Students/Student"))
-            {
-                if (node.SelectSingleNode("Name").InnerText == original)
-                {
-                    xDoc.SelectSingleNode("Students/Student/Name") = Name;
-                    xDoc.SelectSingleNode("Students/Student/isTeacher") = isTeacher;
-                    xDoc.Save(fileName);
-                }
-            }
-
-            //updateGame(Name);
-        }
-
-        //This method will delete a single node fromt he XMl document
-        public void Delete(string original, string Name)
-        {
-            xDoc = new XmlDocument();
-            xDoc.Load(fileName);
-
-            foreach (XmlNode xNode in xDoc.SelectNodes("Students/Student"))
-            {
-                if (xNode.SelectSingleNode("Name").InnerText == Name)
-                {
-                    xNode.ParentNode.RemoveChild(xNode);
-                }
-                xDoc.Save(fileName);
-            }
-
-            //deleteGame(Name);
-
-        }
-
-        //This method will create a new student in the XMl file
-        public void Create(string Names, bool isTeachers)
-        {
-            xDoc = new XmlDocument();
-            xDoc.Load(fileName);
-
-            XmlNode xNode = xDoc.CreateElement("Student");
-
-            XmlNode name = xDoc.CreateElement("Name");
-            XmlNode isTeach = xDoc.CreateElement("isTeacher");
-
-            name = Names;
-            isTeach = isTeachers;
-            //add the game backend stuff here and append to new student
-            xNode.AppendChild(name);
-            xNode.AppendChild(isTeach);
-            xDoc.DocumentElement.AppendChild(Student);
-            xDoc.Save(fileName);
-
-            //createGame(Name);
-        }
-
-        //This method will select a specific person from the students XMl document and return the student.
-        public void selectSpecific(string Name, bool isTeacher)
-        {
-            xDoc = new XmlDocument();
-            xDoc.Load(fileName);
-
-            foreach (XmlNode xNode in fileName.SelectNodes("Students/Student"));
-            if(xNode.SelectSingleNode("Name" == Name);
-
-            //do somthing with returning xNode specific student
-            xDoc.Save(fileName);
-
-        }
-
-
-
-
-
-        /*
-        public static void updateGame(string name)
-        {
-            xDoc = new XmlDocument();
-            xDoc.Load(fileName);
-
-
-        }
-
-
-        public static void createGame(string name)
-        {
-            xDoc = new XmlDocument();
-            xDoc.Load(fileName);
-
-
-        }
-
-    
-        public static void deleteGame(string name)
-        {
-            xDoc = new XmlDocument();
-            xDoc.Load(fileName);
-
-        }
-
-    
-        public static void updateGame()
-        {
-
-        }
-        */
     }
 }

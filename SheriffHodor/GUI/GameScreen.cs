@@ -37,7 +37,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         DateTime theDate;//this records the current time in which the test is taken
         int c;
         static int countDown = 0;//the number used for the clock
-        XmlBackend GS = new XmlBackend();
         Game thisGame;
         #endregion
 
@@ -58,7 +57,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             userName = selectedUser.Name;
             thisGame = selectedUser.nextGame;
-            Game g = GS.selectStudentGameInfo(selectedUser);
+            Game g = XmlBackend.selectStudentGameInfo(selectedUser);
 
             problemSetId = g.getProblemSetId();
 
@@ -154,7 +153,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         private void getQuestions()
         {
-            questions = GS.selectProblemSet(problemSetId);
+            questions = XmlBackend.selectProblemSet(problemSetId);
             incrementByTwo();
             displayCurrentTotal();
 
@@ -183,8 +182,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
             displayCurrentTotal();
         }
-
-
 
         private void incrementByTwo()
         {
@@ -234,7 +231,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (currentNumOfProb == problemCount) {
                 //call functiont hat saves the list of answers from the user's game to the XML 
 
-                GS.saveGameStats(answers, returnIndex, Stud);
+                XmlBackend.saveGameStats(answers, returnIndex, Stud);
                 timer1.Stop();
                 //need a close form thing
                 MainWindow.Instance.SwitchForm("login");

@@ -74,11 +74,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 Helpers.DisplayError("Then name you entered is not valid !");
                 return;
             }
+
             var selectedUser = result.First();
             if (selectedUser.Status == Data.User.UserType.Teacher) {
                 MainWindow.Instance.SwitchForm("admin");
             } else {
-                if (new XmlBackend().selectStudentGameInfo(selectedUser as Data.Student) == null) {
+                if (XmlBackend.selectStudentGameInfo(selectedUser as Data.Student) == null) {
                     Helpers.DisplayError("No Available Tests.");
                     return;
                 }

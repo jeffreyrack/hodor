@@ -14,17 +14,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class Administration : UserControl
     {
-        List<Data.Student> users;
         bool isAddition = true;
         bool isPositive = true;
         int probSetId = 0;
 
-        //object for calling functions of the xmlbackend class
-        XmlBackend AA = new XmlBackend();
-
         public Administration()
         {
             InitializeComponent();
+            this.DockChanged += Administration_Load;
         }
 
         //On this screen loading
@@ -34,18 +31,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             optNegative.Enabled = false;
             dgvSummary.AllowUserToAddRows = false;
 
-            //get all the users in the XML
-            users = AA.selectAll();
-            users = users.OrderBy(x => x.Name).ToList();
+            clstUserList.Items.AddRange(
+                (from usr in Data.Global.UserList
+                 where usr.Status == Data.User.UserType.Student
+                 select usr.Name).ToArray());
 
-            //for each user
-            foreach (var s in users) {
-                //that is a student
-                if (s.isTeacher == false) {
-                    //display them in the checkbox list
-                    clstUserList.Items.Add(s.Name);
-                }
-            }
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
 
@@ -106,24 +96,22 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     }
                 }
 
-
                 List<gameResults> summary;
                 int correct = 0;
                 int total = 0;
                 //find the student
 
-                foreach (var s in users) {
+                foreach (var s in Data.Global.UserList) {
                     if (clstUserList.CheckedItems.Contains(s.Name)) {
                         //make only that student display in the dgv
                         dgvSummary.Rows.Clear();
                         dgvSummary.Rows.Add(value);
 
-
                         List<int> factors = new List<int>();
                         List<int> problemSet = new List<int>();
-                        summary = AA.readGameStats(s);
+                        summary = XmlBackend.readGameStats(s as Data.Student);
                         foreach (gameResults gr in summary) {
-                            problemSet = AA.selectProblemSet(gr.problemSetId);
+                            problemSet = XmlBackend.selectProblemSet(gr.problemSetId);
                             correct = 0;
                             total = 0;
 
@@ -151,12 +139,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                         }
                     }
                 }
-
-
-
-
             }
-
         }
 
         //when they check a new item in the checklist
@@ -171,12 +154,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             //for every item checked
 
-            foreach (var s in users) {
+            foreach (var s in Data.Global.UserList) {
                 if (clstUserList.CheckedItems.Contains(s.Name)) {
                     correct = 0;
                     total = 0;
 
-                    summary = AA.readGameStats(s);
+                    summary = XmlBackend.readGameStats(s as Data.Student);
                     foreach (gameResults gr in summary) {
                         foreach (bool answer in gr.correct) {
                             if (answer) {
@@ -211,10 +194,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 Game newGame = new Game(probSetId, problemSetIndex, isPositive, isAddition, Int32.Parse(nudNumOfProb.Text));
                 string updatedUsers = "";
 
-                foreach (var s in users) {
+                foreach (var s in Data.Global.UserList) {
                     if (clstUserList.CheckedItems.Contains(s.Name)) {
                         updatedUsers += s.Name + Environment.NewLine;
-                        AA.saveGameStuff(probSetId, problemSetIndex, isPositive, isAddition, Int32.Parse(nudNumOfProb.Text), s);
+                        XmlBackend.saveGameStuff(probSetId, problemSetIndex, isPositive, isAddition, Int32.Parse(nudNumOfProb.Text),
+                            s as Data.Student);
                     }
                 }
 
@@ -222,9 +206,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     MessageBox.Show("Users updated: " + Environment.NewLine + updatedUsers);
                 }
             } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                Helpers.DisplayError(ex.Message);
             }
-            //MainWindow.Instance().SwitchForm("login");
+            //Helpers.DisplayInfo("Tests updated");
         }
 
         //Cancel button returns you to the Login Menu

@@ -27,12 +27,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btn_update = new System.Windows.Forms.Button();
             this.dgvSummary = new System.Windows.Forms.DataGridView();
             this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clstUserList = new System.Windows.Forms.CheckedListBox();
-            this.Cancel = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.optAddition = new System.Windows.Forms.RadioButton();
             this.optSubtraction = new System.Windows.Forms.RadioButton();
             this.optPositive = new System.Windows.Forms.RadioButton();
@@ -50,15 +50,15 @@
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnUpdate
+            // btn_update
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(611, 267);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btn_update.Location = new System.Drawing.Point(611, 267);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(75, 23);
+            this.btn_update.TabIndex = 5;
+            this.btn_update.Text = "Update";
+            this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // dgvSummary
             // 
@@ -102,15 +102,15 @@
             this.clstUserList.TabIndex = 7;
             this.clstUserList.SelectedIndexChanged += new System.EventHandler(this.clstUserList_SelectedIndexChanged);
             // 
-            // Cancel
+            // btn_cancel
             // 
-            this.Cancel.Location = new System.Drawing.Point(611, 296);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(75, 23);
-            this.Cancel.TabIndex = 8;
-            this.Cancel.Text = "Cancel";
-            this.Cancel.UseVisualStyleBackColor = true;
-            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            this.btn_cancel.Location = new System.Drawing.Point(611, 296);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.TabIndex = 8;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // optAddition
             // 
@@ -243,19 +243,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 412);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nudNumOfProb);
-            this.Controls.Add(this.Cancel);
+            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.clstUserList);
             this.Controls.Add(this.dgvSummary);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btn_update);
             this.MaximumSize = new System.Drawing.Size(714, 451);
             this.MinimumSize = new System.Drawing.Size(714, 451);
             this.Name = "Administration";
-            this.Text = "Administration";
+            this.Size = new System.Drawing.Size(714, 451);
             this.Load += new System.EventHandler(this.Administration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSummary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumOfProb)).EndInit();
@@ -271,10 +270,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.DataGridView dgvSummary;
         private System.Windows.Forms.CheckedListBox clstUserList;
-        private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.RadioButton optAddition;
         private System.Windows.Forms.RadioButton optSubtraction;
         private System.Windows.Forms.RadioButton optPositive;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -13,11 +12,16 @@ namespace CSUSM.CS441.SheriffHodor.Data
     /// </summary>
     public static class Global
     {
+        #region Const data
+        public const string StudentFilePath = @"C:\ProgramData\Students.xml";
+        #endregion
+
+        #region UserList
         /// <summary>
         /// Get a list of the users.
         /// This list is stored in the XML file in the backend.
         /// </summary>
-        public static IList<User>   UserList
+        public static IList<User> UserList
         {
             get
             {
@@ -29,12 +33,15 @@ namespace CSUSM.CS441.SheriffHodor.Data
         private static IList<User> _userList;
         private static IList<User> InitializeUserList()
         {
-            var AA = new XmlBackend();
             var ret = new List<User>();
-            var users = AA.selectAll();
-            foreach (var it in users)
+            var users = XmlBackend.selectAll__();
+            foreach (var it in users) {
                 ret.Add(it);
+                // Temp - Refactor to use only status
+                it.Status = (it.isTeacher) ? (User.UserType.Teacher) : (User.UserType.Student);
+            }
             return ret;
         }
+        #endregion
     }
 }
