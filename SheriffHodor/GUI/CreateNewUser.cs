@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
-    public partial class CreateNewUser : Form
+    public partial class CreateNewUser : UserControl
     {
         public CreateNewUser()
         {

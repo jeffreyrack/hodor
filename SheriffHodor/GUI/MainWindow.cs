@@ -74,6 +74,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.Controls.Clear();
             this.Controls.Add(newValue);
             newValue.Dock = DockStyle.Fill;
+            this.Size = newValue.Size;
             Console.WriteLine("Switch to [{0}]", name);
         }
     }

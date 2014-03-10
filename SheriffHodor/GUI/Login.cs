@@ -65,7 +65,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             Action refresh = refreshUserList;
             CreateNewUser fred = new CreateNewUser(refresh);
             fred.Show();
-            fred.FormClosed += new FormClosedEventHandler(MyForm_FormClosed);
+            //fred.FormClosed += new FormClosedEventHandler(MyForm_FormClosed);
 
         }
         //supose to refresh the dropdown menu on this form, it isntdoing that

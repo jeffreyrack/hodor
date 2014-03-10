@@ -66,15 +66,21 @@
     <Compile Include="ControlView.cs" />
     <Compile Include="gameBackend.cs" />
     <Compile Include="GameControl.cs" />
-    <Compile Include="GUI\Administration.cs" />
+    <Compile Include="GUI\Administration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="GUI\Administration.designer.cs">
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\CreateNewUser.cs" />
+    <Compile Include="GUI\CreateNewUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="GUI\CreateNewUser.designer.cs">
       <DependentUpon>CreateNewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\GameScreen.cs" />
+    <Compile Include="GUI\GameScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="GUI\GameScreen.designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
@@ -90,7 +96,9 @@
     <Compile Include="GUI\MainWindow.designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Update.cs" />
+    <Compile Include="GUI\Update.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="GUI\Update.designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
