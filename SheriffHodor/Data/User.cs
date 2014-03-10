@@ -15,10 +15,18 @@ namespace CSUSM.CS441.SheriffHodor.Data
     {
         public enum UserType
         {
+            Invalid,
             Teacher,
             Student
         }
 
+        public User()
+        {
+            this.Name = null;
+            this.Hash = null;
+            this.Id = -1;
+            this.Status = UserType.Invalid;
+        }
         public string Name { get; set; }
         public byte[] Hash { get; set; }
         public int Id { get; set; }
