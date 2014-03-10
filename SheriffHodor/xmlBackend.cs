@@ -17,7 +17,7 @@ namespace CSUSM.CS441.SheriffHodor
     public static class XmlBackend
     {
         public static void saveGameStuff(int probSetId, List<int> problemSetIndex, bool isPositive,
-            bool isAddition, int nudNumOfProb, Data.Student stud)
+            bool isAddition, int nudNumOfProb, Data.User stud)
         {
             if (!File.Exists(Data.Global.StudentFilePath))
                 return;
@@ -61,7 +61,7 @@ namespace CSUSM.CS441.SheriffHodor
         }
 
         //This method will create a new student in the XMl file
-        public static void Create(Data.Student stud)
+        public static void Create(Data.User stud)
         {
             var xDoc = new XmlDocument();
             if (File.Exists(Data.Global.StudentFilePath)) {
@@ -79,7 +79,7 @@ namespace CSUSM.CS441.SheriffHodor
             XmlNode isTeach = xDoc.CreateElement("isTeacher");
 
             name.InnerText = stud.Name;
-            isTeach.InnerText = stud.isTeacher.ToString();
+            isTeach.InnerText = (stud.Status == Data.User.UserType.Teacher).ToString();
 
             xNode.AppendChild(name);
             xNode.AppendChild(isTeach);
@@ -90,9 +90,9 @@ namespace CSUSM.CS441.SheriffHodor
         }
 
         //This method will select all student nodes and return them in the XML document
-        public static List<Data.Student> selectAll__()
+        public static List<Data.User> selectAll__()
         {
-            var users = new List<Data.Student>();
+            var users = new List<Data.User>();
             if (!File.Exists(Data.Global.StudentFilePath))
                 return users;
 
@@ -100,17 +100,18 @@ namespace CSUSM.CS441.SheriffHodor
             xDoc.Load(Data.Global.StudentFilePath);
             foreach (XmlNode node in xDoc.SelectNodes("Students/Student")) {
                 string id = node.Attributes["id"].Value;
-                var tmp = new Data.Student(
+                var tmp = new Data.User(
                     node.SelectSingleNode("Name").InnerText,
-                    node.SelectSingleNode("isTeacher").InnerText.Equals("True"),
-                    Convert.ToInt32(id));
-                Console.WriteLine("[{0}] => {1} is a {2}.", tmp.Id, tmp.Name, (tmp.isTeacher) ? ("teacher") : ("student"));
+                    Convert.ToInt32(id),
+                    (node.SelectSingleNode("isTeacher").InnerText.Equals("True")
+                    ? Data.User.UserType.Teacher : Data.User.UserType.Student));
+                Console.WriteLine("[{0}] => {1} is a {2}.", tmp.Id, tmp.Name, tmp.Status.ToString());
                 users.Add(tmp);
             }
             return users;
         }
 
-        public static Game selectStudentGameInfo(Data.Student stud)
+        public static Game selectStudentGameInfo(Data.User stud)
         {
             var xDoc = new XmlDocument();
             xDoc.Load(Data.Global.StudentFilePath);
@@ -137,7 +138,7 @@ namespace CSUSM.CS441.SheriffHodor
         }
 
         //function to save data for a students game. 
-        public static void saveGameStats(List<bool> answers, List<int> index, Data.Student stud)
+        public static void saveGameStats(List<bool> answers, List<int> index, Data.User stud)
         {
             var xDoc = new XmlDocument();
             if (File.Exists(Data.Global.StudentFilePath)) {
@@ -226,7 +227,7 @@ namespace CSUSM.CS441.SheriffHodor
         }
 
 
-        public static void updateStudentName(Data.Student stud)
+        public static void updateStudentName(Data.User stud)
         {
             var xDoc = new XmlDocument();
             if (!File.Exists(Data.Global.StudentFilePath))
@@ -254,7 +255,7 @@ namespace CSUSM.CS441.SheriffHodor
         }
 
 
-        public static List<gameResults> readGameStats(Data.Student stud)
+        public static List<gameResults> readGameStats(Data.User stud)
         {
             var xDoc = new XmlDocument();
             if (File.Exists(Data.Global.StudentFilePath)) {

@@ -14,9 +14,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class Update : UserControl
     {
-        private Data.Student user;
+        private Data.User user;
         Action onClose;
-        public Update(Data.Student user, Action onClose)
+        public Update(Data.User user, Action onClose)
         {
             this.user = user;
             InitializeComponent();

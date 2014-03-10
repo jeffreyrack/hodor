@@ -14,13 +14,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class Administration : UserControl
     {
-        bool isAddition = true;
-        bool isPositive = true;
         int probSetId = 0;
 
         public Administration()
         {
             InitializeComponent();
+            // Hack -- Refactor
             this.DockChanged += Administration_Load;
         }
 
@@ -28,7 +27,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void Administration_Load(object sender, EventArgs e)
         {
             dudNumRange.SelectedIndex = 0;
-            optNegative.Enabled = false;
+            rdo_negative.Enabled = false;
             dgvSummary.AllowUserToAddRows = false;
 
             clstUserList.Items.AddRange(
@@ -42,10 +41,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         //Addition button
         private void optAddition_CheckedChanged(object sender, EventArgs e)
         {
-            optPositive.Checked = true;
-            optNegative.Enabled = false;
-
-            isAddition = true;
+            rdo_positive.Checked = true;
+            rdo_negative.Enabled = false;
 
             probSetId = determineProblemSet(dudNumRange.Text);
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
@@ -54,8 +51,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         //Subtraction
         private void optSubtraction_CheckedChanged(object sender, EventArgs e)
         {
-            optNegative.Enabled = true;
-            isAddition = false;
+            rdo_negative.Enabled = true;
             probSetId = determineProblemSet(dudNumRange.Text);
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
@@ -63,7 +59,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         //Positive Only
         private void optPositive_CheckedChanged(object sender, EventArgs e)
         {
-            isPositive = true;
             probSetId = determineProblemSet(dudNumRange.Text);
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
@@ -71,7 +66,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         //Positive or Negative
         private void optNegative_CheckedChanged(object sender, EventArgs e)
         {
-            isPositive = false;
             probSetId = determineProblemSet(dudNumRange.Text);
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
@@ -109,7 +103,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
                         List<int> factors = new List<int>();
                         List<int> problemSet = new List<int>();
-                        summary = XmlBackend.readGameStats(s as Data.Student);
+                        summary = XmlBackend.readGameStats(s);
                         foreach (gameResults gr in summary) {
                             problemSet = XmlBackend.selectProblemSet(gr.problemSetId);
                             correct = 0;
@@ -159,7 +153,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     correct = 0;
                     total = 0;
 
-                    summary = XmlBackend.readGameStats(s as Data.Student);
+                    summary = XmlBackend.readGameStats(s);
                     foreach (gameResults gr in summary) {
                         foreach (bool answer in gr.correct) {
                             if (answer) {
@@ -191,14 +185,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             try {
                 List<int> problemSetIndex = randomIndices(Int32.Parse(nudNumOfProb.Text), maxProblemsInSet(probSetId));
-                Game newGame = new Game(probSetId, problemSetIndex, isPositive, isAddition, Int32.Parse(nudNumOfProb.Text));
+                Game newGame = new Game(probSetId, problemSetIndex, rdo_positive.Checked,
+                    rdo_addition.Checked, Int32.Parse(nudNumOfProb.Text));
                 string updatedUsers = "";
 
                 foreach (var s in Data.Global.UserList) {
                     if (clstUserList.CheckedItems.Contains(s.Name)) {
                         updatedUsers += s.Name + Environment.NewLine;
-                        XmlBackend.saveGameStuff(probSetId, problemSetIndex, isPositive, isAddition, Int32.Parse(nudNumOfProb.Text),
-                            s as Data.Student);
+                        XmlBackend.saveGameStuff(probSetId, problemSetIndex, rdo_positive.Checked, rdo_addition.Checked,
+                            Int32.Parse(nudNumOfProb.Text), s);
                     }
                 }
 
@@ -273,13 +268,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 //0-10
                 case "10":
                     //addition
-                    if (isAddition) {
+                    if (rdo_addition.Checked) {
                         return (0);
                     }
                         //subtraction
                     else {
                         //positive only
-                        if (isPositive) {
+                        if (rdo_positive.Checked) {
                             return (1);
                         }
                             //negative and positive
@@ -289,13 +284,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     }
                 case "100":
                     //addition
-                    if (isAddition) {
+                    if (rdo_addition.Checked) {
                         return (3);
                     }
                         //subtraction
                     else {
                         //positive only
-                        if (isPositive) {
+                        if (rdo_positive.Checked) {
                             return (4);
                         }
                             //negative and positive
@@ -305,13 +300,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     }
                 case "1,000":
                     //addition
-                    if (isAddition) {
+                    if (rdo_addition.Checked) {
                         return (6);
                     }
                         //subtraction
                     else {
                         //positive only
-                        if (isPositive) {
+                        if (rdo_positive.Checked) {
                             return (7);
                         }
                             //negative and positive
@@ -321,13 +316,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     }
                 case "10,000":
                     //addition
-                    if (isAddition) {
+                    if (rdo_addition.Checked) {
                         return (9);
                     }
                         //subtraction
                     else {
                         //positive only
-                        if (isPositive) {
+                        if (rdo_positive.Checked) {
                             return (10);
                         }
                             //negative and positive
@@ -337,13 +332,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     }
                 case "100,000":
                     //addition
-                    if (isAddition) {
+                    if (rdo_addition.Checked) {
                         return (12);
                     }
                         //subtraction
                     else {
                         //positive only
-                        if (isPositive) {
+                        if (rdo_positive.Checked) {
                             return (13);
                         }
                             //negative and positive
@@ -353,13 +348,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     }
                 case "Any Number":
                     //addition
-                    if (isAddition) {
+                    if (rdo_addition.Checked) {
                         return (15);
                     }
                         //subtraction
                     else {
                         //positive only
-                        if (isPositive) {
+                        if (rdo_positive.Checked) {
                             return (16);
                         }
                             //negative and positive

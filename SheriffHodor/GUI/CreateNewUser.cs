@@ -35,7 +35,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(textBox_newUser.Text) && (radioButton_admin.Checked || radioButton_user.Checked)) {
-                var stud = new Data.Student(textBox_newUser.Text, radioButton_admin.Checked, Data.Student.maxId + 1);
+                var stud = new Data.User(textBox_newUser.Text, Data.Global.maxId + 1,
+                    radioButton_admin.Checked ? Data.User.UserType.Teacher : Data.User.UserType.Student);
                 XmlBackend.Create(stud);
                 refresh();
                 MainWindow.Instance.SwitchForm("login");

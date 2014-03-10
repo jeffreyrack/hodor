@@ -57,7 +57,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <param name="toRegister">The form to register.</param>
         public void RegisterForm(string name, Control toRegister)
         {
-            Console.WriteLine("Registering [{0}]", name.ToLower());
             this._forms.Add(name.ToLower(), toRegister);
         }
 
@@ -76,7 +75,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.Controls.Add(newValue);
             newValue.Dock = DockStyle.Fill;
             this.Size = newValue.Size;
-            Console.WriteLine("Switch to [{0}]", name);
+            //Console.WriteLine("Switch to [{0}]", name);
             return newValue;
         }
     }

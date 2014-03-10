@@ -23,7 +23,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         int MM = 0;//counter for the index list
         List<int> questions = new List<int>();
         bool isAddCheck;
-        Data.Student Stud;
+        Data.User Stud;
         int problemSetId;
         string userName;
         int operationSet;//will determine what operation is to be used
@@ -42,7 +42,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         #region Refactor
         // Transition method
-        public void GameScreen_FakeCtor(Data.Student selectedUser)
+        public void GameScreen_FakeCtor(Data.User selectedUser)
         {
             //get lists of the problem set
 

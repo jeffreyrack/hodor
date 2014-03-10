@@ -20,7 +20,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         public Dictionary<int, string> userValues;
         //object for calling functions of the xmlbackend class
-        public List<Data.Student> users;
+        public List<Data.User> users;
 
 
         // NEW CODE //
@@ -79,12 +79,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (selectedUser.Status == Data.User.UserType.Teacher) {
                 MainWindow.Instance.SwitchForm("admin");
             } else {
-                if (XmlBackend.selectStudentGameInfo(selectedUser as Data.Student) == null) {
+                if (XmlBackend.selectStudentGameInfo(selectedUser) == null) {
                     Helpers.DisplayError("No Available Tests.");
                     return;
                 }
                 var gs = (MainWindow.Instance.SwitchForm("game") as GameScreen);
-                gs.GameScreen_FakeCtor(selectedUser as Data.Student);
+                gs.GameScreen_FakeCtor(selectedUser);
                 MessageBox.Show("Welcome to Sheriff Hodor!");
             }
         }

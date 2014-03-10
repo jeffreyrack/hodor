@@ -12,6 +12,10 @@ namespace CSUSM.CS441.SheriffHodor.Data
     /// </summary>
     public static class Global
     {
+        #region Refactor
+        public static int maxId = 0;
+        #endregion
+
         #region Const data
         public const string StudentFilePath = @"C:\ProgramData\Students.xml";
         #endregion
@@ -35,11 +39,8 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             var ret = new List<User>();
             var users = XmlBackend.selectAll__();
-            foreach (var it in users) {
+            foreach (var it in users)
                 ret.Add(it);
-                // Temp - Refactor to use only status
-                it.Status = (it.isTeacher) ? (User.UserType.Teacher) : (User.UserType.Student);
-            }
             return ret;
         }
         #endregion

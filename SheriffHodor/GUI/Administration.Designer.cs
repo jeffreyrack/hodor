@@ -33,10 +33,10 @@
             this.clmSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clstUserList = new System.Windows.Forms.CheckedListBox();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.optAddition = new System.Windows.Forms.RadioButton();
-            this.optSubtraction = new System.Windows.Forms.RadioButton();
-            this.optPositive = new System.Windows.Forms.RadioButton();
-            this.optNegative = new System.Windows.Forms.RadioButton();
+            this.rdo_addition = new System.Windows.Forms.RadioButton();
+            this.rdo_subtraction = new System.Windows.Forms.RadioButton();
+            this.rdo_positive = new System.Windows.Forms.RadioButton();
+            this.rdo_negative = new System.Windows.Forms.RadioButton();
             this.nudNumOfProb = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -112,53 +112,53 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
-            // optAddition
+            // rdo_addition
             // 
-            this.optAddition.AutoSize = true;
-            this.optAddition.Checked = true;
-            this.optAddition.Location = new System.Drawing.Point(6, 19);
-            this.optAddition.Name = "optAddition";
-            this.optAddition.Size = new System.Drawing.Size(63, 17);
-            this.optAddition.TabIndex = 9;
-            this.optAddition.TabStop = true;
-            this.optAddition.Text = "Addition";
-            this.optAddition.UseVisualStyleBackColor = true;
-            this.optAddition.CheckedChanged += new System.EventHandler(this.optAddition_CheckedChanged);
+            this.rdo_addition.AutoSize = true;
+            this.rdo_addition.Checked = true;
+            this.rdo_addition.Location = new System.Drawing.Point(6, 19);
+            this.rdo_addition.Name = "rdo_addition";
+            this.rdo_addition.Size = new System.Drawing.Size(63, 17);
+            this.rdo_addition.TabIndex = 9;
+            this.rdo_addition.TabStop = true;
+            this.rdo_addition.Text = "Addition";
+            this.rdo_addition.UseVisualStyleBackColor = true;
+            this.rdo_addition.CheckedChanged += new System.EventHandler(this.optAddition_CheckedChanged);
             // 
-            // optSubtraction
+            // rdo_subtraction
             // 
-            this.optSubtraction.AutoSize = true;
-            this.optSubtraction.Location = new System.Drawing.Point(6, 42);
-            this.optSubtraction.Name = "optSubtraction";
-            this.optSubtraction.Size = new System.Drawing.Size(79, 17);
-            this.optSubtraction.TabIndex = 10;
-            this.optSubtraction.Text = "Subtraction";
-            this.optSubtraction.UseVisualStyleBackColor = true;
-            this.optSubtraction.CheckedChanged += new System.EventHandler(this.optSubtraction_CheckedChanged);
+            this.rdo_subtraction.AutoSize = true;
+            this.rdo_subtraction.Location = new System.Drawing.Point(6, 42);
+            this.rdo_subtraction.Name = "rdo_subtraction";
+            this.rdo_subtraction.Size = new System.Drawing.Size(79, 17);
+            this.rdo_subtraction.TabIndex = 10;
+            this.rdo_subtraction.Text = "Subtraction";
+            this.rdo_subtraction.UseVisualStyleBackColor = true;
+            this.rdo_subtraction.CheckedChanged += new System.EventHandler(this.optSubtraction_CheckedChanged);
             // 
-            // optPositive
+            // rdo_positive
             // 
-            this.optPositive.AutoSize = true;
-            this.optPositive.Checked = true;
-            this.optPositive.Location = new System.Drawing.Point(6, 19);
-            this.optPositive.Name = "optPositive";
-            this.optPositive.Size = new System.Drawing.Size(86, 17);
-            this.optPositive.TabIndex = 11;
-            this.optPositive.TabStop = true;
-            this.optPositive.Text = "Positive Only";
-            this.optPositive.UseVisualStyleBackColor = true;
-            this.optPositive.CheckedChanged += new System.EventHandler(this.optPositive_CheckedChanged);
+            this.rdo_positive.AutoSize = true;
+            this.rdo_positive.Checked = true;
+            this.rdo_positive.Location = new System.Drawing.Point(6, 19);
+            this.rdo_positive.Name = "rdo_positive";
+            this.rdo_positive.Size = new System.Drawing.Size(86, 17);
+            this.rdo_positive.TabIndex = 11;
+            this.rdo_positive.TabStop = true;
+            this.rdo_positive.Text = "Positive Only";
+            this.rdo_positive.UseVisualStyleBackColor = true;
+            this.rdo_positive.CheckedChanged += new System.EventHandler(this.optPositive_CheckedChanged);
             // 
-            // optNegative
+            // rdo_negative
             // 
-            this.optNegative.AutoSize = true;
-            this.optNegative.Location = new System.Drawing.Point(6, 42);
-            this.optNegative.Name = "optNegative";
-            this.optNegative.Size = new System.Drawing.Size(129, 17);
-            this.optNegative.TabIndex = 12;
-            this.optNegative.Text = "Positive and Negative";
-            this.optNegative.UseVisualStyleBackColor = true;
-            this.optNegative.CheckedChanged += new System.EventHandler(this.optNegative_CheckedChanged);
+            this.rdo_negative.AutoSize = true;
+            this.rdo_negative.Location = new System.Drawing.Point(6, 42);
+            this.rdo_negative.Name = "rdo_negative";
+            this.rdo_negative.Size = new System.Drawing.Size(129, 17);
+            this.rdo_negative.TabIndex = 12;
+            this.rdo_negative.Text = "Positive and Negative";
+            this.rdo_negative.UseVisualStyleBackColor = true;
+            this.rdo_negative.CheckedChanged += new System.EventHandler(this.optNegative_CheckedChanged);
             // 
             // nudNumOfProb
             // 
@@ -194,8 +194,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.optAddition);
-            this.groupBox1.Controls.Add(this.optSubtraction);
+            this.groupBox1.Controls.Add(this.rdo_addition);
+            this.groupBox1.Controls.Add(this.rdo_subtraction);
             this.groupBox1.Location = new System.Drawing.Point(12, 254);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(245, 88);
@@ -205,8 +205,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.optNegative);
-            this.groupBox3.Controls.Add(this.optPositive);
+            this.groupBox3.Controls.Add(this.rdo_negative);
+            this.groupBox3.Controls.Add(this.rdo_positive);
             this.groupBox3.Location = new System.Drawing.Point(100, 0);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(145, 88);
@@ -274,10 +274,10 @@
         private System.Windows.Forms.DataGridView dgvSummary;
         private System.Windows.Forms.CheckedListBox clstUserList;
         private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.RadioButton optAddition;
-        private System.Windows.Forms.RadioButton optSubtraction;
-        private System.Windows.Forms.RadioButton optPositive;
-        private System.Windows.Forms.RadioButton optNegative;
+        private System.Windows.Forms.RadioButton rdo_addition;
+        private System.Windows.Forms.RadioButton rdo_subtraction;
+        private System.Windows.Forms.RadioButton rdo_positive;
+        private System.Windows.Forms.RadioButton rdo_negative;
         private System.Windows.Forms.NumericUpDown nudNumOfProb;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
