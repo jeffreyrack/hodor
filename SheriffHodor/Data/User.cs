@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -15,7 +16,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
     public class User
     {
         #region Refactor
+        [XmlIgnore()]
         public Game nextGame { get; set; }
+        [XmlIgnore()]
         public List<Game> report { get; set; }
         #endregion
 
@@ -28,7 +31,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         }
         #endregion
 
-        #region Constructor
+        #region Constructor & object inheritance
         public User() : this(null, -1, UserType.Student, null) { }
         public User(string name, int id, UserType status = UserType.Student, byte[] hash = null)
         {
@@ -39,11 +42,17 @@ namespace CSUSM.CS441.SheriffHodor.Data
             if (id > Global.maxId)
                 Global.maxId = id;
         }
+        public override string ToString()
+        {
+            return string.Format("[{0}] => {1} ({2})", this.Id, this.Name, this.Status);
+        }
         #endregion
 
         #region Properties
         public string Name { get; set; }
+        [XmlIgnore()] // Temp TODO
         public byte[] Hash { get; set; }
+        [XmlAttribute("id")]
         public int Id { get; set; }
         public UserType Status { get; set; }
         #endregion

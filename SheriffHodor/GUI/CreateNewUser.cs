@@ -17,49 +17,40 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public CreateNewUser()
         {
             InitializeComponent();
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AcceptOnReturn);
         }
 
-        public CreateNewUser(Action refresh)
+        private void Accept()
         {
-            InitializeComponent();
-            this.refresh = refresh;
-        }
-
-        Action refresh;
-        bool newUser;//to tell if the new user is an admin or not
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MainWindow.Instance.SwitchForm("login");
-        }
-        //create button
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(textBox_newUser.Text) && (radioButton_admin.Checked || radioButton_user.Checked)) {
-                var stud = new Data.User(textBox_newUser.Text, Data.Global.maxId + 1,
-                    radioButton_admin.Checked ? Data.User.UserType.Teacher : Data.User.UserType.Student);
-                XmlBackend.Create(stud);
-                refresh();
-                MainWindow.Instance.SwitchForm("login");
-            } else {
-                // Errors have occured.  Follow the error steps mentioned in the Use Cases.
+            if (this.txt_username.Text == string.Empty) {
+                Helpers.DisplayWarning("You must enter a name to create a new user.");
+                return;
             }
+            if (Data.Global.UserList.Any(u => u.Name.Equals(txt_username.Text, StringComparison.InvariantCultureIgnoreCase))) {
+                Helpers.DisplayError("There is already an user with this name.");
+                return;
+            }
+
+            // Do stuff. TODO
+
+            Helpers.DisplayInfo("User (debug: not) created");
+            MainWindow.Instance.SwitchForm("admin");
         }
 
-        //Name of new user goes here
-        private void textBox_newUser_TextChanged(object sender, EventArgs e)
+        #region UI Events
+        private void btn_cancel_Click(object sender, EventArgs e)
         {
-
+            MainWindow.Instance.SwitchForm("admin");
         }
-
-        //Admin button
-        private void radioButton_admin_CheckedChanged(object sender, EventArgs e)
+        private void btn_create_Click(object sender, EventArgs e)
         {
-            newUser = true;
+            Accept();
         }
-        //User Button
-        private void radioButton_user_CheckedChanged(object sender, EventArgs e)
+        private void AcceptOnReturn(object sender, KeyPressEventArgs e)
         {
-            newUser = false;
+            if (e.KeyChar == (char)Keys.Enter)
+                Accept();
         }
+        #endregion
     }
 }

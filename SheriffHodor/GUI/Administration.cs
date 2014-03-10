@@ -38,6 +38,27 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
 
+        #region Users
+        #region UI Events
+        private void btn_users_add_Click(object sender, EventArgs e)
+        {
+            MainWindow.Instance.SwitchForm("createuser");
+        }
+        private void btn_users_edit_Click(object sender, EventArgs e)
+        {
+        }
+        private void btn_users_del_Click(object sender, EventArgs e)
+        {
+        }
+        private void btn_users_logout_Click(object sender, EventArgs e)
+        {
+            MainWindow.Instance.SwitchForm("login");
+        }
+        #endregion
+        #endregion
+
+        // Refactor, at least the names
+        #region UI Events
         //Addition button
         private void optAddition_CheckedChanged(object sender, EventArgs e)
         {
@@ -47,7 +68,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             probSetId = determineProblemSet(dudNumRange.Text);
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
-
         //Subtraction
         private void optSubtraction_CheckedChanged(object sender, EventArgs e)
         {
@@ -55,24 +75,20 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             probSetId = determineProblemSet(dudNumRange.Text);
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
-
         //Positive Only
         private void optPositive_CheckedChanged(object sender, EventArgs e)
         {
             probSetId = determineProblemSet(dudNumRange.Text);
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
-
         //Positive or Negative
         private void optNegative_CheckedChanged(object sender, EventArgs e)
         {
             probSetId = determineProblemSet(dudNumRange.Text);
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
-
         //Clicking in the datagridview to genereate indepth report and unselect all other selected students
-        private void dgvSummary_CellClick(object sender,
-        DataGridViewCellEventArgs e)
+        private void dgvSummary_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvSummary.Rows.Count > 0) {
                 object value = dgvSummary.Rows[e.RowIndex].Cells[0].Value;
@@ -135,7 +151,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 }
             }
         }
-
         //when they check a new item in the checklist
         private void clstUserList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -172,14 +187,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 }
             }
         }
-
         //number range
         private void dudNumRange_SelectedItemChanged(object sender, EventArgs e)
         {
             probSetId = determineProblemSet(dudNumRange.Text);
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
-
         //Updatebutton to update the changes made by the admin to the selected students
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -205,17 +218,17 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
             //Helpers.DisplayInfo("Tests updated");
         }
-
         //Cancel button returns you to the Login Menu
         private void Cancel_Click(object sender, EventArgs e)
         {
             MainWindow.Instance.SwitchForm("login");
         }
+        #endregion
 
+        #region Refactor ?
         /***************
          * supporting functions
          * ***********/
-
         private List<int> randomIndices(int listSize, int maxValue)
         {
             //list of random indices of size
@@ -245,7 +258,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             return randomIndices;
         }
-
         //get the max numbers of problems in the sets
         private int maxProblemsInSet(int problemSetId)
         {
@@ -259,7 +271,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     return (500);
             }
         }
-
         //based on a string value get an integer ID of the problem sets
         private int determineProblemSet(string problemTier)
         {
@@ -366,7 +377,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     return (-1);
             }
         }
-
         public List<int> returnCorrectProblems(List<int> problems, int index)
         {
             int J = 0;
@@ -391,7 +401,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             return returnNumbers;
         }
-
         public string getOperator(int problemSetId)
         {
             switch (problemSetId) {
@@ -430,6 +439,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     return ("+");
             }
         }
-
+        #endregion
     }
 }

@@ -7,15 +7,55 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor
 {
     public static class XmlBackend
     {
+        #region Validation
+        public static bool IsValid(string path)
+        {
+            try {
+                Validate(path);
+                return true;
+            } catch (Exception) {
+                return false;
+            }
+        }
+        public static void Validate(string path)
+        {
+            var settings = new XmlReaderSettings();
+            settings.DtdProcessing = DtdProcessing.Parse;
+            settings.ValidationType = ValidationType.DTD;
+            //settings.ValidationType = ValidationType.None;
+            settings.IgnoreComments = true;
+            settings.IgnoreWhitespace = true;
+            var reader = XmlReader.Create(path, settings);
+            while (reader.Read())
+                ;
+        }
+        #endregion
+        #region Read
+        public static XmlReader LoadReaderUnchecked(string path)
+        {
+            var settings = new XmlReaderSettings();
+            // .NET Framework 4.0
+            settings.DtdProcessing = DtdProcessing.Ignore;
+            settings.ValidationType = ValidationType.None;
+            return XmlReader.Create(path, settings);
+        }
+        public static XmlReader LoadReader(string path)
+        {
+            Validate(path);
+            return LoadReaderUnchecked(path);
+        }
+        #endregion
+
         public static void saveGameStuff(int probSetId, List<int> problemSetIndex, bool isPositive,
             bool isAddition, int nudNumOfProb, Data.User stud)
         {
@@ -60,7 +100,7 @@ namespace CSUSM.CS441.SheriffHodor
             xDoc.Save(Data.Global.StudentFilePath);
         }
 
-        //This method will create a new student in the XMl file
+        //This method will create a new student in the XML file
         public static void Create(Data.User stud)
         {
             var xDoc = new XmlDocument();

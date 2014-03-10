@@ -71,8 +71,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             name = name.ToLower();
             if (!_forms.TryGetValue(name, out newValue))
                 throw new ArgumentOutOfRangeException("name", "The name provided was not found in the dictionnary.");
+            // Add the control
             this.Controls.Clear();
             this.Controls.Add(newValue);
+            // Make sure it is behaving correctly
             newValue.Dock = DockStyle.Fill;
             this.Size = newValue.Size;
             //Console.WriteLine("Switch to [{0}]", name);

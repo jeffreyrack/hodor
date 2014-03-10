@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -21,6 +23,13 @@ namespace CSUSM.CS441.SheriffHodor.Data
         #endregion
 
         #region UserList
+        [XmlRoot("Students")]
+        public class SerializableUserList
+        {
+            [XmlElement("Student")]
+            public List<User> Users = new List<User>();
+        }
+
         /// <summary>
         /// Get a list of the users.
         /// This list is stored in the XML file in the backend.
@@ -31,17 +40,22 @@ namespace CSUSM.CS441.SheriffHodor.Data
             {
                 if (_userList == null)
                     _userList = InitializeUserList();
-                return _userList;
+                return _userList.Users;
             }
         }
-        private static IList<User> _userList;
-        private static IList<User> InitializeUserList()
+        private static SerializableUserList _userList;
+        private static SerializableUserList InitializeUserList()
         {
-            var ret = new List<User>();
-            var users = XmlBackend.selectAll__();
-            foreach (var it in users)
-                ret.Add(it);
-            return ret;
+            var reader = XmlBackend.LoadReader(Global.StudentFilePath);
+            if (reader == null)
+                throw new FileNotFoundException("LoadReader failed (returned null)");
+            var Serializer = new XmlSerializer(typeof(SerializableUserList));
+            var list = Serializer.Deserialize(reader) as SerializableUserList;
+            reader.Close();
+            Console.WriteLine("Deserialized {0} entities :", list.Users.Count());
+            foreach (var u in list.Users)
+                Console.WriteLine(u);
+            return list;
         }
         #endregion
     }
