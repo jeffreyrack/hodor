@@ -46,12 +46,13 @@ namespace CSUSM.CS441.SheriffHodor.Data
             //settings.ValidationType = ValidationType.None;
             settings.IgnoreComments = true;
             settings.IgnoreWhitespace = true;
-            var reader = XmlReader.Create(path, settings);
-            while (reader.Read())
-                ;
+            using (var reader = XmlReader.Create(path, settings)) {
+                while (reader.Read())
+                    ;
+            }
         }
         #endregion
-        #region Read
+        #region Read & Write
         /// <summary>
         /// Load an XML file without prior validation.
         /// </summary>
@@ -74,6 +75,37 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             Validate(path);
             return LoadReaderUnchecked(path);
+        }
+        /// <summary>
+        /// Generic Deserializer.
+        /// </summary>
+        /// <typeparam name="T">A root class to deserialize.</typeparam>
+        /// <param name="path">A path to the XML file.</param>
+        /// <returns>A newly instantiated class of type T.</returns>
+        public static T Deserialize<T>(string path) where T : class
+        {
+            using (var reader = XmlBackend.LoadReader(path)) {
+                if (reader == null)
+                    throw new FileNotFoundException("LoadReader failed (returned null)");
+                var Serializer = new XmlSerializer(typeof(T));
+                var list = Serializer.Deserialize(reader) as T;
+                reader.Close();
+                return list;
+            }
+        }
+        /// <summary>
+        /// Generic Serializer.
+        /// </summary>
+        /// <typeparam name="T">A root class to serialize.</typeparam>
+        /// <param name="path">A path to the XML file.</param>
+        /// <param name="item">The object to serialize.</param>
+        public static void Serialize<T>(string path, T item) where T : class
+        {
+            var serializer = new XmlSerializer(typeof(T));
+            using (var writer = new StreamWriter(path)) {
+                serializer.Serialize(writer, item);
+                writer.Close();
+            }
         }
         #endregion
 
@@ -119,35 +151,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
             xNode.AppendChild(positive);
             xNode.AppendChild(addition);
             xDoc.Save(Global.UsersFilePath);
-        }
-
-        //This method will create a new student in the XML file
-        public static void Create(User stud)
-        {
-            var xDoc = new XmlDocument();
-            if (File.Exists(Global.UsersFilePath)) {
-                xDoc.Load(Global.UsersFilePath);
-            } else {
-                XmlElement ele = xDoc.CreateElement("Students");
-                xDoc.AppendChild(ele);
-            }
-
-            XmlAttribute attr = xDoc.CreateAttribute("id");
-            attr.Value = stud.Id.ToString();
-            XmlNode xNode = xDoc.CreateElement("Student");
-            xNode.Attributes.Append(attr);
-            XmlNode name = xDoc.CreateElement("Name");
-            XmlNode isTeach = xDoc.CreateElement("isTeacher");
-
-            name.InnerText = stud.Name;
-            isTeach.InnerText = (stud.Status == User.UserType.Teacher).ToString();
-
-            xNode.AppendChild(name);
-            xNode.AppendChild(isTeach);
-            xDoc.DocumentElement.AppendChild(xNode);
-            xDoc.Save(Global.UsersFilePath);
-
-            //createGame(Name);
         }
 
         public static Game selectStudentGameInfo(User stud)
@@ -292,7 +295,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
             //find the correct spot ont he XMl and save the game
             xDoc.Save(Global.UsersFilePath);
         }
-
 
         public static List<gameResults> readGameStats(User stud)
         {

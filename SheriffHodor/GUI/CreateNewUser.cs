@@ -26,12 +26,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 Helpers.DisplayWarning("You must enter a name to create a new user.");
                 return;
             }
-            if (Data.Global.UserList.Any(u => u.Name.Equals(txt_username.Text, StringComparison.InvariantCultureIgnoreCase))) {
+            if (Data.UserList.Instance.Any(
+                u => u.Name.Equals(txt_username.Text, StringComparison.InvariantCultureIgnoreCase))) {
                 Helpers.DisplayError("There is already an user with this name.");
                 return;
             }
 
-            // Do stuff. TODO
+            var type = (rdo_admin.Checked ? Data.User.UserType.Teacher : Data.User.UserType.Student);
+            Data.UserList.Instance.Add(Data.User.CreateUser(txt_username.Text, type));
 
             Helpers.DisplayInfo("User (debug: not) created");
             MainWindow.Instance.SwitchForm("admin");

@@ -36,45 +36,5 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public const string ProblemsFilePath = @"C:\ProgramData\SheriffHodor\Problems.xml";
         #endregion
-
-        #region Users
-        /// <summary>
-        /// An XML-serializable class holding the list of users.
-        /// </summary>
-        [XmlRoot("Students")]
-        public class SerializableUserList
-        {
-            [XmlElement("Student")]
-            public List<User> Users = new List<User>();
-        }
-
-        /// <summary>
-        /// Get a list of the users.
-        /// This list is stored in the XML file in the backend.
-        /// </summary>
-        public static IList<User> UserList
-        {
-            get
-            {
-                if (_userList == null)
-                    _userList = InitializeUserList();
-                return _userList.Users;
-            }
-        }
-        private static SerializableUserList _userList;
-        private static SerializableUserList InitializeUserList()
-        {
-            var reader = XmlBackend.LoadReader(Global.UsersFilePath);
-            if (reader == null)
-                throw new FileNotFoundException("LoadReader failed (returned null)");
-            var Serializer = new XmlSerializer(typeof(SerializableUserList));
-            var list = Serializer.Deserialize(reader) as SerializableUserList;
-            reader.Close();
-            Console.WriteLine("Deserialized {0} entities :", list.Users.Count());
-            foreach (var u in list.Users)
-                Console.WriteLine(u);
-            return list;
-        }
-        #endregion
     }
 }

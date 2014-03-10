@@ -5,6 +5,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor.Data
@@ -13,7 +14,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
     /// Our User class.
     /// Holds the data concerning the user and provides a mean to authenticate them aswell.
     /// </summary>
-    public class User
+    public class User : INotifyPropertyChanged
     {
         #region Refactor
         [XmlIgnore()]
@@ -34,25 +35,28 @@ namespace CSUSM.CS441.SheriffHodor.Data
         #endregion
 
         #region Constructor & object inheritance
+        // Use this in user code.
+        public static User  CreateUser(string name, UserType status = UserType.Student, byte[] hash = null)
+        {
+            return new User(name, ++Global.maxId, status, hash);
+        }
         /// <summary>
-        /// Instantiate a default-initialized, non working User object.
+        /// A parameterless constructor is needed by the serialized.
         /// </summary>
-        public User() : this(null, -1, UserType.Student, null) { }
+        public User() : this(null) { } // Force usage of the other constructor.
         /// <summary>
-        /// Instantiate an User with the given values.
+        /// Instantiate an User with the given values, or default initialized.
         /// </summary>
         /// <param name="name">The username.</param>
         /// <param name="id">An id for the user.</param>
         /// <param name="status">The status of the user, default to student.</param>
         /// <param name="hash">The SHA-1 hash of the user's password.</param>
-        public User(string name, int id, UserType status = UserType.Student, byte[] hash = null)
+        public User(string name = null, int id = -1, UserType status = UserType.Student, byte[] hash = null)
         {
             this.Name = name;
             this.Hash = hash;
             this.Id = id;
             this.Status = status;
-            if (id > Global.maxId)
-                Global.maxId = id;
         }
         /// <summary>
         /// Pretty print this object.
@@ -84,5 +88,19 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public UserType Status { get; set; }
         #endregion
+
+        #region INotifyPropertyChanged Membres
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+    }
+
+    /// <summary>
+    /// An XML-serializable class holding the list of users.
+    /// </summary>
+    [XmlRoot("Students")]
+    public class XmlUserList
+    {
+        [XmlElement("Student")]
+        public List<User> Users = new List<User>();
     }
 }

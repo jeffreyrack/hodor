@@ -3,6 +3,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -20,25 +21,27 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             // Hack -- Refactor
-            this.DockChanged += Administration_Load;
+            this.DockChanged += Refresh;
+            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(Refresh);
         }
 
         //On this screen loading
-        private void Administration_Load(object sender, EventArgs e)
+        private void Refresh(object sender, EventArgs e)
         {
             dudNumRange.SelectedIndex = 0;
             rdo_negative.Enabled = false;
             dgvSummary.AllowUserToAddRows = false;
 
+            clstUserList.Items.Clear();
             clstUserList.Items.AddRange(
-                (from usr in Data.Global.UserList
+                (from usr in Data.UserList.Instance
                  where usr.Status == Data.User.UserType.Student
                  select usr.Name).ToArray());
 
             nudNumOfProb.Maximum = maxProblemsInSet(probSetId);
         }
 
-        #region Users
+        #region Users Panel
         #region UI Events
         private void btn_users_add_Click(object sender, EventArgs e)
         {
@@ -111,7 +114,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 int total = 0;
                 //find the student
 
-                foreach (var s in Data.Global.UserList) {
+                foreach (var s in Data.UserList.Instance) {
                     if (clstUserList.CheckedItems.Contains(s.Name)) {
                         //make only that student display in the dgv
                         dgvSummary.Rows.Clear();
@@ -163,7 +166,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             //for every item checked
 
-            foreach (var s in Data.Global.UserList) {
+            foreach (var s in Data.UserList.Instance) {
                 if (clstUserList.CheckedItems.Contains(s.Name)) {
                     correct = 0;
                     total = 0;
@@ -202,7 +205,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     rdo_addition.Checked, Int32.Parse(nudNumOfProb.Text));
                 string updatedUsers = "";
 
-                foreach (var s in Data.Global.UserList) {
+                foreach (var s in Data.UserList.Instance) {
                     if (clstUserList.CheckedItems.Contains(s.Name)) {
                         updatedUsers += s.Name + Environment.NewLine;
                         Data.XmlBackend.saveGameStuff(probSetId, problemSetIndex, rdo_positive.Checked, rdo_addition.Checked,

@@ -4,6 +4,7 @@
  * */
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Contracts;
@@ -28,12 +29,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public Login()
         {
             InitializeComponent();
-            UpdateUserList();
+            foreach (var u in Data.UserList.Instance)
+                Console.WriteLine(u.ToString());
+            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(UpdateUserList);
+            UpdateUserList(null, null);
         }
 
-        private void UpdateUserList()
+        private void UpdateUserList(object o, EventArgs e)
         {
-            ddl_userList.DataSource = Data.Global.UserList.Select(x => x.Name).ToList();
+            ddl_userList.DataSource = Data.UserList.Instance.Select(x => x.Name).ToList();
         }
 
         #region Move to administration
@@ -64,7 +68,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             // We retrive the user currently selected.
             // It should be either 1 item or 0.
-            var result = from user in Data.Global.UserList
+            var result = from user in Data.UserList.Instance
                          where user.Name.Equals(ddl_userList.Text, StringComparison.InvariantCultureIgnoreCase)
                          select user;
 

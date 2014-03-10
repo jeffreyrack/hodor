@@ -367,7 +367,6 @@
             this.MinimumSize = new System.Drawing.Size(714, 451);
             this.Name = "Administration";
             this.Size = new System.Drawing.Size(714, 451);
-            this.Load += new System.EventHandler(this.Administration_Load);
             this.tab_display.ResumeLayout(false);
             this.pg_report.ResumeLayout(false);
             this.pg_report.PerformLayout();
