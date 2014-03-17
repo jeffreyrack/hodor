@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
-    public partial class CreateNewUser : UserControl
+    public partial class CreateNewUser : StateControl
     {
         public CreateNewUser()
         {
@@ -20,7 +20,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AcceptOnReturn);
         }
 
-        private void Accept()
+        protected override void Accept()
         {
             if (this.txt_username.Text == string.Empty) {
                 Helpers.DisplayWarning("You must enter a name to create a new user.");
@@ -38,7 +38,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // Cleanup and leave.
             Decline();
         }
-        private void Decline()
+        protected override void Decline()
         {
             txt_username.Text = "";
             rdo_user.Checked = true;

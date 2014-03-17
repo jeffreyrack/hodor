@@ -20,11 +20,16 @@ namespace CSUSM
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
                     var mainWindow = GUI.MainWindow.Instance;
+                    // Login //
                     mainWindow.RegisterForm("login", new GUI.Login());
+                    // Teacher - only //
                     mainWindow.RegisterForm("admin", new GUI.Administration());
                     mainWindow.RegisterForm("createuser", new GUI.CreateNewUser());
                     //mainWindow.RegisterForm("update", new Update());
-                    mainWindow.RegisterForm("game", new GUI.GameScreen());
+                    // Student - only //
+                    mainWindow.RegisterForm("studentmenu", new GUI.StudentMenu());
+                    //mainWindow.RegisterForm("game", new GUI.GameScreen());
+
                     mainWindow.SwitchForm("login");
                     // We serialize our data on the app exit.
                     AppDomain.CurrentDomain.ProcessExit += new EventHandler(SaveXMLData);

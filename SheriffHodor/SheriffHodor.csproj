@@ -78,6 +78,9 @@
     <Compile Include="GUI\CreateNewUser.designer.cs">
       <DependentUpon>CreateNewUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\StateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="GUI\GameScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,6 +106,12 @@
     <Compile Include="GUI\Update.designer.cs">
       <DependentUpon>Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\StudentMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\StudentMenu.Designer.cs">
+      <DependentUpon>StudentMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Administration.resx">
@@ -119,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StudentMenu.resx">
+      <DependentUpon>StudentMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Update.resx">
       <DependentUpon>Update.cs</DependentUpon>

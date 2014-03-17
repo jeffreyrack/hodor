@@ -39,14 +39,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <summary>
         /// A list of registered form and their associated names as a key.
         /// </summary>
-        private Dictionary<string, Control> _forms;
+        private Dictionary<string, StateControl> _forms;
 
         /// <summary>
         /// Private constructor (for singleton).
         /// </summary>
         private MainWindow()
         {
-            this._forms = new Dictionary<string, Control>();
+            this._forms = new Dictionary<string, StateControl>();
             InitializeComponent();
         }
 
@@ -55,7 +55,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// </summary>
         /// <param name="name">The name to give to the form.</param>
         /// <param name="toRegister">The form to register.</param>
-        public void RegisterForm(string name, Control toRegister)
+        public void RegisterForm(string name, StateControl toRegister)
         {
             this._forms.Add(name.ToLower(), toRegister);
         }
@@ -65,15 +65,20 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// </summary>
         /// <param name="name">The name on which the form was registered.</param>
         /// <returns>The form which is now displayed.</returns>
-        public Control SwitchForm(string name)
+        public StateControl SwitchForm(string name, Data.User user = null)
         {
-            Control newValue = null;
+            StateControl newValue = null;
             name = name.ToLower();
             if (!_forms.TryGetValue(name, out newValue))
                 throw new ArgumentOutOfRangeException("name", "The name provided was not found in the dictionnary.");
+
+            StateControl oldValue = ((this.Controls.Count == 1) ? (this.Controls[0] as StateControl) : (null));
             // Add the control
             this.Controls.Clear();
+            if (oldValue != null)
+                oldValue.Leaved(newValue);
             this.Controls.Add(newValue);
+            newValue.Entered(oldValue, user);
             // Make sure it is behaving correctly
             newValue.Dock = DockStyle.Fill;
             //this.Size = newValue.Size;

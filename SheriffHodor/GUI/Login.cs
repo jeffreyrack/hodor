@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
-    public partial class Login : UserControl
+    public partial class Login : StateControl
     {
         public Login()
         {

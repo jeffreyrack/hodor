@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
-    public partial class GameScreen : UserControl
+    public partial class GameScreen : StateControl
     {
         #region Members
         int size1;

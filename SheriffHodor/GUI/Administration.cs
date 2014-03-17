@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
-    public partial class Administration : UserControl
+    public partial class Administration : StateControl
     {
         public Administration()
         {
@@ -36,12 +36,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 (from usr in Data.UserList.Instance
                  where usr.Status == Data.User.UserType.Student
                  select usr.Name).ToArray());
-        }
-
-        private void Accept() { } // Useless in that context
-        private void Decline()
-        {
-            MainWindow.Instance.SwitchForm("login");
         }
 
         // The "Users" tab.
