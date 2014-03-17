@@ -1,20 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<!DOCTYPE Students SYSTEM "Users.dtd">
-<Students>
-  <Student id="1">
+<?xml version="1.0" encoding="utf-8"?>
+<Students xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Student>
     <Name>Root</Name>
     <Status>Teacher</Status>
   </Student>
-  <Student id="2">
+  <Student>
     <Name>Zoidberg</Name>
     <Status>Student</Status>
   </Student>
-  <Student id="3">
+  <Student>
     <Name>Mr Spock</Name>
     <Status>Teacher</Status>
   </Student>
-  <Student id="4">
+  <Student>
     <Name>Zorro</Name>
     <Status>Student</Status>
   </Student>
- </Students>
+</Students>

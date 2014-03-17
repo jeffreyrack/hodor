@@ -55,7 +55,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             this.Name = name;
             this.Hash = hash;
-            this.Id = id;
             this.Status = status;
         }
         /// <summary>
@@ -64,7 +63,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <returns>A string representation of this object.</returns>
         public override string ToString()
         {
-            return string.Format("[{0}] => {1} ({2})", this.Id, this.Name, this.Status);
+            return string.Format("{0} ({1})", this.Name, this.Status);
         }
         #endregion
 
@@ -82,6 +81,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// The internal ID of the user.
         /// </summary>
         [XmlAttribute("id")]
+        [Obsolete()]
         public int Id { get; set; }
         /// <summary>
         /// Hold the status of the user, currently only 2 are defined: Teacher & Student.

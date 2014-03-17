@@ -118,7 +118,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             var xDoc = new XmlDocument();
             xDoc.Load(Global.UsersFilePath);
 
-            XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
+            XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + -1 + "']");
 
             XmlAttribute attr = xDoc.CreateAttribute("problemSetID");
             attr.Value = probSetId.ToString();
@@ -158,7 +158,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             var xDoc = new XmlDocument();
             xDoc.Load(Global.UsersFilePath);
-            XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
+            XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + -1 + "']");
             node = node.SelectSingleNode("problems");
             if (node == null)
                 return null;
@@ -191,7 +191,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             DateTime theDate;
             theDate = DateTime.Now;
 
-            XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
+            XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + -1 + "']");
 
             //save information
             XmlNode xNode = xDoc.CreateElement("Game");
@@ -276,7 +276,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 return;
 
             xDoc.Load(Global.UsersFilePath);
-            XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
+            XmlNode node = xDoc.SelectSingleNode("//Student[@id='" + -1 + "']");
             var fillNode = node.SelectSingleNode("Name");
             fillNode.InnerText = stud.Name;
             xDoc.Save(Global.UsersFilePath);
@@ -303,7 +303,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 xDoc.Load(Global.UsersFilePath);
             }
             List<gameResults> results = new List<gameResults>();
-            XmlNode studNode = xDoc.SelectSingleNode("//Student[@id='" + stud.Id.ToString() + "']");
+            XmlNode studNode = xDoc.SelectSingleNode("//Student[@id='" + -1 + "']");
             foreach (XmlNode node in studNode.SelectNodes("Game")) {
                 gameResults game = new gameResults();
                 game.Date = node.SelectSingleNode("Date").InnerText;
