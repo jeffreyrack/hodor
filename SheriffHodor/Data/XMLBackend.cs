@@ -33,6 +33,8 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 return false;
             }
         }
+
+        //TODO currently doesn't work with no .xml file in said path
         /// <summary>
         /// Check whenever a config file is valid, according to it's DTD.
         /// If a validation error happens, an exception is throw.
@@ -46,9 +48,23 @@ namespace CSUSM.CS441.SheriffHodor.Data
             //settings.ValidationType = ValidationType.None;
             settings.IgnoreComments = true;
             settings.IgnoreWhitespace = true;
-            using (var reader = XmlReader.Create(path, settings)) {
-                while (reader.Read())
-                    ;
+            try
+            {
+                using (var reader = XmlReader.Create(path, settings))
+                {
+                    while (reader.Read())
+                        ;
+                }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                //TODO create the Directory and xml file [and load it with a default user?]
+                MessageBox.Show(ex.ToString());
+            }
+            catch (FileNotFoundException ex)
+            {
+                //TODO create the xml file [and load it with a default user?]
+                MessageBox.Show(ex.ToString());
             }
         }
         #endregion

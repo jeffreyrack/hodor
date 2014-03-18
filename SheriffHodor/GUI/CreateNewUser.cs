@@ -22,7 +22,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         protected override void Accept()
         {
-            if (this.txt_username.Text == string.Empty) {
+            if (this.txt_username.Text == string.Empty) 
+            {
                 Helpers.DisplayWarning("You must enter a name to create a new user.");
                 return;
             }

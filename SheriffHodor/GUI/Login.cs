@@ -31,6 +31,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             ddl_userList.DataSource = Data.UserList.Instance.Select(x => x.Name).ToList();
         }
 
+        /*
+         * Matthias Lang    - 3/17/2014 -
+         * Corey Paxton     - 3/17/2014 - 
+         */
         //The login button that will either take a user to the game or the admin to the admin screen
         private void btn_login_Click(object sender, EventArgs e)
         {
@@ -48,9 +52,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
 
             var selectedUser = result.First();
-            if (selectedUser.Status == Data.User.UserType.Teacher) {
+
+            if (selectedUser.Status == Data.User.UserType.Teacher)
+            {
                 MainWindow.Instance.SwitchForm("admin");
-            } else {
+            } 
+            else 
+            {
                 selectedUser.Data.currentProblem.op = Data.User.Runtime.Problem.Operator.Addition;
                 selectedUser.Data.currentProblem.Operands.Add(5);
                 selectedUser.Data.currentProblem.Operands.Add(17);

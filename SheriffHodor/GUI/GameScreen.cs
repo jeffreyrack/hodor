@@ -19,13 +19,26 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             this.txt_answer.KeyPress += new KeyPressEventHandler(answerValidator);
+            this.CurrentUser.Data.totalProblems = 10;
+            this.CurrentUser.Data.currentProblemIndex = 0;
         }
 
+        /*
+         * Matthias Lang    - 3/17/2014 - Initial Version
+         * Corey Paxton     - 3/17/2014 - 
+         */
         public override void Entered(StateControl from, Data.User user)
         {
             base.Entered(from, user);
-            lbl_index.Text = string.Format("Question: {0} / {1}", 0, 1);
+
+            //display the counter
+            lbl_index.Text = string.Format("Question: {0} / {1}", (user.Data.currentProblemIndex + 1), user.Data.totalProblems);
+
+            //TODO generate a problem
+            //TODO structure the format of the problem as an equation or top to bottom
             lbl_problem.Text = string.Format("{0} {1} {2} =", 5, '+', 42);
+            //equation form
+            //lbl_problem.Text = this.Data.currentProblem.ToString();
         }
 
         #region UI
@@ -33,12 +46,27 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
         }
-        #endregion
-
+        
+        /*
+         * 
+         * Corey Paxton     - 3/17/2014 - Initial Version
+         */
         private void btn_next_Click(object sender, EventArgs e)
         {
+            //finished last problem
+            if (this.CurrentUser.Data.currentProblemIndex + 1 >= this.CurrentUser.Data.totalProblems)
+            {
+                //display score screen
+            }
+            else
+            {
+                //increment the counter
+                this.CurrentUser.Data.currentProblemIndex++;
 
-            MainWindow.Instance.SwitchForm("game", this.CurrentUser);
+                //reset the window
+                MainWindow.Instance.SwitchForm("game", this.CurrentUser);
+            }
         }
+        #endregion
     }
 }
