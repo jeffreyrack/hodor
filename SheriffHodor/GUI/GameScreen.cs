@@ -18,6 +18,27 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public GameScreen()
         {
             InitializeComponent();
+            this.txt_answer.KeyPress += new KeyPressEventHandler(answerValidator);
+        }
+
+        public override void Entered(StateControl from, Data.User user)
+        {
+            base.Entered(from, user);
+            lbl_index.Text = string.Format("Question: {0} / {1}", 0, 1);
+            lbl_problem.Text = string.Format("{0} {1} {2} =", 5, '+', 42);
+        }
+
+        #region UI
+        private void answerValidator(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
+        }
+        #endregion
+
+        private void btn_next_Click(object sender, EventArgs e)
+        {
+
+            MainWindow.Instance.SwitchForm("game", this.CurrentUser);
         }
     }
 }

@@ -51,7 +51,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (selectedUser.Status == Data.User.UserType.Teacher) {
                 MainWindow.Instance.SwitchForm("admin");
             } else {
-                Helpers.DisplayError("Not implemented yet.");
+                selectedUser.Data.currentProblem.op = Data.User.Runtime.Problem.Operator.Addition;
+                selectedUser.Data.currentProblem.Operands.Add(5);
+                selectedUser.Data.currentProblem.Operands.Add(17);
+                selectedUser.Data.currentProblem.Operands.Add(42);
+                Console.WriteLine(selectedUser.Data.currentProblem.ToString());
+                MainWindow.Instance.SwitchForm("game", selectedUser);
             }
         }
     }

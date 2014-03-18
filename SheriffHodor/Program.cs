@@ -28,7 +28,7 @@ namespace CSUSM
                     //mainWindow.RegisterForm("update", new Update());
 
                     // Student - only //
-                    //mainWindow.RegisterForm("game", new GUI.GameScreen());
+                    mainWindow.RegisterForm("game", new GUI.GameScreen());
 
                     mainWindow.SwitchForm("login");
                     // We serialize our data on the app exit.

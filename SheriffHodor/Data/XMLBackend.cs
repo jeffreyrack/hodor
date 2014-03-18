@@ -198,7 +198,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             XmlNode indexes = xDoc.CreateElement("indexes");
             XmlNode date = xDoc.CreateElement("Date");
             XmlNode problemSetId = xDoc.CreateElement("problemSetId");
-            problemSetId.InnerText = stud.nextGame.getProblemSetId().ToString();
+            //problemSetId.InnerText = stud.nextGame.getProblemSetId().ToString();
             xNode.AppendChild(problemSetId);
             for (int i = 0; i < index.Count; i++) {
                 XmlNode indexNode = xDoc.CreateElement("index");

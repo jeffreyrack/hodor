@@ -10,19 +10,13 @@ using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
+
     /// <summary>
     /// Our User class.
     /// Holds the data concerning the user and provides a mean to authenticate them aswell.
     /// </summary>
     public class User : INotifyPropertyChanged
     {
-        #region Refactor
-        [XmlIgnore()]
-        public Game nextGame { get; set; }
-        [XmlIgnore()]
-        public List<Game> report { get; set; }
-        #endregion
-
         #region Type
         /// <summary>
         /// Status of the user, used for access rights.
@@ -31,6 +25,47 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             Teacher,
             Student
+        }
+
+        public class Runtime
+        {
+            #region Definitions
+            public class Problem
+            {
+                public Problem()
+                {
+                    this.Operands = new List<ushort>();
+                }
+
+                public enum Operator : ushort
+                {
+                    Addition = 0,
+                    Substraction = 1
+                }
+
+                public List<UInt16> Operands { get; set; }
+                public Operator op { get; set; }
+
+                public override string ToString()
+                {
+                    string[] OperatorString = { "+", "-" };
+                    System.Text.StringBuilder returnStr = new System.Text.StringBuilder();
+                    returnStr.Append(Operands[0]);
+                    for (var i = 1; i < Operands.Count; ++i) {
+                        returnStr.AppendFormat(" {0} {1}", OperatorString[(ushort)op], Operands[i]);
+                    }
+                    return (returnStr.ToString());
+                }
+            }
+            #endregion
+
+            public Runtime()
+            {
+                this.currentProblem = new Problem();
+            }
+            public Problem currentProblem { get; private set; }
+            public int totalProblems { get; set; }
+            public int currentProblemIndex { get; set; }
         }
         #endregion
 
@@ -56,6 +91,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             this.Name = name;
             this.Hash = hash;
             this.Status = status;
+            this.Data = new Runtime();
         }
         /// <summary>
         /// Pretty print this object.
@@ -81,6 +117,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// Hold the status of the user, currently only 2 are defined: Teacher & Student.
         /// </summary>
         public UserType Status { get; set; }
+
+        [XmlIgnore()]
+        public User.Runtime Data { get; private set; }
         #endregion
 
         #region INotifyPropertyChanged Membres

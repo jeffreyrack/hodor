@@ -38,6 +38,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // txt_answer
             // 
             this.txt_answer.Location = new System.Drawing.Point(216, 147);
+            this.txt_answer.MaxLength = 4;
             this.txt_answer.Name = "txt_answer";
             this.txt_answer.Size = new System.Drawing.Size(110, 20);
             this.txt_answer.TabIndex = 0;
@@ -59,15 +60,16 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.btn_next.TabIndex = 2;
             this.btn_next.Text = "Next";
             this.btn_next.UseVisualStyleBackColor = true;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
             // 
             // lbl_index
             // 
             this.lbl_index.AutoSize = true;
             this.lbl_index.Location = new System.Drawing.Point(147, 58);
             this.lbl_index.Name = "lbl_index";
-            this.lbl_index.Size = new System.Drawing.Size(98, 13);
+            this.lbl_index.Size = new System.Drawing.Size(91, 13);
             this.lbl_index.TabIndex = 4;
-            this.lbl_index.Text = "Question {0} on {1}";
+            this.lbl_index.Text = "Question {0} / {1}";
             // 
             // GameScreen
             // 
