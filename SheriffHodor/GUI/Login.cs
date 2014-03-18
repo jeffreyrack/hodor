@@ -51,13 +51,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (selectedUser.Status == Data.User.UserType.Teacher) {
                 MainWindow.Instance.SwitchForm("admin");
             } else {
-                if (Data.XmlBackend.selectStudentGameInfo(selectedUser) == null) {
-                    Helpers.DisplayError("No Available Tests.");
-                    return;
-                }
-                var gs = (MainWindow.Instance.SwitchForm("game") as GameScreen);
-                gs.GameScreen_FakeCtor(selectedUser);
-                MessageBox.Show("Welcome to Sheriff Hodor!");
+                Helpers.DisplayError("Not implemented yet.");
             }
         }
     }

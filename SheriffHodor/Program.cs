@@ -26,8 +26,8 @@ namespace CSUSM
                     mainWindow.RegisterForm("admin", new GUI.Administration());
                     mainWindow.RegisterForm("createuser", new GUI.CreateNewUser());
                     //mainWindow.RegisterForm("update", new Update());
+
                     // Student - only //
-                    mainWindow.RegisterForm("studentmenu", new GUI.StudentMenu());
                     //mainWindow.RegisterForm("game", new GUI.GameScreen());
 
                     mainWindow.SwitchForm("login");

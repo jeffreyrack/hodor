@@ -78,12 +78,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
         [XmlIgnore()] // Temp TODO
         public byte[] Hash { get; set; }
         /// <summary>
-        /// The internal ID of the user.
-        /// </summary>
-        [XmlAttribute("id")]
-        [Obsolete()]
-        public int Id { get; set; }
-        /// <summary>
         /// Hold the status of the user, currently only 2 are defined: Teacher & Student.
         /// </summary>
         public UserType Status { get; set; }
