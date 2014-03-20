@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Problem.cs" />
     <Compile Include="Data\Global.cs" />
     <Compile Include="Data\Helpers.cs" />
     <Compile Include="Data\ObservableList.cs" />

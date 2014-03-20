@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -60,6 +61,73 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             var hash = new SHA1CryptoServiceProvider();
             return (hash.ComputeHash(StringToByteArray(pwd)).SequenceEqual(usr.Hash));
+        }
+
+        internal static enum Difficulty {EASY, MEDIUM, HARD};
+
+        internal static delegate Problem GenerateProblem(Difficulty diff);
+
+        internal static Problem AddProblem(Difficulty diff)
+        {
+            //2-5 terms
+            Random rand = new Random();
+            int numOfTerms = rand.Next(2, 6);
+            List<ushort> terms = new List<ushort>();
+            int upperRange = 0;
+
+            switch (diff)
+            {
+                case Difficulty.EASY: upperRange = 20;
+                    break;
+                case Difficulty.MEDIUM: upperRange = 100;
+                    break;
+                case Difficulty.HARD: upperRange = 1000;
+                    break;
+            }
+
+            for (int i = 0; i < numOfTerms; i++)
+            {
+                terms.Add((ushort)rand.Next(0, upperRange + 1));
+            }
+
+            return(new Problem(terms, Problem.Operator.Addition));
+        }
+
+        internal static Problem SubProblem(Difficulty diff)
+        {
+
+            //2 terms
+            Random rand = new Random();
+            List<ushort> terms = new List<ushort>();
+            int upperRange = 0;
+            ushort term1;
+            ushort term2;
+
+            switch (diff)
+            {
+                case Difficulty.EASY: upperRange = 20;
+                    break;
+                case Difficulty.MEDIUM: upperRange = 100;
+                    break;
+                case Difficulty.HARD: upperRange = 1000;
+                    break;
+            }
+
+            term1 = (ushort)rand.Next(0, upperRange + 1);
+            term2 = (ushort)rand.Next(0, upperRange + 1);
+
+            if (term1 > term2)
+            {
+                terms.Add(term1);
+                terms.Add(term2);
+            }
+            else
+            {
+                terms.Add(term2);
+                terms.Add(term1);
+            }
+
+            return (new Problem(terms, Problem.Operator.Substraction));
         }
     }
 }

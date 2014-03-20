@@ -30,33 +30,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public class Runtime
         {
             #region Definitions
-            public class Problem
-            {
-                public Problem()
-                {
-                    this.Operands = new List<ushort>();
-                }
-
-                public enum Operator : ushort
-                {
-                    Addition = 0,
-                    Substraction = 1
-                }
-
-                public List<UInt16> Operands { get; set; }
-                public Operator op { get; set; }
-
-                public override string ToString()
-                {
-                    string[] OperatorString = { "+", "-" };
-                    System.Text.StringBuilder returnStr = new System.Text.StringBuilder();
-                    returnStr.Append(Operands[0]);
-                    for (var i = 1; i < Operands.Count; ++i) {
-                        returnStr.AppendFormat(" {0} {1}", OperatorString[(ushort)op], Operands[i]);
-                    }
-                    return (returnStr.ToString());
-                }
-            }
+            
             #endregion
 
             public Runtime()
