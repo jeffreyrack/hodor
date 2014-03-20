@@ -59,10 +59,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             } 
             else 
             {
-                selectedUser.Data.currentProblem.op = Data.User.Runtime.Problem.Operator.Addition;
-                selectedUser.Data.currentProblem.Operands.Add(5);
-                selectedUser.Data.currentProblem.Operands.Add(17);
-                selectedUser.Data.currentProblem.Operands.Add(42);
+                selectedUser.Data.testDiff = Data.User.Difficulty.EASY;
                 Console.WriteLine(selectedUser.Data.currentProblem.ToString());
                 MainWindow.Instance.SwitchForm("game", selectedUser);
             }
