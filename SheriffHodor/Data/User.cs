@@ -1,16 +1,10 @@
-﻿/*
- * Team Hodor
- * This file provides the Getters and Seters of the below data list
- * 
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
-
     /// <summary>
     /// Our User class.
     /// Holds the data concerning the user and provides a mean to authenticate them aswell.
