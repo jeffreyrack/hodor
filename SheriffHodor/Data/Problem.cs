@@ -69,14 +69,14 @@ namespace CSUSM.CS441.SheriffHodor.Data
             return answer;
         }
 
-        public static enum Difficulty
+        public enum Difficulty
         {
             EASY = 20,
             MEDIUM = 100,
             HARD = 1000
         };
 
-        public static delegate Problem GenerateProblem(Difficulty diff);
+        public delegate Problem GenerateProblem(Difficulty diff);
 
         /*
          * Corey Paxton     - 3/20/2014 - Initial Version
