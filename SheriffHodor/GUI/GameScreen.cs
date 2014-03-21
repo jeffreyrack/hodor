@@ -22,21 +22,22 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             this.txt_answer.KeyPress += new KeyPressEventHandler(answerValidator);
-            Random rand = new Random();
+            //Random rand = new Random();
 
+            // SEGV //
             //10-30 problems
-            this.CurrentUser.Data.totalProblems = rand.Next(10,31);
-            this.CurrentUser.Data.currentProblemIndex = 0;
+            //this.CurrentUser.Data.totalProblems = rand.Next(10,31);
+            //this.CurrentUser.Data.currentProblemIndex = 0;
 
             //Addition or Subtraction problems
-            if (rand.Next(0, 2) > 0)
-            {
-                nextProblem = this.CurrentUser.Data.AddProblem;
-            }
-            else
-            {
-                nextProblem = this.CurrentUser.Data.SubProblem;
-            }
+            //if (rand.Next(0, 2) > 0)
+            //{
+                //nextProblem = this.CurrentUser.Data.AddProblem;
+            //}
+            //else
+            //{
+                //nextProblem = this.CurrentUser.Data.SubProblem;
+            //}
         }
 
         /*
