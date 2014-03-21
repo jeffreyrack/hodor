@@ -68,6 +68,89 @@ namespace CSUSM.CS441.SheriffHodor.Data
 
             return answer;
         }
+
+        public enum Difficulty
+        {
+            EASY = 20,
+            MEDIUM = 100,
+            HARD = 1000
+        };
+
+        public delegate Problem GenerateProblem(Difficulty diff);
+
+        /*
+         * Corey Paxton     - 3/20/2014 - Initial Version
+         * Corey Paxton     - 3/20/2014 - Typecasted Difficulty enum
+         */
+        public static Problem AddProblem(Difficulty diff)
+        {
+            //2-5 terms
+            Random rand = new Random();
+            int numOfTerms = rand.Next(2, 6);
+            List<ushort> terms = new List<ushort>();
+            //int upperRange = 0;
+
+            /*
+            switch (diff)
+            {
+                case Difficulty.EASY: upperRange = 20;
+                    break;
+                case Difficulty.MEDIUM: upperRange = 100;
+                    break;
+                case Difficulty.HARD: upperRange = 1000;
+                    break;
+            }*/
+
+            for (int i = 0; i < numOfTerms; i++)
+            {
+                terms.Add((ushort)rand.Next(0, (int)diff + 1));
+            }
+
+            return (new Problem(terms, Problem.Operator.Addition));
+        }
+
+
+        /*
+         * Corey Paxton     - 3/20/2014 - Initial Version
+         * Corey Paxton     - 3/20/2014 - Typecasted Difficulty enum
+         */
+        public static Problem SubProblem(Difficulty diff)
+        {
+            //2 terms
+            Random rand = new Random();
+            List<ushort> terms = new List<ushort>();
+            //int upperRange = 0;
+            ushort term1;
+            ushort term2;
+
+            /*
+            switch (diff)
+            {
+                case Difficulty.EASY: upperRange = 20;
+                    break;
+                case Difficulty.MEDIUM: upperRange = 100;
+                    break;
+                case Difficulty.HARD: upperRange = 1000;
+                    break;
+            }*/
+
+            term1 = (ushort)rand.Next(0, (int)diff + 1);
+            term2 = (ushort)rand.Next(0, (int)diff + 1);
+
+            if (term1 > term2)
+            {
+                terms.Add(term1);
+                terms.Add(term2);
+            }
+            else
+            {
+                terms.Add(term2);
+                terms.Add(term1);
+            }
+            return (new Problem(terms, Problem.Operator.Substraction));
+        }
     }
+
+  
 
 }

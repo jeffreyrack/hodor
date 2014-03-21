@@ -21,91 +21,25 @@ namespace CSUSM.CS441.SheriffHodor.Data
             Student
         }
 
-        public enum Difficulty { EASY, MEDIUM, HARD };
+        
 
         public class Runtime
         {
             #region Definitions
 
-            public delegate Problem GenerateProblem(Difficulty diff);
-
-           /*
-            * Corey Paxton     - 3/20/2014 - Initial Version
-            */
-            public Problem AddProblem(Difficulty diff)
-            {
-                //2-5 terms
-                Random rand = new Random();
-                int numOfTerms = rand.Next(2, 6);
-                List<ushort> terms = new List<ushort>();
-                int upperRange = 0;
-
-                switch (diff)
-                {
-                    case Difficulty.EASY: upperRange = 20;
-                        break;
-                    case Difficulty.MEDIUM: upperRange = 100;
-                        break;
-                    case Difficulty.HARD: upperRange = 1000;
-                        break;
-                }
-
-                for (int i = 0; i < numOfTerms; i++)
-                {
-                    terms.Add((ushort)rand.Next(0, upperRange + 1));
-                }
-
-                return (new Problem(terms, Problem.Operator.Addition));
-            }
-
-            /*
-             * Corey Paxton     - 3/20/2014 - Initial Version
-             */
-            public Problem SubProblem(Difficulty diff)
-            {
-                //2 terms
-                Random rand = new Random();
-                List<ushort> terms = new List<ushort>();
-                int upperRange = 0;
-                ushort term1;
-                ushort term2;
-
-                switch (diff)
-                {
-                    case Difficulty.EASY: upperRange = 20;
-                        break;
-                    case Difficulty.MEDIUM: upperRange = 100;
-                        break;
-                    case Difficulty.HARD: upperRange = 1000;
-                        break;
-                }
-
-                term1 = (ushort)rand.Next(0, upperRange + 1);
-                term2 = (ushort)rand.Next(0, upperRange + 1);
-
-                if (term1 > term2)
-                {
-                    terms.Add(term1);
-                    terms.Add(term2);
-                }
-                else
-                {
-                    terms.Add(term2);
-                    terms.Add(term1);
-                }
-                return (new Problem(terms, Problem.Operator.Substraction));
-            }
 
             #endregion
 
             public Runtime()
             {
+
                 this.currentProblem = new Problem();
             }
             public Problem currentProblem { get; set; }
             public int totalProblems { get; set; }
             public int currentProblemIndex { get; set; }
-            public Difficulty testDiff { get; set; }
+            public Problem.Difficulty testDiff { get; set; }
+            public Data.Problem.GenerateProblem problemHandler { get; set; }
         }
         #endregion
 

@@ -16,28 +16,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
     /// </summary>
     public partial class GameScreen : StateControl
     {
-        Data.User.Runtime.GenerateProblem nextProblem;
 
         public GameScreen()
         {
             InitializeComponent();
             this.txt_answer.KeyPress += new KeyPressEventHandler(answerValidator);
-            //Random rand = new Random();
-
-            // SEGV //
-            //10-30 problems
-            //this.CurrentUser.Data.totalProblems = rand.Next(10,31);
-            //this.CurrentUser.Data.currentProblemIndex = 0;
-
-            //Addition or Subtraction problems
-            //if (rand.Next(0, 2) > 0)
-            //{
-                //nextProblem = this.CurrentUser.Data.AddProblem;
-            //}
-            //else
-            //{
-                //nextProblem = this.CurrentUser.Data.SubProblem;
-            //}
         }
 
         /*
@@ -49,17 +32,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             base.Entered(from, user);
             
-
             //display the counter
             lbl_index.Text = string.Format("Question: {0} / {1}", (user.Data.currentProblemIndex + 1), user.Data.totalProblems);
 
-            //genereate a problem at the difficulty for this user
-            this.CurrentUser.Data.currentProblem = nextProblem(this.CurrentUser.Data.testDiff);
-            
-            
             //TODO structure the format of the problem as an equation or top to bottom
             //equation form
             lbl_problem.Text = this.CurrentUser.Data.currentProblem.ToString();
+            //top to bottom form
         }
 
         #region UI
@@ -86,19 +65,21 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 if (this.CurrentUser.Data.currentProblem.Answer() == (ushort)Int32.Parse(txt_answer.Text))
                 {
                     //Correct
-                    //TODO Update a boolean list
+                    //TODO Add to # correct
                     //TODO Display an indicator that they were right
                 }
                 else
                 {
                     //Incorrect
-                    //TODO Update a boolean list
                     //TODO Display an indicator that they were wrong
                     //TODO Display the drawing representation of the correct answer
                 }
 
                 //increment the counter
                 this.CurrentUser.Data.currentProblemIndex++;
+
+                //genereate a problem at the difficulty for this user
+                this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
 
                 //reset the window
                 MainWindow.Instance.SwitchForm("game", this.CurrentUser);
