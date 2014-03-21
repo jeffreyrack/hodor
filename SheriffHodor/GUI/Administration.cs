@@ -30,13 +30,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_users_list.DataSource = Data.UserList.Instance;
             dtg_users_list.Invalidate();
             dtg_users_list.Refresh();
-
-            clstUserList.Items.Clear();
-            clstUserList.Items.AddRange(
-                (from usr in Data.UserList.Instance
-                 where usr.Status == Data.User.UserType.Student
-                 select usr.Name).ToArray());
         }
+
+        // The "Reports" tab.
+        #region Reports
+        #endregion
 
         // The "Users" tab.
         #region Users Panel
@@ -80,24 +78,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         #endregion
         #endregion
 
-        // The "Problems" tab.
-        #region Problems
-        #endregion
-
-        // The "Reports" tab.
-        #region Reports
-        // Refactor, at least the names
-        #region UI Events
-        //Updatebutton to update the changes made by the admin to the selected students
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            try {
-            } catch (Exception ex) {
-                Helpers.DisplayError(ex.Message);
-            }
-            //Helpers.DisplayInfo("Tests updated");
-        }
-        #endregion
+        // The "Groups" tab.
+        #region Groups
         #endregion
     }
 }
