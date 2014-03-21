@@ -51,7 +51,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             ushort answer = 0;
             if (this.Operands.Count > 1)
             {
-                answer = this.Operands[1];
+                answer = this.Operands[0];
             }
 
             for (int i = 1; i < this.Operands.Count; i++)
@@ -151,6 +151,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
         }
     }
 
-  
+    
 
 }

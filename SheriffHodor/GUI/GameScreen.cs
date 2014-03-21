@@ -31,6 +31,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public override void Entered(StateControl from, Data.User user)
         {
             base.Entered(from, user);
+
+            txt_answer.Text = String.Empty;
             
             //display the counter
             lbl_index.Text = string.Format("Question: {0} / {1}", (user.Data.currentProblemIndex + 1), user.Data.totalProblems);
@@ -54,35 +56,41 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          */
         private void btn_next_Click(object sender, EventArgs e)
         {
-            //finished last problem
-            if (this.CurrentUser.Data.currentProblemIndex + 1 >= this.CurrentUser.Data.totalProblems)
+            if (txt_answer.Text.Length > 0)
             {
-                //display score screen
-                //TODO Implement a score screen
-            }
-            else
-            {
-                if (this.CurrentUser.Data.currentProblem.Answer() == (ushort)Int32.Parse(txt_answer.Text))
+                //finished last problem
+                if (this.CurrentUser.Data.currentProblemIndex + 1 >= this.CurrentUser.Data.totalProblems)
                 {
-                    //Correct
-                    //TODO Add to # correct
-                    //TODO Display an indicator that they were right
+                    //display score screen
+                    //TODO Implement a score screen
+                    MessageBox.Show("Finished");
                 }
                 else
                 {
-                    //Incorrect
-                    //TODO Display an indicator that they were wrong
-                    //TODO Display the drawing representation of the correct answer
+                    if (this.CurrentUser.Data.currentProblem.Answer() == (ushort)Int32.Parse(txt_answer.Text))
+                    {
+                        //Correct
+                        //TODO Add to # correct
+                        //TODO Display an indicator that they were right
+                        MessageBox.Show("Correct");
+                    }
+                    else
+                    {
+                        //Incorrect
+                        //TODO Display an indicator that they were wrong
+                        //TODO Display the drawing representation of the correct answer
+                        MessageBox.Show("Incorrect " + this.CurrentUser.Data.currentProblem.Answer());
+                    }
+
+                    //increment the counter
+                    this.CurrentUser.Data.currentProblemIndex++;
+
+                    //genereate a problem at the difficulty for this user
+                    this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
+
+                    //reset the window
+                    MainWindow.Instance.SwitchForm("game", this.CurrentUser);
                 }
-
-                //increment the counter
-                this.CurrentUser.Data.currentProblemIndex++;
-
-                //genereate a problem at the difficulty for this user
-                this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
-
-                //reset the window
-                MainWindow.Instance.SwitchForm("game", this.CurrentUser);
             }
         }
         #endregion
