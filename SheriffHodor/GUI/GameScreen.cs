@@ -1,8 +1,4 @@
-﻿/*This just needs to be conected and display the questions from the XMLfile i sent out (if it needs to be changed plz let me know)
- * The timer works!
- * */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +9,11 @@ using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
+    /// <summary>
+    /// The game screen: this is the screen students see when they are taking a test.
+    /// It receive an already populated User as input, and mutate it to pass it to
+    /// the next GameScreen (or GameErrorScreen, or GameEndScreen).
+    /// </summary>
     public partial class GameScreen : StateControl
     {
 

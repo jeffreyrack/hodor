@@ -6,9 +6,17 @@ using System.Text;
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
     /// <summary>
-    /// A form with a state.
+    /// A form with an user state.
     /// 
-    /// It should be abstract but the designer doesn't like it.
+    /// To implement a form, you should inherit from it.
+    /// You will be able to use the designer with it.
+    /// 
+    /// Important: Those forms are Stateless by design.
+    ///             When you need to carry an information, you should
+    ///             use User.Runtime informations, and NOT store it in
+    ///             the form (coupling == bad design).
+    /// 
+    /// Note: It should be abstract but the designer doesn't like it.
     /// </summary>
     public class StateControl : System.Windows.Forms.UserControl
     {

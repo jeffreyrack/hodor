@@ -1,8 +1,4 @@
-﻿/*Team Hodor
- * 
- * THis file will provide for creating the XML file as well as updating, deleting, and retrieving information from the XML database.
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +11,10 @@ using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
+    /// <summary>
+    /// Provides serialization helper for the Xml file.
+    /// All the 
+    /// </summary>
     public static class XmlBackend
     {
         #region Validation
