@@ -59,7 +59,26 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             } 
             else 
             {
-                selectedUser.Data.testDiff = Data.User.Difficulty.EASY;
+                Random rand = new Random();
+
+                //10-30 problems
+                selectedUser.Data.totalProblems = rand.Next(10, 31);
+                selectedUser.Data.currentProblemIndex = 0;
+
+                //Addition or Subtraction problems
+                if (rand.Next(0, 2) > 0)
+                {
+                    selectedUser.Data.problemHandler = Data.Problem.AddProblem;
+                }
+                else
+                {
+                    selectedUser.Data.problemHandler = Data.Problem.SubProblem;
+                }
+
+                selectedUser.Data.testDiff = Data.Problem.Difficulty.EASY;
+
+                selectedUser.Data.currentProblem = selectedUser.Data.problemHandler(selectedUser.Data.testDiff);
+
                 Console.WriteLine(selectedUser.Data.currentProblem.ToString());
                 MainWindow.Instance.SwitchForm("game", selectedUser);
             }
