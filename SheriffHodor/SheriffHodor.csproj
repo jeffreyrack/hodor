@@ -67,7 +67,6 @@
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\UserList.cs" />
     <Compile Include="Data\XmlBackend.cs" />
-    <Compile Include="gameBackend.cs" />
     <Compile Include="GUI\Administration.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -138,15 +137,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="XMLSchema1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="problemSet.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
