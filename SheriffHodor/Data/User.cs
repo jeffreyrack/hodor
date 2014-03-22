@@ -44,11 +44,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
         #endregion
 
         #region Constructor & object inheritance
-        // Use this in user code.
-        public static User CreateUser(string name, UserType status = UserType.Student, byte[] hash = null)
-        {
-            return new User(name, ++Global.maxId, status, hash);
-        }
         /// <summary>
         /// A parameterless constructor is needed by the serialized.
         /// </summary>
@@ -60,7 +55,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <param name="id">An id for the user.</param>
         /// <param name="status">The status of the user, default to student.</param>
         /// <param name="hash">The SHA-1 hash of the user's password.</param>
-        public User(string name = null, int id = -1, UserType status = UserType.Student, byte[] hash = null)
+        public User(string name = null, UserType status = UserType.Student, byte[] hash = null)
         {
             this.Name = name;
             this.Hash = hash;
@@ -103,15 +98,5 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public event PropertyChangedEventHandler PropertyChanged;
 #pragma warning restore 0067
         #endregion
-    }
-
-    /// <summary>
-    /// An XML-serializable class holding the list of users.
-    /// </summary>
-    [XmlRoot("Students")]
-    public class XmlUserList
-    {
-        [XmlElement("Student")]
-        public List<User> Users = new List<User>();
     }
 }

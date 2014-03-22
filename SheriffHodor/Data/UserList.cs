@@ -11,38 +11,12 @@ namespace CSUSM.CS441.SheriffHodor.Data
     {
         #region Singleton
         private static UserList _instance;
-        private UserList(XmlUserList list)
-            : base()
-        {
-            foreach (var usr in list.Users)
-                this.Add(usr);
-        }
         public static UserList Instance
         {
             get
             {
                 if (_instance == null)
-                {
-
-                    #region Move that away
-                    if (!System.IO.Directory.Exists(Global.ConfDirPath))
-                        System.IO.Directory.CreateDirectory(Global.ConfDirPath);
-                    if (!System.IO.File.Exists(Global.UsersFilePath))
-                    {
-                        using (var defaultFile = System.IO.File.CreateText(Global.UsersFilePath))
-                        {
-                            defaultFile.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-                            defaultFile.WriteLine("<Students xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">");
-                            defaultFile.WriteLine("<Student><Name>Admin</Name><Status>Teacher</Status></Student>");
-                            defaultFile.WriteLine("</Students>");
-                        }
-
-                    }
-                    // End of ugly coupling.
-                    #endregion
-
-                    _instance = new UserList(XmlBackend.Deserialize<XmlUserList>(Global.UsersFilePath));
-                }
+                    _instance = XmlBackend.Deserialize<UserList>(Global.UsersFilePath, Global.UserDefault);
                 return _instance;
             }
         }
@@ -71,9 +45,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public void Serialize()
         {
-            var xmllist = new XmlUserList();
-            xmllist.Users.AddRange(this);
-            XmlBackend.Serialize<XmlUserList>(Global.UsersFilePath, xmllist);
+            XmlBackend.Serialize<UserList>(Global.UsersFilePath, this);
         }
     }
 }

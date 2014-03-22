@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -14,27 +11,31 @@ namespace CSUSM.CS441.SheriffHodor.Data
     /// </summary>
     public static class Global
     {
-        #region Refactor
-        public static int maxId = 0;
-        #endregion
-
-        #region Const data
+        #region Paths
         /// <summary>
         /// Path to the configuration folder of the application.
         /// </summary>
-        public const string ConfDirPath = @"C:\ProgramData\SheriffHodor\";
+        public static readonly string ConfDirPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SheriffHodor");
         /// <summary>
         /// Path to the XML file holding the User's data.
         /// </summary>
-        public const string UsersFilePath = @"C:\ProgramData\SheriffHodor\Users.xml";
+        public static readonly string UsersFilePath = Path.Combine(ConfDirPath, "Users.xml");
         /// <summary>
-        /// Path to the XML file holding the questions.
+        /// Path to the XML file holding the Group's data.
         /// </summary>
-        public const string QCMFilePath = @"C:\ProgramData\SheriffHodor\Questions.xml";
-        /// <summary>
-        /// Path to the XML file holding the problems set.
-        /// </summary>
-        public const string ProblemsFilePath = @"C:\ProgramData\SheriffHodor\Problems.xml";
+        public static readonly string Groups = Path.Combine(ConfDirPath, "Groups.xml");
+        #endregion
+
+        // This is ugly.
+        #region Default config
+        public static readonly string[] UserDefault = {"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
+"<ArrayOfUser xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">",
+                        "<User>",
+                        "<Name>Admin</Name>",
+                        "<Status>Teacher</Status>",
+                        "</User>",
+                        "</ArrayOfUser>"};
         #endregion
     }
 }
