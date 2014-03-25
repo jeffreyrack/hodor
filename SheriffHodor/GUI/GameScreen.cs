@@ -28,6 +28,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          * Corey Paxton     - 3/17/2014 - Beginning of making it work with refactor
          * Corey Paxton     - 3/20/2014 - Setup new problem generator
          * Corey Paxton     - 3/24/2014 - Made it so the text field is active
+         * Corey Paxton     - 3/24/2014 - Added coin stuff
          */
         public override void Entered(StateControl from, Data.User user)
         {
@@ -69,6 +70,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          * 
          * Corey Paxton     - 3/17/2014 - Initial Version
          * Corey Paxton     - 3/20/2014 - Expanding still unfinished
+         * Corey Paxton     - 3/24/2014 - Added coin stuff
          */
         private void btn_next_Click(object sender, EventArgs e)
         {

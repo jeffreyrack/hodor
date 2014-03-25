@@ -24,6 +24,60 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 Console.WriteLine(u.ToString());
             Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(UpdateUserList);
             UpdateUserList(null, null);
+
+            this.txt_password.KeyPress += new KeyPressEventHandler(enterPress);
+            this.ddl_userList.SelectedIndexChanged +=
+            new System.EventHandler(ddl_userList_SelectedIndexChanged);
+        }
+
+
+        public override void Entered(StateControl from, Data.User user)
+        {
+            this.txt_password.Text = String.Empty;
+        }
+
+        /*
+         * Corey Paxton     - 3/24/2014 - Initial Version
+         */
+        private void ddl_userList_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            this.txt_password.Text = String.Empty;
+
+            var result = from user in Data.UserList.Instance
+                         where user.Name.Equals(ddl_userList.Text, StringComparison.InvariantCultureIgnoreCase)
+                         select user;
+
+            if (result.Count() != 1)
+            {
+                // Being paranoid doesn't hurt : We shouldn't get more than 1 result ever.
+                Contract.Assert(result.Count() == 0);
+                Helpers.DisplayError("Then name you entered is not valid !");
+                return;
+            }
+
+            var selectedUser = result.First();
+
+            if (selectedUser.Status != Data.User.UserType.Teacher)
+            {
+                txt_password.Visible = false;
+            }
+            else
+            {
+                txt_password.Visible = true;
+            }
+        }
+
+        //TODO this only works if they are in the password section and due to being a state
+        //i'm not sure how to make it so enter always applies this event 
+        /*
+         * Corey Paxton     - 3/24/2014 - Initial Version
+         */
+        private void enterPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                btn_login_Click(sender, e);
+            }
         }
 
         private void UpdateUserList(object o, EventArgs e)
@@ -32,8 +86,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
 
         /*
-         * Matthias Lang    - 3/17/2014 -
-         * Corey Paxton     - 3/17/2014 - 
+         * Matthias Lang    - 3/17/2014 - Initial Version
+         * Corey Paxton     - 3/17/2014 - Sample create test with explicitly defined data
          */
         //The login button that will either take a user to the game or the admin to the admin screen
         private void btn_login_Click(object sender, EventArgs e)
