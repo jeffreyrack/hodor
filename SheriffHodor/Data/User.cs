@@ -27,19 +27,22 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             #region Definitions
 
-
             #endregion
 
             public Runtime()
             {
 
                 this.currentProblem = new Problem();
+
             }
             public Problem currentProblem { get; set; }
             public int totalProblems { get; set; }
             public int currentProblemIndex { get; set; }
             public Problem.Difficulty testDiff { get; set; }
             public Data.Problem.GenerateProblem problemHandler { get; set; }
+            public int correctAnswers { get; set; }
+            public int correctStreak { get; set; }
+            public int coinsGained { get; set; }
         }
         #endregion
 
@@ -90,7 +93,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <summary>
         /// Keeps track of the total number of coins earned by a User
         /// </summary>
-        [XmlIgnore()] //TODO def want to store this
+        //[XmlIgnore()] //TODO def want to store this
         public int Coins { get; set; }
 
 

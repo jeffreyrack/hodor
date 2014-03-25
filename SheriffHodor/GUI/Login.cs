@@ -59,11 +59,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             } 
             else 
             {
+                //TODO modualize this into a create new game function
                 Random rand = new Random();
 
                 //10-30 problems
                 selectedUser.Data.totalProblems = rand.Next(10, 31);
                 selectedUser.Data.currentProblemIndex = 0;
+                selectedUser.Data.correctAnswers = 0;
+                selectedUser.Data.correctStreak = 0;
+                selectedUser.Data.coinsGained = 0;
 
                 //Addition or Subtraction problems
                 if (rand.Next(0, 2) > 0)
