@@ -60,6 +60,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             this.Name = name;
             this.Hash = hash;
             this.Status = status;
+            this.Coins = 0;
             this.Data = new Runtime();
         }
         /// <summary>
@@ -78,7 +79,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// An hash representing the password of the user, if needed (mandatory for teachers).
+        /// A hash representing the password of the user, if needed (mandatory for teachers).
         /// </summary>
         [XmlIgnore()] // Temp TODO
         public byte[] Hash { get; set; }
@@ -86,6 +87,12 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// Hold the status of the user, currently only 2 are defined: Teacher & Student.
         /// </summary>
         public UserType Status { get; set; }
+        /// <summary>
+        /// Keeps track of the total number of coins earned by a User
+        /// </summary>
+        [XmlIgnore()] //TODO def want to store this
+        public int Coins { get; set; }
+
 
         [XmlIgnore()]
         public User.Runtime Data { get; private set; }

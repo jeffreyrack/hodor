@@ -27,10 +27,16 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          * Matthias Lang    - 3/17/2014 - Initial Version
          * Corey Paxton     - 3/17/2014 - Beginning of making it work with refactor
          * Corey Paxton     - 3/20/2014 - Setup new problem generator
+         * Corey Paxton     - 3/24/2014 - Made it so the text field is active
          */
         public override void Entered(StateControl from, Data.User user)
         {
             base.Entered(from, user);
+
+            // TODO this isnt working the first time it enters the screen unless you click the screen
+            // Make the text field active
+            this.ActiveControl = txt_answer;
+
 
             txt_answer.Text = String.Empty;
             
@@ -44,8 +50,16 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
 
         #region UI
+        /*
+         * Matthias Lang    - 3/17/2014 - Initial Version
+         * Corey Paxton     - 3/24/2014 - Made it so enter pressed button
+         */
         private void answerValidator(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                btn_next_Click(sender, e);
+            }
             e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
         }
         
@@ -64,6 +78,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     //display score screen
                     //TODO Implement a score screen
                     MessageBox.Show("Finished");
+                    MainWindow.Instance.SwitchForm("login", this.CurrentUser);
                 }
                 else
                 {
