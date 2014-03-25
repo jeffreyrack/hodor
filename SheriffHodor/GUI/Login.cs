@@ -98,7 +98,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                          where user.Name.Equals(ddl_userList.Text, StringComparison.InvariantCultureIgnoreCase)
                          select user;
 
-            if (result.Count() != 1) {
+            if (result.Count() != 1)
+            {
                 // Being paranoid doesn't hurt : We shouldn't get more than 1 result ever.
                 Contract.Assert(result.Count() == 0);
                 Helpers.DisplayError("Then name you entered is not valid !");
@@ -110,8 +111,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (selectedUser.Status == Data.User.UserType.Teacher)
             {
                 MainWindow.Instance.SwitchForm("admin");
-            } 
-            else 
+            }
+            else
             {
                 //TODO modualize this into a create new game function
                 Random rand = new Random();
