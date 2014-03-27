@@ -19,7 +19,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             UserListChanged(null, null);
+            GroupListChanged(null, null);
             Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(UserListChanged);
+            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
+            Data.GroupList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
         }
 
         private void UserListChanged(object o, EventArgs e)
@@ -29,6 +32,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_users_list.DataSource = Data.UserList.Instance;
             dtg_users_list.Invalidate();
             dtg_users_list.Refresh();
+        }
+        private void GroupListChanged(object o, EventArgs e)
+        {
+            // Groups
+            dtg_groups_groups.DataSource = null;
+            dtg_groups_groups.DataSource = Data.GroupList.Instance;
+            dtg_groups_groups.Invalidate();
+            dtg_groups_groups.Refresh();
         }
 
         // The "Reports" tab.
@@ -78,8 +89,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
         #endregion
 
+
         // The "Groups" tab.
         #region Groups
+        private void btn_groups_logout_Click(object o, EventArgs a)
+        {
+            Decline();
+        }
         #endregion
     }
 }

@@ -39,6 +39,7 @@ namespace CSUSM
                 static void SaveXMLData(object sender, EventArgs e)
                 {
                     Data.UserList.Instance.Serialize();
+                    Data.GroupList.Instance.Serialize();
                 }
             }
         }

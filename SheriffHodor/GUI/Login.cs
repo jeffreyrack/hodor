@@ -134,7 +134,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     selectedUser.Data.problemHandler = Data.Problem.SubProblem;
                 }
 
-                selectedUser.Data.testDiff = Data.Problem.Difficulty.EASY;
+                selectedUser.Data.testDiff = Data.Problem.Difficulty.Easy;
 
                 selectedUser.Data.currentProblem = selectedUser.Data.problemHandler(selectedUser.Data.testDiff);
 

@@ -84,7 +84,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <summary>
         /// A hash representing the password of the user, if needed (mandatory for teachers).
         /// </summary>
-        [XmlIgnore()] // Temp TODO
+        [XmlIgnore(), System.ComponentModel.Browsable(false)] // Temp TODO
         public byte[] Hash { get; set; }
         /// <summary>
         /// Hold the status of the user, currently only 2 are defined: Teacher & Student.
@@ -97,7 +97,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public int Coins { get; set; }
 
 
-        [XmlIgnore()]
+        [XmlIgnore(), System.ComponentModel.Browsable(false)]
         public User.Runtime Data { get; private set; }
         #endregion
 

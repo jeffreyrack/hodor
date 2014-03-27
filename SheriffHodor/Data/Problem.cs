@@ -71,9 +71,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
 
         public enum Difficulty
         {
-            EASY = 20,
-            MEDIUM = 100,
-            HARD = 1000
+            Easy = 20,
+            Medium = 100,
+            Hard = 1000
         };
 
         public delegate Problem GenerateProblem(Difficulty diff);

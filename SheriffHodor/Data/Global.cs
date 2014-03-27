@@ -24,7 +24,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <summary>
         /// Path to the XML file holding the Group's data.
         /// </summary>
-        public static readonly string Groups = Path.Combine(ConfDirPath, "Groups.xml");
+        public static readonly string GroupsFilePath = Path.Combine(ConfDirPath, "Groups.xml");
         #endregion
 
         // This is ugly.
@@ -36,6 +36,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
                         "<Status>Teacher</Status>",
                         "</User>",
                         "</ArrayOfUser>"};
+
+        public static readonly string[] GroupDefault = {"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
+"<ArrayOfGroup xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">",
+                        "</ArrayOfGroup>"};
+
         #endregion
     }
 }

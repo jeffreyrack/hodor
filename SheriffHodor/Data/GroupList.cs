@@ -1,22 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
-    /// <summary>
-    /// A list holding all the user.
-    /// This list is an ObservableList, hence data in GUI is keep up to date
-    /// using the observer pattern.
-    /// </summary>
-    public class UserList : ObservableList<User>
+    public class GroupList : ObservableList<Group>
     {
         #region Singleton
-        private static UserList _instance;
-        public static UserList Instance
+        private static GroupList _instance;
+        public static GroupList Instance
         {
             get
             {
                 if (_instance == null)
-                    _instance = XmlBackend.Deserialize<UserList>(Global.UsersFilePath, Global.UserDefault);
+                    _instance = XmlBackend.Deserialize<GroupList>(Global.GroupsFilePath, Global.GroupDefault);
                 return _instance;
             }
         }
@@ -43,7 +41,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public void Serialize()
         {
-            XmlBackend.Serialize<UserList>(Global.UsersFilePath, this);
+            XmlBackend.Serialize<GroupList>(Global.GroupsFilePath, this);
         }
     }
 }
