@@ -119,24 +119,13 @@ namespace CSUSM.CS441.SheriffHodor.Data
             //2 terms
             Random rand = new Random();
             List<ushort> terms = new List<ushort>();
-            //int upperRange = 0;
             ushort term1;
             ushort term2;
-
-            /*
-            switch (diff)
-            {
-                case Difficulty.EASY: upperRange = 20;
-                    break;
-                case Difficulty.MEDIUM: upperRange = 100;
-                    break;
-                case Difficulty.HARD: upperRange = 1000;
-                    break;
-            }*/
 
             term1 = (ushort)rand.Next(0, (int)diff + 1);
             term2 = (ushort)rand.Next(0, (int)diff + 1);
 
+            //set the larger term as the first number in the problem
             if (term1 > term2)
             {
                 terms.Add(term1);
@@ -148,6 +137,31 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 terms.Add(term1);
             }
             return (new Problem(terms, Problem.Operator.Substraction));
+        }
+
+        public static bool AttemptAnswer(int answer, Problem p)
+        {
+            return (p.Answer() == (ushort)answer);
+        }
+
+        public static int CoinsGained(int streakCount)
+        {
+            int coins = 0;
+            
+            if (streakCount >= 5)
+            {
+                coins = 3;
+            }
+            else if (streakCount >= 3)
+            {
+                coins = 2;
+            }
+            else
+            {
+                coins = 1;
+            }
+
+            return coins;
         }
     }
 

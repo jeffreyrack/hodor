@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Timers;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -33,6 +34,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             {
 
                 this.currentProblem = new Problem();
+                this.timer = new Timer();
 
             }
             public Problem currentProblem { get; set; }
@@ -43,6 +45,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             public int correctAnswers { get; set; }
             public int correctStreak { get; set; }
             public int coinsGained { get; set; }
+            public Timer timer { get; set; }
         }
         #endregion
 

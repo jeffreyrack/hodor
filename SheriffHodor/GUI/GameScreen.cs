@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Timers;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
@@ -34,6 +35,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             base.Entered(from, user);
 
+
+            this.CurrentUser.Data.timer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+
             // TODO this isnt working the first time it enters the screen unless you click the screen
             // Make the text field active
             this.ActiveControl = txt_answer;
@@ -50,6 +54,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             //top to bottom form
 
             lbl_coins.Text = string.Format("Coins: {0}", this.CurrentUser.Coins.ToString());
+        }
+
+        private static void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            //TODO control.invoke on 1 second make lbl_coinsGained.visible = false
         }
 
         #region UI
@@ -74,110 +83,105 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          */
         private void btn_next_Click(object sender, EventArgs e)
         {
-            if (txt_answer.Text.Length > 0)
+            if (txt_answer.Text.Length > 0 && this.CurrentUser != null)
             {
-                //finished last problem
-                if (this.CurrentUser.Data.currentProblemIndex + 1 >= this.CurrentUser.Data.totalProblems)
-                {
-                    //TODO modualize this
-                    if (this.CurrentUser.Data.currentProblem.Answer() == (ushort)Int32.Parse(txt_answer.Text))
-                    {
-                        //Correct
-                        //TODO Add to # correct
-                        //TODO Display an indicator that they were right
-                        MessageBox.Show("Correct");
-                        this.CurrentUser.Data.correctAnswers++;
-                        this.CurrentUser.Data.correctStreak++;
-
-                        //TODO display the coin change
-                        if (this.CurrentUser.Data.correctStreak >= 5)
-                        {
-                            this.CurrentUser.Coins += 3;
-                            this.CurrentUser.Data.coinsGained += 3;
-                        }
-                        else if (this.CurrentUser.Data.correctStreak >= 3)
-                        {
-                            this.CurrentUser.Coins += 2;
-                            this.CurrentUser.Data.coinsGained += 2;
-                        }
-                        else
-                        {
-                            this.CurrentUser.Coins++;
-                            this.CurrentUser.Data.coinsGained++;
-                        }
-                    }
-                    else
-                    {
-                        //Incorrect
-                        //TODO Display an indicator that they were wrong
-                        //TODO Display the drawing representation of the correct answer
-                        MessageBox.Show("Incorrect " + this.CurrentUser.Data.currentProblem.Answer());
-                        this.CurrentUser.Data.correctStreak = 0;
-                    }
-
-                    //display score screen
-                    //TODO Implement a score screen
-                    if (this.CurrentUser.Data.correctAnswers == this.CurrentUser.Data.totalProblems)
-                    {
-                        this.CurrentUser.Data.coinsGained *= 2;
-                        this.CurrentUser.Coins += this.CurrentUser.Data.coinsGained;
-                        MessageBox.Show("All answers correct! Coins earned Doubled!");
-                        
-                    }
-                    MessageBox.Show(string.Format("Finished\nCorrect: {0}/{1}\nCoins Gained: {2}",
-                        this.CurrentUser.Data.correctAnswers.ToString(), this.CurrentUser.Data.totalProblems.ToString(), 
-                        this.CurrentUser.Data.coinsGained.ToString()));
-
-                    MainWindow.Instance.SwitchForm("login", this.CurrentUser);
-                }
-                else
-                {
-                    //TODO modualize this
-                    if (this.CurrentUser.Data.currentProblem.Answer() == (ushort)Int32.Parse(txt_answer.Text))
-                    {
-                        //Correct
-                        //TODO Add to # correct
-                        //TODO Display an indicator that they were right
-                        MessageBox.Show("Correct");
-                        this.CurrentUser.Data.correctAnswers++;
-                        this.CurrentUser.Data.correctStreak++;
-
-                        //TODO display the coin change
-                        if (this.CurrentUser.Data.correctStreak >= 5)
-                        {
-                            this.CurrentUser.Coins += 3;
-                            this.CurrentUser.Data.coinsGained += 3;
-                        }
-                        else if (this.CurrentUser.Data.correctStreak >= 3)
-                        {
-                            this.CurrentUser.Coins += 2;
-                            this.CurrentUser.Data.coinsGained += 2;
-                        }
-                        else
-                        {
-                            this.CurrentUser.Coins++;
-                            this.CurrentUser.Data.coinsGained++;
-                        }
-                    }
-                    else
-                    {
-                        //Incorrect
-                        //TODO Display an indicator that they were wrong
-                        //TODO Display the drawing representation of the correct answer
-                        MessageBox.Show("Incorrect " + this.CurrentUser.Data.currentProblem.Answer());
-                        this.CurrentUser.Data.correctStreak = 0;
-                    }
-
-                    //increment the counter
-                    this.CurrentUser.Data.currentProblemIndex++;
-
-                    //genereate a problem at the difficulty for this user
-                    this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
-
-                    //reset the window
-                    MainWindow.Instance.SwitchForm("game", this.CurrentUser);
-                }
+                Accept();
             }
+        }
+
+        protected override void Accept()
+        {
+            //finished last problem
+            if (this.CurrentUser.Data.currentProblemIndex + 1 >= this.CurrentUser.Data.totalProblems)
+            {
+                try
+                {
+                    if (Data.Problem.AttemptAnswer(Int32.Parse(txt_answer.Text), this.CurrentUser.Data.currentProblem))
+                    {
+                        CorrectAnswer();
+                    }
+                    else
+                    {
+                        IncorrectAnswer();
+                    }
+                }
+                //TODO remove generality
+                catch (Exception ex)
+                {
+                    //got a value that isn't an int in the field somehow
+                    txt_answer.Text = String.Empty;
+                }
+
+                //display score screen
+                //TODO Implement a score screen
+                //if all questions were answered correctly double the amount of coins gained
+                if (this.CurrentUser.Data.correctAnswers == this.CurrentUser.Data.totalProblems)
+                {
+                    this.CurrentUser.Data.coinsGained *= 2;
+                    this.CurrentUser.Coins += this.CurrentUser.Data.coinsGained;
+                    MessageBox.Show("All answers correct! Coins earned Doubled!");
+
+                }
+                MessageBox.Show(string.Format("Finished\nCorrect: {0}/{1}\nCoins Gained: {2}",
+                    this.CurrentUser.Data.correctAnswers.ToString(), this.CurrentUser.Data.totalProblems.ToString(),
+                    this.CurrentUser.Data.coinsGained.ToString()));
+
+                MainWindow.Instance.SwitchForm("login", this.CurrentUser);
+            }
+            else
+            {
+                try
+                {
+                    if (Data.Problem.AttemptAnswer(Int32.Parse(txt_answer.Text), this.CurrentUser.Data.currentProblem))
+                    {
+                        CorrectAnswer();
+                    }
+                    else
+                    {
+                        IncorrectAnswer();
+                    }
+                }
+                //TODO remove generality
+                catch (Exception ex)
+                {
+                    //got a value that isn't an int in the field somehow
+                    txt_answer.Text = String.Empty;
+                }
+
+                this.CurrentUser.Data.timer.Enabled = true;
+                this.CurrentUser.Data.timer.Interval = 1000;
+
+                //increment the counter
+                this.CurrentUser.Data.currentProblemIndex++;
+
+                //genereate a problem at the difficulty for this user
+                this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
+
+                //reset the window
+                MainWindow.Instance.SwitchForm("game", this.CurrentUser);
+            }
+        }
+
+        private void CorrectAnswer()
+        {
+            //Correct
+            //TODO Display an indicator that they were right
+            MessageBox.Show("Correct");
+            this.CurrentUser.Data.correctAnswers++;
+            this.CurrentUser.Data.correctStreak++;
+
+            //TODO display the coin change next to coins
+            this.CurrentUser.Data.coinsGained += Data.Problem.CoinsGained(this.CurrentUser.Data.correctStreak);
+            this.CurrentUser.Coins += Data.Problem.CoinsGained(this.CurrentUser.Data.correctStreak);
+        }
+
+        private void IncorrectAnswer()
+        {
+            //Incorrect
+            //TODO Display an indicator that they were wrong
+            //TODO Display the drawing representation of the correct answer
+            MessageBox.Show("Incorrect " + this.CurrentUser.Data.currentProblem.Answer());
+            this.CurrentUser.Data.correctStreak = 0;
         }
         #endregion
     }

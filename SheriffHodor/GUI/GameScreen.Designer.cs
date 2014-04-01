@@ -34,6 +34,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.btn_next = new System.Windows.Forms.Button();
             this.lbl_index = new System.Windows.Forms.Label();
             this.lbl_coins = new System.Windows.Forms.Label();
+            this.lbl_coinsGained = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_answer
@@ -81,10 +82,21 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.lbl_coins.TabIndex = 5;
             this.lbl_coins.Text = "Coins: {0}";
             // 
+            // lbl_coinsGained
+            // 
+            this.lbl_coinsGained.AutoSize = true;
+            this.lbl_coinsGained.Location = new System.Drawing.Point(98, 320);
+            this.lbl_coinsGained.Name = "lbl_coinsGained";
+            this.lbl_coinsGained.Size = new System.Drawing.Size(70, 13);
+            this.lbl_coinsGained.TabIndex = 6;
+            this.lbl_coinsGained.Text = "Coins Gained";
+            this.lbl_coinsGained.Visible = false;
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbl_coinsGained);
             this.Controls.Add(this.lbl_coins);
             this.Controls.Add(this.lbl_index);
             this.Controls.Add(this.btn_next);
@@ -106,5 +118,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private System.Windows.Forms.Button btn_next;
         private System.Windows.Forms.Label lbl_index;
         private System.Windows.Forms.Label lbl_coins;
+        private System.Windows.Forms.Label lbl_coinsGained;
     }
 }
