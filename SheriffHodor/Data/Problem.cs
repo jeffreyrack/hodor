@@ -65,6 +65,51 @@ namespace CSUSM.CS441.SheriffHodor.Data
         }
 
         /*
+         * Corey Paxton     - 4/3/2014 - Initial Version
+         */
+        public string DrawingRepresentation()
+        {
+            System.Text.StringBuilder returnStr = new System.Text.StringBuilder();
+            int dots = 0;
+            int dashes = 0;
+            int squares = 0;
+            int tempOp;
+            foreach (ushort operand in Operands)
+            {
+                dots += operand % 10;
+                if ( (tempOp = (operand / 10)) > 0)
+                {
+                    dashes += tempOp % 10;
+
+                    if ((tempOp = (tempOp / 10)) > 0)
+                    {
+                        squares += tempOp % 10;
+                    }
+                }
+            }
+
+            if (dots > 0)
+            {
+                returnStr.Append(String.Concat(Enumerable.Repeat(". ", dots)));
+                returnStr.AppendFormat("={0}\n", dots);
+            }
+
+            if (dashes > 0)
+            {
+                returnStr.Append(String.Concat(Enumerable.Repeat("| ", dashes)));
+                returnStr.AppendFormat("={0}\n", dashes * 10);
+            }
+
+            if (squares > 0)
+            {
+                returnStr.Append(String.Concat(Enumerable.Repeat("[] ", squares)));
+                returnStr.AppendFormat("={0}", squares * 100);
+            }
+
+            return (returnStr.ToString());
+        }
+
+        /*
          * Corey Paxton     - 3/20/2014 - Initial Version
          */
         public ushort Answer()

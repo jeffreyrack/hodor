@@ -203,9 +203,17 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void IncorrectAnswer()
         {
             //Incorrect
-            //TODO Display an indicator that they were wrong
-            //TODO Display the drawing representation of the correct answer
-            MessageBox.Show("Incorrect " + this.CurrentUser.Data.currentProblem.Answer());
+            //Display an indicator that they were wrong and the drawing representation of the correct answer
+            //TODO learn how to represent subtraction with the pictures
+            if (this.CurrentUser.Data.currentProblem.op == Data.Problem.Operator.Addition)
+            {
+                MessageBox.Show(String.Format("{0}\nAnswer: {1}", this.CurrentUser.Data.currentProblem.DrawingRepresentation(),
+                    this.CurrentUser.Data.currentProblem.Answer()));
+            }
+            else
+            {
+                MessageBox.Show(String.Format("Incorrect\nAnswer: {0}", this.CurrentUser.Data.currentProblem.Answer()));
+            }
             this.CurrentUser.Data.correctStreak = 0;
         }
         #endregion
