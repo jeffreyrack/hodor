@@ -44,6 +44,27 @@ namespace CSUSM.CS441.SheriffHodor.Data
         }
 
         /*
+         * Corey Paxton     - 4/3/2014 - Initial Version
+         */
+        public string TopToBottomString()
+        {
+            string[] OperatorString = { "+", "-" };
+            System.Text.StringBuilder returnStr = new System.Text.StringBuilder();
+
+            for (int i = 0; i < 5 - Operands.Count; i++)
+            {
+                returnStr.AppendLine();
+            }
+            for (int i = 0; i < Operands.Count - 1; i++)
+            {
+                returnStr.AppendFormat("  {0,5}\n", Operands[i]);
+            }
+            returnStr.AppendFormat("{0}{1,5}\n", OperatorString[(ushort)op], Operands[Operands.Count - 1]);
+
+            return (returnStr.ToString());
+        }
+
+        /*
          * Corey Paxton     - 3/20/2014 - Initial Version
          */
         public ushort Answer()
@@ -88,22 +109,12 @@ namespace CSUSM.CS441.SheriffHodor.Data
             Random rand = new Random();
             int numOfTerms = rand.Next(2, 6);
             List<ushort> terms = new List<ushort>();
-            //int upperRange = 0;
 
-            /*
-            switch (diff)
-            {
-                case Difficulty.EASY: upperRange = 20;
-                    break;
-                case Difficulty.MEDIUM: upperRange = 100;
-                    break;
-                case Difficulty.HARD: upperRange = 1000;
-                    break;
-            }*/
-
+            
             for (int i = 0; i < numOfTerms; i++)
             {
-                terms.Add((ushort)rand.Next(0, (int)diff + 1));
+                //terms.Add( (ushort)rand.Next(0, ((int)(diff) / (numOfTerms/2) ) + 1) );
+                terms.Add( (ushort)rand.Next(0, (int)(diff) + 1) );
             }
 
             return (new Problem(terms, Problem.Operator.Addition));
