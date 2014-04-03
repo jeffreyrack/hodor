@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Timers;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
@@ -26,6 +25,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
         }
 
+        #region UI
         /*
          * Matthias Lang    - 3/17/2014 - Initial Version
          * Corey Paxton     - 3/17/2014 - Beginning of making it work with refactor
@@ -67,7 +67,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             lbl_coins.Text = string.Format("Coins: {0}", this.CurrentUser.Coins.ToString());
         }
 
-
+        /*
+         * Corey Paxton     - 4/3/2014 - Initial Version
+         */ 
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.CurrentUser.Data.problemTime++;
@@ -78,7 +80,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
         }
 
-        #region UI
         /*
          * Matthias Lang    - 3/17/2014 - Initial Version
          * Corey Paxton     - 3/24/2014 - Made it so enter pressed button
@@ -149,12 +150,30 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     this.CurrentUser.Data.coinsGained *= 2;
                     this.CurrentUser.Coins += this.CurrentUser.Data.coinsGained;
                     MessageBox.Show("All answers correct! Coins earned Doubled!");
-
                 }
+
                 MessageBox.Show(string.Format("Finished\nCorrect: {0}/{1}\nCoins Gained: {2}",
                     this.CurrentUser.Data.correctAnswers.ToString(), this.CurrentUser.Data.totalProblems.ToString(),
                     this.CurrentUser.Data.coinsGained.ToString()));
 
+                //Record the game
+                this.CurrentUser.GameCount++;
+                this.CurrentUser.Percentages.Add(Math.Round((double)this.CurrentUser.Data.correctAnswers 
+                    / (double)this.CurrentUser.Data.totalProblems, 4) * 100);
+
+                //Update the total %
+                this.CurrentUser.TotalPercantage = 0.0;
+                foreach(double percent in this.CurrentUser.Percentages)
+                {
+                    this.CurrentUser.TotalPercantage += percent;
+                }
+                this.CurrentUser.TotalPercantage = Math.Round(this.CurrentUser.TotalPercantage/ (double)this.CurrentUser.GameCount, 2);
+
+                //do some cleanup of the response labels
+                lbl_coinsGained.Visible = false;
+                lbl_streakResponses.Visible = false;
+
+                //return to login form
                 MainWindow.Instance.SwitchForm("login", this.CurrentUser);
             }
             else
@@ -198,8 +217,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     break;
             }
             lbl_coinsGained.Text = String.Format("+{0}", thisProblemCoins.ToString());
+            lbl_coinsGained.ForeColor = System.Drawing.Color.Green;
         }
 
+        /*
+         * Corey Paxton     - 4/1/2013 - Initial Version
+         * Corey Paxton     - 4/3/2013 - Added Picture representation
+         */
         private void IncorrectAnswer()
         {
             //Incorrect
@@ -214,7 +238,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             {
                 MessageBox.Show(String.Format("Incorrect\nAnswer: {0}", this.CurrentUser.Data.currentProblem.Answer()));
             }
+
             this.CurrentUser.Data.correctStreak = 0;
+
+            //do some cleanup of the response labels
+            lbl_coinsGained.Visible = false;
+            lbl_streakResponses.Visible = false;
         }
         #endregion
     }
