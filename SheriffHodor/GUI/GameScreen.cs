@@ -192,8 +192,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void CorrectAnswer()
         {
             //Correct
-            //TODO Display an indicator that they were right
-            MessageBox.Show("Correct");
+            //Display an indicator that they were right
+            //MessageBox.Show("Correct");
             this.CurrentUser.Data.correctAnswers++;
             this.CurrentUser.Data.correctStreak++;
 

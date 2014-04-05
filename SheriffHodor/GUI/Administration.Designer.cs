@@ -156,7 +156,6 @@
             // btn_users_edit
             // 
             this.btn_users_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_users_edit.Enabled = false;
             this.btn_users_edit.Location = new System.Drawing.Point(129, 381);
             this.btn_users_edit.Name = "btn_users_edit";
             this.btn_users_edit.Size = new System.Drawing.Size(120, 23);

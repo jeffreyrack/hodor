@@ -92,9 +92,22 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             MainWindow.Instance.SwitchForm<CreateNewUser>();
         }
+
         private void btn_users_edit_Click(object sender, EventArgs e)
         {
+            var result = getSelectedName(dtg_users_list, "Name");
+
+            if (result.Count() < 1)
+            {
+                Helpers.DisplayError("No selected user!");
+                
+            }
+            else
+            {
+                MainWindow.Instance.SwitchForm<UpdateUser>(Data.UserList.Instance.GetByName(result.First().ToString()));
+            }
         }
+
         private void btn_users_del_Click(object sender, EventArgs e)
         {
             try

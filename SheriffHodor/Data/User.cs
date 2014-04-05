@@ -112,7 +112,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// Number of games played
         /// </summary>
         public int GameCount { get; set; }
-
+        /// <summary>
+        /// Name of the group the user is in
+        /// </summary>
+        [System.ComponentModel.Browsable(false)] 
+        public string GroupName { get; set; }
 
         [XmlIgnore(), System.ComponentModel.Browsable(false)]
         public User.Runtime Data { get; private set; }
