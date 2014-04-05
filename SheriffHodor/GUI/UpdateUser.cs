@@ -28,6 +28,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             ddl_groups.Refresh();
         }
 
+        /*
+         * Corey Paxton     - 4/5/2014 - Initial Version
+         */
         public override void Entered(StateControl from, Data.User user, params object[] args)
         {
             base.Entered(from, user);
@@ -47,11 +50,17 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
         }
 
+        /*
+         * Corey Paxton     - 4/5/2014 - Initial Version
+         */
         private void button_cancel_Click(object sender, EventArgs e)
         {
             MainWindow.Instance.SwitchForm<Administration>();
         }
 
+        /*
+         * Corey Paxton     - 4/5/2014 - Initial Version
+         */
         private void btn_submit_Click(object sender, EventArgs e)
         {
             this.txt_new_name.Text = this.txt_new_name.Text.Trim();
