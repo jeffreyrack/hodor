@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
-    public class GroupList : ObservableList<Group>
+    public class GroupList : BindingList<Group>
     {
         #region Singleton
         private static GroupList _instance;
@@ -36,7 +37,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             return -1;
         }
         public Group GetByName(string name)
-        {
+        {  
             return this[GetIdxByName(name)];
         }
 

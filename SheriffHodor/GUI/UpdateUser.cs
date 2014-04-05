@@ -16,7 +16,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             GroupListChanged(null, null);
-            Data.GroupList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
         }
 
         private void GroupListChanged(object o, EventArgs e)

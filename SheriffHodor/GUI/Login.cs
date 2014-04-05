@@ -22,7 +22,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             foreach (var u in Data.UserList.Instance)
                 Console.WriteLine(u.ToString());
-            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(UpdateUserList);
             UpdateUserList(null, null);
 
             this.txt_password.KeyPress += new KeyPressEventHandler(enterPress);

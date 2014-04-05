@@ -11,7 +11,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-// FIXME: Crash the program. Figure out a clean way to do it.
+/*
+ * Mathias Lang    - Initial Version
+ * Corey Paxton     - 4/4/2014 - Hiding the unwanted fields
+ * Mathias Lang     - 4/4/2014 - Fixed odd bug in the .NET frmwk by using another datatype.
+*/ 
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
@@ -20,14 +24,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public Administration()
         {
             InitializeComponent();
-            UserListChanged(null, null);
-            GroupListChanged(null, null);
+            dtg_users_list.DataSource = Data.UserList.Instance;
+            dtg_groups_groups.DataSource = Data.GroupList.Instance;
             ReportListChanged(null, null);
-            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(UserListChanged);
-            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(ReportListChanged);
-            // Problem is: You delete an user that has students in. What to do ?
-            //Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
-            Data.GroupList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
         }
 
         /*
@@ -46,30 +45,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_reports_list.Columns["Status"].Visible = false;
             dtg_reports_list.Invalidate();
             dtg_reports_list.Refresh();
-        }
-
-        /*
-         * Matthias Lang    - - Initial Version
-         * Corey Paxton     - 4/4/2014 - Hiding the unwanted fields
-         */ 
-        private void UserListChanged(object o, EventArgs e)
-        {
-            // Users
-            dtg_users_list.DataSource = null;
-            dtg_users_list.DataSource = Data.UserList.Instance;
-            dtg_users_list.Columns["TotalPercentage"].Visible = false;
-            dtg_users_list.Columns["GameCount"].Visible = false;
-            dtg_users_list.Invalidate();
-            dtg_users_list.Refresh();
-        }
-
-        private void GroupListChanged(object o, EventArgs e)
-        {
-            // Groups
-            dtg_groups_groups.DataSource = null;
-            dtg_groups_groups.DataSource = Data.GroupList.Instance;
-            dtg_groups_groups.Invalidate();
-            dtg_groups_groups.Refresh();
         }
 
         private List<object> getSelectedName(DataGridView dgv, string cellname)
@@ -142,7 +117,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
         #endregion
 
-
         // The "Groups" tab.
         #region Groups
         private void btn_groups_logout_Click(object o, EventArgs a)
@@ -201,9 +175,5 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
         }
         #endregion
-
-
-
-
     }
 }

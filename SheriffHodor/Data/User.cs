@@ -22,7 +22,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             Student
         }
 
-        
+
 
         public class Runtime
         {
@@ -107,15 +107,17 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <summary>
         /// Total percentage of all games played
         /// </summary>
+        [System.ComponentModel.Browsable(false)]
         public double TotalPercentage { get; set; }
         /// <summary>
         /// Number of games played
         /// </summary>
+        [System.ComponentModel.Browsable(false)]
         public int GameCount { get; set; }
         /// <summary>
         /// Name of the group the user is in
         /// </summary>
-        [System.ComponentModel.Browsable(false)] 
+        [System.ComponentModel.Browsable(false)]
         public string GroupName { get; set; }
 
         [XmlIgnore(), System.ComponentModel.Browsable(false)]

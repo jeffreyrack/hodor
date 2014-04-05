@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -7,7 +8,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
     /// This list is an ObservableList, hence data in GUI is keep up to date
     /// using the observer pattern.
     /// </summary>
-    public class UserList : ObservableList<User>
+    public class UserList : BindingList<User>
     {
         #region Singleton
         private static UserList _instance;

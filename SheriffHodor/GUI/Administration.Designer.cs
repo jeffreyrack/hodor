@@ -55,9 +55,9 @@
             // 
             // tab_display
             // 
-            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tab_display.Controls.Add(this.pg_report);
             this.tab_display.Controls.Add(this.pg_users);
             this.tab_display.Controls.Add(this.pg_groups);
@@ -249,6 +249,7 @@
             this.dtg_groups_groups.AllowUserToAddRows = false;
             this.dtg_groups_groups.AllowUserToDeleteRows = false;
             this.dtg_groups_groups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_groups_groups.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtg_groups_groups.Location = new System.Drawing.Point(6, 6);
             this.dtg_groups_groups.Name = "dtg_groups_groups";
             this.dtg_groups_groups.ReadOnly = true;

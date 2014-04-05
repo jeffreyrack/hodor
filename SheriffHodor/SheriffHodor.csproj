@@ -64,7 +64,6 @@
     <Compile Include="Data\Problem.cs" />
     <Compile Include="Data\Global.cs" />
     <Compile Include="Data\Helpers.cs" />
-    <Compile Include="Data\ObservableList.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\UserList.cs" />
     <Compile Include="Data\XmlBackend.cs" />
