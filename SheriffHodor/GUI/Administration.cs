@@ -122,7 +122,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 GUI.Helpers.DisplayError("You need to select one and only one group to edit");
                 return;
             }
-            var grp = Data.GroupList.Instance[Data.GroupList.Instance.GetByName(grpNames.First() as string)];
+            var grp = Data.GroupList.Instance[Data.GroupList.Instance.GetIdxByName(grpNames.First() as string)];
             MainWindow.Instance.SwitchForm<UpdateGroup>().SetCurrentGroup(grp);
         }
         private void btn_groups_delete_Click(object sender, EventArgs e)

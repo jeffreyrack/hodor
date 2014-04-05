@@ -22,18 +22,22 @@ namespace CSUSM.CS441.SheriffHodor.Data
 
         public bool RemoveByName(string name)
         {
-            int idx = GetByName(name);
+            int idx = GetIdxByName(name);
             if (idx >= 0)
                 this.RemoveItem(idx);
             return (idx >= 0);
         }
-        public int GetByName(string name)
+        public int GetIdxByName(string name)
         {
             for (int i = 0; i < this.Count; ++i)
                 if (this[i].Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
                     return i;
             Console.WriteLine("FAILED to get '{0}'.", name);
             return -1;
+        }
+        public Group GetByName(string name)
+        {
+            return this[GetIdxByName(name)];
         }
 
         /// <summary>

@@ -19,7 +19,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         protected override void Accept()
         {
             var grpName = txt_newName.Text;
-            if (Data.GroupList.Instance.GetByName(grpName) != -1)
+            if (Data.GroupList.Instance.GetIdxByName(grpName) != -1)
             {
                 GUI.Helpers.DisplayError("There is already a group with this name.");
                 return;
