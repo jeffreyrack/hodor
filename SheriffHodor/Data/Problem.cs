@@ -67,6 +67,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /*
          * Corey Paxton     - 4/3/2014 - Initial Version
          */
+        //TODO make this work with subtraction too
         public string DrawingRepresentation()
         {
             System.Text.StringBuilder returnStr = new System.Text.StringBuilder();
@@ -88,6 +89,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 }
             }
 
+            //TODO make this rows of 10s
             if (dots > 0)
             {
                 returnStr.Append(String.Concat(Enumerable.Repeat(". ", dots)));

@@ -29,6 +29,9 @@
         {
             this.tab_display = new System.Windows.Forms.TabControl();
             this.pg_report = new System.Windows.Forms.TabPage();
+            this.btn_log_out = new System.Windows.Forms.Button();
+            this.btn_details = new System.Windows.Forms.Button();
+            this.dtg_reports_list = new System.Windows.Forms.DataGridView();
             this.pg_users = new System.Windows.Forms.TabPage();
             this.btn_users_logout = new System.Windows.Forms.Button();
             this.btn_users_del = new System.Windows.Forms.Button();
@@ -42,6 +45,8 @@
             this.btn_groups_create = new System.Windows.Forms.Button();
             this.dtg_groups_groups = new System.Windows.Forms.DataGridView();
             this.tab_display.SuspendLayout();
+            this.pg_report.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).BeginInit();
             this.pg_users.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_users_list)).BeginInit();
             this.pg_groups.SuspendLayout();
@@ -50,9 +55,9 @@
             // 
             // tab_display
             // 
-            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tab_display.Controls.Add(this.pg_report);
             this.tab_display.Controls.Add(this.pg_users);
             this.tab_display.Controls.Add(this.pg_groups);
@@ -64,6 +69,9 @@
             // 
             // pg_report
             // 
+            this.pg_report.Controls.Add(this.btn_log_out);
+            this.pg_report.Controls.Add(this.btn_details);
+            this.pg_report.Controls.Add(this.dtg_reports_list);
             this.pg_report.Location = new System.Drawing.Point(4, 22);
             this.pg_report.Name = "pg_report";
             this.pg_report.Padding = new System.Windows.Forms.Padding(3);
@@ -71,6 +79,42 @@
             this.pg_report.TabIndex = 0;
             this.pg_report.Text = "Reports";
             this.pg_report.UseVisualStyleBackColor = true;
+            // 
+            // btn_log_out
+            // 
+            this.btn_log_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_log_out.Location = new System.Drawing.Point(580, 381);
+            this.btn_log_out.Name = "btn_log_out";
+            this.btn_log_out.Size = new System.Drawing.Size(120, 23);
+            this.btn_log_out.TabIndex = 8;
+            this.btn_log_out.Text = "Log out";
+            this.btn_log_out.UseVisualStyleBackColor = true;
+            this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
+            // 
+            // btn_details
+            // 
+            this.btn_details.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_details.Enabled = false;
+            this.btn_details.Location = new System.Drawing.Point(6, 381);
+            this.btn_details.Name = "btn_details";
+            this.btn_details.Size = new System.Drawing.Size(120, 23);
+            this.btn_details.TabIndex = 6;
+            this.btn_details.Text = "View details";
+            this.btn_details.UseVisualStyleBackColor = true;
+            // 
+            // dtg_reports_list
+            // 
+            this.dtg_reports_list.AllowUserToAddRows = false;
+            this.dtg_reports_list.AllowUserToDeleteRows = false;
+            this.dtg_reports_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_reports_list.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtg_reports_list.Location = new System.Drawing.Point(3, 3);
+            this.dtg_reports_list.Name = "dtg_reports_list";
+            this.dtg_reports_list.ReadOnly = true;
+            this.dtg_reports_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_reports_list.Size = new System.Drawing.Size(700, 345);
+            this.dtg_reports_list.StandardTab = true;
+            this.dtg_reports_list.TabIndex = 1;
             // 
             // pg_users
             // 
@@ -223,6 +267,8 @@
             this.Name = "Administration";
             this.Size = new System.Drawing.Size(714, 451);
             this.tab_display.ResumeLayout(false);
+            this.pg_report.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).EndInit();
             this.pg_users.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_users_list)).EndInit();
             this.pg_groups.ResumeLayout(false);
@@ -247,6 +293,9 @@
         private System.Windows.Forms.Button btn_groups_delete;
         private System.Windows.Forms.Button btn_groups_edit;
         private System.Windows.Forms.Button btn_groups_create;
+        private System.Windows.Forms.DataGridView dtg_reports_list;
+        private System.Windows.Forms.Button btn_log_out;
+        private System.Windows.Forms.Button btn_details;
 
 
     }

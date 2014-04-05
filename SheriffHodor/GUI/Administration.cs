@@ -22,20 +22,47 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             UserListChanged(null, null);
             GroupListChanged(null, null);
+            ReportListChanged(null, null);
             Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(UserListChanged);
+            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(ReportListChanged);
             // Problem is: You delete an user that has students in. What to do ?
             //Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
             Data.GroupList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
         }
 
+        /*
+         * Corey Paxton     - 4/4/2014 - Initial Version
+         */
+        private void ReportListChanged(object o, EventArgs e)
+        {
+            // Reports
+            dtg_reports_list.DataSource = null;
+            //var results = from user in Data.UserList.Instance where user.Status == Data.User.UserType.Student select user;
+            //dtg_reports_list.DataSource = results;
+
+            dtg_reports_list.DataSource = Data.UserList.Instance;
+            //dtg_reports_list.Columns["TotalPercentage"].Name = "Total %";
+            //dtg_reports_list.Columns["GameCount"].Name = "Games Played";
+            dtg_reports_list.Columns["Status"].Visible = false;
+            dtg_reports_list.Invalidate();
+            dtg_reports_list.Refresh();
+        }
+
+        /*
+         * Matthias Lang    - - Initial Version
+         * Corey Paxton     - 4/4/2014 - Hiding the unwanted fields
+         */ 
         private void UserListChanged(object o, EventArgs e)
         {
             // Users
             dtg_users_list.DataSource = null;
             dtg_users_list.DataSource = Data.UserList.Instance;
+            dtg_users_list.Columns["TotalPercentage"].Visible = false;
+            dtg_users_list.Columns["GameCount"].Visible = false;
             dtg_users_list.Invalidate();
             dtg_users_list.Refresh();
         }
+
         private void GroupListChanged(object o, EventArgs e)
         {
             // Groups
@@ -53,6 +80,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         // The "Reports" tab.
         #region Reports
+        private void btn_log_out_Click(object sender, EventArgs e)
+        {
+            Decline();
+        }
         #endregion
 
         // The "Users" tab.
@@ -157,5 +188,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
         }
         #endregion
+
+
+
+
     }
 }

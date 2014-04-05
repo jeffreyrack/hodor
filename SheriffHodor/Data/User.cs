@@ -67,7 +67,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             this.Status = status;
             this.Coins = 0;
             this.Percentages = new List<double>();
-            this.TotalPercantage = 0.0;
+            this.TotalPercentage = 0.0;
             this.Data = new Runtime();
         }
         /// <summary>
@@ -97,6 +97,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <summary>
         /// Keeps track of the total number of coins earned by a User
         /// </summary>
+        [System.ComponentModel.Browsable(false)]
         public int Coins { get; set; }
         //  TODO display these in report
         /// <summary>
@@ -104,13 +105,14 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public List<double> Percentages { get; set; }
         /// <summary>
+        /// Total percentage of all games played
+        /// </summary>
+        public double TotalPercentage { get; set; }
+        /// <summary>
         /// Number of games played
         /// </summary>
         public int GameCount { get; set; }
-        /// <summary>
-        /// Total percentage of all games played
-        /// </summary>
-        public double TotalPercantage { get; set; }
+
 
         [XmlIgnore(), System.ComponentModel.Browsable(false)]
         public User.Runtime Data { get; private set; }

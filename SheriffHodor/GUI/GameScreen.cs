@@ -162,12 +162,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     / (double)this.CurrentUser.Data.totalProblems, 4) * 100);
 
                 //Update the total %
-                this.CurrentUser.TotalPercantage = 0.0;
+                this.CurrentUser.TotalPercentage = 0.0;
                 foreach(double percent in this.CurrentUser.Percentages)
                 {
-                    this.CurrentUser.TotalPercantage += percent;
+                    this.CurrentUser.TotalPercentage += percent;
                 }
-                this.CurrentUser.TotalPercantage = Math.Round(this.CurrentUser.TotalPercantage/ (double)this.CurrentUser.GameCount, 2);
+                this.CurrentUser.TotalPercentage = Math.Round(this.CurrentUser.TotalPercentage/ (double)this.CurrentUser.GameCount, 2);
 
                 //do some cleanup of the response labels
                 lbl_coinsGained.Visible = false;
@@ -185,7 +185,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
 
                 //reset the window
-                MainWindow.Instance.SwitchForm<Login>(this.CurrentUser);
+                MainWindow.Instance.SwitchForm<GameScreen>(this.CurrentUser);
             }
         }
 
