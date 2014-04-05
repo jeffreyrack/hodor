@@ -24,23 +24,29 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 GUI.Helpers.DisplayError("There is already a group with this name.");
                 return;
             }
-            var newGroup = new Data.Group();
-            newGroup.Name = grpName;
-            newGroup.Difficulty = getDifficulty();
-            Data.GroupList.Instance.Add(newGroup);
+            this.CurrentGroup.Name = grpName;
+            this.CurrentGroup.Difficulty = getDifficulty();
+            Cleanup();
             MainWindow.Instance.SwitchForm<Administration>();
         }
-
         protected override void Decline()
         {
+            Cleanup();
             MainWindow.Instance.SwitchForm<Administration>();
         }
+        public override void Entered(StateControl from, Data.User user, params object[] args)
+        {
+            base.Entered(from, user, args);
+            txt_newName.Text = string.Empty;
+            txt_oldName.Text = string.Empty;
+        }
+
+        private Data.Group CurrentGroup { get; set; }
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             Decline();
         }
-
         private void btn_accept_Click(object sender, EventArgs e)
         {
             txt_newName.Text = txt_newName.Text.Trim();
@@ -72,17 +78,22 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
         }
 
-        public override void Entered(StateControl from, Data.User user, params object[] args)
-        {
-            base.Entered(from, user, args);
-            txt_newName.Text = string.Empty;
-            txt_oldName.Text = string.Empty;
-        }
-
+        /// <summary>
+        /// Must be called to set the current group.
+        /// </summary>
+        /// <param name="group">The group to update.</param>
         public void SetCurrentGroup(Data.Group group)
         {
+            this.CurrentGroup = group;
             txt_oldName.Text = group.Name;
             setDifficulty(group.Difficulty);
+        }
+
+        private void Cleanup()
+        {
+            this.CurrentGroup = null;
+            txt_newName.Text = string.Empty;
+            txt_oldName.Text = string.Empty;
         }
     }
 }
