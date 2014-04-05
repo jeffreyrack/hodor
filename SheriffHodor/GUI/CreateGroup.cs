@@ -28,12 +28,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             newGroup.Name = grpName;
             newGroup.Difficulty = getDifficulty();
             Data.GroupList.Instance.Add(newGroup);
-            MainWindow.Instance.SwitchForm<Administration>("admin");
+            MainWindow.Instance.SwitchForm<Administration>();
         }
 
         protected override void Decline()
         {
-            MainWindow.Instance.SwitchForm<Administration>("admin");
+            MainWindow.Instance.SwitchForm<Administration>();
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
@@ -57,7 +57,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     : Data.Problem.Difficulty.Hard);
         }
 
-        public override void Entered(StateControl from, Data.User user)
+        public override void Entered(StateControl from, Data.User user, params object[] args)
         {
             base.Entered(from, user);
             txt_name.Text = string.Empty;

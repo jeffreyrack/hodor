@@ -34,7 +34,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          * Corey Paxton     - 3/24/2014 - Added coin stuff
          * Corey Paxton     - 4/3/2014 - Equation and top to bottom form
          */
-        public override void Entered(StateControl from, Data.User user)
+        public override void Entered(StateControl from, Data.User user, params object[] args)
         {
             base.Entered(from, user);
 
@@ -174,7 +174,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 lbl_streakResponses.Visible = false;
 
                 //return to login form
-                MainWindow.Instance.SwitchForm<Login>("login", this.CurrentUser);
+                MainWindow.Instance.SwitchForm<Login>(this.CurrentUser);
             }
             else
             {
@@ -185,7 +185,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
 
                 //reset the window
-                MainWindow.Instance.SwitchForm<Login>("game", this.CurrentUser);
+                MainWindow.Instance.SwitchForm<Login>(this.CurrentUser);
             }
         }
 

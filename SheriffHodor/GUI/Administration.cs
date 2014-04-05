@@ -50,7 +50,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         #region Users Panel
         private void btn_users_add_Click(object sender, EventArgs e)
         {
-            MainWindow.Instance.SwitchForm<CreateNewUser>("createuser");
+            MainWindow.Instance.SwitchForm<CreateNewUser>();
         }
         private void btn_users_edit_Click(object sender, EventArgs e)
         {
@@ -98,7 +98,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
         private void btn_groups_create_Click(object sender, EventArgs e)
         {
-            MainWindow.Instance.SwitchForm<CreateGroup>("creategroup");
+            MainWindow.Instance.SwitchForm<CreateGroup>();
         }
         #endregion
     }

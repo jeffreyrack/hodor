@@ -25,7 +25,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// </summary>
         /// <param name="from">The calling form.</param>
         /// <param name="user">An optionnal user.</param>
-        public virtual void Entered(StateControl from, Data.User user)
+        public virtual void Entered(StateControl from, Data.User user, params object[] args)
         {
             this.CurrentUser = user;
         }
@@ -45,7 +45,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <summary>
         /// Optional implementable method called if the operation abort (ie, cancel pressed).
         /// </summary>
-        protected virtual void Decline() { MainWindow.Instance.SwitchForm<GUI.Login>("login"); }
+        protected virtual void Decline() { MainWindow.Instance.SwitchForm<GUI.Login>(); }
 
         public Data.User CurrentUser { get; protected set; }
     }

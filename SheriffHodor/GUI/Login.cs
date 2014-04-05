@@ -31,7 +31,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
 
 
-        public override void Entered(StateControl from, Data.User user)
+        public override void Entered(StateControl from, Data.User user, params object[] args)
         {
             this.txt_password.Text = String.Empty;
         }
@@ -110,7 +110,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             if (selectedUser.Status == Data.User.UserType.Teacher)
             {
-                MainWindow.Instance.SwitchForm<Administration>("admin");
+                MainWindow.Instance.SwitchForm<Administration>();
             }
             else
             {
@@ -139,7 +139,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 selectedUser.Data.currentProblem = selectedUser.Data.problemHandler(selectedUser.Data.testDiff);
 
                 Console.WriteLine(selectedUser.Data.currentProblem.ToString());
-                MainWindow.Instance.SwitchForm<GameScreen>("game", selectedUser);
+                MainWindow.Instance.SwitchForm<GameScreen>(selectedUser);
             }
         }
     }

@@ -65,25 +65,34 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// </summary>
         /// <param name="name">The name on which the form was registered.</param>
         /// <returns>The form which is now displayed.</returns>
-        public FormType SwitchForm<FormType>(string name, Data.User user = null) where FormType : StateControl
+        public FormType SwitchForm<FormType>(Data.User user = null, params object[] args)
+            where FormType : StateControl, new()
         {
-            StateControl newValue = null;
-            name = name.ToLower();
-            if (!_forms.TryGetValue(name, out newValue))
-                throw new ArgumentOutOfRangeException("name", "The name provided was not found in the dictionnary.");
+            StateControl tmp = null;
+            string name = typeof(FormType).FullName;
+            // First we check if we already have this form in the cache.
+            if (!_forms.TryGetValue(name, out tmp)) {
+                // If not, we create it, and add it to the cache.
+                tmp = new FormType();
+                this._forms.Add(name, tmp);
+            }
+
+            // Typesafe FTW.
+            FormType form = tmp as FormType;
 
             StateControl oldValue = ((this.Controls.Count == 1) ? (this.Controls[0] as StateControl) : (null));
             // Add the control
             this.Controls.Clear();
             if (oldValue != null)
-                oldValue.Leaved(newValue);
-            this.Controls.Add(newValue);
-            newValue.Entered(oldValue, user);
+                oldValue.Leaved(form);
+            this.Controls.Add(form);
+
+            form.Entered(oldValue, user, args);
             // Make sure it is behaving correctly
-            newValue.Dock = DockStyle.Fill;
+            form.Dock = DockStyle.Fill;
             //this.Size = newValue.Size;
             //Console.WriteLine("Switch to [{0}]", name);
-            return newValue as FormType;
+            return form;
         }
     }
 }

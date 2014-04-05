@@ -32,7 +32,7 @@ namespace CSUSM
                     // Student - only //
                     mainWindow.RegisterForm("game", new GUI.GameScreen());
 
-                    mainWindow.SwitchForm<GUI.Login>("login");
+                    mainWindow.SwitchForm<GUI.Login>();
                     // We serialize our data on the app exit.
                     AppDomain.CurrentDomain.ProcessExit += new EventHandler(SaveXMLData);
                     Application.Run(mainWindow);
