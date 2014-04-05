@@ -138,6 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(933, 725);
             this.Controls.Add(this.txt_newName);
             this.Controls.Add(this.txt_oldName);
             this.Controls.Add(this.rdo_hard);
@@ -149,7 +150,6 @@
             this.Controls.Add(this.btn_accept);
             this.Controls.Add(this.btn_cancel);
             this.Name = "UpdateGroup";
-            this.Size = new System.Drawing.Size(439, 290);
             this.ResumeLayout(false);
             this.PerformLayout();
 

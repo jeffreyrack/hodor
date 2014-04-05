@@ -24,14 +24,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 Console.WriteLine(u.ToString());
             UpdateUserList(null, null);
 
-            this.txt_password.KeyPress += new KeyPressEventHandler(enterPress);
+            this.AcceptButton = this.btn_login;
             this.ddl_userList.SelectedIndexChanged +=
             new System.EventHandler(ddl_userList_SelectedIndexChanged);
         }
 
 
-        public override void Entered(StateControl from, Data.User user, params object[] args)
+        public override void Entered(StateControl from, Data.User user)
         {
+            base.Entered(from, user);
             this.txt_password.Text = String.Empty;
         }
 
@@ -63,19 +64,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             else
             {
                 txt_password.Visible = true;
-            }
-        }
-
-        //TODO this only works if they are in the password section and due to being a state
-        //i'm not sure how to make it so enter always applies this event 
-        /*
-         * Corey Paxton     - 3/24/2014 - Initial Version
-         */
-        private void enterPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Return)
-            {
-                btn_login_Click(sender, e);
             }
         }
 

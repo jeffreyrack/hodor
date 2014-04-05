@@ -14,7 +14,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public CreateNewUser()
         {
             InitializeComponent();
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AcceptOnReturn);
+            this.AcceptButton = this.btn_create;
         }
 
         protected override void Accept()
@@ -51,11 +51,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void btn_create_Click(object sender, EventArgs e)
         {
             Accept();
-        }
-        private void AcceptOnReturn(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-                Accept();
         }
         #endregion
     }

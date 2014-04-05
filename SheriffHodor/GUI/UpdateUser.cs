@@ -15,22 +15,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public UpdateUser()
         {
             InitializeComponent();
-            GroupListChanged(null, null);
-        }
-
-        private void GroupListChanged(object o, EventArgs e)
-        {
-            // Groups
-            ddl_groups.DataSource = null;
             ddl_groups.DataSource = Data.GroupList.Instance;
-            ddl_groups.Invalidate();
-            ddl_groups.Refresh();
+            this.AcceptButton = this.btn_submit;
         }
 
         /*
          * Corey Paxton     - 4/5/2014 - Initial Version
          */
-        public override void Entered(StateControl from, Data.User user, params object[] args)
+        public override void Entered(StateControl from, Data.User user)
         {
             base.Entered(from, user);
 

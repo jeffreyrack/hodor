@@ -61,7 +61,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             StateControl tmp = null;
             string name = typeof(FormType).FullName;
             // First we check if we already have this form in the cache.
-            if (!_forms.TryGetValue(name, out tmp)) {
+            if (!_forms.TryGetValue(name, out tmp))
+            {
                 // If not, we create it, and add it to the cache.
                 tmp = new FormType();
                 this._forms.Add(name, tmp);
@@ -77,7 +78,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 oldValue.Leaved(form);
             this.Controls.Add(form);
 
-            form.Entered(oldValue, user, args);
+            form.Entered(oldValue, user);
+            form.Show();
             // Make sure it is behaving correctly
             form.Dock = DockStyle.Fill;
             //this.Size = form.Size;

@@ -20,6 +20,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public GameScreen()
         {
             InitializeComponent();
+            this.AcceptButton = this.btn_next;
             this.txt_answer.KeyPress += new KeyPressEventHandler(answerValidator);
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -34,7 +35,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          * Corey Paxton     - 3/24/2014 - Added coin stuff
          * Corey Paxton     - 4/3/2014 - Equation and top to bottom form
          */
-        public override void Entered(StateControl from, Data.User user, params object[] args)
+        public override void Entered(StateControl from, Data.User user)
         {
             base.Entered(from, user);
 

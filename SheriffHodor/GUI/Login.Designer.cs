@@ -76,6 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(452, 375);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.ddl_userList);
             this.Controls.Add(this.label1);
@@ -83,7 +84,6 @@
             this.MaximumSize = new System.Drawing.Size(452, 375);
             this.MinimumSize = new System.Drawing.Size(452, 375);
             this.Name = "Login";
-            this.Size = new System.Drawing.Size(452, 375);
             this.ResumeLayout(false);
             this.PerformLayout();
 

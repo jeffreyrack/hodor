@@ -14,6 +14,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public CreateGroup()
         {
             InitializeComponent();
+            this.AcceptButton = this.btn_create;
         }
 
         protected override void Accept()
@@ -48,7 +49,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     : Data.Problem.Difficulty.Hard);
         }
 
-        public override void Entered(StateControl from, Data.User user, params object[] args)
+        public override void Entered(StateControl from, Data.User user)
         {
             base.Entered(from, user);
             txt_name.Text = string.Empty;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
@@ -18,14 +19,21 @@ namespace CSUSM.CS441.SheriffHodor.GUI
     /// 
     /// Note: It should be abstract but the designer doesn't like it.
     /// </summary>
-    public class StateControl : System.Windows.Forms.UserControl
+    public class StateControl : Form
     {
+        public StateControl()
+        {
+            this.TopLevel = false;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Dock = DockStyle.Fill;
+        }
+
         /// <summary>
         /// Called when this form is entered (using switchTo(formName)).
         /// </summary>
         /// <param name="from">The calling form.</param>
         /// <param name="user">An optionnal user.</param>
-        public virtual void Entered(StateControl from, Data.User user, params object[] args)
+        public virtual void Entered(StateControl from, Data.User user)
         {
             this.CurrentUser = user;
         }
@@ -36,7 +44,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public virtual void Leaved(StateControl to)
         {
             this.CurrentUser = null;
-        }
+        }   
 
         /// <summary>
         /// Behaviour if the input gets validated.
@@ -45,7 +53,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <summary>
         /// Optional implementable method called if the operation abort (ie, cancel pressed).
         /// </summary>
-        protected virtual void Decline() { MainWindow.Instance.SwitchForm<GUI.Login>(); }
+        protected virtual void Decline()
+        {
+            MainWindow.Instance.SwitchForm<GUI.Login>();
+        }
 
         public Data.User CurrentUser { get; protected set; }
     }

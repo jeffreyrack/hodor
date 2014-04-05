@@ -14,6 +14,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public UpdateGroup()
         {
             InitializeComponent();
+            this.AcceptButton = this.btn_accept;
         }
 
         protected override void Accept()
@@ -34,9 +35,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             Cleanup();
             MainWindow.Instance.SwitchForm<Administration>();
         }
-        public override void Entered(StateControl from, Data.User user, params object[] args)
+        public override void Entered(StateControl from, Data.User user)
         {
-            base.Entered(from, user, args);
+            base.Entered(from, user);
             txt_newName.Text = string.Empty;
             txt_oldName.Text = string.Empty;
         }

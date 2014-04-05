@@ -119,6 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(933, 527);
             this.Controls.Add(this.txt_name);
             this.Controls.Add(this.rdo_hard);
             this.Controls.Add(this.rdo_medium);
@@ -128,7 +129,6 @@
             this.Controls.Add(this.btn_create);
             this.Controls.Add(this.btn_cancel);
             this.Name = "CreateGroup";
-            this.Size = new System.Drawing.Size(455, 218);
             this.ResumeLayout(false);
             this.PerformLayout();
 
