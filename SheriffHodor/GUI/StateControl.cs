@@ -45,7 +45,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <summary>
         /// Optional implementable method called if the operation abort (ie, cancel pressed).
         /// </summary>
-        protected virtual void Decline() { MainWindow.Instance.SwitchForm("login"); }
+        protected virtual void Decline() { MainWindow.Instance.SwitchForm<GUI.Login>("login"); }
 
         public Data.User CurrentUser { get; protected set; }
     }

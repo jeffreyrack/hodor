@@ -25,12 +25,14 @@ namespace CSUSM
                     // Teacher - only //
                     mainWindow.RegisterForm("admin", new GUI.Administration());
                     mainWindow.RegisterForm("createuser", new GUI.CreateNewUser());
+                    mainWindow.RegisterForm("creategroup", new GUI.CreateGroup());
+                    mainWindow.RegisterForm("updategroup", new GUI.UpdateGroup());
                     //mainWindow.RegisterForm("update", new Update());
 
                     // Student - only //
                     mainWindow.RegisterForm("game", new GUI.GameScreen());
 
-                    mainWindow.SwitchForm("login");
+                    mainWindow.SwitchForm<GUI.Login>("login");
                     // We serialize our data on the app exit.
                     AppDomain.CurrentDomain.ProcessExit += new EventHandler(SaveXMLData);
                     Application.Run(mainWindow);

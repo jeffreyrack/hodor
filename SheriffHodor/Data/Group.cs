@@ -17,6 +17,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public List<User> Members { get; set; }
         #endregion
 
+        public Group()
+        {
+            this.Members = new List<User>();
+        }
+
         /*
          *Corey Paxton      - 3/21/2014 - Initial Version
          * Mathias Lang     - 3/27/2014 - Implementing UI stuff according to new SRS.

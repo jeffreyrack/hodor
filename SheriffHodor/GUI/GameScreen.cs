@@ -128,7 +128,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 }
             }
             //TODO remove generality
-            catch (Exception ex)
+            catch (Exception)
             {
                 //got a value that isn't an int in the field somehow
                 txt_answer.Text = String.Empty;
@@ -174,7 +174,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 lbl_streakResponses.Visible = false;
 
                 //return to login form
-                MainWindow.Instance.SwitchForm("login", this.CurrentUser);
+                MainWindow.Instance.SwitchForm<Login>("login", this.CurrentUser);
             }
             else
             {
@@ -185,7 +185,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
 
                 //reset the window
-                MainWindow.Instance.SwitchForm("game", this.CurrentUser);
+                MainWindow.Instance.SwitchForm<Login>("game", this.CurrentUser);
             }
         }
 

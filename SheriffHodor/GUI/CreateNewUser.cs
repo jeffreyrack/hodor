@@ -40,7 +40,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             txt_username.Clear();
             rdo_user.Checked = true;
-            MainWindow.Instance.SwitchForm("admin");
+            MainWindow.Instance.SwitchForm<Administration>("admin");
         }
 
         #region UI Events

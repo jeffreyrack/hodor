@@ -197,6 +197,7 @@
             this.btn_groups_create.TabIndex = 1;
             this.btn_groups_create.Text = "Create group";
             this.btn_groups_create.UseVisualStyleBackColor = true;
+            this.btn_groups_create.Click += new System.EventHandler(this.btn_groups_create_Click);
             // 
             // dtg_groups_groups
             // 

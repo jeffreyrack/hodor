@@ -74,6 +74,18 @@
     <Compile Include="GUI\Administration.designer.cs">
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\CreateGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\CreateGroup.Designer.cs">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UpdateGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UpdateGroup.Designer.cs">
+      <DependentUpon>UpdateGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\CreateNewUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -106,6 +118,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CreateGroup.resx">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UpdateGroup.resx">
+      <DependentUpon>UpdateGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\CreateNewUser.resx">
       <DependentUpon>CreateNewUser.cs</DependentUpon>

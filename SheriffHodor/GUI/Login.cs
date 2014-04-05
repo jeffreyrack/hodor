@@ -110,7 +110,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             if (selectedUser.Status == Data.User.UserType.Teacher)
             {
-                MainWindow.Instance.SwitchForm("admin");
+                MainWindow.Instance.SwitchForm<Administration>("admin");
             }
             else
             {
@@ -139,7 +139,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 selectedUser.Data.currentProblem = selectedUser.Data.problemHandler(selectedUser.Data.testDiff);
 
                 Console.WriteLine(selectedUser.Data.currentProblem.ToString());
-                MainWindow.Instance.SwitchForm("game", selectedUser);
+                MainWindow.Instance.SwitchForm<GameScreen>("game", selectedUser);
             }
         }
     }

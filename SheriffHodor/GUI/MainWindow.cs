@@ -65,7 +65,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// </summary>
         /// <param name="name">The name on which the form was registered.</param>
         /// <returns>The form which is now displayed.</returns>
-        public StateControl SwitchForm(string name, Data.User user = null)
+        public FormType SwitchForm<FormType>(string name, Data.User user = null) where FormType : StateControl
         {
             StateControl newValue = null;
             name = name.ToLower();
@@ -83,7 +83,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             newValue.Dock = DockStyle.Fill;
             //this.Size = newValue.Size;
             //Console.WriteLine("Switch to [{0}]", name);
-            return newValue;
+            return newValue as FormType;
         }
     }
 }
