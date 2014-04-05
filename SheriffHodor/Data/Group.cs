@@ -28,13 +28,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
          */
         public override string ToString()
         {
-            StringBuilder rtnStr = new StringBuilder();
-            rtnStr.AppendFormat("{0}:\n", this.Name);
-            foreach (var mem in this.Members)
-            {
-                rtnStr.AppendLine(mem.ToString());
-            }
-            return rtnStr.ToString();
+            return this.Name;
         }
 
         #region INotifyPropertyChanged Membres

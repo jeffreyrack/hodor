@@ -66,6 +66,18 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (this.txt_new_name.Text != string.Empty)
             {
                 this.CurrentUser.Name = txt_new_name.Text;
+                if (this.CurrentUser.Status == Data.User.UserType.Student)
+                {
+                    //delete the old group if they had one
+                    if (this.CurrentUser.GroupName != null)
+                    {
+                        Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName).Members.Remove(this.CurrentUser);
+                    }
+                    
+                    //add to current group
+                    this.CurrentUser.GroupName = ddl_groups.SelectedItem.ToString();
+                    Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName).Members.Add(this.CurrentUser);
+                }
                 MainWindow.Instance.SwitchForm<Administration>();
             }
             else
