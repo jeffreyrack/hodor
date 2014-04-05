@@ -41,15 +41,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             Decline();
         }
 
-        private void btn_accept_Click(object sender, EventArgs e)
-        {
-            txt_name.Text = txt_name.Text.Trim();
-            if (txt_name.Text == string.Empty)
-                GUI.Helpers.DisplayError("No name provided for the group !");
-            else
-                Accept();
-        }
-
         private Data.Problem.Difficulty getDifficulty()
         {
             return rdo_easy.Checked ? Data.Problem.Difficulty.Easy :
@@ -61,6 +52,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             base.Entered(from, user);
             txt_name.Text = string.Empty;
+        }
+
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            txt_name.Text = txt_name.Text.Trim();
+            if (txt_name.Text == string.Empty)
+                GUI.Helpers.DisplayError("No name provided for the group !");
+            else
+                Accept();
         }
     }
 }

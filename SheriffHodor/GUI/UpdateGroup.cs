@@ -56,11 +56,33 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     (rdo_medium.Checked ? Data.Problem.Difficulty.Medium
                     : Data.Problem.Difficulty.Hard);
         }
-
-        public void Entered(StateControl from, Data.Group group)
+        private void setDifficulty(Data.Problem.Difficulty diff)
         {
+            switch (diff)
+            {
+                case Data.Problem.Difficulty.Easy:
+                    rdo_easy.Checked = true;
+                    break;
+                case Data.Problem.Difficulty.Medium:
+                    rdo_medium.Checked = true;
+                    break;
+                case Data.Problem.Difficulty.Hard:
+                    rdo_hard.Checked = true;
+                    break;
+            }
+        }
+
+        public override void Entered(StateControl from, Data.User user, params object[] args)
+        {
+            base.Entered(from, user, args);
             txt_newName.Text = string.Empty;
             txt_oldName.Text = string.Empty;
+        }
+
+        public void SetCurrentGroup(Data.Group group)
+        {
+            txt_oldName.Text = group.Name;
+            setDifficulty(group.Difficulty);
         }
     }
 }

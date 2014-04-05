@@ -51,16 +51,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
 
         /// <summary>
-        /// Register a control that can be used later via SwitchForm().
-        /// </summary>
-        /// <param name="name">The name to give to the form.</param>
-        /// <param name="toRegister">The form to register.</param>
-        public void RegisterForm(string name, StateControl toRegister)
-        {
-            this._forms.Add(name.ToLower(), toRegister);
-        }
-
-        /// <summary>
         /// Change the current form displayed.
         /// </summary>
         /// <param name="name">The name on which the form was registered.</param>
@@ -90,7 +80,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             form.Entered(oldValue, user, args);
             // Make sure it is behaving correctly
             form.Dock = DockStyle.Fill;
-            //this.Size = newValue.Size;
+            //this.Size = form.Size;
             //Console.WriteLine("Switch to [{0}]", name);
             return form;
         }

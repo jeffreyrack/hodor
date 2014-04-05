@@ -27,26 +27,50 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tab_display = new System.Windows.Forms.TabControl();
+            this.pg_report = new System.Windows.Forms.TabPage();
             this.pg_users = new System.Windows.Forms.TabPage();
             this.btn_users_logout = new System.Windows.Forms.Button();
             this.btn_users_del = new System.Windows.Forms.Button();
             this.btn_users_edit = new System.Windows.Forms.Button();
             this.btn_users_add = new System.Windows.Forms.Button();
             this.dtg_users_list = new System.Windows.Forms.DataGridView();
-            this.pg_report = new System.Windows.Forms.TabPage();
-            this.tab_display = new System.Windows.Forms.TabControl();
             this.pg_groups = new System.Windows.Forms.TabPage();
             this.btn_groups_logout = new System.Windows.Forms.Button();
             this.btn_groups_delete = new System.Windows.Forms.Button();
             this.btn_groups_edit = new System.Windows.Forms.Button();
             this.btn_groups_create = new System.Windows.Forms.Button();
             this.dtg_groups_groups = new System.Windows.Forms.DataGridView();
+            this.tab_display.SuspendLayout();
             this.pg_users.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_users_list)).BeginInit();
-            this.tab_display.SuspendLayout();
             this.pg_groups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_groups_groups)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tab_display
+            // 
+            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tab_display.Controls.Add(this.pg_report);
+            this.tab_display.Controls.Add(this.pg_users);
+            this.tab_display.Controls.Add(this.pg_groups);
+            this.tab_display.Location = new System.Drawing.Point(0, 0);
+            this.tab_display.Name = "tab_display";
+            this.tab_display.SelectedIndex = 0;
+            this.tab_display.Size = new System.Drawing.Size(714, 451);
+            this.tab_display.TabIndex = 19;
+            // 
+            // pg_report
+            // 
+            this.pg_report.Location = new System.Drawing.Point(4, 22);
+            this.pg_report.Name = "pg_report";
+            this.pg_report.Padding = new System.Windows.Forms.Padding(3);
+            this.pg_report.Size = new System.Drawing.Size(706, 425);
+            this.pg_report.TabIndex = 0;
+            this.pg_report.Text = "Reports";
+            this.pg_report.UseVisualStyleBackColor = true;
             // 
             // pg_users
             // 
@@ -122,30 +146,6 @@
             this.dtg_users_list.StandardTab = true;
             this.dtg_users_list.TabIndex = 0;
             // 
-            // pg_report
-            // 
-            this.pg_report.Location = new System.Drawing.Point(4, 22);
-            this.pg_report.Name = "pg_report";
-            this.pg_report.Padding = new System.Windows.Forms.Padding(3);
-            this.pg_report.Size = new System.Drawing.Size(706, 425);
-            this.pg_report.TabIndex = 0;
-            this.pg_report.Text = "Reports";
-            this.pg_report.UseVisualStyleBackColor = true;
-            // 
-            // tab_display
-            // 
-            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tab_display.Controls.Add(this.pg_report);
-            this.tab_display.Controls.Add(this.pg_users);
-            this.tab_display.Controls.Add(this.pg_groups);
-            this.tab_display.Location = new System.Drawing.Point(0, 0);
-            this.tab_display.Name = "tab_display";
-            this.tab_display.SelectedIndex = 0;
-            this.tab_display.Size = new System.Drawing.Size(714, 451);
-            this.tab_display.TabIndex = 19;
-            // 
             // pg_groups
             // 
             this.pg_groups.Controls.Add(this.btn_groups_logout);
@@ -179,6 +179,7 @@
             this.btn_groups_delete.TabIndex = 3;
             this.btn_groups_delete.Text = "Delete group";
             this.btn_groups_delete.UseVisualStyleBackColor = true;
+            this.btn_groups_delete.Click += new System.EventHandler(this.btn_groups_delete_Click);
             // 
             // btn_groups_edit
             // 
@@ -188,6 +189,7 @@
             this.btn_groups_edit.TabIndex = 2;
             this.btn_groups_edit.Text = "Edit group";
             this.btn_groups_edit.UseVisualStyleBackColor = true;
+            this.btn_groups_edit.Click += new System.EventHandler(this.btn_groups_edit_Click);
             // 
             // btn_groups_create
             // 
@@ -201,10 +203,14 @@
             // 
             // dtg_groups_groups
             // 
+            this.dtg_groups_groups.AllowUserToAddRows = false;
+            this.dtg_groups_groups.AllowUserToDeleteRows = false;
             this.dtg_groups_groups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_groups_groups.Location = new System.Drawing.Point(6, 6);
             this.dtg_groups_groups.Name = "dtg_groups_groups";
-            this.dtg_groups_groups.Size = new System.Drawing.Size(694, 284);
+            this.dtg_groups_groups.ReadOnly = true;
+            this.dtg_groups_groups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_groups_groups.Size = new System.Drawing.Size(694, 353);
             this.dtg_groups_groups.TabIndex = 0;
             // 
             // Administration
@@ -216,9 +222,9 @@
             this.MinimumSize = new System.Drawing.Size(714, 451);
             this.Name = "Administration";
             this.Size = new System.Drawing.Size(714, 451);
+            this.tab_display.ResumeLayout(false);
             this.pg_users.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_users_list)).EndInit();
-            this.tab_display.ResumeLayout(false);
             this.pg_groups.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_groups_groups)).EndInit();
             this.ResumeLayout(false);

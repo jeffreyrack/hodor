@@ -103,6 +103,7 @@
             this.btn_create.TabIndex = 11;
             this.btn_create.Text = "Create";
             this.btn_create.UseVisualStyleBackColor = true;
+            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 
             // btn_cancel
             // 
@@ -112,6 +113,7 @@
             this.btn_cancel.TabIndex = 10;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // CreateGroup
             // 
@@ -126,7 +128,7 @@
             this.Controls.Add(this.btn_create);
             this.Controls.Add(this.btn_cancel);
             this.Name = "CreateGroup";
-            this.Size = new System.Drawing.Size(455, 254);
+            this.Size = new System.Drawing.Size(455, 218);
             this.ResumeLayout(false);
             this.PerformLayout();
 

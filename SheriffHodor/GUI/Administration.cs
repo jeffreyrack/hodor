@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+// FIXME: Crash the program. Figure out a clean way to do it.
+
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
     public partial class Administration : StateControl
@@ -21,7 +23,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             UserListChanged(null, null);
             GroupListChanged(null, null);
             Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(UserListChanged);
-            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
+            // Problem is: You delete an user that has students in. What to do ?
+            //Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
             Data.GroupList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(GroupListChanged);
         }
 
@@ -42,6 +45,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_groups_groups.Refresh();
         }
 
+        private List<object> getSelectedName(DataGridView dgv, string cellname)
+        {
+            // The ToList() is needed, as else it would stay lazy and request invalidated data (from SelectRows).
+            return (from DataGridViewRow name in dgv.SelectedRows select name.Cells[cellname].Value).ToList();
+        }
+
         // The "Reports" tab.
         #region Reports
         #endregion
@@ -60,7 +69,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             try
             {
                 // The ToList() is needed, as else it would stay lazy and request invalidated data (from SelectRows).
-                var toDel = (from DataGridViewRow name in dtg_users_list.SelectedRows select name.Cells["Name"].Value).ToList();
+                var toDel = getSelectedName(dtg_users_list, "Name");
                 var count = toDel.Count();
 
                 // No item selected
@@ -99,6 +108,53 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void btn_groups_create_Click(object sender, EventArgs e)
         {
             MainWindow.Instance.SwitchForm<CreateGroup>();
+        }
+        private void btn_groups_edit_Click(object sender, EventArgs e)
+        {
+            var grpNames = getSelectedName(dtg_groups_groups, "Name");
+            if (grpNames.Count == 0)
+            {
+                GUI.Helpers.DisplayError("You need to select one group to edit");
+                return;
+            }
+            if (grpNames.Count != 1)
+            {
+                GUI.Helpers.DisplayError("You need to select one and only one group to edit");
+                return;
+            }
+            var grp = Data.GroupList.Instance[Data.GroupList.Instance.GetByName(grpNames.First() as string)];
+            MainWindow.Instance.SwitchForm<UpdateGroup>().SetCurrentGroup(grp);
+        }
+        private void btn_groups_delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // The ToList() is needed, as else it would stay lazy and request invalidated data (from SelectRows).
+                var toDel = getSelectedName(dtg_groups_groups, "Name");
+                var count = toDel.Count();
+
+                // No item selected
+                if (toDel.Count == 0)
+                {
+                    GUI.Helpers.DisplayError("You need to select at least one group to delete");
+                    return;
+                }
+
+                var msg = string.Format("Are you sure you want to delete {0} ?",
+                    (count > 1) ? (string.Format("{0} groups", count))
+                    : (string.Format("group '{0}'", toDel.First())));
+
+                if (Helpers.AskQuestion(msg) == DialogResult.Yes)
+                    foreach (string u in toDel)
+                        Data.GroupList.Instance.RemoveByName(u);
+            }
+            catch (Exception ex)
+            {
+                // If anything goes wrong, we catch it and log it.
+                // But it isn't much of a problem.
+                Console.WriteLine(ex.Message);
+                throw;
+            }
         }
         #endregion
     }
