@@ -31,9 +31,9 @@
             this.ddl_groupList = new System.Windows.Forms.ComboBox();
             this.lbl_groups = new System.Windows.Forms.Label();
             this.grp_passwords = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txt_passwordConfirm = new System.Windows.Forms.TextBox();
+            this.txt_password = new System.Windows.Forms.TextBox();
+            this.lbl_passwordConfirm = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdo_admin = new System.Windows.Forms.RadioButton();
@@ -78,9 +78,9 @@
             // 
             // grp_passwords
             // 
-            this.grp_passwords.Controls.Add(this.textBox2);
-            this.grp_passwords.Controls.Add(this.textBox1);
-            this.grp_passwords.Controls.Add(this.label2);
+            this.grp_passwords.Controls.Add(this.txt_passwordConfirm);
+            this.grp_passwords.Controls.Add(this.txt_password);
+            this.grp_passwords.Controls.Add(this.lbl_passwordConfirm);
             this.grp_passwords.Controls.Add(this.lbl_password);
             this.grp_passwords.Location = new System.Drawing.Point(155, 226);
             this.grp_passwords.Name = "grp_passwords";
@@ -88,28 +88,28 @@
             this.grp_passwords.TabIndex = 14;
             this.grp_passwords.TabStop = false;
             // 
-            // textBox2
+            // txt_passwordConfirm
             // 
-            this.textBox2.Location = new System.Drawing.Point(63, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(196, 20);
-            this.textBox2.TabIndex = 16;
+            this.txt_passwordConfirm.Location = new System.Drawing.Point(63, 45);
+            this.txt_passwordConfirm.Name = "txt_passwordConfirm";
+            this.txt_passwordConfirm.Size = new System.Drawing.Size(196, 20);
+            this.txt_passwordConfirm.TabIndex = 16;
             // 
-            // textBox1
+            // txt_password
             // 
-            this.textBox1.Location = new System.Drawing.Point(64, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 20);
-            this.textBox1.TabIndex = 15;
+            this.txt_password.Location = new System.Drawing.Point(64, 13);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.Size = new System.Drawing.Size(196, 20);
+            this.txt_password.TabIndex = 15;
             // 
-            // label2
+            // lbl_passwordConfirm
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Confirm:";
+            this.lbl_passwordConfirm.AutoSize = true;
+            this.lbl_passwordConfirm.Location = new System.Drawing.Point(13, 48);
+            this.lbl_passwordConfirm.Name = "lbl_passwordConfirm";
+            this.lbl_passwordConfirm.Size = new System.Drawing.Size(45, 13);
+            this.lbl_passwordConfirm.TabIndex = 1;
+            this.lbl_passwordConfirm.Text = "Confirm:";
             // 
             // lbl_password
             // 
@@ -241,9 +241,9 @@
         private System.Windows.Forms.ComboBox ddl_groupList;
         private System.Windows.Forms.Label lbl_groups;
         private System.Windows.Forms.GroupBox grp_passwords;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_passwordConfirm;
+        private System.Windows.Forms.TextBox txt_password;
+        private System.Windows.Forms.Label lbl_passwordConfirm;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.GroupBox grp_groups;
     }

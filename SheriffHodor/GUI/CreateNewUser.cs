@@ -27,19 +27,46 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         protected override void Accept()
         {
-            if (this.txt_username.Text == string.Empty)
+            // We need to do all the errors handling ahead: That is, because we want the changes
+            // to appear atomics.
+            var name = txt_username.Text.Trim();
+            var type = CheckedType();
+            string pwd = null;
+            string groupName = ddl_groupList.SelectedText != string.Empty ? ddl_groupList.SelectedText : null;
+
+            // Check the username
+            if (name == string.Empty)
             {
-                Helpers.DisplayWarning("You must enter a name to create a new user.");
+                Helpers.DisplayError("You must enter a name to create a new user.");
                 return;
             }
-            if (Data.UserList.Instance.Any(
-                u => u.Name.Equals(txt_username.Text, StringComparison.InvariantCultureIgnoreCase))) {
+            if (Data.UserList.Instance.GetByName(name) != null)
+            {
                 Helpers.DisplayError("There is already an user with this name.");
                 return;
             }
 
-            var type = CheckedType();
-            Data.UserList.Instance.Add(new Data.User(txt_username.Text, type));
+            // Check the password
+            if (type == Data.User.UserType.Teacher)
+            {
+                pwd = txt_password.Text;
+                if (pwd == string.Empty)
+                {
+                    Helpers.DisplayError("You must enter a password to create a new teacher.");
+                    return;
+                }
+                if (pwd != txt_passwordConfirm.Text)
+                {
+                    Helpers.DisplayError("Password don't match.");
+                    return;
+                }
+            }
+
+            var user = new Data.User(txt_username.Text, type, pwd);
+            if (type == Data.User.UserType.Student)
+                user.GroupName = groupName;
+            Data.UserList.Instance.Add(user);
+
             Helpers.DisplayInfo(string.Format("User '{0}' successfully created", txt_username.Text));
             // Cleanup and leave.
             Decline();
@@ -47,6 +74,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         protected override void Decline()
         {
             txt_username.Clear();
+            txt_password.Clear();
+            txt_passwordConfirm.Clear();
             rdo_user.Checked = true;
             MainWindow.Instance.SwitchForm<Administration>();
         }
@@ -65,7 +94,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             Accept();
         }
-        #endregion
 
         private void rdo_user_CheckedChanged(object sender, EventArgs e)
         {
@@ -78,5 +106,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             grp_groups.Visible = false;
             grp_passwords.Visible = true;
         }
+        #endregion
     }
 }
