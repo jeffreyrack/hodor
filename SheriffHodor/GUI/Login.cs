@@ -20,15 +20,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public Login()
         {
             InitializeComponent();
-            ddl_userList.DataSource = new BindingSource(Data.UserList.Instance, "Name");
 
-            UpdateUserList(null, null);
+            ddl_userList.DisplayMember = "Name";
+            ddl_userList.DataSource = Data.UserList.Instance;
 
             this.AcceptButton = this.btn_login;
             this.ddl_userList.SelectedIndexChanged +=
-            new System.EventHandler(ddl_userList_SelectedIndexChanged);
+                new System.EventHandler(ddl_userList_SelectedIndexChanged);
         }
-
 
         public override void Entered(StateControl from, Data.User user)
         {
@@ -42,38 +41,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void ddl_userList_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             this.txt_password.Text = String.Empty;
-
-            var result = from user in Data.UserList.Instance
-                         where user.Name.Equals(ddl_userList.Text, StringComparison.InvariantCultureIgnoreCase)
-                         select user;
-
-            if (result.Count() != 1)
-            {
-                // Being paranoid doesn't hurt : We shouldn't get more than 1 result ever.
-                Contract.Assert(result.Count() == 0);
-                Helpers.DisplayError("Then name you entered is not valid !");
-                return;
-            }
-
-            var selectedUser = result.First();
-
-            if (selectedUser.Status != Data.User.UserType.Teacher)
-            {
-                txt_password.Visible = false;
-            }
-            else
-            {
+            var selectedUser = Data.UserList.Instance.GetByName(ddl_userList.Text);
+            if (selectedUser.Status == Data.User.UserType.Teacher)
                 txt_password.Visible = true;
-            }
-        }
-
-        private void UpdateUserList(object o, EventArgs e)
-        {
-            ddl_userList.DataSource = Data.UserList.Instance.Select(x => x.Name).ToList();
+            else
+                txt_password.Visible = false;
         }
 
         /*
-         * Matthias Lang    - 3/17/2014 - Initial Version
+         * Mathias Lang    - 3/17/2014 - Initial Version
          * Corey Paxton     - 3/17/2014 - Sample create test with explicitly defined data
          */
         //The login button that will either take a user to the game or the admin to the admin screen
@@ -81,12 +57,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             // We retrive the user currently selected.
             var selectedUser = Data.UserList.Instance.GetByName(ddl_userList.Text);
-            if (selectedUser == null)
-            {
-                Helpers.DisplayError("Then name you entered is not valid !");
-                return;
-            }
-
             if (selectedUser.Status == Data.User.UserType.Teacher)
             {
                 if (this.txt_password.Text == string.Empty)

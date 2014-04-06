@@ -36,6 +36,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -80,7 +81,7 @@
       <DependentUpon>CreateGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UpdateGroup.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\UpdateGroup.Designer.cs">
       <DependentUpon>UpdateGroup.cs</DependentUpon>
@@ -95,14 +96,14 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\GameScreen.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\GameScreen.designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Helpers.cs" />
     <Compile Include="GUI\Login.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
@@ -114,7 +115,7 @@
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UpdateUser.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\UpdateUser.Designer.cs">
       <DependentUpon>UpdateUser.cs</DependentUpon>

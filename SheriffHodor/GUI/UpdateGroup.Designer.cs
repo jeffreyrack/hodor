@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 725);
+            this.ClientSize = new System.Drawing.Size(933, 527);
             this.Controls.Add(this.txt_newName);
             this.Controls.Add(this.txt_oldName);
             this.Controls.Add(this.rdo_hard);

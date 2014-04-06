@@ -50,7 +50,8 @@ namespace CSUSM.CS441.SheriffHodor.Data
 
         public Group GetByName(string name)
         {  
-            return this[GetIdxByName(name)];
+            var idx = GetIdxByName(name);
+            return idx == -1 ? null : this[idx];
         }
 
         /// <summary>

@@ -20,12 +20,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         protected override void Accept()
         {
             var grpName = txt_newName.Text;
-            if (Data.GroupList.Instance.GetIdxByName(grpName) != -1)
+            if (grpName != txt_oldName.Text)
             {
-                GUI.Helpers.DisplayError("There is already a group with this name.");
-                return;
+                if (Data.GroupList.Instance.GetIdxByName(grpName) != -1)
+                {
+                    GUI.Helpers.DisplayError("There is already a group with this name.");
+                    return;
+                }
+                this.CurrentGroup.Name = grpName;
             }
-            this.CurrentGroup.Name = grpName;
             this.CurrentGroup.Difficulty = getDifficulty();
             Cleanup();
             MainWindow.Instance.SwitchForm<Administration>();
@@ -86,7 +89,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public void SetCurrentGroup(Data.Group group)
         {
             this.CurrentGroup = group;
-            txt_oldName.Text = group.Name;
+            txt_oldName.Text = txt_newName.Text = group.Name;
             setDifficulty(group.Difficulty);
         }
 
