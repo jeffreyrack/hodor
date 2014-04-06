@@ -99,7 +99,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName).Members.Add(this.CurrentUser);
             }
 
-            this.CurrentUser.Name = txt_newName.Text;
+            if (txt_newName.Text != txt_currentName.Text)
+                this.CurrentUser.Name = txt_newName.Text;
 
             MainWindow.Instance.SwitchForm<Administration>();
         }
