@@ -60,6 +60,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     Helpers.DisplayError("Password don't match.");
                     return;
                 }
+                pwd = Data.Helpers.sha1Of(pwd);
             }
 
             var user = new Data.User(txt_username.Text, type, pwd);
