@@ -20,8 +20,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public Login()
         {
             InitializeComponent();
-            foreach (var u in Data.UserList.Instance)
-                Console.WriteLine(u.ToString());
+            ddl_userList.DataSource = new BindingSource(Data.UserList.Instance, "Name");
+
             UpdateUserList(null, null);
 
             this.AcceptButton = this.btn_login;

@@ -28,52 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txt_current_name = new System.Windows.Forms.TextBox();
-            this.txt_new_name = new System.Windows.Forms.TextBox();
-            this.btn_submit = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ddl_groups = new System.Windows.Forms.ComboBox();
             this.lbl_group = new System.Windows.Forms.Label();
             this.lbl_new_name = new System.Windows.Forms.Label();
             this.lbl_current_name = new System.Windows.Forms.Label();
+            this.txt_new_name = new System.Windows.Forms.TextBox();
+            this.txt_current_name = new System.Windows.Forms.TextBox();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_submit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txt_current_name
-            // 
-            this.txt_current_name.Location = new System.Drawing.Point(84, 13);
-            this.txt_current_name.Name = "txt_current_name";
-            this.txt_current_name.ReadOnly = true;
-            this.txt_current_name.Size = new System.Drawing.Size(211, 20);
-            this.txt_current_name.TabIndex = 0;
-            // 
-            // txt_new_name
-            // 
-            this.txt_new_name.Location = new System.Drawing.Point(84, 102);
-            this.txt_new_name.Name = "txt_new_name";
-            this.txt_new_name.Size = new System.Drawing.Size(211, 20);
-            this.txt_new_name.TabIndex = 1;
-            // 
-            // btn_submit
-            // 
-            this.btn_submit.Location = new System.Drawing.Point(13, 201);
-            this.btn_submit.Name = "btn_submit";
-            this.btn_submit.Size = new System.Drawing.Size(75, 23);
-            this.btn_submit.TabIndex = 2;
-            this.btn_submit.Text = "Submit";
-            this.btn_submit.UseVisualStyleBackColor = true;
-            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Location = new System.Drawing.Point(239, 201);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel.TabIndex = 3;
-            this.btn_cancel.Text = "Cancel";
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            this.btn_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // groupBox1
             // 
@@ -125,15 +90,50 @@
             this.lbl_current_name.TabIndex = 3;
             this.lbl_current_name.Text = "Current Name";
             // 
+            // txt_new_name
+            // 
+            this.txt_new_name.Location = new System.Drawing.Point(84, 102);
+            this.txt_new_name.Name = "txt_new_name";
+            this.txt_new_name.Size = new System.Drawing.Size(211, 20);
+            this.txt_new_name.TabIndex = 1;
+            // 
+            // txt_current_name
+            // 
+            this.txt_current_name.Location = new System.Drawing.Point(84, 13);
+            this.txt_current_name.Name = "txt_current_name";
+            this.txt_current_name.ReadOnly = true;
+            this.txt_current_name.Size = new System.Drawing.Size(211, 20);
+            this.txt_current_name.TabIndex = 0;
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(239, 201);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.TabIndex = 3;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.button_cancel_Click);
+            // 
+            // btn_submit
+            // 
+            this.btn_submit.Location = new System.Drawing.Point(13, 201);
+            this.btn_submit.Name = "btn_submit";
+            this.btn_submit.Size = new System.Drawing.Size(75, 23);
+            this.btn_submit.TabIndex = 2;
+            this.btn_submit.Text = "Submit";
+            this.btn_submit.UseVisualStyleBackColor = true;
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
+            // 
             // UpdateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(933, 527);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_submit);
             this.Name = "UpdateUser";
-            this.Size = new System.Drawing.Size(400, 253);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
