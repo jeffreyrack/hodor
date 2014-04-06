@@ -25,8 +25,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             ddl_userList.DataSource = Data.UserList.Instance;
 
             this.AcceptButton = this.btn_login;
+
             this.ddl_userList.SelectedIndexChanged +=
-                new System.EventHandler(ddl_userList_SelectedIndexChanged);
+                new System.EventHandler(ddl_userList_SelectionChangeCommitted);
         }
 
         public override void Entered(StateControl from, Data.User user)
@@ -37,15 +38,23 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         /*
          * Corey Paxton     - 3/24/2014 - Initial Version
+         * Corey Paxton     - 4/6/2014 - Setting focus to password on selection
          */
-        private void ddl_userList_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void ddl_userList_SelectionChangeCommitted(object sender, System.EventArgs e)
         {
             this.txt_password.Text = String.Empty;
             var selectedUser = Data.UserList.Instance.GetByName(ddl_userList.Text);
             if (selectedUser.Status == Data.User.UserType.Teacher)
+            {
                 txt_password.Visible = true;
+                //TODO this fires on arrow navigation and makes it so everytime you select
+                //an admin it removes focus from the list
+                txt_password.Focus();
+            }
             else
+            {
                 txt_password.Visible = false;
+            }
         }
 
         /*
@@ -96,7 +105,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 selectedUser.Data.currentProblem = selectedUser.Data.problemHandler(selectedUser.Data.testDiff);
 
                 Console.WriteLine(selectedUser.Data.currentProblem.ToString());
-                MainWindow.Instance.SwitchForm<GameScreen>(selectedUser);
+                MainWindow.Instance.SwitchForm<StudentMenu>(selectedUser);
             }
         }
     }
