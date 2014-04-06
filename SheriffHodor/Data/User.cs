@@ -48,6 +48,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                     this.problemHandler = Problem.SubProblem;
                 }
 
+                this.testDiff = Problem.Difficulty.Easy;
                 this.currentProblem = this.problemHandler(this.testDiff);
             }
             #endregion

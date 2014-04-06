@@ -30,83 +30,28 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txt_answer = new System.Windows.Forms.TextBox();
-            this.lbl_problem = new System.Windows.Forms.Label();
-            this.btn_next = new System.Windows.Forms.Button();
-            this.lbl_index = new System.Windows.Forms.Label();
-            this.lbl_coins = new System.Windows.Forms.Label();
-            this.lbl_coinsGained = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lbl_streakResponses = new System.Windows.Forms.Label();
-            this.grp_problem = new System.Windows.Forms.GroupBox();
             this.btn_return_to_menu = new System.Windows.Forms.Button();
+            this.grp_problem = new System.Windows.Forms.GroupBox();
+            this.lbl_problem = new System.Windows.Forms.Label();
+            this.txt_answer = new System.Windows.Forms.TextBox();
+            this.btn_next = new System.Windows.Forms.Button();
+            this.lbl_Responses = new System.Windows.Forms.Label();
+            this.lbl_coinsGained = new System.Windows.Forms.Label();
+            this.lbl_coins = new System.Windows.Forms.Label();
+            this.lbl_index = new System.Windows.Forms.Label();
             this.grp_problem.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txt_answer
+            // btn_return_to_menu
             // 
-            this.txt_answer.Location = new System.Drawing.Point(67, 94);
-            this.txt_answer.MaxLength = 4;
-            this.txt_answer.Name = "txt_answer";
-            this.txt_answer.Size = new System.Drawing.Size(71, 20);
-            this.txt_answer.TabIndex = 0;
-            // 
-            // lbl_problem
-            // 
-            this.lbl_problem.Location = new System.Drawing.Point(6, 16);
-            this.lbl_problem.Name = "lbl_problem";
-            this.lbl_problem.Size = new System.Drawing.Size(175, 72);
-            this.lbl_problem.TabIndex = 1;
-            this.lbl_problem.Text = "{operand0} {operator} {operand1} =";
-            this.lbl_problem.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btn_next
-            // 
-            this.btn_next.Location = new System.Drawing.Point(144, 91);
-            this.btn_next.Name = "btn_next";
-            this.btn_next.Size = new System.Drawing.Size(75, 23);
-            this.btn_next.TabIndex = 2;
-            this.btn_next.Text = "Next";
-            this.btn_next.UseVisualStyleBackColor = true;
-            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
-            // 
-            // lbl_index
-            // 
-            this.lbl_index.AutoSize = true;
-            this.lbl_index.Location = new System.Drawing.Point(211, 59);
-            this.lbl_index.Name = "lbl_index";
-            this.lbl_index.Size = new System.Drawing.Size(91, 13);
-            this.lbl_index.TabIndex = 4;
-            this.lbl_index.Text = "Question {0} / {1}";
-            // 
-            // lbl_coins
-            // 
-            this.lbl_coins.AutoSize = true;
-            this.lbl_coins.Location = new System.Drawing.Point(28, 359);
-            this.lbl_coins.Name = "lbl_coins";
-            this.lbl_coins.Size = new System.Drawing.Size(53, 13);
-            this.lbl_coins.TabIndex = 5;
-            this.lbl_coins.Text = "Coins: {0}";
-            // 
-            // lbl_coinsGained
-            // 
-            this.lbl_coinsGained.AutoSize = true;
-            this.lbl_coinsGained.Location = new System.Drawing.Point(88, 359);
-            this.lbl_coinsGained.Name = "lbl_coinsGained";
-            this.lbl_coinsGained.Size = new System.Drawing.Size(70, 13);
-            this.lbl_coinsGained.TabIndex = 6;
-            this.lbl_coinsGained.Text = "Coins Gained";
-            this.lbl_coinsGained.Visible = false;
-            // 
-            // lbl_streakResponses
-            // 
-            this.lbl_streakResponses.AutoSize = true;
-            this.lbl_streakResponses.Location = new System.Drawing.Point(213, 28);
-            this.lbl_streakResponses.Name = "lbl_streakResponses";
-            this.lbl_streakResponses.Size = new System.Drawing.Size(89, 13);
-            this.lbl_streakResponses.TabIndex = 7;
-            this.lbl_streakResponses.Text = "Streak responses";
-            this.lbl_streakResponses.Visible = false;
+            this.btn_return_to_menu.Location = new System.Drawing.Point(603, 352);
+            this.btn_return_to_menu.Name = "btn_return_to_menu";
+            this.btn_return_to_menu.Size = new System.Drawing.Size(96, 27);
+            this.btn_return_to_menu.TabIndex = 9;
+            this.btn_return_to_menu.Text = "Return to menu";
+            this.btn_return_to_menu.UseVisualStyleBackColor = true;
+            this.btn_return_to_menu.Click += new System.EventHandler(this.btn_return_to_menu_Click);
             // 
             // grp_problem
             // 
@@ -120,15 +65,70 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.grp_problem.TabStop = false;
             this.grp_problem.Text = "Problem";
             // 
-            // btn_return_to_menu
+            // lbl_problem
             // 
-            this.btn_return_to_menu.Location = new System.Drawing.Point(603, 352);
-            this.btn_return_to_menu.Name = "btn_return_to_menu";
-            this.btn_return_to_menu.Size = new System.Drawing.Size(96, 27);
-            this.btn_return_to_menu.TabIndex = 9;
-            this.btn_return_to_menu.Text = "Return to menu";
-            this.btn_return_to_menu.UseVisualStyleBackColor = true;
-            this.btn_return_to_menu.Click += new System.EventHandler(this.btn_return_to_menu_Click);
+            this.lbl_problem.Location = new System.Drawing.Point(6, 16);
+            this.lbl_problem.Name = "lbl_problem";
+            this.lbl_problem.Size = new System.Drawing.Size(175, 72);
+            this.lbl_problem.TabIndex = 1;
+            this.lbl_problem.Text = "{operand0} {operator} {operand1} =";
+            this.lbl_problem.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txt_answer
+            // 
+            this.txt_answer.Location = new System.Drawing.Point(67, 94);
+            this.txt_answer.MaxLength = 4;
+            this.txt_answer.Name = "txt_answer";
+            this.txt_answer.Size = new System.Drawing.Size(71, 20);
+            this.txt_answer.TabIndex = 0;
+            // 
+            // btn_next
+            // 
+            this.btn_next.Location = new System.Drawing.Point(144, 91);
+            this.btn_next.Name = "btn_next";
+            this.btn_next.Size = new System.Drawing.Size(75, 23);
+            this.btn_next.TabIndex = 2;
+            this.btn_next.Text = "Next";
+            this.btn_next.UseVisualStyleBackColor = true;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+            // 
+            // lbl_Responses
+            // 
+            this.lbl_Responses.AutoSize = true;
+            this.lbl_Responses.Location = new System.Drawing.Point(213, 28);
+            this.lbl_Responses.Name = "lbl_Responses";
+            this.lbl_Responses.Size = new System.Drawing.Size(60, 13);
+            this.lbl_Responses.TabIndex = 7;
+            this.lbl_Responses.Text = "Responses";
+            this.lbl_Responses.Visible = false;
+            // 
+            // lbl_coinsGained
+            // 
+            this.lbl_coinsGained.AutoSize = true;
+            this.lbl_coinsGained.Location = new System.Drawing.Point(88, 359);
+            this.lbl_coinsGained.Name = "lbl_coinsGained";
+            this.lbl_coinsGained.Size = new System.Drawing.Size(70, 13);
+            this.lbl_coinsGained.TabIndex = 6;
+            this.lbl_coinsGained.Text = "Coins Gained";
+            this.lbl_coinsGained.Visible = false;
+            // 
+            // lbl_coins
+            // 
+            this.lbl_coins.AutoSize = true;
+            this.lbl_coins.Location = new System.Drawing.Point(28, 359);
+            this.lbl_coins.Name = "lbl_coins";
+            this.lbl_coins.Size = new System.Drawing.Size(53, 13);
+            this.lbl_coins.TabIndex = 5;
+            this.lbl_coins.Text = "Coins: {0}";
+            // 
+            // lbl_index
+            // 
+            this.lbl_index.AutoSize = true;
+            this.lbl_index.Location = new System.Drawing.Point(211, 59);
+            this.lbl_index.Name = "lbl_index";
+            this.lbl_index.Size = new System.Drawing.Size(91, 13);
+            this.lbl_index.TabIndex = 4;
+            this.lbl_index.Text = "Question {0} / {1}";
             // 
             // GameScreen
             // 
@@ -137,7 +137,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.ClientSize = new System.Drawing.Size(800, 398);
             this.Controls.Add(this.btn_return_to_menu);
             this.Controls.Add(this.grp_problem);
-            this.Controls.Add(this.lbl_streakResponses);
+            this.Controls.Add(this.lbl_Responses);
             this.Controls.Add(this.lbl_coinsGained);
             this.Controls.Add(this.lbl_coins);
             this.Controls.Add(this.lbl_index);
@@ -160,7 +160,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private System.Windows.Forms.Label lbl_coins;
         private System.Windows.Forms.Label lbl_coinsGained;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lbl_streakResponses;
+        private System.Windows.Forms.Label lbl_Responses;
         private System.Windows.Forms.GroupBox grp_problem;
         private System.Windows.Forms.Button btn_return_to_menu;
     }

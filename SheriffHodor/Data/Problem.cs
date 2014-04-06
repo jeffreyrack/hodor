@@ -22,7 +22,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public enum Operator : ushort
         {
             Addition = 0,
-            Substraction = 1
+            Subtraction = 1
         }
 
         public List<ushort> Operands { get; set; }
@@ -64,48 +64,131 @@ namespace CSUSM.CS441.SheriffHodor.Data
             return (returnStr.ToString());
         }
 
+        public enum NumberRepresentation
+        {
+            Dots = 1,
+            Dashes = 10,
+            Squares = 100
+        };
+
+        private string RepeatNumberRepresent(int repeatTimes, NumberRepresentation numberType)
+        {
+            System.Text.StringBuilder returnStr = new System.Text.StringBuilder();
+
+            int temp = repeatTimes;
+            string repeatStr = String.Empty;
+
+            switch (numberType)
+            {
+                case NumberRepresentation.Dots: repeatStr = ". ";
+                    break;
+                case NumberRepresentation.Dashes: repeatStr = "| ";
+                    break;
+                case NumberRepresentation.Squares: repeatStr = "[] ";
+                    break;
+            }
+            if (temp > 0)
+            {
+                while ((temp - 10) > 0)
+                {
+                    returnStr.AppendLine(String.Concat(Enumerable.Repeat(repeatStr, 10)));
+                    temp -= 10;
+                }
+
+                returnStr.Append(String.Concat(Enumerable.Repeat(repeatStr, temp)));
+                returnStr.AppendFormat("={0}\n", repeatTimes * (int)numberType);
+            }
+
+            return (returnStr.ToString());
+        }
+
         /*
          * Corey Paxton     - 4/3/2014 - Initial Version
+         * Corey Paxton     - 4/6/2014 - Fixed to common core standards
          */
         //TODO make this work with subtraction too
-        public string DrawingRepresentation()
+        public string DrawingRepresentation(int num)
         {
             System.Text.StringBuilder returnStr = new System.Text.StringBuilder();
             int dots = 0;
             int dashes = 0;
             int squares = 0;
             int tempOp;
-            foreach (ushort operand in Operands)
-            {
-                dots += operand % 10;
-                if ( (tempOp = (operand / 10)) > 0)
-                {
-                    dashes += tempOp % 10;
 
-                    if ((tempOp = (tempOp / 10)) > 0)
+            //get each digit of the number
+            dots = num % 10;
+            if ((tempOp = (num / 10)) > 0)
+            {
+                dashes = tempOp % 10;
+
+                if ((tempOp = (tempOp / 10)) > 0)
+                {
+                    squares = tempOp % 10;
+                }
+
+            }
+            returnStr.Append(RepeatNumberRepresent(dots, NumberRepresentation.Dots));
+            returnStr.Append(RepeatNumberRepresent(dashes, NumberRepresentation.Dashes));
+            returnStr.Append(RepeatNumberRepresent(squares, NumberRepresentation.Squares));
+
+            return (returnStr.ToString());
+        }
+
+        public string DrawingRepresentation()
+        {
+            System.Text.StringBuilder returnStr = new System.Text.StringBuilder();
+
+            if (this.op == Operator.Addition)
+            {
+                returnStr.AppendFormat("{0}\nAnswer: {1}", DrawingRepresentation((int)this.Answer()), this.Answer().ToString());
+            }
+            else if (this.op == Operator.Subtraction)
+            {
+                for (int i = 0; i < Operands.Count; i++)
+                {
+                    returnStr.Append(DrawingRepresentation(Operands[i]));
+                    if (i < Operands.Count - 1)
                     {
-                        squares += tempOp % 10;
+                        returnStr.AppendLine("MINUS");
+                    }
+                    else
+                    {
+                        returnStr.AppendLine("EQUALS");
+                        returnStr.AppendFormat("{0}\nAnswer: {1}", DrawingRepresentation((int)this.Answer()), this.Answer().ToString());
                     }
                 }
-            }
+                //get each digit of the number
+                /*dots = Operands[0] % 10;
+                returnStr.Append(RepeatNumberRepresent(dots, NumberRepresentation.Dots));
+                returnStr.AppendLine("-");
+                dots = Operands[1] % 10;
+                returnStr.Append(RepeatNumberRepresent(dots, NumberRepresentation.Dots));*/
 
-            //TODO make this rows of 10s
-            if (dots > 0)
-            {
-                returnStr.Append(String.Concat(Enumerable.Repeat(". ", dots)));
-                returnStr.AppendFormat("={0}\n", dots);
-            }
+                /*
+                if ((tempOp = (Operands[0] / 10)) > 0)
+                {
+                    dashes = tempOp % 10;
+                    returnStr.Append(RepeatNumberRepresent(dashes, NumberRepresentation.Dashes));
+                    if ((tempOp = (Operands[1] / 10)) > 0)
+                    {
+                        returnStr.AppendLine("-");
+                        tempOp = tempOp % 10;
+                        returnStr.Append(RepeatNumberRepresent(tempOp, NumberRepresentation.Dashes));
+                    }
 
-            if (dashes > 0)
-            {
-                returnStr.Append(String.Concat(Enumerable.Repeat("| ", dashes)));
-                returnStr.AppendFormat("={0}\n", dashes * 10);
-            }
+                    if ((tempOp = (Operands[0] / 10)) > 0)
+                    {
+                        squares = tempOp % 10;
+                        returnStr.Append(RepeatNumberRepresent(squares, NumberRepresentation.Squares));
+                        if ((tempOp = (Operands[1] / 10)) > 0)
+                        {
+                            returnStr.AppendLine("-");
+                            tempOp = tempOp % 10;
+                            returnStr.Append(RepeatNumberRepresent(tempOp, NumberRepresentation.Squares));
+                        }
 
-            if (squares > 0)
-            {
-                returnStr.Append(String.Concat(Enumerable.Repeat("[] ", squares)));
-                returnStr.AppendFormat("={0}", squares * 100);
+                    }
+                }*/
             }
 
             return (returnStr.ToString());
@@ -157,11 +240,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
             int numOfTerms = rand.Next(2, 6);
             List<ushort> terms = new List<ushort>();
 
-            
+
             for (int i = 0; i < numOfTerms; i++)
             {
                 //terms.Add( (ushort)rand.Next(0, ((int)(diff) / (numOfTerms/2) ) + 1) );
-                terms.Add( (ushort)rand.Next(0, (int)(diff) + 1) );
+                terms.Add((ushort)rand.Next(0, (int)(diff) + 1));
             }
 
             return (new Problem(terms, Problem.Operator.Addition));
@@ -194,7 +277,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 terms.Add(term2);
                 terms.Add(term1);
             }
-            return (new Problem(terms, Problem.Operator.Substraction));
+            return (new Problem(terms, Problem.Operator.Subtraction));
         }
 
         public static bool AttemptAnswer(int answer, Problem p)
@@ -205,7 +288,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public static int CoinsGained(int streakCount)
         {
             int coins = 0;
-            
+
             if (streakCount >= 5)
             {
                 coins = 3;
@@ -223,6 +306,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
         }
     }
 
-    
+
 
 }

@@ -80,7 +80,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (this.CurrentUser.Data.problemTime == 1)
             {
                 lbl_coinsGained.Visible = false;
-                lbl_streakResponses.Visible = false;
+                lbl_Responses.Visible = false;
             }
         }
 
@@ -175,7 +175,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
                 //do some cleanup of the response labels
                 lbl_coinsGained.Visible = false;
-                lbl_streakResponses.Visible = false;
+                lbl_Responses.Visible = false;
 
                 //return to login form
                 MainWindow.Instance.SwitchForm<Login>(this.CurrentUser);
@@ -210,16 +210,19 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             switch (this.CurrentUser.Data.correctStreak)
             {
                 case 3:
-                    lbl_streakResponses.ForeColor = System.Drawing.Color.Green;
-                    lbl_streakResponses.Text = "Three in a row!";
-                    lbl_streakResponses.Visible = true;
+                    lbl_Responses.ForeColor = System.Drawing.Color.Green;
+                    lbl_Responses.Text = "Streak Bonus";
                     break;
                 case 5:
-                    lbl_streakResponses.ForeColor = System.Drawing.Color.OrangeRed;
-                    lbl_streakResponses.Text = "On fire!";
-                    lbl_streakResponses.Visible = true;
+                    lbl_Responses.ForeColor = System.Drawing.Color.OrangeRed;
+                    lbl_Responses.Text = "On fire!";
+                    break;
+                default:
+                    lbl_Responses.ForeColor = System.Drawing.Color.Green;
+                    lbl_Responses.Text = "Correct";
                     break;
             }
+            lbl_Responses.Visible = true;
             lbl_coinsGained.Text = String.Format("+{0}", thisProblemCoins.ToString());
             lbl_coinsGained.ForeColor = System.Drawing.Color.Green;
         }
@@ -232,22 +235,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             //Incorrect
             //Display an indicator that they were wrong and the drawing representation of the correct answer
-            //TODO learn how to represent subtraction with the pictures
-            if (this.CurrentUser.Data.currentProblem.op == Data.Problem.Operator.Addition)
-            {
-                MessageBox.Show(String.Format("{0}\nAnswer: {1}", this.CurrentUser.Data.currentProblem.DrawingRepresentation(),
-                    this.CurrentUser.Data.currentProblem.Answer()));
-            }
-            else
-            {
-                MessageBox.Show(String.Format("Incorrect\nAnswer: {0}", this.CurrentUser.Data.currentProblem.Answer()));
-            }
+            MessageBox.Show(this.CurrentUser.Data.currentProblem.DrawingRepresentation());
 
             this.CurrentUser.Data.correctStreak = 0;
 
             //do some cleanup of the response labels
             lbl_coinsGained.Visible = false;
-            lbl_streakResponses.Visible = false;
+            lbl_Responses.Visible = false;
         }
         #endregion
 
