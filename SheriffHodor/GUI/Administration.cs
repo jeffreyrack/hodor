@@ -65,14 +65,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             var result = getSelectedName(dtg_users_list, "Name");
 
             if (result.Count() < 1)
-            {
                 Helpers.DisplayError("No selected user!");
-
-            }
             else
-            {
                 MainWindow.Instance.SwitchForm<UpdateUser>(Data.UserList.Instance.GetByName(result.First().ToString()));
-            }
         }
 
         private void btn_users_del_Click(object sender, EventArgs e)
@@ -86,6 +81,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 // No item selected
                 if (count < 1)
                     return;
+
+                // Avoid deleting yourself
+                if (toDel.Contains(this.CurrentUser.Name))
+                {
+                    Helpers.DisplayError("You can't delete yourself !");
+                    return;
+                }
 
                 var msg = string.Format("Are you sure you want to delete {0} ?",
                     (count > 1) ? (string.Format("{0} users", count))
