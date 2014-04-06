@@ -59,15 +59,5 @@ namespace CSUSM.CS441.SheriffHodor.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Hodor {
-            get {
-                object obj = ResourceManager.GetObject("Hodor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

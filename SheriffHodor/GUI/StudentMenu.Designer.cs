@@ -35,10 +35,8 @@
             this.lbl_coins = new System.Windows.Forms.Label();
             this.btn_play_game = new System.Windows.Forms.Button();
             this.btn_log_out = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -109,21 +107,11 @@
             this.btn_log_out.UseVisualStyleBackColor = true;
             this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Hodor;
-            this.pictureBox1.Location = new System.Drawing.Point(287, 57);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(140, 276);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // StudentMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 439);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Name = "StudentMenu";
@@ -131,7 +119,6 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -145,6 +132,5 @@
         private System.Windows.Forms.TextBox txt_coins;
         private System.Windows.Forms.Label lbl_coins;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
