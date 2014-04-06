@@ -44,6 +44,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public virtual void Leaved(StateControl to)
         {
             this.CurrentUser = null;
+            this.Hide();
         }   
 
         /// <summary>
