@@ -28,11 +28,13 @@ namespace CSUSM.CS441.SheriffHodor.Data
         #endregion
 
         // This is ugly.
+        // Hash == Sha1Of("admin")
         #region Default config
         public static readonly string[] UserDefault = {"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
 "<ArrayOfUser xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">",
                         "<User>",
                         "<Name>Admin</Name>",
+                        "<Hash>7C-87-54-1F-D3-F3-EF-50-16-E1-2D-41-19-00-C8-7A-60-46-A8-E8</Hash>",
                         "<Status>Teacher</Status>",
                         "</User>",
                         "</ArrayOfUser>"};

@@ -81,7 +81,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             form.Entered(oldValue, user);
             form.Show();
             // Make sure it is behaving correctly
-            form.Dock = DockStyle.Fill;
             //this.Size = form.Size;
             //Console.WriteLine("Switch to [{0}]", name);
             return form;

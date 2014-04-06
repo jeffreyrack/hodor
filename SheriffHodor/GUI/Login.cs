@@ -80,24 +80,24 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void btn_login_Click(object sender, EventArgs e)
         {
             // We retrive the user currently selected.
-            // It should be either 1 item or 0.
-            var result = from user in Data.UserList.Instance
-                         where user.Name.Equals(ddl_userList.Text, StringComparison.InvariantCultureIgnoreCase)
-                         select user;
-
-            if (result.Count() != 1)
+            var selectedUser = Data.UserList.Instance.GetByName(ddl_userList.Text);
+            if (selectedUser == null)
             {
-                // Being paranoid doesn't hurt : We shouldn't get more than 1 result ever.
-                Contract.Assert(result.Count() == 0);
                 Helpers.DisplayError("Then name you entered is not valid !");
                 return;
             }
 
-            var selectedUser = result.First();
-
             if (selectedUser.Status == Data.User.UserType.Teacher)
             {
-                MainWindow.Instance.SwitchForm<Administration>();
+                if (this.txt_password.Text == string.Empty)
+                {
+                    Helpers.DisplayError("Password required.");
+                    return;
+                }
+                if (Data.Helpers.Authenticate(selectedUser, txt_password.Text))
+                    MainWindow.Instance.SwitchForm<Administration>(selectedUser);
+                else
+                    Helpers.DisplayError("Invalid password for user " + selectedUser.Name);
             }
             else
             {

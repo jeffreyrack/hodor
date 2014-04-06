@@ -60,7 +60,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <param name="id">An id for the user.</param>
         /// <param name="status">The status of the user, default to student.</param>
         /// <param name="hash">The SHA-1 hash of the user's password.</param>
-        public User(string name = null, UserType status = UserType.Student, byte[] hash = null)
+        public User(string name = null, UserType status = UserType.Student, string hash = null)
         {
             this.Name = name;
             this.Hash = hash;
@@ -88,8 +88,8 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <summary>
         /// A hash representing the password of the user, if needed (mandatory for teachers).
         /// </summary>
-        [XmlIgnore(), System.ComponentModel.Browsable(false)] // Temp TODO
-        public byte[] Hash { get; set; }
+        [System.ComponentModel.Browsable(false)]
+        public string Hash { get; set; }
         /// <summary>
         /// Hold the status of the user, currently only 2 are defined: Teacher & Student.
         /// </summary>
