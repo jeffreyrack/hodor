@@ -20,7 +20,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public GameScreen()
         {
             InitializeComponent();
-            this.AcceptButton = this.btn_next;
+            //this.AcceptButton = this.btn_next;
+            //txt_answer.Focus();
             this.txt_answer.KeyPress += new KeyPressEventHandler(answerValidator);
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -39,12 +40,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             base.Entered(from, user);
 
-            this.CurrentUser.Data.problemTime = 0;
-            timer1.Start();
-
             // TODO this isnt working the first time it enters the screen unless you click the screen
             // Make the text field active
             this.ActiveControl = txt_answer;
+            this.AcceptButton = this.btn_next;
+            txt_answer.Focus();
+
+            this.CurrentUser.Data.problemTime = 0;
+            //timer1.Start();
 
 
             txt_answer.Text = String.Empty;

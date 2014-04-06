@@ -95,8 +95,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 if (this.CurrentUser.GroupName != null)
                     Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName).Members.Remove(this.CurrentUser);
                 //add to current group
-                this.CurrentUser.GroupName = ddl_groups.SelectedItem.ToString();
-                Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName).Members.Add(this.CurrentUser);
+                if (ddl_groups.SelectedItem != null)
+                {
+                    this.CurrentUser.GroupName = ddl_groups.SelectedItem.ToString();
+                    Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName).Members.Add(this.CurrentUser);
+                }
             }
 
             if (txt_newName.Text != txt_currentName.Text)

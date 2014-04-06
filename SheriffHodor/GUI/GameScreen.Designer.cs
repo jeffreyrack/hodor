@@ -123,6 +123,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(424, 398);
             this.Controls.Add(this.grp_problem);
             this.Controls.Add(this.lbl_streakResponses);
             this.Controls.Add(this.lbl_coinsGained);
@@ -131,7 +132,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.MaximumSize = new System.Drawing.Size(424, 398);
             this.MinimumSize = new System.Drawing.Size(424, 398);
             this.Name = "GameScreen";
-            this.Size = new System.Drawing.Size(424, 398);
             this.grp_problem.ResumeLayout(false);
             this.grp_problem.PerformLayout();
             this.ResumeLayout(false);

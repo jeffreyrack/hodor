@@ -26,12 +26,16 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             dtg_users_list.DataSource = Data.UserList.Instance;
             dtg_groups_groups.DataSource = Data.GroupList.Instance;
+            dtg_reports_list.DataSource = Data.UserList.Instance;
 
+            
+           
+            //TODO make this work
             //var results = from user in Data.UserList.Instance where user.Status == Data.User.UserType.Student select user;
             //dtg_reports_list.DataSource = results;
-            dtg_reports_list.DataSource = Data.UserList.Instance;
-            dtg_reports_list.Columns["TotalPercentage"].Name = "Total %";
-            dtg_reports_list.Columns["GameCount"].Name = "Games Played";
+            //dtg_reports_list.Columns["TotalPercentage"].Name = "Total %";
+            //dtg_reports_list.Columns["GameCount"].Name = "Games Played";
+
             dtg_reports_list.Columns["Status"].Visible = false;
         }
 
