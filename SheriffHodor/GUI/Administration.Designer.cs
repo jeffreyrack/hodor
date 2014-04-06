@@ -39,11 +39,11 @@
             this.btn_users_add = new System.Windows.Forms.Button();
             this.dtg_users_list = new System.Windows.Forms.DataGridView();
             this.pg_groups = new System.Windows.Forms.TabPage();
+            this.dtg_groups_groups = new System.Windows.Forms.DataGridView();
             this.btn_groups_logout = new System.Windows.Forms.Button();
             this.btn_groups_delete = new System.Windows.Forms.Button();
             this.btn_groups_edit = new System.Windows.Forms.Button();
             this.btn_groups_create = new System.Windows.Forms.Button();
-            this.dtg_groups_groups = new System.Windows.Forms.DataGridView();
             this.tab_display.SuspendLayout();
             this.pg_report.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).BeginInit();
@@ -191,11 +191,11 @@
             // 
             // pg_groups
             // 
+            this.pg_groups.Controls.Add(this.dtg_groups_groups);
             this.pg_groups.Controls.Add(this.btn_groups_logout);
             this.pg_groups.Controls.Add(this.btn_groups_delete);
             this.pg_groups.Controls.Add(this.btn_groups_edit);
             this.pg_groups.Controls.Add(this.btn_groups_create);
-            this.pg_groups.Controls.Add(this.dtg_groups_groups);
             this.pg_groups.Location = new System.Drawing.Point(4, 22);
             this.pg_groups.Name = "pg_groups";
             this.pg_groups.Padding = new System.Windows.Forms.Padding(3);
@@ -204,21 +204,35 @@
             this.pg_groups.Text = "Groups";
             this.pg_groups.UseVisualStyleBackColor = true;
             // 
+            // dtg_groups_groups
+            // 
+            this.dtg_groups_groups.AllowUserToAddRows = false;
+            this.dtg_groups_groups.AllowUserToDeleteRows = false;
+            this.dtg_groups_groups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_groups_groups.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtg_groups_groups.Location = new System.Drawing.Point(3, 3);
+            this.dtg_groups_groups.Name = "dtg_groups_groups";
+            this.dtg_groups_groups.ReadOnly = true;
+            this.dtg_groups_groups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_groups_groups.Size = new System.Drawing.Size(700, 345);
+            this.dtg_groups_groups.StandardTab = true;
+            this.dtg_groups_groups.TabIndex = 5;
+            // 
             // btn_groups_logout
             // 
-            this.btn_groups_logout.Location = new System.Drawing.Point(625, 396);
+            this.btn_groups_logout.Location = new System.Drawing.Point(580, 381);
             this.btn_groups_logout.Name = "btn_groups_logout";
-            this.btn_groups_logout.Size = new System.Drawing.Size(75, 23);
+            this.btn_groups_logout.Size = new System.Drawing.Size(120, 23);
             this.btn_groups_logout.TabIndex = 4;
-            this.btn_groups_logout.Text = "Logout";
+            this.btn_groups_logout.Text = "Log out";
             this.btn_groups_logout.UseVisualStyleBackColor = true;
             this.btn_groups_logout.Click += new System.EventHandler(this.btn_groups_logout_Click);
             // 
             // btn_groups_delete
             // 
-            this.btn_groups_delete.Location = new System.Drawing.Point(212, 396);
+            this.btn_groups_delete.Location = new System.Drawing.Point(255, 381);
             this.btn_groups_delete.Name = "btn_groups_delete";
-            this.btn_groups_delete.Size = new System.Drawing.Size(97, 23);
+            this.btn_groups_delete.Size = new System.Drawing.Size(120, 23);
             this.btn_groups_delete.TabIndex = 3;
             this.btn_groups_delete.Text = "Delete group";
             this.btn_groups_delete.UseVisualStyleBackColor = true;
@@ -226,9 +240,9 @@
             // 
             // btn_groups_edit
             // 
-            this.btn_groups_edit.Location = new System.Drawing.Point(109, 396);
+            this.btn_groups_edit.Location = new System.Drawing.Point(129, 381);
             this.btn_groups_edit.Name = "btn_groups_edit";
-            this.btn_groups_edit.Size = new System.Drawing.Size(97, 23);
+            this.btn_groups_edit.Size = new System.Drawing.Size(120, 23);
             this.btn_groups_edit.TabIndex = 2;
             this.btn_groups_edit.Text = "Edit group";
             this.btn_groups_edit.UseVisualStyleBackColor = true;
@@ -236,26 +250,13 @@
             // 
             // btn_groups_create
             // 
-            this.btn_groups_create.Location = new System.Drawing.Point(6, 396);
+            this.btn_groups_create.Location = new System.Drawing.Point(6, 381);
             this.btn_groups_create.Name = "btn_groups_create";
-            this.btn_groups_create.Size = new System.Drawing.Size(97, 23);
+            this.btn_groups_create.Size = new System.Drawing.Size(120, 23);
             this.btn_groups_create.TabIndex = 1;
             this.btn_groups_create.Text = "Create group";
             this.btn_groups_create.UseVisualStyleBackColor = true;
             this.btn_groups_create.Click += new System.EventHandler(this.btn_groups_create_Click);
-            // 
-            // dtg_groups_groups
-            // 
-            this.dtg_groups_groups.AllowUserToAddRows = false;
-            this.dtg_groups_groups.AllowUserToDeleteRows = false;
-            this.dtg_groups_groups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_groups_groups.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtg_groups_groups.Location = new System.Drawing.Point(6, 6);
-            this.dtg_groups_groups.Name = "dtg_groups_groups";
-            this.dtg_groups_groups.ReadOnly = true;
-            this.dtg_groups_groups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_groups_groups.Size = new System.Drawing.Size(694, 353);
-            this.dtg_groups_groups.TabIndex = 0;
             // 
             // Administration
             // 
@@ -287,15 +288,15 @@
         private System.Windows.Forms.DataGridView dtg_users_list;
         private System.Windows.Forms.TabPage pg_report;
         private System.Windows.Forms.TabControl tab_display;
+        private System.Windows.Forms.DataGridView dtg_reports_list;
+        private System.Windows.Forms.Button btn_log_out;
+        private System.Windows.Forms.Button btn_details;
         private System.Windows.Forms.TabPage pg_groups;
         private System.Windows.Forms.DataGridView dtg_groups_groups;
         private System.Windows.Forms.Button btn_groups_logout;
         private System.Windows.Forms.Button btn_groups_delete;
         private System.Windows.Forms.Button btn_groups_edit;
         private System.Windows.Forms.Button btn_groups_create;
-        private System.Windows.Forms.DataGridView dtg_reports_list;
-        private System.Windows.Forms.Button btn_log_out;
-        private System.Windows.Forms.Button btn_details;
 
 
     }

@@ -250,5 +250,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             lbl_streakResponses.Visible = false;
         }
         #endregion
+
+        private void btn_return_to_menu_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            MainWindow.Instance.SwitchForm<StudentMenu>(this.CurrentUser);
+        }
     }
 }

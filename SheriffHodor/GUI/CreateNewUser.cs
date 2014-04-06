@@ -15,6 +15,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             this.AcceptButton = this.btn_create;
+            this.ddl_groupList.DataSource = Data.GroupList.Instance;
+        }
+
+        public override void Entered(StateControl from, Data.User user)
+        {
+            base.Entered(from, user);
+            grp_groups.Visible = true;
+            grp_passwords.Visible = false;
         }
 
         protected override void Accept()
@@ -30,7 +38,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 return;
             }
 
-            var type = (rdo_admin.Checked ? Data.User.UserType.Teacher : Data.User.UserType.Student);
+            var type = CheckedType();
             Data.UserList.Instance.Add(new Data.User(txt_username.Text, type));
             Helpers.DisplayInfo(string.Format("User '{0}' successfully created", txt_username.Text));
             // Cleanup and leave.
@@ -43,6 +51,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             MainWindow.Instance.SwitchForm<Administration>();
         }
 
+        private Data.User.UserType CheckedType()
+        {
+            return (rdo_admin.Checked ? Data.User.UserType.Teacher : Data.User.UserType.Student);
+        }
+
         #region UI Events
         private void btn_cancel_Click(object sender, EventArgs e)
         {
@@ -53,5 +66,17 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             Accept();
         }
         #endregion
+
+        private void rdo_user_CheckedChanged(object sender, EventArgs e)
+        {
+            grp_groups.Visible = true;
+            grp_passwords.Visible = false;
+        }
+
+        private void rdo_admin_CheckedChanged(object sender, EventArgs e)
+        {
+            grp_groups.Visible = false;
+            grp_passwords.Visible = true;
+        }
     }
 }

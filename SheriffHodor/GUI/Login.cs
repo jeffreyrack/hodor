@@ -79,8 +79,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
             else
             {
-                selectedUser.Data.newGame();
-
                 //Console.WriteLine(selectedUser.Data.currentProblem.ToString());
                 MainWindow.Instance.SwitchForm<StudentMenu>(selectedUser);
             }

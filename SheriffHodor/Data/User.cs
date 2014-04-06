@@ -36,6 +36,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 this.correctAnswers = 0;
                 this.correctStreak = 0;
                 this.coinsGained = 0;
+                this.problemTime = 0;
 
                 //Addition or Subtraction problems
                 if (rand.Next(0, 2) > 0)

@@ -39,6 +39,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lbl_streakResponses = new System.Windows.Forms.Label();
             this.grp_problem = new System.Windows.Forms.GroupBox();
+            this.btn_return_to_menu = new System.Windows.Forms.Button();
             this.grp_problem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +73,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // lbl_index
             // 
             this.lbl_index.AutoSize = true;
-            this.lbl_index.Location = new System.Drawing.Point(145, 31);
+            this.lbl_index.Location = new System.Drawing.Point(211, 59);
             this.lbl_index.Name = "lbl_index";
             this.lbl_index.Size = new System.Drawing.Size(91, 13);
             this.lbl_index.TabIndex = 4;
@@ -81,7 +82,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // lbl_coins
             // 
             this.lbl_coins.AutoSize = true;
-            this.lbl_coins.Location = new System.Drawing.Point(38, 320);
+            this.lbl_coins.Location = new System.Drawing.Point(28, 359);
             this.lbl_coins.Name = "lbl_coins";
             this.lbl_coins.Size = new System.Drawing.Size(53, 13);
             this.lbl_coins.TabIndex = 5;
@@ -90,7 +91,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // lbl_coinsGained
             // 
             this.lbl_coinsGained.AutoSize = true;
-            this.lbl_coinsGained.Location = new System.Drawing.Point(98, 320);
+            this.lbl_coinsGained.Location = new System.Drawing.Point(88, 359);
             this.lbl_coinsGained.Name = "lbl_coinsGained";
             this.lbl_coinsGained.Size = new System.Drawing.Size(70, 13);
             this.lbl_coinsGained.TabIndex = 6;
@@ -100,7 +101,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // lbl_streakResponses
             // 
             this.lbl_streakResponses.AutoSize = true;
-            this.lbl_streakResponses.Location = new System.Drawing.Point(147, 0);
+            this.lbl_streakResponses.Location = new System.Drawing.Point(213, 28);
             this.lbl_streakResponses.Name = "lbl_streakResponses";
             this.lbl_streakResponses.Size = new System.Drawing.Size(89, 13);
             this.lbl_streakResponses.TabIndex = 7;
@@ -112,25 +113,36 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.grp_problem.Controls.Add(this.lbl_problem);
             this.grp_problem.Controls.Add(this.txt_answer);
             this.grp_problem.Controls.Add(this.btn_next);
-            this.grp_problem.Location = new System.Drawing.Point(83, 97);
+            this.grp_problem.Location = new System.Drawing.Point(149, 125);
             this.grp_problem.Name = "grp_problem";
             this.grp_problem.Size = new System.Drawing.Size(225, 134);
             this.grp_problem.TabIndex = 8;
             this.grp_problem.TabStop = false;
             this.grp_problem.Text = "Problem";
             // 
+            // btn_return_to_menu
+            // 
+            this.btn_return_to_menu.Location = new System.Drawing.Point(603, 352);
+            this.btn_return_to_menu.Name = "btn_return_to_menu";
+            this.btn_return_to_menu.Size = new System.Drawing.Size(96, 27);
+            this.btn_return_to_menu.TabIndex = 9;
+            this.btn_return_to_menu.Text = "Return to menu";
+            this.btn_return_to_menu.UseVisualStyleBackColor = true;
+            this.btn_return_to_menu.Click += new System.EventHandler(this.btn_return_to_menu_Click);
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 398);
+            this.ClientSize = new System.Drawing.Size(800, 398);
+            this.Controls.Add(this.btn_return_to_menu);
             this.Controls.Add(this.grp_problem);
             this.Controls.Add(this.lbl_streakResponses);
             this.Controls.Add(this.lbl_coinsGained);
             this.Controls.Add(this.lbl_coins);
             this.Controls.Add(this.lbl_index);
-            this.MaximumSize = new System.Drawing.Size(424, 398);
-            this.MinimumSize = new System.Drawing.Size(424, 398);
+            this.MaximumSize = new System.Drawing.Size(800, 398);
+            this.MinimumSize = new System.Drawing.Size(800, 398);
             this.Name = "GameScreen";
             this.grp_problem.ResumeLayout(false);
             this.grp_problem.PerformLayout();
@@ -150,5 +162,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lbl_streakResponses;
         private System.Windows.Forms.GroupBox grp_problem;
+        private System.Windows.Forms.Button btn_return_to_menu;
     }
 }
