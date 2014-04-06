@@ -27,15 +27,36 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public class Runtime
         {
             #region Definitions
+            public void newGame()
+            {
+                Random rand = new Random();
 
+                this.totalProblems = rand.Next(10, 31);
+                this.currentProblemIndex = 0;
+                this.correctAnswers = 0;
+                this.correctStreak = 0;
+                this.coinsGained = 0;
+
+                //Addition or Subtraction problems
+                if (rand.Next(0, 2) > 0)
+                {
+                    this.problemHandler = Problem.AddProblem;
+                }
+                else
+                {
+                    this.problemHandler = Problem.SubProblem;
+                }
+
+                this.currentProblem = this.problemHandler(this.testDiff);
+            }
             #endregion
 
             public Runtime()
             {
-
                 this.currentProblem = new Problem();
-
+                this.testDiff = Problem.Difficulty.Easy;
             }
+
             public Problem currentProblem { get; set; }
             public int totalProblems { get; set; }
             public int currentProblemIndex { get; set; }

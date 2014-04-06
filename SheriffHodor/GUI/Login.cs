@@ -24,8 +24,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             ddl_userList.DisplayMember = "Name";
             ddl_userList.DataSource = Data.UserList.Instance;
 
-            this.AcceptButton = this.btn_login;
-
             this.ddl_userList.SelectedIndexChanged +=
                 new System.EventHandler(ddl_userList_SelectionChangeCommitted);
         }
@@ -33,6 +31,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public override void Entered(StateControl from, Data.User user)
         {
             base.Entered(from, user);
+            this.AcceptButton = this.btn_login;
             this.txt_password.Text = String.Empty;
         }
 
@@ -80,31 +79,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
             else
             {
-                //TODO modualize this into a create new game function
-                Random rand = new Random();
+                selectedUser.Data.newGame();
 
-                //10-30 problems
-                selectedUser.Data.totalProblems = rand.Next(10, 31);
-                selectedUser.Data.currentProblemIndex = 0;
-                selectedUser.Data.correctAnswers = 0;
-                selectedUser.Data.correctStreak = 0;
-                selectedUser.Data.coinsGained = 0;
-
-                //Addition or Subtraction problems
-                if (rand.Next(0, 2) > 0)
-                {
-                    selectedUser.Data.problemHandler = Data.Problem.AddProblem;
-                }
-                else
-                {
-                    selectedUser.Data.problemHandler = Data.Problem.SubProblem;
-                }
-
-                selectedUser.Data.testDiff = Data.Problem.Difficulty.Easy;
-
-                selectedUser.Data.currentProblem = selectedUser.Data.problemHandler(selectedUser.Data.testDiff);
-
-                Console.WriteLine(selectedUser.Data.currentProblem.ToString());
+                //Console.WriteLine(selectedUser.Data.currentProblem.ToString());
                 MainWindow.Instance.SwitchForm<StudentMenu>(selectedUser);
             }
         }

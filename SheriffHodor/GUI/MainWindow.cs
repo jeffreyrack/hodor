@@ -78,7 +78,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 oldValue.Leaved(form);
             this.Controls.Add(form);
 
+
             form.Entered(oldValue, user);
+            //form.Focus();
             form.Show();
             // Make sure it is behaving correctly
             //this.Size = form.Size;

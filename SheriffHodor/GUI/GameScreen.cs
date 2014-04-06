@@ -47,7 +47,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             txt_answer.Focus();
 
             this.CurrentUser.Data.problemTime = 0;
-            //timer1.Start();
+            timer1.Start();
 
 
             txt_answer.Text = String.Empty;

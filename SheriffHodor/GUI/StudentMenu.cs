@@ -14,12 +14,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public StudentMenu()
         {
             InitializeComponent();
+            this.AcceptButton = btn_play_game;
         }
 
         public override void Entered(StateControl from, Data.User user)
         {
             base.Entered(from, user);
-            lbl_current_name.Text += this.CurrentUser.Name;
+            this.AcceptButton = btn_play_game;
+
+            lbl_current_name.Text = String.Format("Welcome: {0}", this.CurrentUser.Name);
             txt_coins.Text = this.CurrentUser.Coins.ToString();
         }
 
