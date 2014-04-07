@@ -32,7 +32,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             var name = txt_username.Text.Trim();
             var type = CheckedType();
             string pwd = null;
-            string groupName = ddl_groupList.SelectedText != string.Empty ? ddl_groupList.SelectedText : null;
+            //string groupName = ddl_groupList.SelectedItem.ToString() != string.Empty ? ddl_groupList.SelectedItem.ToString() : null;
 
             // Check the username
             if (name == string.Empty)
@@ -65,7 +65,17 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             var user = new Data.User(txt_username.Text, type, pwd);
             if (type == Data.User.UserType.Student)
-                user.GroupName = groupName;
+            {
+                if (ddl_groupList.SelectedItem != null)
+                {
+                    Data.GroupList.Instance.GetByName(ddl_groupList.SelectedItem.ToString()).Members.Add(user);
+                    user.GroupName = ddl_groupList.SelectedItem.ToString();
+                }
+                else
+                {
+                    user.GroupName = String.Empty;
+                }
+            }
             Data.UserList.Instance.Add(user);
 
             Helpers.DisplayInfo(string.Format("User '{0}' successfully created", txt_username.Text));

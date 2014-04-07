@@ -89,6 +89,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             this.Hash = hash;
             this.Status = status;
             this.Coins = 0;
+            this.GroupName = String.Empty;
             this.Percentages = new List<double>();
             this.TotalPercentage = 0.0;
             this.Data = new Runtime();
