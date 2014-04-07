@@ -29,7 +29,13 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             int idx = GetIdxByName(name);
             if (idx >= 0)
+            {
+                if (Instance[idx].GroupName != String.Empty)
+                {
+                    GroupList.Instance.GetByName(Instance[idx].GroupName).Members.Remove(Instance[idx]);
+                }
                 this.RemoveItem(idx);
+            }
             return (idx >= 0);
         }
         public int GetIdxByName(string name)

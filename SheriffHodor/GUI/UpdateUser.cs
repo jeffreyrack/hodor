@@ -92,7 +92,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (this.CurrentUser.Status == Data.User.UserType.Student)
             {
                 //delete the old group if they had one
-                if (this.CurrentUser.GroupName != null)
+                if (this.CurrentUser.GroupName != String.Empty)
                     Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName).Members.Remove(this.CurrentUser);
                 //add to current group
                 if (ddl_groups.SelectedItem != null)
