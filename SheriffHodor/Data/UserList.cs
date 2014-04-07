@@ -33,7 +33,14 @@ namespace CSUSM.CS441.SheriffHodor.Data
             {
                 if (Instance[idx].GroupName != String.Empty)
                 {
-                    GroupList.Instance.GetByName(Instance[idx].GroupName).Members.Remove(Instance[idx]);
+                    //Find the group by the name of the group associated with the user
+                    //Get the members of that group and find the user by that name and remove them from that list
+                    string groupName = Instance[idx].GroupName;
+                    var toDel =
+                        from mem in GroupList.Instance.GetByName(groupName).Members
+                        where mem.Name == Instance[idx].Name
+                        select mem;
+                    GroupList.Instance.GetByName(groupName).Members.Remove(toDel.First());
                 }
                 this.RemoveItem(idx);
             }
