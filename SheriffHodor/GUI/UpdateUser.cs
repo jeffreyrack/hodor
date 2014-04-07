@@ -27,6 +27,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             set
             {
                 m_workingUser = value;
+
+                this.txt_currentName.Text = value.Name;
+                this.txt_newName.Text = value.Name;
                 if (value.Status == Data.User.UserType.Teacher)
                 {
                     // Hide group stuff, but display the password stuff
@@ -49,17 +52,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     ddl_groups.SelectedItem = Data.GroupList.Instance.GetByName(this.WorkingUser.GroupName);
                 }
             }
-        }
-
-        /*
-         * Corey Paxton     - 4/5/2014 - Initial Version
-         */
-        public override void Entered(StateControl from, Data.User user)
-        {
-            base.Entered(from, user);
-
-            this.txt_currentName.Text = user.Name;
-            this.txt_newName.Text = user.Name;
         }
 
         /*
@@ -112,6 +104,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             if (txt_newName.Text != txt_currentName.Text)
                 this.WorkingUser.Name = txt_newName.Text;
+
+            // Force refresh (Example: login, edit user name, logout, name not changed in login menu)
+            Data.UserList.Instance.Remove(this.WorkingUser);
+            Data.UserList.Instance.Add(this.WorkingUser);
 
             MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
