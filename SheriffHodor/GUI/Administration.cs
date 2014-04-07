@@ -36,6 +36,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_reports_list.Columns["Status"].Visible = false;
 
             dtg_users_list.DataSource = Data.UserList.Instance;
+            dtg_users_list.Columns["TotalPercentage"].Visible = false;
+            dtg_users_list.Columns["GameCount"].Visible = false;
+
             dtg_groups_groups.DataSource = Data.GroupList.Instance;
         }
 
