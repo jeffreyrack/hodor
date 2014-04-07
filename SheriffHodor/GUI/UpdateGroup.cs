@@ -28,6 +28,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     return;
                 }
                 this.CurrentGroup.Name = grpName;
+                // Force refresh if the name changed
+                // Example: Login, check edit user, check groupname, cancel, edit groupname and change it,
+                // go back to edit user and check group name.
+                Data.GroupList.Instance.Remove(this.CurrentGroup);
+                Data.GroupList.Instance.Add(this.CurrentGroup);
             }
             this.CurrentGroup.Difficulty = getDifficulty();
             Cleanup();
