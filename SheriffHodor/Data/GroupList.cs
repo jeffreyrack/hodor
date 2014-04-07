@@ -22,7 +22,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         #endregion
 
         /*
-         * Matthias Lang    - - Initial Version
+         * Mathias Lang    - - Initial Version
          * Corey Paxton     - 4/5/2014 - Removes members from the group
          */
         public bool RemoveByName(string name)

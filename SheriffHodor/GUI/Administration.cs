@@ -24,19 +24,18 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public Administration()
         {
             InitializeComponent();
+
+            //TODO make something like this work
+            //dtg_reports_list.DataSource = 
+            // from user in Data.UserList.Instance where user.Status == Data.User.UserType.Student select user;
+            dtg_reports_list.DataSource = Data.UserList.Instance;
+            dtg_reports_list.Columns["TotalPercentage"].HeaderText = "Total %";
+            dtg_reports_list.Columns["GameCount"].HeaderText = "Games Played";
+            dtg_reports_list.Columns["GroupName"].HeaderText = "Group";
+            dtg_reports_list.Columns["Status"].Visible = false;
+
             dtg_users_list.DataSource = Data.UserList.Instance;
             dtg_groups_groups.DataSource = Data.GroupList.Instance;
-            dtg_reports_list.DataSource = Data.UserList.Instance;
-
-            
-           
-            //TODO make this work
-            //var results = from user in Data.UserList.Instance where user.Status == Data.User.UserType.Student select user;
-            //dtg_reports_list.DataSource = results;
-            //dtg_reports_list.Columns["TotalPercentage"].Name = "Total %";
-            //dtg_reports_list.Columns["GameCount"].Name = "Games Played";
-
-            dtg_reports_list.Columns["Status"].Visible = false;
         }
 
         private List<object> getSelectedName(DataGridView dgv, string cellname)

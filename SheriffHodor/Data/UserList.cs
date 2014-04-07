@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
@@ -10,7 +11,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
     /// This list is an ObservableList, hence data in GUI is keep up to date
     /// using the observer pattern.
     /// </summary>
-    public class UserList : BindingList<User>
+    public class UserList : BindingList<User>, IBindingListView
     {
         #region Singleton
         private static UserList _instance;
@@ -51,7 +52,62 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public void Serialize()
         {
+            var filter = this.Filter;
+            this.Filter = null;
             XmlBackend.Serialize<UserList>(Global.UsersFilePath, this);
+            this.Filter = filter;
         }
+
+
+        #region IBindingListView Members
+        private string m_filter;
+        private List<User> filteredOutElems = new List<User>();
+        // This is super basic.
+        // It filters in the Student | Teacher, Depending on the Filter string.
+        // ie: "Student" or "Teacher". 
+        public string Filter
+        {
+            get { return this.m_filter; }
+            set
+            {
+                // Re-add items to the list -- Sorted
+                foreach (var usr in this.filteredOutElems)
+                    this.sortedInsert(usr);
+                this.filteredOutElems.Clear();
+
+                // Read the filter string;
+                this.m_filter = value;
+                if (value == null) // RemoveFilter()
+                    return;
+                User.UserType nVal = (User.UserType)Enum.Parse(typeof(User.UserType), value);
+
+                // Filter the list
+                for (var i = 0; i < this.Count; ++i)
+                    if (this[i].Status != nVal)
+                    {
+                        Console.WriteLine("Removing: {0}", this[i].Name);
+                        this.filteredOutElems.Add(this[i]);
+                        this.RemoveAt(i);
+                        --i;
+                    }
+            }
+        }
+
+        public void RemoveFilter() { this.Filter = null; }
+        public bool SupportsFiltering { get { return true; } }
+
+        private void sortedInsert(User usr)
+        {
+            for (var i = 0; i < this.Count; ++i)
+                if (string.Compare(this[i].Name, usr.Name, StringComparison.InvariantCultureIgnoreCase) >= 0)
+                {
+                    this.InsertItem(i, usr);
+                    return;
+                }
+        }
+        public bool SupportsAdvancedSorting { get { return false; } }
+        public void ApplySort(ListSortDescriptionCollection sorts) { throw new NotImplementedException(); }
+        public ListSortDescriptionCollection SortDescriptions { get { throw new NotImplementedException(); } }
+        #endregion
     }
 }
