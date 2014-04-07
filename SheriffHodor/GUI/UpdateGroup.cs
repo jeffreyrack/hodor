@@ -31,7 +31,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
             this.CurrentGroup.Difficulty = getDifficulty();
             Cleanup();
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
         protected override void Decline()
         {

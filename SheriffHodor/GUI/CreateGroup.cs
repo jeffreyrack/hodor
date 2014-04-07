@@ -29,12 +29,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             newGroup.Name = grpName;
             newGroup.Difficulty = getDifficulty();
             Data.GroupList.Instance.Add(newGroup);
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
 
         protected override void Decline()
         {
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

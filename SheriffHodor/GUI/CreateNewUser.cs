@@ -73,7 +73,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 }
                 else
                 {
-                    user.GroupName = String.Empty;
+                    user.GroupName = string.Empty;
                 }
             }
             Data.UserList.Instance.Add(user);
@@ -88,7 +88,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             txt_password.Clear();
             txt_passwordConfirm.Clear();
             rdo_user.Checked = true;
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
 
         private Data.User.UserType CheckedType()

@@ -56,7 +56,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         #region Users Panel
         private void btn_users_add_Click(object sender, EventArgs e)
         {
-            MainWindow.Instance.SwitchForm<CreateNewUser>();
+            MainWindow.Instance.SwitchForm<CreateNewUser>(this.CurrentUser);
         }
 
         private void btn_users_edit_Click(object sender, EventArgs e)
@@ -66,7 +66,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (result.Count() < 1)
                 Helpers.DisplayError("No selected user!");
             else
-                MainWindow.Instance.SwitchForm<UpdateUser>(Data.UserList.Instance.GetByName(result.First().ToString()));
+                MainWindow.Instance.SwitchForm<UpdateUser>(this.CurrentUser)
+                    .WorkingUser = Data.UserList.Instance.GetByName(result.First().ToString());
         }
 
         private void btn_users_del_Click(object sender, EventArgs e)
@@ -118,7 +119,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
         private void btn_groups_create_Click(object sender, EventArgs e)
         {
-            MainWindow.Instance.SwitchForm<CreateGroup>();
+            MainWindow.Instance.SwitchForm<CreateGroup>(this.CurrentUser);
         }
         private void btn_groups_edit_Click(object sender, EventArgs e)
         {

@@ -20,6 +20,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.AcceptButton = this.btn_submit;
         }
 
+        public Data.User WorkingUser { get; set; }
+
         /*
          * Corey Paxton     - 4/5/2014 - Initial Version
          */
@@ -30,7 +32,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.txt_currentName.Text = user.Name;
             this.txt_newName.Text = user.Name;
 
-            if (this.CurrentUser.Status == Data.User.UserType.Teacher)
+            if (this.WorkingUser.Status == Data.User.UserType.Teacher)
             {
                 // Hide group stuff, but display the password stuff
                 lbl_group.Visible = false;
@@ -40,7 +42,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 txt_newPassword.Visible = true;
                 txt_newPasswordConfirm.Visible = true;
             }
-            else if (this.CurrentUser.Status == Data.User.UserType.Student)
+            else if (this.WorkingUser.Status == Data.User.UserType.Student)
             {
                 // Display group stuff, hide password
                 lbl_group.Visible = true;
@@ -49,8 +51,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 lbl_newPasswordConfirm.Visible = false;
                 txt_newPassword.Visible = false;
                 txt_newPasswordConfirm.Visible = false;
-                ddl_groups.SelectedItem = Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName);
-
+                ddl_groups.SelectedItem = Data.GroupList.Instance.GetByName(this.WorkingUser.GroupName);
             }
         }
 
@@ -59,7 +60,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          */
         private void button_cancel_Click(object sender, EventArgs e)
         {
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
 
         /*
@@ -79,34 +80,33 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 return;
             }
 
-            if (this.CurrentUser.Status == Data.User.UserType.Teacher && txt_newPassword.Text != string.Empty)
+            if (this.WorkingUser.Status == Data.User.UserType.Teacher && txt_newPassword.Text != string.Empty)
             {
                 if (txt_newPasswordConfirm.Text != txt_newPassword.Text)
                 {
                     Helpers.DisplayError("The password provided doesn't match.");
                     return;
                 }
-                this.CurrentUser.Hash = Data.Helpers.sha1Of(txt_newPassword.Text);
+                this.WorkingUser.Hash = Data.Helpers.sha1Of(txt_newPassword.Text);
             }
 
-            if (this.CurrentUser.Status == Data.User.UserType.Student)
+            if (this.WorkingUser.Status == Data.User.UserType.Student)
             {
                 //delete the old group if they had one
-                if (this.CurrentUser.GroupName != String.Empty)
-                    Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName).Members.Remove(this.CurrentUser);
+                if (this.WorkingUser.GroupName != String.Empty)
+                    Data.GroupList.Instance.GetByName(this.WorkingUser.GroupName).Members.Remove(this.WorkingUser);
                 //add to current group
                 if (ddl_groups.SelectedItem != null)
                 {
-                    this.CurrentUser.GroupName = ddl_groups.SelectedItem.ToString();
-                    Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName).Members.Add(this.CurrentUser);
+                    this.WorkingUser.GroupName = ddl_groups.SelectedItem.ToString();
+                    Data.GroupList.Instance.GetByName(this.WorkingUser.GroupName).Members.Add(this.WorkingUser);
                 }
             }
 
             if (txt_newName.Text != txt_currentName.Text)
-                this.CurrentUser.Name = txt_newName.Text;
+                this.WorkingUser.Name = txt_newName.Text;
 
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
-
     }
 }
