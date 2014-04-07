@@ -12,18 +12,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
     /// </summary>
     internal static class Helpers
     {
-        private static System.Reflection.PropertyInfo getPropInfoT(Type t, string name)
-        {
-            var prop = t.GetProperty(name);
-            if (prop == null)
-                throw new ArgumentOutOfRangeException("propName", "No property with that name was found.");
-            return prop;
-        }
-        public static object GetPropValue(object src, string propName)
-        {
-            return getPropInfoT(src.GetType(), propName).GetValue(src, null);
-        }
-
         /// <summary>
         /// Turns multiple backslash path into a single backslash.
         /// Eg:

@@ -55,9 +55,9 @@
             // 
             // tab_display
             // 
-            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tab_display.Controls.Add(this.pg_report);
             this.tab_display.Controls.Add(this.pg_users);
             this.tab_display.Controls.Add(this.pg_groups);
@@ -69,10 +69,7 @@
             // 
             // pg_report
             // 
-<<<<<<< HEAD
             this.pg_report.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.pg_report.Controls.Add(this.btn_log_out);
             this.pg_report.Controls.Add(this.btn_details);
             this.pg_report.Controls.Add(this.dtg_reports_list);
@@ -87,20 +84,12 @@
             // btn_log_out
             // 
             this.btn_log_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< HEAD
             this.btn_log_out.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_log_out.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
             this.btn_log_out.Location = new System.Drawing.Point(610, 354);
             this.btn_log_out.Name = "btn_log_out";
             this.btn_log_out.Size = new System.Drawing.Size(96, 71);
             this.btn_log_out.TabIndex = 8;
-=======
-            this.btn_log_out.Location = new System.Drawing.Point(580, 381);
-            this.btn_log_out.Name = "btn_log_out";
-            this.btn_log_out.Size = new System.Drawing.Size(120, 23);
-            this.btn_log_out.TabIndex = 8;
-            this.btn_log_out.Text = "Log out";
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.btn_log_out.UseVisualStyleBackColor = true;
             this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
@@ -119,10 +108,7 @@
             // 
             this.dtg_reports_list.AllowUserToAddRows = false;
             this.dtg_reports_list.AllowUserToDeleteRows = false;
-<<<<<<< HEAD
             this.dtg_reports_list.BackgroundColor = System.Drawing.Color.Tan;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.dtg_reports_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_reports_list.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtg_reports_list.Location = new System.Drawing.Point(3, 3);
@@ -211,10 +197,7 @@
             // 
             // pg_groups
             // 
-<<<<<<< HEAD
             this.pg_groups.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.pg_groups.Controls.Add(this.dtg_groups_groups);
             this.pg_groups.Controls.Add(this.btn_groups_logout);
             this.pg_groups.Controls.Add(this.btn_groups_delete);
@@ -232,10 +215,7 @@
             // 
             this.dtg_groups_groups.AllowUserToAddRows = false;
             this.dtg_groups_groups.AllowUserToDeleteRows = false;
-<<<<<<< HEAD
             this.dtg_groups_groups.BackgroundColor = System.Drawing.Color.Tan;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.dtg_groups_groups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_groups_groups.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtg_groups_groups.Location = new System.Drawing.Point(3, 3);
@@ -248,20 +228,12 @@
             // 
             // btn_groups_logout
             // 
-<<<<<<< HEAD
             this.btn_groups_logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_groups_logout.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
             this.btn_groups_logout.Location = new System.Drawing.Point(622, 354);
             this.btn_groups_logout.Name = "btn_groups_logout";
             this.btn_groups_logout.Size = new System.Drawing.Size(84, 75);
             this.btn_groups_logout.TabIndex = 4;
-=======
-            this.btn_groups_logout.Location = new System.Drawing.Point(580, 381);
-            this.btn_groups_logout.Name = "btn_groups_logout";
-            this.btn_groups_logout.Size = new System.Drawing.Size(120, 23);
-            this.btn_groups_logout.TabIndex = 4;
-            this.btn_groups_logout.Text = "Log out";
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.btn_groups_logout.UseVisualStyleBackColor = true;
             this.btn_groups_logout.Click += new System.EventHandler(this.btn_groups_logout_Click);
             // 
@@ -299,10 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.ClientSize = new System.Drawing.Size(714, 451);
             this.Controls.Add(this.tab_display);
             this.MaximumSize = new System.Drawing.Size(714, 451);

@@ -76,11 +76,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.BackColor = System.Drawing.Color.Sienna;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.desert_background;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.ClientSize = new System.Drawing.Size(452, 375);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.ddl_userList);

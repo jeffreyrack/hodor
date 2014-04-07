@@ -27,10 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.grp_groups = new System.Windows.Forms.GroupBox();
             this.ddl_groupList = new System.Windows.Forms.ComboBox();
             this.lbl_groups = new System.Windows.Forms.Label();
@@ -47,16 +44,12 @@
             this.txt_username = new System.Windows.Forms.TextBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_create = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.groupBox2.SuspendLayout();
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.grp_groups.SuspendLayout();
             this.grp_passwords.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-<<<<<<< HEAD
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.grp_groups);
@@ -70,17 +63,11 @@
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             // 
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             // grp_groups
             // 
             this.grp_groups.Controls.Add(this.ddl_groupList);
             this.grp_groups.Controls.Add(this.lbl_groups);
-<<<<<<< HEAD
             this.grp_groups.Location = new System.Drawing.Point(16, 86);
-=======
-            this.grp_groups.Location = new System.Drawing.Point(155, 157);
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.grp_groups.Name = "grp_groups";
             this.grp_groups.Size = new System.Drawing.Size(267, 63);
             this.grp_groups.TabIndex = 15;
@@ -88,10 +75,7 @@
             // 
             // ddl_groupList
             // 
-<<<<<<< HEAD
             this.ddl_groupList.BackColor = System.Drawing.Color.BurlyWood;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.ddl_groupList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_groupList.FormattingEnabled = true;
             this.ddl_groupList.Location = new System.Drawing.Point(63, 26);
@@ -114,11 +98,7 @@
             this.grp_passwords.Controls.Add(this.txt_password);
             this.grp_passwords.Controls.Add(this.lbl_passwordConfirm);
             this.grp_passwords.Controls.Add(this.lbl_password);
-<<<<<<< HEAD
             this.grp_passwords.Location = new System.Drawing.Point(16, 155);
-=======
-            this.grp_passwords.Location = new System.Drawing.Point(155, 226);
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.grp_passwords.Name = "grp_passwords";
             this.grp_passwords.Size = new System.Drawing.Size(271, 81);
             this.grp_passwords.TabIndex = 14;
@@ -161,11 +141,7 @@
             this.groupBox1.Controls.Add(this.rdo_admin);
             this.groupBox1.Controls.Add(this.lbl_status);
             this.groupBox1.Controls.Add(this.rdo_user);
-<<<<<<< HEAD
             this.groupBox1.Location = new System.Drawing.Point(16, 36);
-=======
-            this.groupBox1.Location = new System.Drawing.Point(155, 107);
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(271, 48);
             this.groupBox1.TabIndex = 11;
@@ -207,11 +183,7 @@
             // lbl_username
             // 
             this.lbl_username.AutoSize = true;
-<<<<<<< HEAD
             this.lbl_username.Location = new System.Drawing.Point(17, 13);
-=======
-            this.lbl_username.Location = new System.Drawing.Point(156, 84);
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Size = new System.Drawing.Size(61, 13);
             this.lbl_username.TabIndex = 9;
@@ -219,11 +191,7 @@
             // 
             // txt_username
             // 
-<<<<<<< HEAD
             this.txt_username.Location = new System.Drawing.Point(80, 10);
-=======
-            this.txt_username.Location = new System.Drawing.Point(219, 81);
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(196, 20);
             this.txt_username.TabIndex = 6;
@@ -231,20 +199,12 @@
             // btn_cancel
             // 
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-<<<<<<< HEAD
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
             this.btn_cancel.Location = new System.Drawing.Point(725, 334);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(73, 64);
             this.btn_cancel.TabIndex = 5;
-=======
-            this.btn_cancel.Location = new System.Drawing.Point(591, 365);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancel.TabIndex = 5;
-            this.btn_cancel.Text = "Cancel";
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
@@ -263,29 +223,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.BackColor = System.Drawing.Color.Tan;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(800, 400);
             this.Controls.Add(this.groupBox2);
-=======
-            this.ClientSize = new System.Drawing.Size(800, 400);
-            this.Controls.Add(this.grp_groups);
-            this.Controls.Add(this.grp_passwords);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lbl_username);
-            this.Controls.Add(this.txt_username);
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_create);
             this.MaximumSize = new System.Drawing.Size(800, 400);
             this.MinimumSize = new System.Drawing.Size(800, 400);
             this.Name = "CreateNewUser";
-<<<<<<< HEAD
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.grp_groups.ResumeLayout(false);
             this.grp_groups.PerformLayout();
             this.grp_passwords.ResumeLayout(false);
@@ -314,9 +262,6 @@
         private System.Windows.Forms.Label lbl_passwordConfirm;
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.GroupBox grp_groups;
-<<<<<<< HEAD
         private System.Windows.Forms.GroupBox groupBox2;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
     }
 }

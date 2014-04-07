@@ -45,7 +45,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // 
             // btn_return_to_menu
             // 
-<<<<<<< HEAD
             this.btn_return_to_menu.BackColor = System.Drawing.Color.Tan;
             this.btn_return_to_menu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_return_to_menu.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
@@ -54,22 +53,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.btn_return_to_menu.Size = new System.Drawing.Size(84, 78);
             this.btn_return_to_menu.TabIndex = 9;
             this.btn_return_to_menu.UseVisualStyleBackColor = false;
-=======
-            this.btn_return_to_menu.Location = new System.Drawing.Point(603, 352);
-            this.btn_return_to_menu.Name = "btn_return_to_menu";
-            this.btn_return_to_menu.Size = new System.Drawing.Size(96, 27);
-            this.btn_return_to_menu.TabIndex = 9;
-            this.btn_return_to_menu.Text = "Return to menu";
-            this.btn_return_to_menu.UseVisualStyleBackColor = true;
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.btn_return_to_menu.Click += new System.EventHandler(this.btn_return_to_menu_Click);
             // 
             // grp_problem
             // 
-<<<<<<< HEAD
             this.grp_problem.BackColor = System.Drawing.Color.Tan;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.grp_problem.Controls.Add(this.lbl_problem);
             this.grp_problem.Controls.Add(this.txt_answer);
             this.grp_problem.Controls.Add(this.btn_next);
@@ -78,10 +66,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.grp_problem.Size = new System.Drawing.Size(225, 134);
             this.grp_problem.TabIndex = 8;
             this.grp_problem.TabStop = false;
-<<<<<<< HEAD
-=======
-            this.grp_problem.Text = "Problem";
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             // 
             // lbl_problem
             // 
@@ -113,11 +97,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // lbl_Responses
             // 
             this.lbl_Responses.AutoSize = true;
-<<<<<<< HEAD
             this.lbl_Responses.BackColor = System.Drawing.Color.Azure;
             this.lbl_Responses.ForeColor = System.Drawing.Color.Indigo;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.lbl_Responses.Location = new System.Drawing.Point(213, 28);
             this.lbl_Responses.Name = "lbl_Responses";
             this.lbl_Responses.Size = new System.Drawing.Size(60, 13);
@@ -128,11 +109,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // lbl_coinsGained
             // 
             this.lbl_coinsGained.AutoSize = true;
-<<<<<<< HEAD
             this.lbl_coinsGained.BackColor = System.Drawing.Color.Tan;
             this.lbl_coinsGained.ForeColor = System.Drawing.SystemColors.Desktop;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.lbl_coinsGained.Location = new System.Drawing.Point(88, 359);
             this.lbl_coinsGained.Name = "lbl_coinsGained";
             this.lbl_coinsGained.Size = new System.Drawing.Size(70, 13);
@@ -143,10 +121,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // lbl_coins
             // 
             this.lbl_coins.AutoSize = true;
-<<<<<<< HEAD
             this.lbl_coins.BackColor = System.Drawing.Color.Tan;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.lbl_coins.Location = new System.Drawing.Point(28, 359);
             this.lbl_coins.Name = "lbl_coins";
             this.lbl_coins.Size = new System.Drawing.Size(53, 13);
@@ -156,11 +131,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // lbl_index
             // 
             this.lbl_index.AutoSize = true;
-<<<<<<< HEAD
             this.lbl_index.BackColor = System.Drawing.Color.Azure;
             this.lbl_index.ForeColor = System.Drawing.Color.Indigo;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.lbl_index.Location = new System.Drawing.Point(211, 59);
             this.lbl_index.Name = "lbl_index";
             this.lbl_index.Size = new System.Drawing.Size(91, 13);
@@ -171,10 +143,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
-=======
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.ClientSize = new System.Drawing.Size(800, 398);
             this.Controls.Add(this.btn_return_to_menu);
             this.Controls.Add(this.grp_problem);

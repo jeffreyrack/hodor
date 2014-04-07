@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,72 +65,3 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
     }
 }
-=======
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-
-namespace CSUSM.CS441.SheriffHodor.GUI
-{
-    public partial class CreateGroup : StateControl
-    {
-        public CreateGroup()
-        {
-            InitializeComponent();
-            this.AcceptButton = this.btn_create;
-        }
-
-        protected override void Accept()
-        {
-            var grpName = txt_name.Text;
-            if (Data.GroupList.Instance.GetIdxByName(grpName) != -1)
-            {
-                GUI.Helpers.DisplayError("There is already a group with this name.");
-                return;
-            }
-            var newGroup = new Data.Group();
-            newGroup.Name = grpName;
-            newGroup.Difficulty = getDifficulty();
-            Data.GroupList.Instance.Add(newGroup);
-            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
-        }
-
-        protected override void Decline()
-        {
-            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
-        }
-
-        private void btn_cancel_Click(object sender, EventArgs e)
-        {
-            Decline();
-        }
-
-        private Data.Problem.Difficulty getDifficulty()
-        {
-            return rdo_easy.Checked ? Data.Problem.Difficulty.Easy :
-                    (rdo_medium.Checked ? Data.Problem.Difficulty.Medium
-                    : Data.Problem.Difficulty.Hard);
-        }
-
-        public override void Entered(StateControl from, Data.User user)
-        {
-            base.Entered(from, user);
-            txt_name.Text = string.Empty;
-        }
-
-        private void btn_create_Click(object sender, EventArgs e)
-        {
-            txt_name.Text = txt_name.Text.Trim();
-            if (txt_name.Text == string.Empty)
-                GUI.Helpers.DisplayError("No name provided for the group !");
-            else
-                Accept();
-        }
-    }
-}
->>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
