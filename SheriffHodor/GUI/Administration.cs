@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -66,8 +67,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (result.Count() < 1)
                 Helpers.DisplayError("No selected user!");
             else
-                MainWindow.Instance.SwitchForm<UpdateUser>(this.CurrentUser)
-                    .WorkingUser = Data.UserList.Instance.GetByName(result.First().ToString());
+            {
+                var workUser = Data.UserList.Instance.GetByName(result.First().ToString());
+                Contract.Assert(workUser != null);
+                MainWindow.Instance.SwitchForm<UpdateUser>(this.CurrentUser).WorkingUser = workUser;
+            }
         }
 
         private void btn_users_del_Click(object sender, EventArgs e)

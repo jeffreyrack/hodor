@@ -20,7 +20,36 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.AcceptButton = this.btn_submit;
         }
 
-        public Data.User WorkingUser { get; set; }
+        private Data.User m_workingUser;
+        public Data.User WorkingUser
+        {
+            get { return m_workingUser; }
+            set
+            {
+                m_workingUser = value;
+                if (value.Status == Data.User.UserType.Teacher)
+                {
+                    // Hide group stuff, but display the password stuff
+                    lbl_group.Visible = false;
+                    ddl_groups.Visible = false;
+                    lbl_newPassword.Visible = true;
+                    lbl_newPasswordConfirm.Visible = true;
+                    txt_newPassword.Visible = true;
+                    txt_newPasswordConfirm.Visible = true;
+                }
+                else if (value.Status == Data.User.UserType.Student)
+                {
+                    // Display group stuff, hide password
+                    lbl_group.Visible = true;
+                    ddl_groups.Visible = true;
+                    lbl_newPassword.Visible = false;
+                    lbl_newPasswordConfirm.Visible = false;
+                    txt_newPassword.Visible = false;
+                    txt_newPasswordConfirm.Visible = false;
+                    ddl_groups.SelectedItem = Data.GroupList.Instance.GetByName(this.WorkingUser.GroupName);
+                }
+            }
+        }
 
         /*
          * Corey Paxton     - 4/5/2014 - Initial Version
@@ -31,28 +60,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             this.txt_currentName.Text = user.Name;
             this.txt_newName.Text = user.Name;
-
-            if (this.WorkingUser.Status == Data.User.UserType.Teacher)
-            {
-                // Hide group stuff, but display the password stuff
-                lbl_group.Visible = false;
-                ddl_groups.Visible = false;
-                lbl_newPassword.Visible = true;
-                lbl_newPasswordConfirm.Visible = true;
-                txt_newPassword.Visible = true;
-                txt_newPasswordConfirm.Visible = true;
-            }
-            else if (this.WorkingUser.Status == Data.User.UserType.Student)
-            {
-                // Display group stuff, hide password
-                lbl_group.Visible = true;
-                ddl_groups.Visible = true;
-                lbl_newPassword.Visible = false;
-                lbl_newPasswordConfirm.Visible = false;
-                txt_newPassword.Visible = false;
-                txt_newPasswordConfirm.Visible = false;
-                ddl_groups.SelectedItem = Data.GroupList.Instance.GetByName(this.WorkingUser.GroupName);
-            }
         }
 
         /*
