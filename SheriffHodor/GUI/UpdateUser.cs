@@ -56,9 +56,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         /*
          * Corey Paxton     - 4/5/2014 - Initial Version
+         * Corey Paxton     - 4/7/2014 - Bug Fix
          */
         private void button_cancel_Click(object sender, EventArgs e)
         {
+            txt_newPassword.Text = String.Empty;
+            txt_newPasswordConfirm.Text = String.Empty;
             MainWindow.Instance.SwitchForm<Administration>();
         }
 
