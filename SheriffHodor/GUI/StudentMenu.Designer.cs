@@ -41,7 +41,10 @@
             // 
             // groupBox3
             // 
+<<<<<<< HEAD
             this.groupBox3.BackColor = System.Drawing.Color.Tan;
+=======
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.groupBox3.Controls.Add(this.lbl_current_name);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
@@ -60,14 +63,23 @@
             // 
             // groupBox2
             // 
+<<<<<<< HEAD
             this.groupBox2.BackColor = System.Drawing.Color.Tan;
+=======
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.groupBox2.Controls.Add(this.txt_coins);
             this.groupBox2.Controls.Add(this.lbl_coins);
             this.groupBox2.Controls.Add(this.btn_play_game);
             this.groupBox2.Controls.Add(this.btn_log_out);
+<<<<<<< HEAD
             this.groupBox2.Location = new System.Drawing.Point(0, 467);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(909, 60);
+=======
+            this.groupBox2.Location = new System.Drawing.Point(12, 339);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(696, 60);
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
@@ -101,12 +113,20 @@
             // 
             // btn_log_out
             // 
+<<<<<<< HEAD
             this.btn_log_out.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_log_out.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
             this.btn_log_out.Location = new System.Drawing.Point(824, 3);
             this.btn_log_out.Name = "btn_log_out";
             this.btn_log_out.Size = new System.Drawing.Size(85, 60);
             this.btn_log_out.TabIndex = 2;
+=======
+            this.btn_log_out.Location = new System.Drawing.Point(609, 22);
+            this.btn_log_out.Name = "btn_log_out";
+            this.btn_log_out.Size = new System.Drawing.Size(75, 23);
+            this.btn_log_out.TabIndex = 2;
+            this.btn_log_out.Text = "Logout";
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.btn_log_out.UseVisualStyleBackColor = true;
             this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
@@ -114,9 +134,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(909, 526);
+=======
+            this.ClientSize = new System.Drawing.Size(0, 0);
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Name = "StudentMenu";

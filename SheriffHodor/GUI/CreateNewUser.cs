@@ -32,7 +32,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             var name = txt_username.Text.Trim();
             var type = CheckedType();
             string pwd = null;
+<<<<<<< HEAD
             string groupName = ddl_groupList.SelectedText != string.Empty ? ddl_groupList.SelectedText : null;
+=======
+            //string groupName = ddl_groupList.SelectedItem.ToString() != string.Empty ? ddl_groupList.SelectedItem.ToString() : null;
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
 
             // Check the username
             if (name == string.Empty)
@@ -65,7 +69,21 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             var user = new Data.User(txt_username.Text, type, pwd);
             if (type == Data.User.UserType.Student)
+<<<<<<< HEAD
                 user.GroupName = groupName;
+=======
+            {
+                if (ddl_groupList.SelectedItem != null)
+                {
+                    Data.GroupList.Instance.GetByName(ddl_groupList.SelectedItem.ToString()).Members.Add(user);
+                    user.GroupName = ddl_groupList.SelectedItem.ToString();
+                }
+                else
+                {
+                    user.GroupName = string.Empty;
+                }
+            }
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             Data.UserList.Instance.Add(user);
 
             Helpers.DisplayInfo(string.Format("User '{0}' successfully created", txt_username.Text));
@@ -78,7 +96,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             txt_password.Clear();
             txt_passwordConfirm.Clear();
             rdo_user.Checked = true;
+<<<<<<< HEAD
             MainWindow.Instance.SwitchForm<Administration>();
+=======
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
         }
 
         private Data.User.UserType CheckedType()

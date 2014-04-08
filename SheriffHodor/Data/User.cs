@@ -27,6 +27,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public class Runtime
         {
             #region Definitions
+<<<<<<< HEAD
             public void newGame()
             {
                 Random rand = new Random();
@@ -51,6 +52,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 this.testDiff = Problem.Difficulty.Easy;
                 this.currentProblem = this.problemHandler(this.testDiff);
             }
+=======
+
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             #endregion
 
             public Runtime()
@@ -89,6 +93,10 @@ namespace CSUSM.CS441.SheriffHodor.Data
             this.Hash = hash;
             this.Status = status;
             this.Coins = 0;
+<<<<<<< HEAD
+=======
+            this.GroupName = String.Empty;
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             this.Percentages = new List<double>();
             this.TotalPercentage = 0.0;
             this.Data = new Runtime();
@@ -151,5 +159,42 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public event PropertyChangedEventHandler PropertyChanged;
 #pragma warning restore 0067
         #endregion
+<<<<<<< HEAD
+=======
+
+        //TODO make this static void and put it elsewhere
+        public void newGame(User user)
+        {
+            Random rand = new Random();
+
+            user.Data.totalProblems = rand.Next(10, 31);
+            user.Data.currentProblemIndex = 0;
+            user.Data.correctAnswers = 0;
+            user.Data.correctStreak = 0;
+            user.Data.coinsGained = 0;
+            user.Data.problemTime = 0;
+
+            //Addition or Subtraction problems
+            if (rand.Next(0, 2) > 0)
+            {
+                user.Data.problemHandler = Problem.AddProblem;
+            }
+            else
+            {
+                user.Data.problemHandler = Problem.SubProblem;
+            }
+
+            //this.testDiff = Problem.Difficulty.Easy;
+            if (user.GroupName != String.Empty)
+            {
+                user.Data.testDiff = GroupList.Instance.GetByName(user.GroupName).Difficulty;
+            }
+            else
+            {
+                user.Data.testDiff = Problem.Difficulty.Easy;
+            }
+            user.Data.currentProblem = user.Data.problemHandler(user.Data.testDiff);
+        }
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
     }
 }

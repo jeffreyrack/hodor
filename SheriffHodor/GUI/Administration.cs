@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public Administration()
         {
             InitializeComponent();
+<<<<<<< HEAD
             dtg_users_list.DataSource = Data.UserList.Instance;
             dtg_groups_groups.DataSource = Data.GroupList.Instance;
             dtg_reports_list.DataSource = Data.UserList.Instance;
@@ -39,6 +41,25 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_reports_list.Columns["Status"].Visible = false;
         }
 
+=======
+
+            //TODO make something like this work
+            //dtg_reports_list.DataSource = 
+            // from user in Data.UserList.Instance where user.Status == Data.User.UserType.Student select user;
+            dtg_reports_list.DataSource = Data.UserList.Instance;
+            dtg_reports_list.Columns["TotalPercentage"].HeaderText = "Total %";
+            dtg_reports_list.Columns["GameCount"].HeaderText = "Games Played";
+            dtg_reports_list.Columns["GroupName"].HeaderText = "Group";
+            dtg_reports_list.Columns["Status"].Visible = false;
+
+            dtg_users_list.DataSource = Data.UserList.Instance;
+            dtg_users_list.Columns["TotalPercentage"].Visible = false;
+            dtg_users_list.Columns["GameCount"].Visible = false;
+
+            dtg_groups_groups.DataSource = Data.GroupList.Instance;
+        }
+
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
         private List<object> getSelectedName(DataGridView dgv, string cellname)
         {
             // The ToList() is needed, as else it would stay lazy and request invalidated data (from SelectRows).
@@ -57,7 +78,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         #region Users Panel
         private void btn_users_add_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             MainWindow.Instance.SwitchForm<CreateNewUser>();
+=======
+            MainWindow.Instance.SwitchForm<CreateNewUser>(this.CurrentUser);
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
         }
 
         private void btn_users_edit_Click(object sender, EventArgs e)
@@ -67,7 +92,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (result.Count() < 1)
                 Helpers.DisplayError("No selected user!");
             else
+<<<<<<< HEAD
                 MainWindow.Instance.SwitchForm<UpdateUser>(Data.UserList.Instance.GetByName(result.First().ToString()));
+=======
+            {
+                var workUser = Data.UserList.Instance.GetByName(result.First().ToString());
+                Contract.Assert(workUser != null);
+                MainWindow.Instance.SwitchForm<UpdateUser>(this.CurrentUser).WorkingUser = workUser;
+            }
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
         }
 
         private void btn_users_del_Click(object sender, EventArgs e)
@@ -119,7 +152,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
         private void btn_groups_create_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             MainWindow.Instance.SwitchForm<CreateGroup>();
+=======
+            MainWindow.Instance.SwitchForm<CreateGroup>(this.CurrentUser);
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
         }
         private void btn_groups_edit_Click(object sender, EventArgs e)
         {

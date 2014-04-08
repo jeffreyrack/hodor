@@ -33,7 +33,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         private void btn_play_game_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             this.CurrentUser.Data.newGame();
+=======
+            this.CurrentUser.newGame(this.CurrentUser);
+>>>>>>> 1cc7c31fc5b1f0954f6b72f9c008e9f4517fddfa
             MainWindow.Instance.SwitchForm<GameScreen>(this.CurrentUser);
         }
     }
