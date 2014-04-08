@@ -32,7 +32,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             {
                 foreach (var member in this.Items[idx].Members)
                 {
-                    member.GroupName = null;
+                    member.GroupName = String.Empty;
                 }
                 this.RemoveItem(idx);
             }
