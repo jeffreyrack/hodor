@@ -84,11 +84,12 @@
             // btn_log_out
             // 
             this.btn_log_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_log_out.Location = new System.Drawing.Point(580, 381);
+            this.btn_log_out.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_log_out.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_log_out.Location = new System.Drawing.Point(610, 354);
             this.btn_log_out.Name = "btn_log_out";
-            this.btn_log_out.Size = new System.Drawing.Size(120, 23);
+            this.btn_log_out.Size = new System.Drawing.Size(96, 71);
             this.btn_log_out.TabIndex = 8;
-            this.btn_log_out.Text = "Log out";
             this.btn_log_out.UseVisualStyleBackColor = true;
             this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
@@ -137,11 +138,12 @@
             // btn_users_logout
             // 
             this.btn_users_logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_users_logout.Location = new System.Drawing.Point(580, 381);
+            this.btn_users_logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_users_logout.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_users_logout.Location = new System.Drawing.Point(621, 354);
             this.btn_users_logout.Name = "btn_users_logout";
-            this.btn_users_logout.Size = new System.Drawing.Size(120, 23);
+            this.btn_users_logout.Size = new System.Drawing.Size(85, 75);
             this.btn_users_logout.TabIndex = 4;
-            this.btn_users_logout.Text = "Log out";
             this.btn_users_logout.UseVisualStyleBackColor = true;
             this.btn_users_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
@@ -226,11 +228,12 @@
             // 
             // btn_groups_logout
             // 
-            this.btn_groups_logout.Location = new System.Drawing.Point(580, 381);
+            this.btn_groups_logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_groups_logout.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_groups_logout.Location = new System.Drawing.Point(622, 354);
             this.btn_groups_logout.Name = "btn_groups_logout";
-            this.btn_groups_logout.Size = new System.Drawing.Size(120, 23);
+            this.btn_groups_logout.Size = new System.Drawing.Size(84, 75);
             this.btn_groups_logout.TabIndex = 4;
-            this.btn_groups_logout.Text = "Log out";
             this.btn_groups_logout.UseVisualStyleBackColor = true;
             this.btn_groups_logout.Click += new System.EventHandler(this.btn_groups_logout_Click);
             // 

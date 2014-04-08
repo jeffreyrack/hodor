@@ -42,8 +42,10 @@
             this.lbl_newPasswordConfirm = new System.Windows.Forms.Label();
             this.txt_newPasswordConfirm = new System.Windows.Forms.TextBox();
             this.gb_userSpecific = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gb_name.SuspendLayout();
             this.gb_userSpecific.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gb_name
@@ -52,7 +54,7 @@
             this.gb_name.Controls.Add(this.lbl_currentName);
             this.gb_name.Controls.Add(this.txt_newName);
             this.gb_name.Controls.Add(this.txt_currentName);
-            this.gb_name.Location = new System.Drawing.Point(13, 3);
+            this.gb_name.Location = new System.Drawing.Point(13, 11);
             this.gb_name.Name = "gb_name";
             this.gb_name.Size = new System.Drawing.Size(354, 94);
             this.gb_name.TabIndex = 4;
@@ -111,17 +113,18 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(286, 222);
+            this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_cancel.Location = new System.Drawing.Point(325, 220);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancel.Size = new System.Drawing.Size(82, 61);
             this.btn_cancel.TabIndex = 3;
-            this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // btn_submit
             // 
-            this.btn_submit.Location = new System.Drawing.Point(34, 222);
+            this.btn_submit.Location = new System.Drawing.Point(13, 252);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(75, 23);
             this.btn_submit.TabIndex = 2;
@@ -171,11 +174,23 @@
             this.gb_userSpecific.Controls.Add(this.txt_newPasswordConfirm);
             this.gb_userSpecific.Controls.Add(this.txt_newPassword);
             this.gb_userSpecific.Controls.Add(this.lbl_newPassword);
-            this.gb_userSpecific.Location = new System.Drawing.Point(13, 103);
+            this.gb_userSpecific.Location = new System.Drawing.Point(13, 102);
             this.gb_userSpecific.Name = "gb_userSpecific";
             this.gb_userSpecific.Size = new System.Drawing.Size(354, 110);
             this.gb_userSpecific.TabIndex = 11;
             this.gb_userSpecific.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.gb_userSpecific);
+            this.groupBox1.Controls.Add(this.gb_name);
+            this.groupBox1.Controls.Add(this.btn_cancel);
+            this.groupBox1.Controls.Add(this.btn_submit);
+            this.groupBox1.Location = new System.Drawing.Point(210, 38);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(407, 281);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
             // 
             // UpdateUser
             // 
@@ -184,15 +199,13 @@
             this.BackColor = System.Drawing.Color.Tan;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(909, 526);
-            this.Controls.Add(this.gb_userSpecific);
-            this.Controls.Add(this.gb_name);
-            this.Controls.Add(this.btn_cancel);
-            this.Controls.Add(this.btn_submit);
+            this.Controls.Add(this.groupBox1);
             this.Name = "UpdateUser";
             this.gb_name.ResumeLayout(false);
             this.gb_name.PerformLayout();
             this.gb_userSpecific.ResumeLayout(false);
             this.gb_userSpecific.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -213,5 +226,6 @@
         private System.Windows.Forms.Label lbl_newPasswordConfirm;
         private System.Windows.Forms.TextBox txt_newPasswordConfirm;
         private System.Windows.Forms.GroupBox gb_userSpecific;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

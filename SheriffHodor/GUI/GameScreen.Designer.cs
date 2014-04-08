@@ -46,11 +46,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // btn_return_to_menu
             // 
             this.btn_return_to_menu.BackColor = System.Drawing.Color.Tan;
-            this.btn_return_to_menu.Location = new System.Drawing.Point(603, 352);
+            this.btn_return_to_menu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_return_to_menu.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_return_to_menu.Location = new System.Drawing.Point(717, 326);
             this.btn_return_to_menu.Name = "btn_return_to_menu";
-            this.btn_return_to_menu.Size = new System.Drawing.Size(96, 27);
+            this.btn_return_to_menu.Size = new System.Drawing.Size(84, 78);
             this.btn_return_to_menu.TabIndex = 9;
-            this.btn_return_to_menu.Text = "Return to menu";
             this.btn_return_to_menu.UseVisualStyleBackColor = false;
             this.btn_return_to_menu.Click += new System.EventHandler(this.btn_return_to_menu_Click);
             // 

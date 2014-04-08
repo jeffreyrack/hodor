@@ -101,11 +101,12 @@
             // 
             // btn_log_out
             // 
-            this.btn_log_out.Location = new System.Drawing.Point(609, 22);
+            this.btn_log_out.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_log_out.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_log_out.Location = new System.Drawing.Point(824, 3);
             this.btn_log_out.Name = "btn_log_out";
-            this.btn_log_out.Size = new System.Drawing.Size(75, 23);
+            this.btn_log_out.Size = new System.Drawing.Size(85, 60);
             this.btn_log_out.TabIndex = 2;
-            this.btn_log_out.Text = "Logout";
             this.btn_log_out.UseVisualStyleBackColor = true;
             this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
