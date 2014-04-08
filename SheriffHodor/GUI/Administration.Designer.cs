@@ -55,9 +55,9 @@
             // 
             // tab_display
             // 
-            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tab_display.Controls.Add(this.pg_report);
             this.tab_display.Controls.Add(this.pg_users);
             this.tab_display.Controls.Add(this.pg_groups);
@@ -69,6 +69,7 @@
             // 
             // pg_report
             // 
+            this.pg_report.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.pg_report.Controls.Add(this.btn_log_out);
             this.pg_report.Controls.Add(this.btn_details);
             this.pg_report.Controls.Add(this.dtg_reports_list);
@@ -120,6 +121,7 @@
             // 
             // pg_users
             // 
+            this.pg_users.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.pg_users.Controls.Add(this.btn_users_logout);
             this.pg_users.Controls.Add(this.btn_users_del);
             this.pg_users.Controls.Add(this.btn_users_edit);
@@ -195,6 +197,7 @@
             // 
             // pg_groups
             // 
+            this.pg_groups.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.pg_groups.Controls.Add(this.dtg_groups_groups);
             this.pg_groups.Controls.Add(this.btn_groups_logout);
             this.pg_groups.Controls.Add(this.btn_groups_delete);
@@ -268,7 +271,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(714, 451);
             this.Controls.Add(this.tab_display);
             this.MaximumSize = new System.Drawing.Size(714, 451);
