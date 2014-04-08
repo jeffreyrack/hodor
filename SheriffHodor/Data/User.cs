@@ -27,30 +27,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public class Runtime
         {
             #region Definitions
-            public void newGame()
-            {
-                Random rand = new Random();
 
-                this.totalProblems = rand.Next(10, 31);
-                this.currentProblemIndex = 0;
-                this.correctAnswers = 0;
-                this.correctStreak = 0;
-                this.coinsGained = 0;
-                this.problemTime = 0;
-
-                //Addition or Subtraction problems
-                if (rand.Next(0, 2) > 0)
-                {
-                    this.problemHandler = Problem.AddProblem;
-                }
-                else
-                {
-                    this.problemHandler = Problem.SubProblem;
-                }
-
-                this.testDiff = Problem.Difficulty.Easy;
-                this.currentProblem = this.problemHandler(this.testDiff);
-            }
             #endregion
 
             public Runtime()
@@ -89,6 +66,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             this.Hash = hash;
             this.Status = status;
             this.Coins = 0;
+            this.GroupName = String.Empty;
             this.Percentages = new List<double>();
             this.TotalPercentage = 0.0;
             this.Data = new Runtime();
@@ -122,7 +100,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         [System.ComponentModel.Browsable(false)]
         public int Coins { get; set; }
-        //  TODO display these in report
+        // TODO display these in report
         /// <summary>
         /// Keep track of the game stats
         /// </summary>
@@ -151,5 +129,39 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public event PropertyChangedEventHandler PropertyChanged;
 #pragma warning restore 0067
         #endregion
+
+        //TODO make this static void and put it elsewhere
+        public void newGame(User user)
+        {
+            Random rand = new Random();
+
+            user.Data.totalProblems = rand.Next(10, 31);
+            user.Data.currentProblemIndex = 0;
+            user.Data.correctAnswers = 0;
+            user.Data.correctStreak = 0;
+            user.Data.coinsGained = 0;
+            user.Data.problemTime = 0;
+
+            //Addition or Subtraction problems
+            if (rand.Next(0, 2) > 0)
+            {
+                user.Data.problemHandler = Problem.AddProblem;
+            }
+            else
+            {
+                user.Data.problemHandler = Problem.SubProblem;
+            }
+
+            //this.testDiff = Problem.Difficulty.Easy;
+            if (user.GroupName != String.Empty)
+            {
+                user.Data.testDiff = GroupList.Instance.GetByName(user.GroupName).Difficulty;
+            }
+            else
+            {
+                user.Data.testDiff = Problem.Difficulty.Easy;
+            }
+            user.Data.currentProblem = user.Data.problemHandler(user.Data.testDiff);
+        }
     }
 }

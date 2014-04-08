@@ -35,6 +35,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <param name="user">An optionnal user.</param>
         public virtual void Entered(StateControl from, Data.User user)
         {
+            this.Show();
             this.CurrentUser = user;
         }
         /// <summary>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
+using System.Linq;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -29,7 +30,22 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             int idx = GetIdxByName(name);
             if (idx >= 0)
+            {
+                if (Instance[idx].GroupName != String.Empty)
+                {
+
+                    //Find the group by the name of the group associated with the user
+                    //Get the members of that group and find the user by that name and remove them from that list
+                    string groupName = Instance[idx].GroupName;
+                    var toDel =
+                        from mem in GroupList.Instance.GetByName(groupName).Members
+                        where mem.Name == Instance[idx].Name
+                        select mem;
+                    GroupList.Instance.GetByName(groupName).Members.Remove(toDel.First());
+                }
+
                 this.RemoveItem(idx);
+            }
             return (idx >= 0);
         }
         public int GetIdxByName(string name)
