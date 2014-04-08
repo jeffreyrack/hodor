@@ -20,12 +20,8 @@ namespace CSUSM
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
                     var mainWindow = GUI.MainWindow.Instance;
-                    mainWindow.RegisterForm("login", new GUI.Login());
-                    mainWindow.RegisterForm("admin", new GUI.Administration());
-                    mainWindow.RegisterForm("createuser", new GUI.CreateNewUser());
-                    //mainWindow.RegisterForm("update", new Update());
-                    mainWindow.RegisterForm("game", new GUI.GameScreen());
-                    mainWindow.SwitchForm("login");
+
+                    mainWindow.SwitchForm<GUI.Login>();
                     // We serialize our data on the app exit.
                     AppDomain.CurrentDomain.ProcessExit += new EventHandler(SaveXMLData);
                     Application.Run(mainWindow);
@@ -34,6 +30,7 @@ namespace CSUSM
                 static void SaveXMLData(object sender, EventArgs e)
                 {
                     Data.UserList.Instance.Serialize();
+                    Data.GroupList.Instance.Serialize();
                 }
             }
         }

@@ -1,7 +1,4 @@
-﻿/*Just needs to be connected to the XML file for when thats uploaded
- * 
- * */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,37 +9,81 @@ using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
-    public partial class CreateNewUser : UserControl
+    public partial class CreateNewUser : StateControl
     {
         public CreateNewUser()
         {
             InitializeComponent();
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AcceptOnReturn);
+            this.AcceptButton = this.btn_create;
+            this.ddl_groupList.DataSource = Data.GroupList.Instance;
         }
 
-        private void Accept()
+        public override void Entered(StateControl from, Data.User user)
         {
-            if (this.txt_username.Text == string.Empty) {
-                Helpers.DisplayWarning("You must enter a name to create a new user.");
+            base.Entered(from, user);
+            grp_groups.Visible = true;
+            grp_passwords.Visible = false;
+        }
+
+        protected override void Accept()
+        {
+            // We need to do all the errors handling ahead: That is, because we want the changes
+            // to appear atomics.
+            var name = txt_username.Text.Trim();
+            var type = CheckedType();
+            string pwd = null;
+            string groupName = ddl_groupList.SelectedText != string.Empty ? ddl_groupList.SelectedText : null;
+
+            // Check the username
+            if (name == string.Empty)
+            {
+                Helpers.DisplayError("You must enter a name to create a new user.");
                 return;
             }
-            if (Data.UserList.Instance.Any(
-                u => u.Name.Equals(txt_username.Text, StringComparison.InvariantCultureIgnoreCase))) {
+            if (Data.UserList.Instance.GetByName(name) != null)
+            {
                 Helpers.DisplayError("There is already an user with this name.");
                 return;
             }
 
-            var type = (rdo_admin.Checked ? Data.User.UserType.Teacher : Data.User.UserType.Student);
-            Data.UserList.Instance.Add(Data.User.CreateUser(txt_username.Text, type));
+            // Check the password
+            if (type == Data.User.UserType.Teacher)
+            {
+                pwd = txt_password.Text;
+                if (pwd == string.Empty)
+                {
+                    Helpers.DisplayError("You must enter a password to create a new teacher.");
+                    return;
+                }
+                if (pwd != txt_passwordConfirm.Text)
+                {
+                    Helpers.DisplayError("Password don't match.");
+                    return;
+                }
+                pwd = Data.Helpers.sha1Of(pwd);
+            }
+
+            var user = new Data.User(txt_username.Text, type, pwd);
+            if (type == Data.User.UserType.Student)
+                user.GroupName = groupName;
+            Data.UserList.Instance.Add(user);
+
             Helpers.DisplayInfo(string.Format("User '{0}' successfully created", txt_username.Text));
             // Cleanup and leave.
             Decline();
         }
-        private void Decline()
+        protected override void Decline()
         {
-            txt_username.Text = "";
+            txt_username.Clear();
+            txt_password.Clear();
+            txt_passwordConfirm.Clear();
             rdo_user.Checked = true;
-            MainWindow.Instance.SwitchForm("admin");
+            MainWindow.Instance.SwitchForm<Administration>();
+        }
+
+        private Data.User.UserType CheckedType()
+        {
+            return (rdo_admin.Checked ? Data.User.UserType.Teacher : Data.User.UserType.Student);
         }
 
         #region UI Events
@@ -54,10 +95,17 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             Accept();
         }
-        private void AcceptOnReturn(object sender, KeyPressEventArgs e)
+
+        private void rdo_user_CheckedChanged(object sender, EventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-                Accept();
+            grp_groups.Visible = true;
+            grp_passwords.Visible = false;
+        }
+
+        private void rdo_admin_CheckedChanged(object sender, EventArgs e)
+        {
+            grp_groups.Visible = false;
+            grp_passwords.Visible = true;
         }
         #endregion
     }

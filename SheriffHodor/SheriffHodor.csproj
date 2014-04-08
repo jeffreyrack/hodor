@@ -59,34 +59,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Group.cs" />
+    <Compile Include="Data\GroupList.cs" />
+    <Compile Include="Data\Problem.cs" />
     <Compile Include="Data\Global.cs" />
     <Compile Include="Data\Helpers.cs" />
-    <Compile Include="Data\ObservableList.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="Data\UserList.cs" />
     <Compile Include="Data\XmlBackend.cs" />
-    <Compile Include="gameBackend.cs" />
     <Compile Include="GUI\Administration.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Administration.designer.cs">
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\CreateGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\CreateGroup.Designer.cs">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\StudentMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\StudentMenu.Designer.cs">
+      <DependentUpon>StudentMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UpdateGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\UpdateGroup.Designer.cs">
+      <DependentUpon>UpdateGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\CreateNewUser.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\CreateNewUser.designer.cs">
       <DependentUpon>CreateNewUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\StateControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GUI\GameScreen.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\GameScreen.designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Helpers.cs" />
     <Compile Include="GUI\Login.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
@@ -97,16 +119,25 @@
     <Compile Include="GUI\MainWindow.designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Update.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="GUI\UpdateUser.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Update.designer.cs">
-      <DependentUpon>Update.cs</DependentUpon>
+    <Compile Include="GUI\UpdateUser.Designer.cs">
+      <DependentUpon>UpdateUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\CreateGroup.resx">
+      <DependentUpon>CreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StudentMenu.resx">
+      <DependentUpon>StudentMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\UpdateGroup.resx">
+      <DependentUpon>UpdateGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\CreateNewUser.resx">
       <DependentUpon>CreateNewUser.cs</DependentUpon>
@@ -120,8 +151,8 @@
     <EmbeddedResource Include="GUI\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Update.resx">
-      <DependentUpon>Update.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\UpdateUser.resx">
+      <DependentUpon>UpdateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -142,15 +173,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="XMLSchema1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="problemSet.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -174,7 +196,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\desert_background.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\second_desert_background.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

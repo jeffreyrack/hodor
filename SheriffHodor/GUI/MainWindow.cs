@@ -39,25 +39,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <summary>
         /// A list of registered form and their associated names as a key.
         /// </summary>
-        private Dictionary<string, Control> _forms;
+        private Dictionary<string, StateControl> _forms;
 
         /// <summary>
         /// Private constructor (for singleton).
         /// </summary>
         private MainWindow()
         {
-            this._forms = new Dictionary<string, Control>();
+            this._forms = new Dictionary<string, StateControl>();
             InitializeComponent();
-        }
-
-        /// <summary>
-        /// Register a control that can be used later via SwitchForm().
-        /// </summary>
-        /// <param name="name">The name to give to the form.</param>
-        /// <param name="toRegister">The form to register.</param>
-        public void RegisterForm(string name, Control toRegister)
-        {
-            this._forms.Add(name.ToLower(), toRegister);
         }
 
         /// <summary>
@@ -65,20 +55,37 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// </summary>
         /// <param name="name">The name on which the form was registered.</param>
         /// <returns>The form which is now displayed.</returns>
-        public Control SwitchForm(string name)
+        public FormType SwitchForm<FormType>(Data.User user = null, params object[] args)
+            where FormType : StateControl, new()
         {
-            Control newValue = null;
-            name = name.ToLower();
-            if (!_forms.TryGetValue(name, out newValue))
-                throw new ArgumentOutOfRangeException("name", "The name provided was not found in the dictionnary.");
+            StateControl tmp = null;
+            string name = typeof(FormType).FullName;
+            // First we check if we already have this form in the cache.
+            if (!_forms.TryGetValue(name, out tmp))
+            {
+                // If not, we create it, and add it to the cache.
+                tmp = new FormType();
+                this._forms.Add(name, tmp);
+            }
+
+            // Typesafe FTW.
+            FormType form = tmp as FormType;
+
+            StateControl oldValue = ((this.Controls.Count == 1) ? (this.Controls[0] as StateControl) : (null));
             // Add the control
             this.Controls.Clear();
-            this.Controls.Add(newValue);
+            if (oldValue != null)
+                oldValue.Leaved(form);
+            this.Controls.Add(form);
+
+
+            form.Entered(oldValue, user);
+            //form.Focus();
+            form.Show();
             // Make sure it is behaving correctly
-            newValue.Dock = DockStyle.Fill;
-            //this.Size = newValue.Size;
+            //this.Size = form.Size;
             //Console.WriteLine("Switch to [{0}]", name);
-            return newValue;
+            return form;
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿/*This just needs to be conected and display the questions from the XMLfile i sent out (if it needs to be changed plz let me know)
- * The timer works!
- * */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,281 +9,246 @@ using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
-    public partial class GameScreen : UserControl
+    /// <summary>
+    /// The game screen: this is the screen students see when they are taking a test.
+    /// It receive an already populated User as input, and mutate it to pass it to
+    /// the next GameScreen (or GameErrorScreen, or GameEndScreen).
+    /// </summary>
+    public partial class GameScreen : StateControl
     {
-        #region Members
-        int size1;
-        int size2;
-        List<int> returnIndex = new List<int>();
-        int somthingMay;//refference for index
-        int MM = 0;//counter for the index list
-        List<int> questions = new List<int>();
-        bool isAddCheck;
-        Data.User Stud;
-        int problemSetId;
-        string userName;
-        int operationSet;//will determine what operation is to be used
-        List<bool> answers = new List<bool>();
-        string textboxAnswer;
-        bool ynAnswer;
-        int K = 0;//used to increment pointer of problem list and answer list
-        int j = 1;
-        int problemCount = 0;//this will be set to the numbers of problems for this problem set from the administrators stuff
-        int currentNumOfProb = 0;//current number the user is on
-        DateTime theDate;//this records the current time in which the test is taken
-        int c;
-        static int countDown = 0;//the number used for the clock
-        Game thisGame;
-        #endregion
-
-        #region Refactor
-        // Transition method
-        public void GameScreen_FakeCtor(Data.User selectedUser)
-        {
-            //get lists of the problem set
-
-            //set them to be problems1 and problems2
-            //problems 1 is a set of the first terms, problems2 is the set of the 2nd term of each problem set
-            List<string> problems1 = new List<string>();//
-
-            List<int> questionTime = new List<int>();
-            List<string> problems2 = new List<string>();//
-
-            Stud = selectedUser;
-
-            userName = selectedUser.Name;
-            thisGame = selectedUser.nextGame;
-            Game g = Data.XmlBackend.selectStudentGameInfo(selectedUser);
-
-            problemSetId = g.getProblemSetId();
-
-            //Game g = GS.selectStudentGameInfo(selectedUser);
-            Stud.nextGame = g;
-
-            problemCount = g.getnumOfProblems();
-
-            isAddCheck = g.getisAddition();
-            if (isAddCheck == true) {
-                operationSet = 1;
-            }
-            //operationSet = g.
-
-            for (int Z = 0; Z < problemCount; Z++) {
-                returnIndex.Add(g.getProblemSetAtIndex(Z));
-
-            }
-            //MessageBox.Show("Welcome to Sheriff Hodor!" + problemCount);
-
-            //List<int> questions = GS.selectProblemSet(g.getProblemSetId());
-            //problems1 = GS.selectProblemSet(g.getProblemSetId());        
-        }
-        #endregion
 
         public GameScreen()
         {
             InitializeComponent();
+            //this.AcceptButton = this.btn_next;
+            //txt_answer.Focus();
+            this.txt_answer.KeyPress += new KeyPressEventHandler(answerValidator);
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
         }
 
-        //Next Button
-        private void button1_Click(object sender, EventArgs e)
+        #region UI
+        /*
+         * Matthias Lang    - 3/17/2014 - Initial Version
+         * Corey Paxton     - 3/17/2014 - Beginning of making it work with refactor
+         * Corey Paxton     - 3/20/2014 - Setup new problem generator
+         * Corey Paxton     - 3/24/2014 - Made it so the text field is active
+         * Corey Paxton     - 3/24/2014 - Added coin stuff
+         * Corey Paxton     - 4/3/2014 - Equation and top to bottom form
+         */
+        public override void Entered(StateControl from, Data.User user)
         {
-            if (TryToParse(textBox1.Text) == true) {
+            base.Entered(from, user);
 
-                if (textBox1.Text != null && textBox1.Text.Length != 0) {
-                    textboxAnswer = textBox1.Text;
-                    ynAnswer = isAnswerCorrect(size1, size2, textboxAnswer, operationSet);
+            // TODO this isnt working the first time it enters the screen unless you click the screen
+            // Make the text field active
+            this.ActiveControl = txt_answer;
+            this.AcceptButton = this.btn_next;
+            txt_answer.Focus();
 
-                    answers.Add(ynAnswer);
-                    if (!finishGameStats())
-                        return;
+            this.CurrentUser.Data.problemTime = 0;
+            timer1.Start();
 
-                    displayNewProblems();
 
-                    //currentNumOfProb++;
-                    resetTimer();
-                }
+            txt_answer.Text = String.Empty;
+            
+            //display the counter
+            lbl_index.Text = string.Format("Question: {0} / {1}", (user.Data.currentProblemIndex + 1), user.Data.totalProblems);
+
+            //structure the format of the problem as an equation or top to bottom
+            Random displayRandomizer = new Random();
+            if (displayRandomizer.Next(0, 2) == 0)
+            {
+                //equation form
+                lbl_problem.Text = String.Format("\n\n\n\n{0}", this.CurrentUser.Data.currentProblem.ToString());
+            }
+            else
+            {
+                //top to bottom form
+                lbl_problem.Text = this.CurrentUser.Data.currentProblem.TopToBottomString();
             }
 
-            textBox2.Text = "  ";
-            //goToNextProblem();
-            //K++;
+            lbl_coins.Text = string.Format("Coins: {0}", this.CurrentUser.Coins.ToString());
         }
 
-        private static bool TryToParse(string value)
-        {
-            int number;
-            bool result = Int32.TryParse(value, out number);
-            if (result) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        //Answer Box
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        //Question Display
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void displayCurrentTotal()
-        {
-            //label2
-            label2.Text = (currentNumOfProb + 1) + " / " + problemCount;
-        }
-
-        //*************************
-
-        //WHen the page loads the timer will start and countdown to 0 
-        private void GameScreen_Load(object sender, EventArgs e)
-        {
-            timer1.Start();//start the timer
-            //label1.Text = problems1[0];//load the initial question into the label
-            theDate = DateTime.Now;
-            getQuestions();
-        }
-
-        private void getQuestions()
-        {
-            questions = Data.XmlBackend.selectProblemSet(problemSetId);
-            incrementByTwo();
-            displayCurrentTotal();
-
-            size1 = questions[K];//display first object
-            size2 = questions[j];//display 2nd object
-
-            if (operationSet == 1) {
-                label1.Text = size1 + " + " + size2;
-            } else {
-                label1.Text = size1 + " - " + size2;
-            }
-            //incrementByTwo();
-            //display the first question here  
-        }
-
-        //this function will display the new problems anytime
-        private void displayNewProblems()
-        {
-            incrementByTwo();
-            size1 = questions[K];
-            size2 = questions[j];
-            if (operationSet == 1) {
-                label1.Text = size1 + " + " + size2;
-            } else {
-                label1.Text = size1 + " - " + size2;
-            }
-            displayCurrentTotal();
-        }
-
-        private void incrementByTwo()
-        {
-            somthingMay = returnIndex[MM];
-            somthingMay = somthingMay * 2;
-            K = somthingMay;
-            j = somthingMay + 1;
-            // K = K + 2;
-            // j = j + 2;
-            MM++;
-        }
-
-        //*****************
-
-
-        //Timer, it actually works
+        /*
+         * Corey Paxton     - 4/3/2014 - Initial Version
+         */ 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            this.CurrentUser.Data.problemTime++;
+            if (this.CurrentUser.Data.problemTime == 1)
+            {
+                lbl_coinsGained.Visible = false;
+                lbl_Responses.Visible = false;
+            }
+        }
 
-            if (countDown < 100) {
-                // Display the new time left 
-                // by updating the Time Left label.
-                countDown = countDown + 1;
-                textBox2.Text = countDown + " seconds";
-            } else {
-                // If the user ran out of time, stop the timer and go to the next question 
-                resetTimer();
+        /*
+         * Matthias Lang    - 3/17/2014 - Initial Version
+         * Corey Paxton     - 3/24/2014 - Made it so enter pressed button
+         */
+        private void answerValidator(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                btn_next_Click(sender, e);
+            }
+            e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
+        }
 
-                textBox2.Text = countDown + " seconds";
-                //go to next question
-                //goToNextProblem();
+        /*
+         * 
+         * Corey Paxton     - 3/17/2014 - Initial Version
+         * Corey Paxton     - 3/20/2014 - Expanding still unfinished
+         * Corey Paxton     - 3/24/2014 - Added coin stuff
+         * Corey Paxton     - 3/27/2014 - Refactored to Accept()
+         */
+        private void btn_next_Click(object sender, EventArgs e)
+        {
+            if (txt_answer.Text.Length > 0 && this.CurrentUser != null)
+            {
+                Accept();
+            }
+        }
+
+        /*
+         * Corey Paxton     - 3/27/2014 - Initial Version
+         * Corey Paxton     - 4/1/2014 - Refactored
+         * Corey Paxton     - 4/3/2014 - Did the streak
+         */
+        protected override void Accept()
+        {
+            try
+            {
+                if (Data.Problem.AttemptAnswer(Int32.Parse(txt_answer.Text), this.CurrentUser.Data.currentProblem))
+                {
+                    CorrectAnswer();
+                    this.lbl_coinsGained.Visible = true;
+                }
+                else
+                {
+                    IncorrectAnswer();
+                }
+            }
+            //TODO remove generality
+            catch (Exception)
+            {
+                //got a value that isn't an int in the field somehow
+                txt_answer.Text = String.Empty;
             }
 
-        }
+            
+            timer1.Stop();
+            this.CurrentUser.Data.problemTime = 0;
 
-        //Textbox for displaying the current timer
-        //nothing really needs to be done in this box
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
+            //finished last problem
+            if (this.CurrentUser.Data.currentProblemIndex + 1 >= this.CurrentUser.Data.totalProblems)
+            {
 
-        }
+                //display score screen
+                //TODO Implement a score screen
+                //if all questions were answered correctly double the amount of coins gained
+                if (this.CurrentUser.Data.correctAnswers == this.CurrentUser.Data.totalProblems)
+                {
+                    this.CurrentUser.Data.coinsGained *= 2;
+                    this.CurrentUser.Coins += this.CurrentUser.Data.coinsGained;
+                    MessageBox.Show("All answers correct! Coins earned Doubled!");
+                }
 
-        //this functionwill set the new problems with the timer expires or when the user clicks the next button
-        private bool finishGameStats()
-        {
-            currentNumOfProb++;
-            if (currentNumOfProb == problemCount) {
-                //call functiont hat saves the list of answers from the user's game to the XML 
+                MessageBox.Show(string.Format("Finished\nCorrect: {0}/{1}\nCoins Gained: {2}",
+                    this.CurrentUser.Data.correctAnswers.ToString(), this.CurrentUser.Data.totalProblems.ToString(),
+                    this.CurrentUser.Data.coinsGained.ToString()));
 
-                Data.XmlBackend.saveGameStats(answers, returnIndex, Stud);
-                timer1.Stop();
-                //need a close form thing
-                MainWindow.Instance.SwitchForm("login");
-                return false;
+                //Record the game
+                this.CurrentUser.GameCount++;
+                this.CurrentUser.Percentages.Add(Math.Round((double)this.CurrentUser.Data.correctAnswers 
+                    / (double)this.CurrentUser.Data.totalProblems, 4) * 100);
+
+                //Update the total %
+                this.CurrentUser.TotalPercentage = 0.0;
+                foreach(double percent in this.CurrentUser.Percentages)
+                {
+                    this.CurrentUser.TotalPercentage += percent;
+                }
+                this.CurrentUser.TotalPercentage = Math.Round(this.CurrentUser.TotalPercentage/ (double)this.CurrentUser.GameCount, 2);
+
+                //do some cleanup of the response labels
+                lbl_coinsGained.Visible = false;
+                lbl_Responses.Visible = false;
+
+                //return to login form
+                MainWindow.Instance.SwitchForm<Login>(this.CurrentUser);
             }
-            return true;
+            else
+            {
+                //increment the counter
+                this.CurrentUser.Data.currentProblemIndex++;
+
+                //genereate a problem at the difficulty for this user
+                this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
+
+                //reset the window
+                MainWindow.Instance.SwitchForm<GameScreen>(this.CurrentUser);
+            }
         }
 
-        //resets the timer to 0 when this function is called
-        private void resetTimer()
+        private void CorrectAnswer()
         {
-            //questionTime[K] = countDown;//save the time for each user
-            //currentNumOfProb++;
-            countDown = 0;
-            textBox2.Text = "  ";
-            textBox1.Text = "";
-        }
+            //Correct
+            //Display an indicator that they were right
+            //MessageBox.Show("Correct");
+            this.CurrentUser.Data.correctAnswers++;
+            this.CurrentUser.Data.correctStreak++;
 
-        //this closes the form
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            MainWindow.Instance.SwitchForm("login");
-        }
+            //display the coin change next to coins
+            int thisProblemCoins = Data.Problem.CoinsGained(this.CurrentUser.Data.correctStreak);
+            
+            this.CurrentUser.Data.coinsGained += thisProblemCoins;
+            this.CurrentUser.Coins += thisProblemCoins;
 
-
-        //check if an answer is right, will return true if the answer is correct
-        private bool isAnswerCorrect(int a, int b, string textboxAnswer, int operation)
-        {
-
-            c = Convert.ToInt32(textboxAnswer);
-
-            //for each operation type
-            switch (operation) {
-                case 1:
-                    a = a + b;
+            switch (this.CurrentUser.Data.correctStreak)
+            {
+                case 3:
+                    lbl_Responses.ForeColor = System.Drawing.Color.Green;
+                    lbl_Responses.Text = "Streak Bonus";
                     break;
-                case 2:
-                    a = a - b;
+                case 5:
+                    lbl_Responses.ForeColor = System.Drawing.Color.OrangeRed;
+                    lbl_Responses.Text = "On fire!";
                     break;
-
                 default:
+                    lbl_Responses.ForeColor = System.Drawing.Color.Green;
+                    lbl_Responses.Text = "Correct";
                     break;
             }
-
-            if (a == c) {
-                return true;
-            } else {
-                return false;
-            }
-
+            lbl_Responses.Visible = true;
+            lbl_coinsGained.Text = String.Format("+{0}", thisProblemCoins.ToString());
+            lbl_coinsGained.ForeColor = System.Drawing.Color.Green;
         }
 
-        //Question # / Total Questions
-        private void label2_Click(object sender, EventArgs e)
+        /*
+         * Corey Paxton     - 4/1/2013 - Initial Version
+         * Corey Paxton     - 4/3/2013 - Added Picture representation
+         */
+        private void IncorrectAnswer()
         {
+            //Incorrect
+            //Display an indicator that they were wrong and the drawing representation of the correct answer
+            MessageBox.Show(this.CurrentUser.Data.currentProblem.DrawingRepresentation());
 
+            this.CurrentUser.Data.correctStreak = 0;
+
+            //do some cleanup of the response labels
+            lbl_coinsGained.Visible = false;
+            lbl_Responses.Visible = false;
+        }
+        #endregion
+
+        private void btn_return_to_menu_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            MainWindow.Instance.SwitchForm<StudentMenu>(this.CurrentUser);
         }
     }
 }

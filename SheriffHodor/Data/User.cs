@@ -1,12 +1,8 @@
-﻿/*
- * Team Hodor
- * This file provides the Getters and Seters of the below data list
- * 
- */
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Timers;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -16,13 +12,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
     /// </summary>
     public class User : INotifyPropertyChanged
     {
-        #region Refactor
-        [XmlIgnore()]
-        public Game nextGame { get; set; }
-        [XmlIgnore()]
-        public List<Game> report { get; set; }
-        #endregion
-
         #region Type
         /// <summary>
         /// Status of the user, used for access rights.
@@ -32,14 +21,57 @@ namespace CSUSM.CS441.SheriffHodor.Data
             Teacher,
             Student
         }
+
+
+
+        public class Runtime
+        {
+            #region Definitions
+            public void newGame()
+            {
+                Random rand = new Random();
+
+                this.totalProblems = rand.Next(10, 31);
+                this.currentProblemIndex = 0;
+                this.correctAnswers = 0;
+                this.correctStreak = 0;
+                this.coinsGained = 0;
+                this.problemTime = 0;
+
+                //Addition or Subtraction problems
+                if (rand.Next(0, 2) > 0)
+                {
+                    this.problemHandler = Problem.AddProblem;
+                }
+                else
+                {
+                    this.problemHandler = Problem.SubProblem;
+                }
+
+                this.testDiff = Problem.Difficulty.Easy;
+                this.currentProblem = this.problemHandler(this.testDiff);
+            }
+            #endregion
+
+            public Runtime()
+            {
+                this.currentProblem = new Problem();
+                this.testDiff = Problem.Difficulty.Easy;
+            }
+
+            public Problem currentProblem { get; set; }
+            public int totalProblems { get; set; }
+            public int currentProblemIndex { get; set; }
+            public Problem.Difficulty testDiff { get; set; }
+            public Data.Problem.GenerateProblem problemHandler { get; set; }
+            public int correctAnswers { get; set; }
+            public int correctStreak { get; set; }
+            public int coinsGained { get; set; }
+            public int problemTime { get; set; }
+        }
         #endregion
 
         #region Constructor & object inheritance
-        // Use this in user code.
-        public static User CreateUser(string name, UserType status = UserType.Student, byte[] hash = null)
-        {
-            return new User(name, ++Global.maxId, status, hash);
-        }
         /// <summary>
         /// A parameterless constructor is needed by the serialized.
         /// </summary>
@@ -51,12 +83,15 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <param name="id">An id for the user.</param>
         /// <param name="status">The status of the user, default to student.</param>
         /// <param name="hash">The SHA-1 hash of the user's password.</param>
-        public User(string name = null, int id = -1, UserType status = UserType.Student, byte[] hash = null)
+        public User(string name = null, UserType status = UserType.Student, string hash = null)
         {
             this.Name = name;
             this.Hash = hash;
-            this.Id = id;
             this.Status = status;
+            this.Coins = 0;
+            this.Percentages = new List<double>();
+            this.TotalPercentage = 0.0;
+            this.Data = new Runtime();
         }
         /// <summary>
         /// Pretty print this object.
@@ -64,7 +99,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <returns>A string representation of this object.</returns>
         public override string ToString()
         {
-            return string.Format("[{0}] => {1} ({2})", this.Id, this.Name, this.Status);
+            return string.Format("{0} ({1})", this.Name, this.Status);
         }
         #endregion
 
@@ -74,19 +109,39 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// An hash representing the password of the user, if needed (mandatory for teachers).
+        /// A hash representing the password of the user, if needed (mandatory for teachers).
         /// </summary>
-        [XmlIgnore()] // Temp TODO
-        public byte[] Hash { get; set; }
-        /// <summary>
-        /// The internal ID of the user.
-        /// </summary>
-        [XmlAttribute("id")]
-        public int Id { get; set; }
+        [System.ComponentModel.Browsable(false)]
+        public string Hash { get; set; }
         /// <summary>
         /// Hold the status of the user, currently only 2 are defined: Teacher & Student.
         /// </summary>
         public UserType Status { get; set; }
+        /// <summary>
+        /// Keeps track of the total number of coins earned by a User
+        /// </summary>
+        [System.ComponentModel.Browsable(false)]
+        public int Coins { get; set; }
+        //  TODO display these in report
+        /// <summary>
+        /// Keep track of the game stats
+        /// </summary>
+        public List<double> Percentages { get; set; }
+        /// <summary>
+        /// Total percentage of all games played
+        /// </summary>
+        public double TotalPercentage { get; set; }
+        /// <summary>
+        /// Number of games played
+        /// </summary>
+        public int GameCount { get; set; }
+        /// <summary>
+        /// Name of the group the user is in
+        /// </summary>
+        public string GroupName { get; set; }
+
+        [XmlIgnore(), System.ComponentModel.Browsable(false)]
+        public User.Runtime Data { get; private set; }
         #endregion
 
         #region INotifyPropertyChanged Membres
@@ -96,15 +151,5 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public event PropertyChangedEventHandler PropertyChanged;
 #pragma warning restore 0067
         #endregion
-    }
-
-    /// <summary>
-    /// An XML-serializable class holding the list of users.
-    /// </summary>
-    [XmlRoot("Students")]
-    public class XmlUserList
-    {
-        [XmlElement("Student")]
-        public List<User> Users = new List<User>();
     }
 }

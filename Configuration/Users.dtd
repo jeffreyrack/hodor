@@ -4,7 +4,6 @@
 <!ELEMENT Students (Student*)>
 
 <!ELEMENT Student (Name, Status)>
-<!ATTLIST Student id CDATA #REQUIRED>
 
 <!ELEMENT Name (#PCDATA) >
 <!ELEMENT Status (#PCDATA) >

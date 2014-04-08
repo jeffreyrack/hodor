@@ -35,7 +35,7 @@
             // 
             // ddl_userList
             // 
-            this.ddl_userList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddl_userList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_userList.FormattingEnabled = true;
             this.ddl_userList.Location = new System.Drawing.Point(148, 192);
             this.ddl_userList.Name = "ddl_userList";
@@ -57,7 +57,7 @@
             this.btn_login.Location = new System.Drawing.Point(149, 245);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(144, 25);
-            this.btn_login.TabIndex = 6;
+            this.btn_login.TabIndex = 12;
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
@@ -76,6 +76,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Sienna;
+            this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.desert_background;
+            this.ClientSize = new System.Drawing.Size(452, 375);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.ddl_userList);
             this.Controls.Add(this.label1);
@@ -83,7 +86,6 @@
             this.MaximumSize = new System.Drawing.Size(452, 375);
             this.MinimumSize = new System.Drawing.Size(452, 375);
             this.Name = "Login";
-            this.Size = new System.Drawing.Size(452, 375);
             this.ResumeLayout(false);
             this.PerformLayout();
 

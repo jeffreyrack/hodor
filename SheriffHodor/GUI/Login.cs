@@ -15,49 +15,72 @@ using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
 {
-    public partial class Login : UserControl
+    public partial class Login : StateControl
     {
         public Login()
         {
             InitializeComponent();
-            foreach (var u in Data.UserList.Instance)
-                Console.WriteLine(u.ToString());
-            Data.UserList.Instance.CollectionChanged += new NotifyCollectionChangedEventHandler(UpdateUserList);
-            UpdateUserList(null, null);
+
+            ddl_userList.DisplayMember = "Name";
+            ddl_userList.DataSource = Data.UserList.Instance;
+
+            this.ddl_userList.SelectedIndexChanged +=
+                new System.EventHandler(ddl_userList_SelectionChangeCommitted);
         }
 
-        private void UpdateUserList(object o, EventArgs e)
+        public override void Entered(StateControl from, Data.User user)
         {
-            ddl_userList.DataSource = Data.UserList.Instance.Select(x => x.Name).ToList();
+            base.Entered(from, user);
+            this.AcceptButton = this.btn_login;
+            this.txt_password.Text = String.Empty;
         }
 
+        /*
+         * Corey Paxton     - 3/24/2014 - Initial Version
+         * Corey Paxton     - 4/6/2014 - Setting focus to password on selection
+         */
+        private void ddl_userList_SelectionChangeCommitted(object sender, System.EventArgs e)
+        {
+            this.txt_password.Text = String.Empty;
+            var selectedUser = Data.UserList.Instance.GetByName(ddl_userList.Text);
+            if (selectedUser.Status == Data.User.UserType.Teacher)
+            {
+                txt_password.Visible = true;
+                //TODO this fires on arrow navigation and makes it so everytime you select
+                //an admin it removes focus from the list
+                txt_password.Focus();
+            }
+            else
+            {
+                txt_password.Visible = false;
+            }
+        }
+
+        /*
+         * Mathias Lang    - 3/17/2014 - Initial Version
+         * Corey Paxton     - 3/17/2014 - Sample create test with explicitly defined data
+         */
         //The login button that will either take a user to the game or the admin to the admin screen
         private void btn_login_Click(object sender, EventArgs e)
         {
             // We retrive the user currently selected.
-            // It should be either 1 item or 0.
-            var result = from user in Data.UserList.Instance
-                         where user.Name.Equals(ddl_userList.Text, StringComparison.InvariantCultureIgnoreCase)
-                         select user;
-
-            if (result.Count() != 1) {
-                // Being paranoid doesn't hurt : We shouldn't get more than 1 result ever.
-                Contract.Assert(result.Count() == 0);
-                Helpers.DisplayError("Then name you entered is not valid !");
-                return;
-            }
-
-            var selectedUser = result.First();
-            if (selectedUser.Status == Data.User.UserType.Teacher) {
-                MainWindow.Instance.SwitchForm("admin");
-            } else {
-                if (Data.XmlBackend.selectStudentGameInfo(selectedUser) == null) {
-                    Helpers.DisplayError("No Available Tests.");
+            var selectedUser = Data.UserList.Instance.GetByName(ddl_userList.Text);
+            if (selectedUser.Status == Data.User.UserType.Teacher)
+            {
+                if (this.txt_password.Text == string.Empty)
+                {
+                    Helpers.DisplayError("Password required.");
                     return;
                 }
-                var gs = (MainWindow.Instance.SwitchForm("game") as GameScreen);
-                gs.GameScreen_FakeCtor(selectedUser);
-                MessageBox.Show("Welcome to Sheriff Hodor!");
+                if (Data.Helpers.Authenticate(selectedUser, txt_password.Text))
+                    MainWindow.Instance.SwitchForm<Administration>(selectedUser);
+                else
+                    Helpers.DisplayError("Invalid password for user " + selectedUser.Name);
+            }
+            else
+            {
+                //Console.WriteLine(selectedUser.Data.currentProblem.ToString());
+                MainWindow.Instance.SwitchForm<StudentMenu>(selectedUser);
             }
         }
     }

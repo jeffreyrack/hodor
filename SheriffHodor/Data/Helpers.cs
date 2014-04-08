@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -50,6 +52,18 @@ namespace CSUSM.CS441.SheriffHodor.Data
             System.Buffer.BlockCopy(data, 0, chars, 0, data.Length);
             return new string(chars);
         }
+
+        /// <summary>
+        /// Return a sha1 string representation of a string.
+        /// </summary>
+        /// <param name="str">The string to get the sha1 of.</param>
+        /// <returns>An hexadecimal, uppercase representation of the hash.</returns>
+        internal static string sha1Of(string str)
+        {
+            var hash = new SHA1CryptoServiceProvider();
+            return BitConverter.ToString(hash.ComputeHash(StringToByteArray(str)));
+        }
+
         /// <summary>
         /// Check whenver the given user 'usr' can authenticate using the password 'pwd'.
         /// </summary>
@@ -58,8 +72,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// <returns>True if the password match.</returns>
         internal static bool Authenticate(User usr, string pwd)
         {
-            var hash = new SHA1CryptoServiceProvider();
-            return (hash.ComputeHash(StringToByteArray(pwd)).SequenceEqual(usr.Hash));
+            Contract.Assert(usr != null);
+            Contract.Assert(pwd != null);
+            Contract.Assert(usr.Hash != null, "The selected teacher doesn't have a password set: "
+                + "Users.xml is probably compromized, please remove it to get the default, or fix it.");
+            return string.Equals(sha1Of(pwd), usr.Hash);
         }
     }
 }

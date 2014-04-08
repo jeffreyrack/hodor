@@ -32,6 +32,7 @@
             // 
             // pnl_display
             // 
+            this.pnl_display.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.pnl_display.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_display.Location = new System.Drawing.Point(0, 0);
             this.pnl_display.Name = "pnl_display";
