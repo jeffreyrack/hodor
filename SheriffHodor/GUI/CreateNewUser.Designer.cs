@@ -201,9 +201,9 @@
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_cancel.Location = new System.Drawing.Point(725, 334);
+            this.btn_cancel.Location = new System.Drawing.Point(634, 390);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(73, 64);
+            this.btn_cancel.Size = new System.Drawing.Size(84, 78);
             this.btn_cancel.TabIndex = 5;
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -211,7 +211,7 @@
             // btn_create
             // 
             this.btn_create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_create.Location = new System.Drawing.Point(26, 365);
+            this.btn_create.Location = new System.Drawing.Point(12, 445);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(75, 23);
             this.btn_create.TabIndex = 4;
@@ -225,12 +225,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
-            this.ClientSize = new System.Drawing.Size(800, 400);
+            this.ClientSize = new System.Drawing.Size(730, 480);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_create);
-            this.MaximumSize = new System.Drawing.Size(800, 400);
-            this.MinimumSize = new System.Drawing.Size(800, 400);
+            this.MaximumSize = new System.Drawing.Size(730, 480);
+            this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "CreateNewUser";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

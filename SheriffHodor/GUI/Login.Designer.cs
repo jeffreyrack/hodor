@@ -37,7 +37,7 @@
             // 
             this.ddl_userList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_userList.FormattingEnabled = true;
-            this.ddl_userList.Location = new System.Drawing.Point(148, 192);
+            this.ddl_userList.Location = new System.Drawing.Point(264, 207);
             this.ddl_userList.Name = "ddl_userList";
             this.ddl_userList.Size = new System.Drawing.Size(145, 21);
             this.ddl_userList.TabIndex = 10;
@@ -45,8 +45,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Tan;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(73, 36);
+            this.label1.Location = new System.Drawing.Point(180, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 55);
             this.label1.TabIndex = 9;
@@ -54,7 +55,7 @@
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(149, 245);
+            this.btn_login.Location = new System.Drawing.Point(265, 260);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(144, 25);
             this.btn_login.TabIndex = 12;
@@ -66,7 +67,7 @@
             // 
             this.txt_password.AccessibleDescription = "Enter your password here";
             this.txt_password.AccessibleName = "Password";
-            this.txt_password.Location = new System.Drawing.Point(149, 219);
+            this.txt_password.Location = new System.Drawing.Point(265, 234);
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '*';
             this.txt_password.Size = new System.Drawing.Size(144, 20);
@@ -78,13 +79,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Sienna;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.desert_background;
-            this.ClientSize = new System.Drawing.Size(452, 375);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(730, 480);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.ddl_userList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_login);
-            this.MaximumSize = new System.Drawing.Size(452, 375);
-            this.MinimumSize = new System.Drawing.Size(452, 375);
+            this.MaximumSize = new System.Drawing.Size(730, 480);
+            this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();

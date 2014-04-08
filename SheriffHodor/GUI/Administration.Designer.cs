@@ -55,28 +55,27 @@
             // 
             // tab_display
             // 
-            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tab_display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tab_display.Controls.Add(this.pg_report);
             this.tab_display.Controls.Add(this.pg_users);
             this.tab_display.Controls.Add(this.pg_groups);
             this.tab_display.Location = new System.Drawing.Point(0, 0);
             this.tab_display.Name = "tab_display";
             this.tab_display.SelectedIndex = 0;
-            this.tab_display.Size = new System.Drawing.Size(714, 451);
+            this.tab_display.Size = new System.Drawing.Size(730, 480);
             this.tab_display.TabIndex = 19;
             // 
             // pg_report
             // 
-            this.pg_report.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.pg_report.Controls.Add(this.btn_log_out);
             this.pg_report.Controls.Add(this.btn_details);
             this.pg_report.Controls.Add(this.dtg_reports_list);
             this.pg_report.Location = new System.Drawing.Point(4, 22);
             this.pg_report.Name = "pg_report";
             this.pg_report.Padding = new System.Windows.Forms.Padding(3);
-            this.pg_report.Size = new System.Drawing.Size(706, 425);
+            this.pg_report.Size = new System.Drawing.Size(722, 454);
             this.pg_report.TabIndex = 0;
             this.pg_report.Text = "Reports";
             this.pg_report.UseVisualStyleBackColor = true;
@@ -86,9 +85,9 @@
             this.btn_log_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_log_out.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_log_out.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_log_out.Location = new System.Drawing.Point(610, 354);
+            this.btn_log_out.Location = new System.Drawing.Point(619, 347);
             this.btn_log_out.Name = "btn_log_out";
-            this.btn_log_out.Size = new System.Drawing.Size(96, 71);
+            this.btn_log_out.Size = new System.Drawing.Size(84, 78);
             this.btn_log_out.TabIndex = 8;
             this.btn_log_out.UseVisualStyleBackColor = true;
             this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
@@ -115,13 +114,12 @@
             this.dtg_reports_list.Name = "dtg_reports_list";
             this.dtg_reports_list.ReadOnly = true;
             this.dtg_reports_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_reports_list.Size = new System.Drawing.Size(700, 345);
+            this.dtg_reports_list.Size = new System.Drawing.Size(716, 345);
             this.dtg_reports_list.StandardTab = true;
             this.dtg_reports_list.TabIndex = 1;
             // 
             // pg_users
             // 
-            this.pg_users.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.pg_users.Controls.Add(this.btn_users_logout);
             this.pg_users.Controls.Add(this.btn_users_del);
             this.pg_users.Controls.Add(this.btn_users_edit);
@@ -130,7 +128,7 @@
             this.pg_users.Location = new System.Drawing.Point(4, 22);
             this.pg_users.Name = "pg_users";
             this.pg_users.Padding = new System.Windows.Forms.Padding(3);
-            this.pg_users.Size = new System.Drawing.Size(706, 425);
+            this.pg_users.Size = new System.Drawing.Size(722, 454);
             this.pg_users.TabIndex = 2;
             this.pg_users.Text = "Users";
             this.pg_users.UseVisualStyleBackColor = true;
@@ -140,9 +138,9 @@
             this.btn_users_logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_users_logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_users_logout.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_users_logout.Location = new System.Drawing.Point(621, 354);
+            this.btn_users_logout.Location = new System.Drawing.Point(619, 347);
             this.btn_users_logout.Name = "btn_users_logout";
-            this.btn_users_logout.Size = new System.Drawing.Size(85, 75);
+            this.btn_users_logout.Size = new System.Drawing.Size(84, 78);
             this.btn_users_logout.TabIndex = 4;
             this.btn_users_logout.UseVisualStyleBackColor = true;
             this.btn_users_logout.Click += new System.EventHandler(this.btn_logout_Click);
@@ -191,13 +189,12 @@
             this.dtg_users_list.Name = "dtg_users_list";
             this.dtg_users_list.ReadOnly = true;
             this.dtg_users_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_users_list.Size = new System.Drawing.Size(700, 345);
+            this.dtg_users_list.Size = new System.Drawing.Size(716, 345);
             this.dtg_users_list.StandardTab = true;
             this.dtg_users_list.TabIndex = 0;
             // 
             // pg_groups
             // 
-            this.pg_groups.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.pg_groups.Controls.Add(this.dtg_groups_groups);
             this.pg_groups.Controls.Add(this.btn_groups_logout);
             this.pg_groups.Controls.Add(this.btn_groups_delete);
@@ -206,7 +203,7 @@
             this.pg_groups.Location = new System.Drawing.Point(4, 22);
             this.pg_groups.Name = "pg_groups";
             this.pg_groups.Padding = new System.Windows.Forms.Padding(3);
-            this.pg_groups.Size = new System.Drawing.Size(706, 425);
+            this.pg_groups.Size = new System.Drawing.Size(722, 454);
             this.pg_groups.TabIndex = 3;
             this.pg_groups.Text = "Groups";
             this.pg_groups.UseVisualStyleBackColor = true;
@@ -222,7 +219,7 @@
             this.dtg_groups_groups.Name = "dtg_groups_groups";
             this.dtg_groups_groups.ReadOnly = true;
             this.dtg_groups_groups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_groups_groups.Size = new System.Drawing.Size(700, 345);
+            this.dtg_groups_groups.Size = new System.Drawing.Size(716, 345);
             this.dtg_groups_groups.StandardTab = true;
             this.dtg_groups_groups.TabIndex = 5;
             // 
@@ -230,9 +227,9 @@
             // 
             this.btn_groups_logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_groups_logout.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_groups_logout.Location = new System.Drawing.Point(622, 354);
+            this.btn_groups_logout.Location = new System.Drawing.Point(619, 347);
             this.btn_groups_logout.Name = "btn_groups_logout";
-            this.btn_groups_logout.Size = new System.Drawing.Size(84, 75);
+            this.btn_groups_logout.Size = new System.Drawing.Size(84, 78);
             this.btn_groups_logout.TabIndex = 4;
             this.btn_groups_logout.UseVisualStyleBackColor = true;
             this.btn_groups_logout.Click += new System.EventHandler(this.btn_groups_logout_Click);

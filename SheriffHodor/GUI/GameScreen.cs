@@ -250,5 +250,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             timer1.Stop();
             MainWindow.Instance.SwitchForm<StudentMenu>(this.CurrentUser);
         }
+
     }
 }

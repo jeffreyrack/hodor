@@ -46,7 +46,7 @@
             // 
             this.txt_newName.Location = new System.Drawing.Point(129, 50);
             this.txt_newName.Name = "txt_newName";
-            this.txt_newName.Size = new System.Drawing.Size(267, 20);
+            this.txt_newName.Size = new System.Drawing.Size(196, 20);
             this.txt_newName.TabIndex = 9;
             // 
             // txt_oldName
@@ -54,7 +54,7 @@
             this.txt_oldName.Location = new System.Drawing.Point(129, 14);
             this.txt_oldName.Name = "txt_oldName";
             this.txt_oldName.ReadOnly = true;
-            this.txt_oldName.Size = new System.Drawing.Size(267, 20);
+            this.txt_oldName.Size = new System.Drawing.Size(196, 20);
             this.txt_oldName.TabIndex = 8;
             // 
             // rdo_hard
@@ -118,7 +118,7 @@
             // 
             // btn_accept
             // 
-            this.btn_accept.Location = new System.Drawing.Point(18, 200);
+            this.btn_accept.Location = new System.Drawing.Point(12, 435);
             this.btn_accept.Name = "btn_accept";
             this.btn_accept.Size = new System.Drawing.Size(75, 23);
             this.btn_accept.TabIndex = 1;
@@ -136,11 +136,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lbl_oldName);
             this.groupBox1.Controls.Add(this.lbl_newName);
-            this.groupBox1.Controls.Add(this.btn_accept);
-            this.groupBox1.Controls.Add(this.btn_cancel);
-            this.groupBox1.Location = new System.Drawing.Point(219, 33);
+            this.groupBox1.Location = new System.Drawing.Point(158, 145);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(428, 235);
+            this.groupBox1.Size = new System.Drawing.Size(418, 161);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             // 
@@ -148,9 +146,9 @@
             // 
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_cancel.Location = new System.Drawing.Point(352, 170);
+            this.btn_cancel.Location = new System.Drawing.Point(634, 390);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(76, 65);
+            this.btn_cancel.Size = new System.Drawing.Size(84, 78);
             this.btn_cancel.TabIndex = 0;
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
@@ -161,8 +159,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
-            this.ClientSize = new System.Drawing.Size(909, 526);
+            this.ClientSize = new System.Drawing.Size(730, 480);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btn_cancel);
+            this.Controls.Add(this.btn_accept);
+            this.MaximumSize = new System.Drawing.Size(730, 480);
+            this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "UpdateGroup";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
