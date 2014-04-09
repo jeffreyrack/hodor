@@ -31,7 +31,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             int idx = GetIdxByName(name);
             if (idx >= 0)
             {
-                if (Instance[idx].GroupName != String.Empty)
+                if (Instance[idx].GroupName != null)
                 {
 
                     //Find the group by the name of the group associated with the user
@@ -51,8 +51,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public int GetIdxByName(string name)
         {
             for (int i = 0; i < this.Count; ++i)
-                if (this[i].Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
-                    return i;
+                if (this[i].Name != null)
+                    if (this[i].Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
+                        return i;
             Console.WriteLine("FAILED to get '{0}'.", name);
             return -1;
         }

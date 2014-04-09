@@ -32,7 +32,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             {
                 foreach (var member in this.Items[idx].Members)
                 {
-                    member.GroupName = String.Empty;
+                    member.GroupName = null;
                 }
                 this.RemoveItem(idx);
             }
@@ -42,8 +42,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public int GetIdxByName(string name)
         {
             for (int i = 0; i < this.Count; ++i)
-                if (this[i].Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
-                    return i;
+                if(this[i].Name != null)
+                    if (this[i].Name.Equals(name, StringComparison.InvariantCultureIgnoreCase))
+                        return i;
             Console.WriteLine("FAILED to get '{0}'.", name);
             return -1;
         }

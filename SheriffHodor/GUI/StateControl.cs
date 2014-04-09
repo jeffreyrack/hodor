@@ -44,6 +44,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <param name="to">The form it's switching to.</param>
         public virtual void Leaved(StateControl to)
         {
+            //Corey thinks this is unecessary. See if it breaks by removing next cycle.
             this.CurrentUser = null;
             this.Hide();
         }   

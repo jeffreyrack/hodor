@@ -82,8 +82,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 if (count < 1)
                     return;
 
+                if (this.CurrentUser == null)
+                {
+                    Helpers.DisplayError("WE DIDNT SET THE USER FOR THIS SCREEN");
+                }
                 // Avoid deleting yourself
-                if (toDel.Contains(this.CurrentUser.Name))
+                else if (toDel.Contains(this.CurrentUser.Name))
                 {
                     Helpers.DisplayError("You can't delete yourself !");
                     return;
