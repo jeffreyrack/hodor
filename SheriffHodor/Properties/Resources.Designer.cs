@@ -133,6 +133,16 @@ namespace CSUSM.CS441.SheriffHodor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap minusButton {
+            get {
+                object obj = ResourceManager.GetObject("minusButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap playButton {
             get {
                 object obj = ResourceManager.GetObject("playButton", resourceCulture);
@@ -146,6 +156,16 @@ namespace CSUSM.CS441.SheriffHodor.Properties {
         public static System.Drawing.Bitmap playButton1 {
             get {
                 object obj = ResourceManager.GetObject("playButton1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap plusButton {
+            get {
+                object obj = ResourceManager.GetObject("plusButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

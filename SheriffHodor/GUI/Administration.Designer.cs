@@ -135,18 +135,19 @@
             // btn_users_del
             // 
             this.btn_users_del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_users_del.Location = new System.Drawing.Point(589, 322);
+            this.btn_users_del.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.minusButton;
+            this.btn_users_del.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_users_del.Location = new System.Drawing.Point(666, 303);
             this.btn_users_del.Name = "btn_users_del";
-            this.btn_users_del.Size = new System.Drawing.Size(120, 23);
+            this.btn_users_del.Size = new System.Drawing.Size(43, 42);
             this.btn_users_del.TabIndex = 3;
-            this.btn_users_del.Text = "Delete selected user";
             this.btn_users_del.UseVisualStyleBackColor = true;
             this.btn_users_del.Click += new System.EventHandler(this.btn_users_del_Click);
             // 
             // btn_users_edit
             // 
             this.btn_users_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_users_edit.Location = new System.Drawing.Point(589, 293);
+            this.btn_users_edit.Location = new System.Drawing.Point(589, 274);
             this.btn_users_edit.Name = "btn_users_edit";
             this.btn_users_edit.Size = new System.Drawing.Size(120, 23);
             this.btn_users_edit.TabIndex = 2;
@@ -157,11 +158,12 @@
             // btn_users_add
             // 
             this.btn_users_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_users_add.Location = new System.Drawing.Point(589, 264);
+            this.btn_users_add.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.plusButton;
+            this.btn_users_add.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_users_add.Location = new System.Drawing.Point(669, 226);
             this.btn_users_add.Name = "btn_users_add";
-            this.btn_users_add.Size = new System.Drawing.Size(120, 23);
+            this.btn_users_add.Size = new System.Drawing.Size(40, 42);
             this.btn_users_add.TabIndex = 1;
-            this.btn_users_add.Text = "Create new user";
             this.btn_users_add.UseVisualStyleBackColor = true;
             this.btn_users_add.Click += new System.EventHandler(this.btn_users_add_Click);
             // 
@@ -208,17 +210,18 @@
             // 
             // btn_groups_delete
             // 
-            this.btn_groups_delete.Location = new System.Drawing.Point(590, 324);
+            this.btn_groups_delete.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.minusButton;
+            this.btn_groups_delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_groups_delete.Location = new System.Drawing.Point(668, 308);
             this.btn_groups_delete.Name = "btn_groups_delete";
-            this.btn_groups_delete.Size = new System.Drawing.Size(120, 23);
+            this.btn_groups_delete.Size = new System.Drawing.Size(42, 39);
             this.btn_groups_delete.TabIndex = 3;
-            this.btn_groups_delete.Text = "Delete group";
             this.btn_groups_delete.UseVisualStyleBackColor = true;
             this.btn_groups_delete.Click += new System.EventHandler(this.btn_groups_delete_Click);
             // 
             // btn_groups_edit
             // 
-            this.btn_groups_edit.Location = new System.Drawing.Point(590, 295);
+            this.btn_groups_edit.Location = new System.Drawing.Point(590, 279);
             this.btn_groups_edit.Name = "btn_groups_edit";
             this.btn_groups_edit.Size = new System.Drawing.Size(120, 23);
             this.btn_groups_edit.TabIndex = 2;
@@ -228,11 +231,12 @@
             // 
             // btn_groups_create
             // 
-            this.btn_groups_create.Location = new System.Drawing.Point(590, 266);
+            this.btn_groups_create.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.plusButton;
+            this.btn_groups_create.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_groups_create.Location = new System.Drawing.Point(668, 236);
             this.btn_groups_create.Name = "btn_groups_create";
-            this.btn_groups_create.Size = new System.Drawing.Size(120, 23);
+            this.btn_groups_create.Size = new System.Drawing.Size(42, 37);
             this.btn_groups_create.TabIndex = 1;
-            this.btn_groups_create.Text = "Create group";
             this.btn_groups_create.UseVisualStyleBackColor = true;
             this.btn_groups_create.Click += new System.EventHandler(this.btn_groups_create_Click);
             // 
