@@ -201,7 +201,7 @@
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_cancel.Location = new System.Drawing.Point(634, 390);
+            this.btn_cancel.Location = new System.Drawing.Point(648, 403);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(84, 78);
             this.btn_cancel.TabIndex = 5;
@@ -211,7 +211,7 @@
             // btn_create
             // 
             this.btn_create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_create.Location = new System.Drawing.Point(12, 445);
+            this.btn_create.Location = new System.Drawing.Point(657, 374);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(75, 23);
             this.btn_create.TabIndex = 4;

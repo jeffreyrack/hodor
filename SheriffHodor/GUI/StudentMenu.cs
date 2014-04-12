@@ -15,6 +15,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             this.AcceptButton = btn_play_game;
+            SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.BackColor = Color.Transparent;
         }
 
         public override void Entered(StateControl from, Data.User user)

@@ -101,7 +101,7 @@
             // 
             // btn_create
             // 
-            this.btn_create.Location = new System.Drawing.Point(12, 445);
+            this.btn_create.Location = new System.Drawing.Point(657, 375);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(75, 23);
             this.btn_create.TabIndex = 11;
@@ -113,7 +113,7 @@
             // 
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_cancel.Location = new System.Drawing.Point(634, 390);
+            this.btn_cancel.Location = new System.Drawing.Point(648, 404);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(84, 78);
             this.btn_cancel.TabIndex = 10;

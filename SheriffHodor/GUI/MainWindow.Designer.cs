@@ -32,7 +32,6 @@
             // 
             // pnl_display
             // 
-            this.pnl_display.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.pnl_display.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pnl_display.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_display.Location = new System.Drawing.Point(0, 0);
@@ -46,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 480);
+            this.ClientSize = new System.Drawing.Size(720, 469);
             this.Controls.Add(this.pnl_display);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

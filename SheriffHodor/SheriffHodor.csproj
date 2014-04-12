@@ -133,6 +133,9 @@
     <EmbeddedResource Include="GUI\CreateGroup.resx">
       <DependentUpon>CreateGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StateControl.resx">
+      <DependentUpon>StateControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\StudentMenu.resx">
       <DependentUpon>StudentMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +222,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exit_button1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playButton2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playButton3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

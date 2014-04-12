@@ -39,12 +39,13 @@
             // 
             // btn_play_game
             // 
-            this.btn_play_game.Location = new System.Drawing.Point(336, 227);
+            this.btn_play_game.BackColor = System.Drawing.Color.Tan;
+            this.btn_play_game.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.playButton1;
+            this.btn_play_game.Location = new System.Drawing.Point(190, 62);
             this.btn_play_game.Name = "btn_play_game";
-            this.btn_play_game.Size = new System.Drawing.Size(75, 23);
+            this.btn_play_game.Size = new System.Drawing.Size(353, 371);
             this.btn_play_game.TabIndex = 1;
-            this.btn_play_game.Text = "Play Game";
-            this.btn_play_game.UseVisualStyleBackColor = true;
+            this.btn_play_game.UseVisualStyleBackColor = false;
             this.btn_play_game.Click += new System.EventHandler(this.btn_play_game_Click);
             // 
             // groupBox3
