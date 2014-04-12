@@ -211,11 +211,12 @@
             // btn_create
             // 
             this.btn_create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_create.Location = new System.Drawing.Point(657, 374);
+            this.btn_create.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.resizedSubmit;
+            this.btn_create.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_create.Location = new System.Drawing.Point(604, 364);
             this.btn_create.Name = "btn_create";
-            this.btn_create.Size = new System.Drawing.Size(75, 23);
+            this.btn_create.Size = new System.Drawing.Size(128, 33);
             this.btn_create.TabIndex = 4;
-            this.btn_create.Text = "Create";
             this.btn_create.UseVisualStyleBackColor = true;
             this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
             // 

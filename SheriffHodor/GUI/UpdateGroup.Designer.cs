@@ -118,11 +118,12 @@
             // 
             // btn_accept
             // 
-            this.btn_accept.Location = new System.Drawing.Point(659, 375);
+            this.btn_accept.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.resizedSubmit;
+            this.btn_accept.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_accept.Location = new System.Drawing.Point(607, 366);
             this.btn_accept.Name = "btn_accept";
-            this.btn_accept.Size = new System.Drawing.Size(75, 23);
+            this.btn_accept.Size = new System.Drawing.Size(127, 32);
             this.btn_accept.TabIndex = 1;
-            this.btn_accept.Text = "Accept";
             this.btn_accept.UseVisualStyleBackColor = true;
             this.btn_accept.Click += new System.EventHandler(this.btn_accept_Click);
             // 

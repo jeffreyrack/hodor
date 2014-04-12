@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="playButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playButton2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="door_button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\door_button1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,19 +130,28 @@
   <data name="exit_button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_button1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="submit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\submit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exit_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_button.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit_button2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exit_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="playButton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playButton3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playButton2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exit_button3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_button1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="exit_button2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="door_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\door_button.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="playButton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playButton3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="resizedSubmit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\resizedSubmit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

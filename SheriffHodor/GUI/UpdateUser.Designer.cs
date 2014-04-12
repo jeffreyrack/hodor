@@ -171,11 +171,12 @@
             // 
             // btn_submit
             // 
-            this.btn_submit.Location = new System.Drawing.Point(655, 374);
+            this.btn_submit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.resizedSubmit;
+            this.btn_submit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_submit.Location = new System.Drawing.Point(605, 361);
             this.btn_submit.Name = "btn_submit";
-            this.btn_submit.Size = new System.Drawing.Size(75, 23);
+            this.btn_submit.Size = new System.Drawing.Size(125, 36);
             this.btn_submit.TabIndex = 2;
-            this.btn_submit.Text = "Submit";
             this.btn_submit.UseVisualStyleBackColor = true;
             this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
