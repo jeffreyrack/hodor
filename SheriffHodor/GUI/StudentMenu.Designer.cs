@@ -28,26 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lbl_current_name = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txt_coins = new System.Windows.Forms.TextBox();
-            this.lbl_coins = new System.Windows.Forms.Label();
             this.btn_play_game = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txt_coins = new System.Windows.Forms.TextBox();
+            this.lbl_current_name = new System.Windows.Forms.Label();
+            this.lbl_coins = new System.Windows.Forms.Label();
             this.btn_log_out = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btn_play_game
+            // 
+            this.btn_play_game.Location = new System.Drawing.Point(336, 227);
+            this.btn_play_game.Name = "btn_play_game";
+            this.btn_play_game.Size = new System.Drawing.Size(75, 23);
+            this.btn_play_game.TabIndex = 1;
+            this.btn_play_game.Text = "Play Game";
+            this.btn_play_game.UseVisualStyleBackColor = true;
+            this.btn_play_game.Click += new System.EventHandler(this.btn_play_game_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Tan;
+            this.groupBox3.Controls.Add(this.txt_coins);
             this.groupBox3.Controls.Add(this.lbl_current_name);
-            this.groupBox3.Location = new System.Drawing.Point(12, 12);
+            this.groupBox3.Controls.Add(this.lbl_coins);
+            this.groupBox3.Location = new System.Drawing.Point(-1, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(358, 39);
+            this.groupBox3.Size = new System.Drawing.Size(732, 43);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // txt_coins
+            // 
+            this.txt_coins.Location = new System.Drawing.Point(312, 13);
+            this.txt_coins.Name = "txt_coins";
+            this.txt_coins.ReadOnly = true;
+            this.txt_coins.Size = new System.Drawing.Size(125, 20);
+            this.txt_coins.TabIndex = 4;
+            this.txt_coins.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lbl_current_name
             // 
@@ -58,51 +78,20 @@
             this.lbl_current_name.TabIndex = 0;
             this.lbl_current_name.Text = "Welcome: ";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Tan;
-            this.groupBox2.Controls.Add(this.txt_coins);
-            this.groupBox2.Controls.Add(this.lbl_coins);
-            this.groupBox2.Controls.Add(this.btn_play_game);
-            this.groupBox2.Location = new System.Drawing.Point(12, 409);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(410, 60);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            // 
-            // txt_coins
-            // 
-            this.txt_coins.Location = new System.Drawing.Point(252, 20);
-            this.txt_coins.Name = "txt_coins";
-            this.txt_coins.ReadOnly = true;
-            this.txt_coins.Size = new System.Drawing.Size(145, 20);
-            this.txt_coins.TabIndex = 4;
-            this.txt_coins.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // lbl_coins
             // 
             this.lbl_coins.AutoSize = true;
-            this.lbl_coins.Location = new System.Drawing.Point(207, 27);
+            this.lbl_coins.Location = new System.Drawing.Point(267, 16);
             this.lbl_coins.Name = "lbl_coins";
             this.lbl_coins.Size = new System.Drawing.Size(39, 13);
             this.lbl_coins.TabIndex = 3;
             this.lbl_coins.Text = "Coins: ";
             // 
-            // btn_play_game
-            // 
-            this.btn_play_game.Location = new System.Drawing.Point(6, 22);
-            this.btn_play_game.Name = "btn_play_game";
-            this.btn_play_game.Size = new System.Drawing.Size(75, 23);
-            this.btn_play_game.TabIndex = 1;
-            this.btn_play_game.Text = "Play Game";
-            this.btn_play_game.UseVisualStyleBackColor = true;
-            this.btn_play_game.Click += new System.EventHandler(this.btn_play_game_Click);
-            // 
             // btn_log_out
             // 
             this.btn_log_out.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_log_out.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_log_out.Location = new System.Drawing.Point(634, 390);
+            this.btn_log_out.Location = new System.Drawing.Point(647, 403);
             this.btn_log_out.Name = "btn_log_out";
             this.btn_log_out.Size = new System.Drawing.Size(84, 78);
             this.btn_log_out.TabIndex = 2;
@@ -117,16 +106,14 @@
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(730, 480);
+            this.Controls.Add(this.btn_play_game);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btn_log_out);
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "StudentMenu";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -136,7 +123,6 @@
         private System.Windows.Forms.Label lbl_current_name;
         private System.Windows.Forms.Button btn_play_game;
         private System.Windows.Forms.Button btn_log_out;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txt_coins;
         private System.Windows.Forms.Label lbl_coins;
         private System.Windows.Forms.GroupBox groupBox3;
