@@ -35,6 +35,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <param name="user">An optionnal user.</param>
         public virtual void Entered(StateControl from, Data.User user)
         {
+            this.Show();
             this.CurrentUser = user;
         }
         /// <summary>
@@ -43,6 +44,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// <param name="to">The form it's switching to.</param>
         public virtual void Leaved(StateControl to)
         {
+            //Corey thinks this is unecessary. See if it breaks by removing next cycle.
             this.CurrentUser = null;
             this.Hide();
         }   

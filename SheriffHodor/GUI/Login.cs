@@ -33,6 +33,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             base.Entered(from, user);
             this.AcceptButton = this.btn_login;
             this.txt_password.Text = String.Empty;
+            if (txt_password.Visible)
+            {
+                txt_password.Focus();
+            }
         }
 
         /*

@@ -49,7 +49,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 lbl_newPasswordConfirm.Visible = false;
                 txt_newPassword.Visible = false;
                 txt_newPasswordConfirm.Visible = false;
-                ddl_groups.SelectedItem = Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName);
+                if(this.CurrentUser.GroupName != null)
+                    ddl_groups.SelectedItem = Data.GroupList.Instance.GetByName(this.CurrentUser.GroupName);
 
             }
         }
@@ -62,7 +63,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             txt_newPassword.Text = String.Empty;
             txt_newPasswordConfirm.Text = String.Empty;
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
 
         /*

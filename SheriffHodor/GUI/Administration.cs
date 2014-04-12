@@ -33,8 +33,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             //TODO make this work
             //var results = from user in Data.UserList.Instance where user.Status == Data.User.UserType.Student select user;
             //dtg_reports_list.DataSource = results;
-            //dtg_reports_list.Columns["TotalPercentage"].Name = "Total %";
-            //dtg_reports_list.Columns["GameCount"].Name = "Games Played";
+            dtg_reports_list.Columns["TotalPercentage"].HeaderText = "Total %";
+            dtg_reports_list.Columns["GameCount"].HeaderText = "Games Played";
 
             dtg_reports_list.Columns["Status"].Visible = false;
         }
@@ -57,7 +57,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         #region Users Panel
         private void btn_users_add_Click(object sender, EventArgs e)
         {
-            MainWindow.Instance.SwitchForm<CreateNewUser>();
+            MainWindow.Instance.SwitchForm<CreateNewUser>(this.CurrentUser);
         }
 
         private void btn_users_edit_Click(object sender, EventArgs e)
@@ -82,8 +82,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 if (count < 1)
                     return;
 
+                if (this.CurrentUser == null)
+                {
+                    Helpers.DisplayError("WE DIDNT SET THE USER FOR THIS SCREEN");
+                }
                 // Avoid deleting yourself
-                if (toDel.Contains(this.CurrentUser.Name))
+                else if (toDel.Contains(this.CurrentUser.Name))
                 {
                     Helpers.DisplayError("You can't delete yourself !");
                     return;

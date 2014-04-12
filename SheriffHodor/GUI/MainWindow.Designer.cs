@@ -49,6 +49,9 @@
             this.ClientSize = new System.Drawing.Size(730, 480);
             this.Controls.Add(this.pnl_display);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(736, 508);
+            this.MinimumSize = new System.Drawing.Size(736, 508);
             this.Name = "MainWindow";
             this.Text = "MainWindow";
             this.ResumeLayout(false);

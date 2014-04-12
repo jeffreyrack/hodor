@@ -32,7 +32,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             var name = txt_username.Text.Trim();
             var type = CheckedType();
             string pwd = null;
-            string groupName = ddl_groupList.SelectedText != string.Empty ? ddl_groupList.SelectedText : null;
+            string groupName = ddl_groupList.SelectedItem != null ? ddl_groupList.SelectedItem.ToString() : null;
 
             // Check the username
             if (name == string.Empty)
@@ -65,7 +65,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             var user = new Data.User(txt_username.Text, type, pwd);
             if (type == Data.User.UserType.Student)
+            {
                 user.GroupName = groupName;
+                if (groupName != null)
+                {
+                    Data.GroupList.Instance.GetByName(groupName).Members.Add(user);
+                }
+            }
             Data.UserList.Instance.Add(user);
 
             Helpers.DisplayInfo(string.Format("User '{0}' successfully created", txt_username.Text));
@@ -78,7 +84,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             txt_password.Clear();
             txt_passwordConfirm.Clear();
             rdo_user.Checked = true;
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
 
         private Data.User.UserType CheckedType()
