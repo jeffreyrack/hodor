@@ -33,9 +33,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 new System.EventHandler(ddl_userList_SelectionChangeCommitted);
         }
 
-        public override void Entered(StateControl from, Data.User user)
+        public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
-            base.Entered(from, user);
+            base.Entered(from, user, returnUser);
             this.AcceptButton = this.btn_login;
             this.txt_password.Text = String.Empty;
             if (txt_password.Visible)

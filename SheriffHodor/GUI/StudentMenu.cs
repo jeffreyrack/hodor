@@ -19,9 +19,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.BackColor = Color.Transparent;
         }
 
-        public override void Entered(StateControl from, Data.User user)
+        public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
-            base.Entered(from, user);
+            base.Entered(from, user, returnUser);
             this.AcceptButton = btn_play_game;
 
             lbl_current_name.Text = String.Format("Welcome: {0}", this.CurrentUser.Name);

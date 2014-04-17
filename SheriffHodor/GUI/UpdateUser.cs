@@ -23,10 +23,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /*
          * Corey Paxton     - 4/5/2014 - Initial Version
          */
-        public override void Entered(StateControl from, Data.User user, Data.User currentUser)
+        public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
-            base.Entered(from, user);
-            this.CurrentUser = currentUser;
+            base.Entered(from, user, returnUser);
             this.txt_currentName.Text = user.Name;
             this.txt_newName.Text = user.Name;
 
@@ -63,7 +62,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             txt_newPassword.Text = String.Empty;
             txt_newPasswordConfirm.Text = String.Empty;
-            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
+            MainWindow.Instance.SwitchForm<Administration>(this.returnUser);
         }
 
         /*
@@ -109,7 +108,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (txt_newName.Text != txt_currentName.Text)
                 this.CurrentUser.Name = txt_newName.Text;
 
-            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
+            MainWindow.Instance.SwitchForm<Administration>();
         }
 
     }

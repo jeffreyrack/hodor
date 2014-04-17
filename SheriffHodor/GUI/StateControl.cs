@@ -34,23 +34,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// </summary>
         /// <param name="from">The calling form.</param>
         /// <param name="user">An optionnal user.</param>
-        public virtual void Entered(StateControl from, Data.User user)
+        public virtual void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
             this.Show();
             this.CurrentUser = user;
+            this.returnUser = returnUser;
         }
 
-        /// <summary>
-        /// Called when this form is entered (using switchTo(formName)).
-        /// </summary>
-        /// <param name="from">The calling form.</param>
-        /// <param name="user">An optionnal user.</param>
-        public virtual void Entered(StateControl from, Data.User user, Data.User currentUser)
-        {
-            this.Show();
-            if (currentUser == null) this.CurrentUser = user;
-            else this.CurrentUser = currentUser;
-        }
         /// <summary>
         /// Called when the form switch to another module.
         /// </summary>
@@ -92,5 +82,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
 
         }
+
+        public Data.User returnUser { get; set; }
     }
 }

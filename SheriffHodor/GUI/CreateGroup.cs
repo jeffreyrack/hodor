@@ -49,9 +49,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     : Data.Problem.Difficulty.Hard);
         }
 
-        public override void Entered(StateControl from, Data.User user)
+        public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
-            base.Entered(from, user);
+            base.Entered(from, user, returnUser);
             txt_name.Text = string.Empty;
         }
 

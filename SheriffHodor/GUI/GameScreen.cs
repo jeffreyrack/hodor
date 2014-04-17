@@ -36,9 +36,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          * Corey Paxton     - 3/24/2014 - Added coin stuff
          * Corey Paxton     - 4/3/2014 - Equation and top to bottom form
          */
-        public override void Entered(StateControl from, Data.User user)
+        public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
-            base.Entered(from, user);
+            base.Entered(from, user, returnUser);
 
             // TODO this isnt working the first time it enters the screen unless you click the screen
             // Make the text field active

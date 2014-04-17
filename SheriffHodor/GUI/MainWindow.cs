@@ -55,9 +55,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         /// </summary>
         /// <param name="name">The name on which the form was registered.</param>
         /// <returns>The form which is now displayed.</returns>
-        public FormType SwitchForm<FormType>(Data.User user = null, params object[] args)
+        public FormType SwitchForm<FormType>(Data.User user = null, Data.User returnUser= null,params object[] args)
             where FormType : StateControl, new()
         {
+            if (returnUser == null) returnUser = user;
             StateControl tmp = null;
             string name = typeof(FormType).FullName;
             // First we check if we already have this form in the cache.
@@ -77,9 +78,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (oldValue != null)
                 oldValue.Leaved(form);
             this.Controls.Add(form);
-
-
-            form.Entered(oldValue, user);
+            form.Entered(oldValue, user, returnUser);
             //form.Focus();
             form.Show();
             // Make sure it is behaving correctly
