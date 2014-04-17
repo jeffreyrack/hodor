@@ -181,6 +181,7 @@
             this.dtg_users_list.Size = new System.Drawing.Size(716, 353);
             this.dtg_users_list.StandardTab = true;
             this.dtg_users_list.TabIndex = 0;
+            // 
             // pg_groups
             // 
             this.pg_groups.BackColor = System.Drawing.Color.BurlyWood;

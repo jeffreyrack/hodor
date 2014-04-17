@@ -35,8 +35,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             //dtg_reports_list.DataSource = results;
             dtg_reports_list.Columns["TotalPercentage"].HeaderText = "Total %";
             dtg_reports_list.Columns["GameCount"].HeaderText = "Games Played";
-
             dtg_reports_list.Columns["Status"].Visible = false;
+
+            dtg_users_list.Columns["TotalPercentage"].Visible = false;
+            dtg_users_list.Columns["GameCount"].Visible = false;
         }
 
         private List<object> getSelectedName(DataGridView dgv, string cellname)
@@ -173,5 +175,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
         }
         #endregion
+
+
     }
 }
