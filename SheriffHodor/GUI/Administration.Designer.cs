@@ -68,6 +68,7 @@
             // 
             // pg_report
             // 
+            this.pg_report.BackColor = System.Drawing.Color.BurlyWood;
             this.pg_report.Controls.Add(this.btn_log_out);
             this.pg_report.Controls.Add(this.dtg_reports_list);
             this.pg_report.Location = new System.Drawing.Point(4, 22);
@@ -76,7 +77,6 @@
             this.pg_report.Size = new System.Drawing.Size(722, 454);
             this.pg_report.TabIndex = 0;
             this.pg_report.Text = "Reports";
-            this.pg_report.UseVisualStyleBackColor = true;
             // 
             // btn_log_out
             // 
@@ -101,12 +101,13 @@
             this.dtg_reports_list.Name = "dtg_reports_list";
             this.dtg_reports_list.ReadOnly = true;
             this.dtg_reports_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_reports_list.Size = new System.Drawing.Size(716, 426);
+            this.dtg_reports_list.Size = new System.Drawing.Size(716, 351);
             this.dtg_reports_list.StandardTab = true;
             this.dtg_reports_list.TabIndex = 1;
             // 
             // pg_users
             // 
+            this.pg_users.BackColor = System.Drawing.Color.BurlyWood;
             this.pg_users.Controls.Add(this.btn_users_logout);
             this.pg_users.Controls.Add(this.btn_users_del);
             this.pg_users.Controls.Add(this.btn_users_edit);
@@ -118,7 +119,6 @@
             this.pg_users.Size = new System.Drawing.Size(722, 454);
             this.pg_users.TabIndex = 2;
             this.pg_users.Text = "Users";
-            this.pg_users.UseVisualStyleBackColor = true;
             // 
             // btn_users_logout
             // 
@@ -137,7 +137,7 @@
             this.btn_users_del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_users_del.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.minusButton;
             this.btn_users_del.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_users_del.Location = new System.Drawing.Point(666, 303);
+            this.btn_users_del.Location = new System.Drawing.Point(576, 387);
             this.btn_users_del.Name = "btn_users_del";
             this.btn_users_del.Size = new System.Drawing.Size(43, 42);
             this.btn_users_del.TabIndex = 3;
@@ -147,7 +147,7 @@
             // btn_users_edit
             // 
             this.btn_users_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_users_edit.Location = new System.Drawing.Point(589, 274);
+            this.btn_users_edit.Location = new System.Drawing.Point(450, 406);
             this.btn_users_edit.Name = "btn_users_edit";
             this.btn_users_edit.Size = new System.Drawing.Size(120, 23);
             this.btn_users_edit.TabIndex = 2;
@@ -160,7 +160,7 @@
             this.btn_users_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_users_add.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.plusButton;
             this.btn_users_add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_users_add.Location = new System.Drawing.Point(669, 226);
+            this.btn_users_add.Location = new System.Drawing.Point(404, 390);
             this.btn_users_add.Name = "btn_users_add";
             this.btn_users_add.Size = new System.Drawing.Size(40, 42);
             this.btn_users_add.TabIndex = 1;
@@ -178,12 +178,12 @@
             this.dtg_users_list.Name = "dtg_users_list";
             this.dtg_users_list.ReadOnly = true;
             this.dtg_users_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_users_list.Size = new System.Drawing.Size(716, 429);
+            this.dtg_users_list.Size = new System.Drawing.Size(716, 353);
             this.dtg_users_list.StandardTab = true;
             this.dtg_users_list.TabIndex = 0;
-            // 
             // pg_groups
             // 
+            this.pg_groups.BackColor = System.Drawing.Color.BurlyWood;
             this.pg_groups.Controls.Add(this.btn_groups_logout);
             this.pg_groups.Controls.Add(this.btn_groups_delete);
             this.pg_groups.Controls.Add(this.btn_groups_edit);
@@ -195,7 +195,6 @@
             this.pg_groups.Size = new System.Drawing.Size(722, 454);
             this.pg_groups.TabIndex = 3;
             this.pg_groups.Text = "Groups";
-            this.pg_groups.UseVisualStyleBackColor = true;
             // 
             // btn_groups_logout
             // 
@@ -212,7 +211,7 @@
             // 
             this.btn_groups_delete.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.minusButton;
             this.btn_groups_delete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_groups_delete.Location = new System.Drawing.Point(668, 308);
+            this.btn_groups_delete.Location = new System.Drawing.Point(578, 392);
             this.btn_groups_delete.Name = "btn_groups_delete";
             this.btn_groups_delete.Size = new System.Drawing.Size(42, 39);
             this.btn_groups_delete.TabIndex = 3;
@@ -221,7 +220,7 @@
             // 
             // btn_groups_edit
             // 
-            this.btn_groups_edit.Location = new System.Drawing.Point(590, 279);
+            this.btn_groups_edit.Location = new System.Drawing.Point(452, 408);
             this.btn_groups_edit.Name = "btn_groups_edit";
             this.btn_groups_edit.Size = new System.Drawing.Size(120, 23);
             this.btn_groups_edit.TabIndex = 2;
@@ -233,7 +232,7 @@
             // 
             this.btn_groups_create.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.plusButton;
             this.btn_groups_create.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_groups_create.Location = new System.Drawing.Point(668, 236);
+            this.btn_groups_create.Location = new System.Drawing.Point(404, 392);
             this.btn_groups_create.Name = "btn_groups_create";
             this.btn_groups_create.Size = new System.Drawing.Size(42, 37);
             this.btn_groups_create.TabIndex = 1;
@@ -251,7 +250,7 @@
             this.dtg_groups_groups.Name = "dtg_groups_groups";
             this.dtg_groups_groups.ReadOnly = true;
             this.dtg_groups_groups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_groups_groups.Size = new System.Drawing.Size(716, 434);
+            this.dtg_groups_groups.Size = new System.Drawing.Size(716, 354);
             this.dtg_groups_groups.StandardTab = true;
             this.dtg_groups_groups.TabIndex = 5;
             // 
