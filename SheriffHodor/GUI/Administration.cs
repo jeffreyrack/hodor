@@ -69,7 +69,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (result.Count() < 1)
                 Helpers.DisplayError("No selected user!");
             else
-                MainWindow.Instance.SwitchForm<UpdateUser>(Data.UserList.Instance.GetByName(result.First().ToString()));
+                MainWindow.Instance.SwitchForm<UpdateUser>(Data.UserList.Instance.GetByName(result.First().ToString()), this.CurrentUser);
         }
 
         private void btn_users_del_Click(object sender, EventArgs e)

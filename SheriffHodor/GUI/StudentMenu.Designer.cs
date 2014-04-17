@@ -41,6 +41,7 @@
             // 
             this.btn_play_game.BackColor = System.Drawing.Color.Tan;
             this.btn_play_game.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.playButton1;
+            this.btn_play_game.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_play_game.Location = new System.Drawing.Point(190, 62);
             this.btn_play_game.Name = "btn_play_game";
             this.btn_play_game.Size = new System.Drawing.Size(353, 371);
