@@ -28,7 +28,7 @@
         private void InitializeComponent()
         {
             this.ddl_userList = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_title = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -42,16 +42,16 @@
             this.ddl_userList.Size = new System.Drawing.Size(145, 21);
             this.ddl_userList.TabIndex = 10;
             // 
-            // label1
+            // lbl_title
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Tan;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(180, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 55);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Sheriff Hodor";
+            this.lbl_title.AutoSize = true;
+            this.lbl_title.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_title.Location = new System.Drawing.Point(180, 37);
+            this.lbl_title.Name = "lbl_title";
+            this.lbl_title.Size = new System.Drawing.Size(307, 55);
+            this.lbl_title.TabIndex = 9;
+            this.lbl_title.Text = "Sheriff Hodor";
             // 
             // btn_login
             // 
@@ -83,7 +83,7 @@
             this.ClientSize = new System.Drawing.Size(730, 480);
             this.Controls.Add(this.txt_password);
             this.Controls.Add(this.ddl_userList);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_title);
             this.Controls.Add(this.btn_login);
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
@@ -96,7 +96,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox ddl_userList;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.TextBox txt_password;
 
