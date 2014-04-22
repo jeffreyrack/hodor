@@ -70,5 +70,10 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             XmlBackend.Serialize<UserList>(Global.UsersFilePath, this);
         }
+
+        public static void Reload()
+        {
+            _instance = XmlBackend.Deserialize<UserList>(Global.UsersFilePath, Global.UserDefault);
+        }
     }
 }

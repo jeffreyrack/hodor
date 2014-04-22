@@ -31,6 +31,15 @@ namespace CSUSM.CS441.SheriffHodor.Data
             return this.Name;
         }
 
+        /*
+        // Added by: Jeffrey Rackauckas
+        // Added on: 04/21/2014
+        // Purpose: To provide a single function to check whether or not a passed group name is valid.
+        public static bool ValidName(string name)
+        {
+            return Helpers.CheckRegexMatch(name, @"[0-9a-zA-Z]{0,100}");
+        }
+        */
         #region INotifyPropertyChanged Membres
         // VS will incorrectly report this as unused
         // Actually it is used by the collection but it somehow fails to detect it.

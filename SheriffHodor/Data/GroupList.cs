@@ -62,5 +62,10 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             XmlBackend.Serialize<GroupList>(Global.GroupsFilePath, this);
         }
+
+        public static void Reload()
+        {
+            _instance = XmlBackend.Deserialize<GroupList>(Global.GroupsFilePath, Global.GroupDefault);
+        }
     }
 }

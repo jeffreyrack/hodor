@@ -65,6 +65,7 @@
             this.tab_display.SelectedIndex = 0;
             this.tab_display.Size = new System.Drawing.Size(730, 480);
             this.tab_display.TabIndex = 19;
+            this.tab_display.SelectedIndexChanged += new System.EventHandler(this.onTabChange);
             // 
             // pg_report
             // 

@@ -78,5 +78,17 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 + "Users.xml is probably compromized, please remove it to get the default, or fix it.");
             return string.Equals(sha1Of(pwd), usr.Hash);
         }
+
+        // Created by: Jeffrey Rackauckas
+        // Added on: 4/21/2014
+        // Based off of the code found at: http://msdn.microsoft.com/en-us/library/twcw2f1c(v=vs.110).aspx
+        // This function is used in order to check whether a string contains the passed expression.
+        internal static bool CheckRegexMatch(string toCheck, string expression)
+        {
+            Regex reg = new Regex(expression, RegexOptions.IgnoreCase);
+            Match m = reg.Match(toCheck);
+            if (m.Success) return true;
+            else return false;
+        }
     }
 }

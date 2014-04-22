@@ -59,8 +59,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             txt_name.Text = txt_name.Text.Trim();
             if (txt_name.Text == string.Empty)
-                GUI.Helpers.DisplayError("No name provided for the group !");
-            else
+            {
+                GUI.Helpers.DisplayError("ERROR: Please enter a group name.");
+                return;
+            }
                 Accept();
         }
     }

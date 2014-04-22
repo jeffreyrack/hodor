@@ -37,12 +37,17 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // Check the username
             if (name == string.Empty)
             {
-                Helpers.DisplayError("You must enter a name to create a new user.");
+                Helpers.DisplayError("ERROR: Please enter a name");
+                return;
+            }
+            if(!Data.User.ValidName(name))
+            {
+                Helpers.DisplayError("ERROR: Your name cannot contain those characters");
                 return;
             }
             if (Data.UserList.Instance.GetByName(name) != null)
             {
-                Helpers.DisplayError("There is already an user with this name.");
+                Helpers.DisplayError("ERROR: Your name is too long shorten it and try again");
                 return;
             }
 

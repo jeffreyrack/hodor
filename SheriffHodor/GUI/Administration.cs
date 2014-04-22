@@ -176,6 +176,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
         #endregion
 
+        private void onTabChange(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI
@@ -77,7 +78,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.Load += new System.EventHandler(this.StateControl_Load);
             this.ResumeLayout(false);
         }
-
+        
         private void StateControl_Load(object sender, EventArgs e)
         {
 
