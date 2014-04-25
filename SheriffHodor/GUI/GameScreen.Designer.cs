@@ -52,6 +52,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.groupBox2.BackColor = System.Drawing.Color.Tan;
             this.groupBox2.Controls.Add(this.lbl_coins);
             this.groupBox2.Controls.Add(this.lbl_coinsGained);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 414);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(192, 53);
@@ -64,7 +65,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.lbl_coins.BackColor = System.Drawing.Color.Tan;
             this.lbl_coins.Location = new System.Drawing.Point(6, 38);
             this.lbl_coins.Name = "lbl_coins";
-            this.lbl_coins.Size = new System.Drawing.Size(53, 13);
+            this.lbl_coins.Size = new System.Drawing.Size(65, 16);
             this.lbl_coins.TabIndex = 5;
             this.lbl_coins.Text = "Coins: {0}";
             // 
@@ -75,7 +76,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.lbl_coinsGained.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lbl_coinsGained.Location = new System.Drawing.Point(103, 38);
             this.lbl_coinsGained.Name = "lbl_coinsGained";
-            this.lbl_coinsGained.Size = new System.Drawing.Size(70, 13);
+            this.lbl_coinsGained.Size = new System.Drawing.Size(89, 16);
             this.lbl_coinsGained.TabIndex = 6;
             this.lbl_coinsGained.Text = "Coins Gained";
             this.lbl_coinsGained.Visible = false;
@@ -85,6 +86,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.groupBox1.BackColor = System.Drawing.Color.Tan;
             this.groupBox1.Controls.Add(this.lbl_index);
             this.groupBox1.Controls.Add(this.lbl_Responses);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(323, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(127, 77);
@@ -98,7 +100,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.lbl_index.ForeColor = System.Drawing.Color.Black;
             this.lbl_index.Location = new System.Drawing.Point(10, 48);
             this.lbl_index.Name = "lbl_index";
-            this.lbl_index.Size = new System.Drawing.Size(91, 13);
+            this.lbl_index.Size = new System.Drawing.Size(108, 16);
             this.lbl_index.TabIndex = 4;
             this.lbl_index.Text = "Question {0} / {1}";
             // 
@@ -109,7 +111,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.lbl_Responses.ForeColor = System.Drawing.Color.Black;
             this.lbl_Responses.Location = new System.Drawing.Point(41, 16);
             this.lbl_Responses.Name = "lbl_Responses";
-            this.lbl_Responses.Size = new System.Drawing.Size(60, 13);
+            this.lbl_Responses.Size = new System.Drawing.Size(78, 16);
             this.lbl_Responses.TabIndex = 7;
             this.lbl_Responses.Text = "Responses";
             this.lbl_Responses.Visible = false;
@@ -140,6 +142,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // 
             // lbl_problem
             // 
+            this.lbl_problem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_problem.Location = new System.Drawing.Point(6, 2);
             this.lbl_problem.Name = "lbl_problem";
             this.lbl_problem.Size = new System.Drawing.Size(233, 89);

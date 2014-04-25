@@ -64,28 +64,31 @@
             // 
             // txt_coins
             // 
+            this.txt_coins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_coins.Location = new System.Drawing.Point(312, 13);
             this.txt_coins.Name = "txt_coins";
             this.txt_coins.ReadOnly = true;
-            this.txt_coins.Size = new System.Drawing.Size(125, 20);
+            this.txt_coins.Size = new System.Drawing.Size(125, 22);
             this.txt_coins.TabIndex = 4;
             this.txt_coins.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lbl_current_name
             // 
             this.lbl_current_name.AutoSize = true;
+            this.lbl_current_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_current_name.Location = new System.Drawing.Point(6, 16);
             this.lbl_current_name.Name = "lbl_current_name";
-            this.lbl_current_name.Size = new System.Drawing.Size(58, 13);
+            this.lbl_current_name.Size = new System.Drawing.Size(72, 16);
             this.lbl_current_name.TabIndex = 0;
             this.lbl_current_name.Text = "Welcome: ";
             // 
             // lbl_coins
             // 
             this.lbl_coins.AutoSize = true;
+            this.lbl_coins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_coins.Location = new System.Drawing.Point(267, 16);
             this.lbl_coins.Name = "lbl_coins";
-            this.lbl_coins.Size = new System.Drawing.Size(39, 13);
+            this.lbl_coins.Size = new System.Drawing.Size(48, 16);
             this.lbl_coins.TabIndex = 3;
             this.lbl_coins.Text = "Coins: ";
             // 
