@@ -32,19 +32,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
 
             public Runtime()
             {
-                this.currentProblem = new Problem();
-                this.testDiff = Problem.Difficulty.Easy;
+//                this.game.currentProblem = new Problem();
+ //               this.game.testDiff = Problem.Difficulty.Easy;
             }
+            public Game game { get; set; }
 
-            public Problem currentProblem { get; set; }
-            public int totalProblems { get; set; }
-            public int currentProblemIndex { get; set; }
-            public Problem.Difficulty testDiff { get; set; }
-            public Data.Problem.GenerateProblem problemHandler { get; set; }
-            public int correctAnswers { get; set; }
-            public int correctStreak { get; set; }
-            public int coinsGained { get; set; }
-            public int problemTime { get; set; }
         }
         #endregion
 
@@ -129,38 +121,13 @@ namespace CSUSM.CS441.SheriffHodor.Data
 #pragma warning restore 0067
         #endregion
 
-        //TODO make this static void and put it elsewhere
+        // Changed By: Jeffrey Rackauckas
+        // Changed on: 4/24/2014.
+        // Moved the main functionality of this to Game.cs
         public void newGame(User user)
         {
-            Random rand = new Random();
+            user.Data.game = new Game(user);
 
-            user.Data.totalProblems = rand.Next(10, 31);
-            user.Data.currentProblemIndex = 0;
-            user.Data.correctAnswers = 0;
-            user.Data.correctStreak = 0;
-            user.Data.coinsGained = 0;
-            user.Data.problemTime = 0;
-
-            //Addition or Subtraction problems
-            if (rand.Next(0, 2) > 0)
-            {
-                user.Data.problemHandler = Problem.AddProblem;
-            }
-            else
-            {
-                user.Data.problemHandler = Problem.SubProblem;
-            }
-
-            //this.testDiff = Problem.Difficulty.Easy;
-            if (user.GroupName != null)
-            {
-                user.Data.testDiff = GroupList.Instance.GetByName(user.GroupName).Difficulty;
-            }
-            else
-            {
-                user.Data.testDiff = Problem.Difficulty.Easy;
-            }
-            user.Data.currentProblem = user.Data.problemHandler(user.Data.testDiff);
         }
 
         // Added by: Jeffrey Rackauckas

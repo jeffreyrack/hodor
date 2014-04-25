@@ -285,15 +285,19 @@ namespace CSUSM.CS441.SheriffHodor.Data
             return (p.Answer() == (ushort)answer);
         }
 
+        // Moved by Jeffrey Rackauckas
+        // Moved on 4/24/2014
+        // Moved to Game.cs
+        /*
         public static int CoinsGained(int streakCount)
         {
             int coins = 0;
 
             if (streakCount >= 5)
             {
-                coins = 3;
+                coins = 2;
             }
-            else if (streakCount >= 3)
+            else if (streakCount == 3)
             {
                 coins = 2;
             }
@@ -304,6 +308,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
 
             return coins;
         }
+         */
     }
 
 

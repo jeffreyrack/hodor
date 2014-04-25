@@ -41,10 +41,12 @@ namespace CSUSM
                 }
                 static void OnChanged(object source, FileSystemEventArgs e)
                 {
+                       /*
                     if (e.Name == "Users.xml")
                         Data.UserList.Reload();
                     else
                         Data.GroupList.Reload();
+                    */
                 }
             }
         }

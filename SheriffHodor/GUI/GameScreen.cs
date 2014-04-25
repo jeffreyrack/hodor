@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSUSM.CS441.SheriffHodor.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
     /// </summary>
     public partial class GameScreen : StateControl
     {
-
         public GameScreen()
         {
             InitializeComponent();
@@ -35,37 +35,37 @@ namespace CSUSM.CS441.SheriffHodor.GUI
          * Corey Paxton     - 3/24/2014 - Made it so the text field is active
          * Corey Paxton     - 3/24/2014 - Added coin stuff
          * Corey Paxton     - 4/3/2014 - Equation and top to bottom form
+         * Jeffrey Rackauckas - 4/24/2014 - Refactored for the new Game.cs Data class.
          */
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
             base.Entered(from, user, returnUser);
-
             // TODO this isnt working the first time it enters the screen unless you click the screen
             // Make the text field active
             this.ActiveControl = txt_answer;
             this.AcceptButton = this.btn_next;
             txt_answer.Focus();
 
-            this.CurrentUser.Data.problemTime = 0;
+            user.Data.game.problemTime = 0;
             timer1.Start();
 
 
             txt_answer.Text = String.Empty;
-            
+
             //display the counter
-            lbl_index.Text = string.Format("Question: {0} / {1}", (user.Data.currentProblemIndex + 1), user.Data.totalProblems);
+            lbl_index.Text = string.Format("Question: {0} / {1}", (user.Data.game.currentProblemIndex + 1), user.Data.game.totalProblems);
 
             //structure the format of the problem as an equation or top to bottom
             Random displayRandomizer = new Random();
             if (displayRandomizer.Next(0, 2) == 0)
             {
                 //equation form
-                lbl_problem.Text = String.Format("\n\n\n\n{0}", this.CurrentUser.Data.currentProblem.ToString());
+                lbl_problem.Text = String.Format("\n\n\n\n{0}", this.CurrentUser.Data.game.currentProblem.ToString());
             }
             else
             {
                 //top to bottom form
-                lbl_problem.Text = this.CurrentUser.Data.currentProblem.TopToBottomString();
+                lbl_problem.Text = this.CurrentUser.Data.game.currentProblem.TopToBottomString();
             }
 
             lbl_coins.Text = string.Format("Coins: {0}", this.CurrentUser.Coins.ToString());
@@ -73,11 +73,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         /*
          * Corey Paxton     - 4/3/2014 - Initial Version
-         */ 
+         */
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.CurrentUser.Data.problemTime++;
-            if (this.CurrentUser.Data.problemTime == 1)
+            this.CurrentUser.Data.game.problemTime++;
+            if (this.CurrentUser.Data.game.problemTime == 1)
             {
                 lbl_coinsGained.Visible = false;
                 lbl_Responses.Visible = false;
@@ -121,7 +121,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             try
             {
-                if (Data.Problem.AttemptAnswer(Int32.Parse(txt_answer.Text), this.CurrentUser.Data.currentProblem))
+                if (Data.Problem.AttemptAnswer(Int32.Parse(txt_answer.Text), this.CurrentUser.Data.game.currentProblem))
                 {
                     CorrectAnswer();
                     this.lbl_coinsGained.Visible = true;
@@ -138,40 +138,40 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 txt_answer.Text = String.Empty;
             }
 
-            
+
             timer1.Stop();
-            this.CurrentUser.Data.problemTime = 0;
+            this.CurrentUser.Data.game.problemTime = 0;
 
             //finished last problem
-            if (this.CurrentUser.Data.currentProblemIndex + 1 >= this.CurrentUser.Data.totalProblems)
+            if (this.CurrentUser.Data.game.currentProblemIndex + 1 >= this.CurrentUser.Data.game.totalProblems)
             {
 
                 //display score screen
                 //TODO Implement a score screen
                 //if all questions were answered correctly double the amount of coins gained
-                if (this.CurrentUser.Data.correctAnswers == this.CurrentUser.Data.totalProblems)
+                if (this.CurrentUser.Data.game.correctAnswers == this.CurrentUser.Data.game.totalProblems)
                 {
-                    this.CurrentUser.Data.coinsGained *= 2;
-                    this.CurrentUser.Coins += this.CurrentUser.Data.coinsGained;
+                    this.CurrentUser.Data.game.coinsGained *= 2;
+                    this.CurrentUser.Coins += this.CurrentUser.Data.game.coinsGained;
                     MessageBox.Show("All answers correct! Coins earned Doubled!");
                 }
 
                 MessageBox.Show(string.Format("Finished\nCorrect: {0}/{1}\nCoins Gained: {2}",
-                    this.CurrentUser.Data.correctAnswers.ToString(), this.CurrentUser.Data.totalProblems.ToString(),
-                    this.CurrentUser.Data.coinsGained.ToString()));
+                    this.CurrentUser.Data.game.correctAnswers.ToString(), this.CurrentUser.Data.game.totalProblems.ToString(),
+                    this.CurrentUser.Data.game.coinsGained.ToString()));
 
                 //Record the game
                 this.CurrentUser.GameCount++;
-                this.CurrentUser.Percentages.Add(Math.Round((double)this.CurrentUser.Data.correctAnswers 
-                    / (double)this.CurrentUser.Data.totalProblems, 4) * 100);
+                this.CurrentUser.Percentages.Add(Math.Round((double)this.CurrentUser.Data.game.correctAnswers
+                    / (double)this.CurrentUser.Data.game.totalProblems, 4) * 100);
 
                 //Update the total %
                 this.CurrentUser.TotalPercentage = 0.0;
-                foreach(double percent in this.CurrentUser.Percentages)
+                foreach (double percent in this.CurrentUser.Percentages)
                 {
                     this.CurrentUser.TotalPercentage += percent;
                 }
-                this.CurrentUser.TotalPercentage = Math.Round(this.CurrentUser.TotalPercentage/ (double)this.CurrentUser.GameCount, 2);
+                this.CurrentUser.TotalPercentage = Math.Round(this.CurrentUser.TotalPercentage / (double)this.CurrentUser.GameCount, 2);
 
                 //do some cleanup of the response labels
                 lbl_coinsGained.Visible = false;
@@ -183,31 +183,27 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             else
             {
                 //increment the counter
-                this.CurrentUser.Data.currentProblemIndex++;
+                this.CurrentUser.Data.game.currentProblemIndex++;
 
                 //genereate a problem at the difficulty for this user
-                this.CurrentUser.Data.currentProblem = this.CurrentUser.Data.problemHandler(this.CurrentUser.Data.testDiff);
+                this.CurrentUser.Data.game.currentProblem = this.CurrentUser.Data.game.problemHandler(this.CurrentUser.Data.game.testDiff);
 
                 //reset the window
                 MainWindow.Instance.SwitchForm<GameScreen>(this.CurrentUser);
             }
         }
 
+        // Changed By: Jeffrey Rackauckas
+        // Changed Date: 04/24/2014
+        // Moved some of the functionality that is related to the gameplay and not the GUI into the new Game.cs file.
         private void CorrectAnswer()
         {
             //Correct
             //Display an indicator that they were right
             //MessageBox.Show("Correct");
-            this.CurrentUser.Data.correctAnswers++;
-            this.CurrentUser.Data.correctStreak++;
+            Data.Game.CorrectAnswer(this.CurrentUser.Data.game, this.CurrentUser);
 
-            //display the coin change next to coins
-            int thisProblemCoins = Data.Problem.CoinsGained(this.CurrentUser.Data.correctStreak);
-            
-            this.CurrentUser.Data.coinsGained += thisProblemCoins;
-            this.CurrentUser.Coins += thisProblemCoins;
-
-            switch (this.CurrentUser.Data.correctStreak)
+            switch (this.CurrentUser.Data.game.correctStreak)
             {
                 case 3:
                     lbl_Responses.ForeColor = System.Drawing.Color.Green;
@@ -223,7 +219,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     break;
             }
             lbl_Responses.Visible = true;
-            lbl_coinsGained.Text = String.Format("+{0}", thisProblemCoins.ToString());
+            lbl_coinsGained.Text = String.Format("+{0}", Game.CoinsEarned(this.CurrentUser.Data.game.correctStreak).ToString());
             lbl_coinsGained.ForeColor = System.Drawing.Color.Green;
         }
 
@@ -235,9 +231,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             //Incorrect
             //Display an indicator that they were wrong and the drawing representation of the correct answer
-            MessageBox.Show(this.CurrentUser.Data.currentProblem.DrawingRepresentation());
+            MessageBox.Show(this.CurrentUser.Data.game.currentProblem.DrawingRepresentation());
 
-            this.CurrentUser.Data.correctStreak = 0;
+            this.CurrentUser.Data.game.correctStreak = 0;
 
             //do some cleanup of the response labels
             lbl_coinsGained.Visible = false;

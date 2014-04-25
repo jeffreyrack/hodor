@@ -29,6 +29,7 @@
         {
             this.tab_display = new System.Windows.Forms.TabControl();
             this.pg_report = new System.Windows.Forms.TabPage();
+            this.tree_reports = new System.Windows.Forms.TreeView();
             this.btn_log_out = new System.Windows.Forms.Button();
             this.dtg_reports_list = new System.Windows.Forms.DataGridView();
             this.pg_users = new System.Windows.Forms.TabPage();
@@ -70,6 +71,7 @@
             // pg_report
             // 
             this.pg_report.BackColor = System.Drawing.Color.BurlyWood;
+            this.pg_report.Controls.Add(this.tree_reports);
             this.pg_report.Controls.Add(this.btn_log_out);
             this.pg_report.Controls.Add(this.dtg_reports_list);
             this.pg_report.Location = new System.Drawing.Point(4, 22);
@@ -78,6 +80,13 @@
             this.pg_report.Size = new System.Drawing.Size(722, 454);
             this.pg_report.TabIndex = 0;
             this.pg_report.Text = "Reports";
+            // 
+            // tree_reports
+            // 
+            this.tree_reports.Location = new System.Drawing.Point(102, 73);
+            this.tree_reports.Name = "tree_reports";
+            this.tree_reports.Size = new System.Drawing.Size(425, 170);
+            this.tree_reports.TabIndex = 9;
             // 
             // btn_log_out
             // 
@@ -294,6 +303,7 @@
         private System.Windows.Forms.Button btn_groups_delete;
         private System.Windows.Forms.Button btn_groups_edit;
         private System.Windows.Forms.Button btn_groups_create;
+        private System.Windows.Forms.TreeView tree_reports;
 
 
     }
