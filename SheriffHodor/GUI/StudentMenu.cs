@@ -43,5 +43,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
 
         }
+
+        private void btn_rewards_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

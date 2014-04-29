@@ -28,49 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gb_userSpecific = new System.Windows.Forms.GroupBox();
+            this.gbox_updateUser = new System.Windows.Forms.GroupBox();
+            this.gbox_userSpecific = new System.Windows.Forms.GroupBox();
             this.ddl_groups = new System.Windows.Forms.ComboBox();
             this.lbl_newPasswordConfirm = new System.Windows.Forms.Label();
             this.lbl_group = new System.Windows.Forms.Label();
             this.txt_newPasswordConfirm = new System.Windows.Forms.TextBox();
             this.txt_newPassword = new System.Windows.Forms.TextBox();
             this.lbl_newPassword = new System.Windows.Forms.Label();
-            this.gb_name = new System.Windows.Forms.GroupBox();
+            this.gbox_name = new System.Windows.Forms.GroupBox();
             this.lbl_newName = new System.Windows.Forms.Label();
             this.lbl_currentName = new System.Windows.Forms.Label();
             this.txt_newName = new System.Windows.Forms.TextBox();
             this.txt_currentName = new System.Windows.Forms.TextBox();
             this.btn_submit = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.gb_userSpecific.SuspendLayout();
-            this.gb_name.SuspendLayout();
+            this.gbox_updateUser.SuspendLayout();
+            this.gbox_userSpecific.SuspendLayout();
+            this.gbox_name.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbox_updateUser
             // 
-            this.groupBox1.Controls.Add(this.gb_userSpecific);
-            this.groupBox1.Controls.Add(this.gb_name);
-            this.groupBox1.Location = new System.Drawing.Point(168, 64);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(407, 281);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
+            this.gbox_updateUser.Controls.Add(this.gbox_userSpecific);
+            this.gbox_updateUser.Controls.Add(this.gbox_name);
+            this.gbox_updateUser.Location = new System.Drawing.Point(168, 64);
+            this.gbox_updateUser.Name = "gbox_updateUser";
+            this.gbox_updateUser.Size = new System.Drawing.Size(407, 281);
+            this.gbox_updateUser.TabIndex = 12;
+            this.gbox_updateUser.TabStop = false;
             // 
-            // gb_userSpecific
+            // gbox_userSpecific
             // 
-            this.gb_userSpecific.Controls.Add(this.ddl_groups);
-            this.gb_userSpecific.Controls.Add(this.lbl_newPasswordConfirm);
-            this.gb_userSpecific.Controls.Add(this.lbl_group);
-            this.gb_userSpecific.Controls.Add(this.txt_newPasswordConfirm);
-            this.gb_userSpecific.Controls.Add(this.txt_newPassword);
-            this.gb_userSpecific.Controls.Add(this.lbl_newPassword);
-            this.gb_userSpecific.Location = new System.Drawing.Point(13, 102);
-            this.gb_userSpecific.Name = "gb_userSpecific";
-            this.gb_userSpecific.Size = new System.Drawing.Size(354, 110);
-            this.gb_userSpecific.TabIndex = 11;
-            this.gb_userSpecific.TabStop = false;
+            this.gbox_userSpecific.Controls.Add(this.ddl_groups);
+            this.gbox_userSpecific.Controls.Add(this.lbl_newPasswordConfirm);
+            this.gbox_userSpecific.Controls.Add(this.lbl_group);
+            this.gbox_userSpecific.Controls.Add(this.txt_newPasswordConfirm);
+            this.gbox_userSpecific.Controls.Add(this.txt_newPassword);
+            this.gbox_userSpecific.Controls.Add(this.lbl_newPassword);
+            this.gbox_userSpecific.Location = new System.Drawing.Point(13, 102);
+            this.gbox_userSpecific.Name = "gbox_userSpecific";
+            this.gbox_userSpecific.Size = new System.Drawing.Size(354, 110);
+            this.gbox_userSpecific.TabIndex = 11;
+            this.gbox_userSpecific.TabStop = false;
             // 
             // ddl_groups
             // 
@@ -124,17 +124,17 @@
             this.lbl_newPassword.TabIndex = 8;
             this.lbl_newPassword.Text = "New password :";
             // 
-            // gb_name
+            // gbox_name
             // 
-            this.gb_name.Controls.Add(this.lbl_newName);
-            this.gb_name.Controls.Add(this.lbl_currentName);
-            this.gb_name.Controls.Add(this.txt_newName);
-            this.gb_name.Controls.Add(this.txt_currentName);
-            this.gb_name.Location = new System.Drawing.Point(13, 11);
-            this.gb_name.Name = "gb_name";
-            this.gb_name.Size = new System.Drawing.Size(354, 94);
-            this.gb_name.TabIndex = 4;
-            this.gb_name.TabStop = false;
+            this.gbox_name.Controls.Add(this.lbl_newName);
+            this.gbox_name.Controls.Add(this.lbl_currentName);
+            this.gbox_name.Controls.Add(this.txt_newName);
+            this.gbox_name.Controls.Add(this.txt_currentName);
+            this.gbox_name.Location = new System.Drawing.Point(13, 11);
+            this.gbox_name.Name = "gbox_name";
+            this.gbox_name.Size = new System.Drawing.Size(354, 94);
+            this.gbox_name.TabIndex = 4;
+            this.gbox_name.TabStop = false;
             // 
             // lbl_newName
             // 
@@ -198,17 +198,17 @@
             this.BackColor = System.Drawing.Color.Tan;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(730, 480);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbox_updateUser);
             this.Controls.Add(this.btn_submit);
             this.Controls.Add(this.btn_cancel);
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "UpdateUser";
-            this.groupBox1.ResumeLayout(false);
-            this.gb_userSpecific.ResumeLayout(false);
-            this.gb_userSpecific.PerformLayout();
-            this.gb_name.ResumeLayout(false);
-            this.gb_name.PerformLayout();
+            this.gbox_updateUser.ResumeLayout(false);
+            this.gbox_userSpecific.ResumeLayout(false);
+            this.gbox_userSpecific.PerformLayout();
+            this.gbox_name.ResumeLayout(false);
+            this.gbox_name.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -219,7 +219,7 @@
         private System.Windows.Forms.TextBox txt_newName;
         private System.Windows.Forms.Button btn_submit;
         private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.GroupBox gb_name;
+        private System.Windows.Forms.GroupBox gbox_name;
         private System.Windows.Forms.ComboBox ddl_groups;
         private System.Windows.Forms.Label lbl_group;
         private System.Windows.Forms.Label lbl_newName;
@@ -228,7 +228,7 @@
         private System.Windows.Forms.TextBox txt_newPassword;
         private System.Windows.Forms.Label lbl_newPasswordConfirm;
         private System.Windows.Forms.TextBox txt_newPasswordConfirm;
-        private System.Windows.Forms.GroupBox gb_userSpecific;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbox_userSpecific;
+        private System.Windows.Forms.GroupBox gbox_updateUser;
     }
 }

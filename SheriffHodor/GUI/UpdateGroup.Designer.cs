@@ -37,9 +37,9 @@
             this.lbl_oldName = new System.Windows.Forms.Label();
             this.lbl_newName = new System.Windows.Forms.Label();
             this.btn_accept = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbox_updateGroup = new System.Windows.Forms.GroupBox();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gbox_updateGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_newName
@@ -127,21 +127,21 @@
             this.btn_accept.UseVisualStyleBackColor = true;
             this.btn_accept.Click += new System.EventHandler(this.btn_accept_Click);
             // 
-            // groupBox1
+            // gbox_updateGroup
             // 
-            this.groupBox1.Controls.Add(this.txt_newName);
-            this.groupBox1.Controls.Add(this.txt_oldName);
-            this.groupBox1.Controls.Add(this.rdo_hard);
-            this.groupBox1.Controls.Add(this.rdo_medium);
-            this.groupBox1.Controls.Add(this.rdo_easy);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lbl_oldName);
-            this.groupBox1.Controls.Add(this.lbl_newName);
-            this.groupBox1.Location = new System.Drawing.Point(158, 145);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(418, 161);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
+            this.gbox_updateGroup.Controls.Add(this.txt_newName);
+            this.gbox_updateGroup.Controls.Add(this.txt_oldName);
+            this.gbox_updateGroup.Controls.Add(this.rdo_hard);
+            this.gbox_updateGroup.Controls.Add(this.rdo_medium);
+            this.gbox_updateGroup.Controls.Add(this.rdo_easy);
+            this.gbox_updateGroup.Controls.Add(this.label3);
+            this.gbox_updateGroup.Controls.Add(this.lbl_oldName);
+            this.gbox_updateGroup.Controls.Add(this.lbl_newName);
+            this.gbox_updateGroup.Location = new System.Drawing.Point(158, 145);
+            this.gbox_updateGroup.Name = "gbox_updateGroup";
+            this.gbox_updateGroup.Size = new System.Drawing.Size(418, 161);
+            this.gbox_updateGroup.TabIndex = 10;
+            this.gbox_updateGroup.TabStop = false;
             // 
             // btn_cancel
             // 
@@ -161,14 +161,14 @@
             this.BackColor = System.Drawing.Color.Tan;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(730, 480);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbox_updateGroup);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_accept);
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "UpdateGroup";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbox_updateGroup.ResumeLayout(false);
+            this.gbox_updateGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -184,7 +184,7 @@
         private System.Windows.Forms.TextBox txt_newName;
         private System.Windows.Forms.TextBox txt_oldName;
         private System.Windows.Forms.Label lbl_oldName;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbox_updateGroup;
         private System.Windows.Forms.Button btn_cancel;
     }
 }

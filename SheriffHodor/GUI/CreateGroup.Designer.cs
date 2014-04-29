@@ -36,10 +36,10 @@
             this.lbl_name = new System.Windows.Forms.Label();
             this.btn_create = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbox_createGroup = new System.Windows.Forms.GroupBox();
+            this.gbox_createUser = new System.Windows.Forms.GroupBox();
+            this.gbox_createGroup.SuspendLayout();
+            this.gbox_createUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_name
@@ -121,30 +121,30 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // groupBox1
+            // gbox_createGroup
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Tan;
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.lbl_name);
-            this.groupBox1.Controls.Add(this.txt_name);
-            this.groupBox1.Location = new System.Drawing.Point(219, 65);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(334, 158);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
+            this.gbox_createGroup.BackColor = System.Drawing.Color.Tan;
+            this.gbox_createGroup.Controls.Add(this.gbox_createUser);
+            this.gbox_createGroup.Controls.Add(this.lbl_name);
+            this.gbox_createGroup.Controls.Add(this.txt_name);
+            this.gbox_createGroup.Location = new System.Drawing.Point(219, 65);
+            this.gbox_createGroup.Name = "gbox_createGroup";
+            this.gbox_createGroup.Size = new System.Drawing.Size(334, 158);
+            this.gbox_createGroup.TabIndex = 20;
+            this.gbox_createGroup.TabStop = false;
             // 
-            // groupBox2
+            // gbox_createUser
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Tan;
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.rdo_easy);
-            this.groupBox2.Controls.Add(this.rdo_hard);
-            this.groupBox2.Controls.Add(this.rdo_medium);
-            this.groupBox2.Location = new System.Drawing.Point(0, 61);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(334, 97);
-            this.groupBox2.TabIndex = 21;
-            this.groupBox2.TabStop = false;
+            this.gbox_createUser.BackColor = System.Drawing.Color.Tan;
+            this.gbox_createUser.Controls.Add(this.label3);
+            this.gbox_createUser.Controls.Add(this.rdo_easy);
+            this.gbox_createUser.Controls.Add(this.rdo_hard);
+            this.gbox_createUser.Controls.Add(this.rdo_medium);
+            this.gbox_createUser.Location = new System.Drawing.Point(0, 61);
+            this.gbox_createUser.Name = "gbox_createUser";
+            this.gbox_createUser.Size = new System.Drawing.Size(334, 97);
+            this.gbox_createUser.TabIndex = 21;
+            this.gbox_createUser.TabStop = false;
             // 
             // CreateGroup
             // 
@@ -152,16 +152,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(730, 480);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbox_createGroup);
             this.Controls.Add(this.btn_create);
             this.Controls.Add(this.btn_cancel);
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "CreateGroup";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbox_createGroup.ResumeLayout(false);
+            this.gbox_createGroup.PerformLayout();
+            this.gbox_createUser.ResumeLayout(false);
+            this.gbox_createUser.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -176,7 +176,7 @@
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.Button btn_create;
         private System.Windows.Forms.Button btn_cancel;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbox_createGroup;
+        private System.Windows.Forms.GroupBox gbox_createUser;
     }
 }

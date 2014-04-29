@@ -247,5 +247,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             MainWindow.Instance.SwitchForm<StudentMenu>(this.CurrentUser);
         }
 
+        private void lbl_coinsGained_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
