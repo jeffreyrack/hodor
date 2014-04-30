@@ -27,16 +27,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.grp_groups = new System.Windows.Forms.GroupBox();
+            this.gbox_createGroup = new System.Windows.Forms.GroupBox();
+            this.gbox_groups = new System.Windows.Forms.GroupBox();
             this.ddl_groupList = new System.Windows.Forms.ComboBox();
             this.lbl_groups = new System.Windows.Forms.Label();
-            this.grp_passwords = new System.Windows.Forms.GroupBox();
+            this.gbox_passwords = new System.Windows.Forms.GroupBox();
             this.txt_passwordConfirm = new System.Windows.Forms.TextBox();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.lbl_passwordConfirm = new System.Windows.Forms.Label();
             this.lbl_password = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbox_role = new System.Windows.Forms.GroupBox();
             this.rdo_admin = new System.Windows.Forms.RadioButton();
             this.lbl_status = new System.Windows.Forms.Label();
             this.rdo_user = new System.Windows.Forms.RadioButton();
@@ -44,34 +44,36 @@
             this.txt_username = new System.Windows.Forms.TextBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_create = new System.Windows.Forms.Button();
-            this.groupBox2.SuspendLayout();
-            this.grp_groups.SuspendLayout();
-            this.grp_passwords.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbox_createGroup.SuspendLayout();
+            this.gbox_groups.SuspendLayout();
+            this.gbox_passwords.SuspendLayout();
+            this.gbox_role.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox2
+            // gbox_createGroup
             // 
-            this.groupBox2.Controls.Add(this.grp_groups);
-            this.groupBox2.Controls.Add(this.grp_passwords);
-            this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Controls.Add(this.lbl_username);
-            this.groupBox2.Controls.Add(this.txt_username);
-            this.groupBox2.Location = new System.Drawing.Point(223, 55);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(341, 273);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
+            this.gbox_createGroup.BackColor = System.Drawing.Color.Tan;
+            this.gbox_createGroup.Controls.Add(this.gbox_groups);
+            this.gbox_createGroup.Controls.Add(this.gbox_passwords);
+            this.gbox_createGroup.Controls.Add(this.gbox_role);
+            this.gbox_createGroup.Controls.Add(this.lbl_username);
+            this.gbox_createGroup.Controls.Add(this.txt_username);
+            this.gbox_createGroup.Location = new System.Drawing.Point(223, 55);
+            this.gbox_createGroup.Name = "gbox_createGroup";
+            this.gbox_createGroup.Size = new System.Drawing.Size(341, 273);
+            this.gbox_createGroup.TabIndex = 16;
+            this.gbox_createGroup.TabStop = false;
             // 
-            // grp_groups
+            // gbox_groups
             // 
-            this.grp_groups.Controls.Add(this.ddl_groupList);
-            this.grp_groups.Controls.Add(this.lbl_groups);
-            this.grp_groups.Location = new System.Drawing.Point(16, 86);
-            this.grp_groups.Name = "grp_groups";
-            this.grp_groups.Size = new System.Drawing.Size(267, 63);
-            this.grp_groups.TabIndex = 15;
-            this.grp_groups.TabStop = false;
+            this.gbox_groups.BackColor = System.Drawing.Color.Transparent;
+            this.gbox_groups.Controls.Add(this.ddl_groupList);
+            this.gbox_groups.Controls.Add(this.lbl_groups);
+            this.gbox_groups.Location = new System.Drawing.Point(16, 86);
+            this.gbox_groups.Name = "gbox_groups";
+            this.gbox_groups.Size = new System.Drawing.Size(267, 63);
+            this.gbox_groups.TabIndex = 15;
+            this.gbox_groups.TabStop = false;
             // 
             // ddl_groupList
             // 
@@ -92,17 +94,18 @@
             this.lbl_groups.TabIndex = 13;
             this.lbl_groups.Text = "Groups:";
             // 
-            // grp_passwords
+            // gbox_passwords
             // 
-            this.grp_passwords.Controls.Add(this.txt_passwordConfirm);
-            this.grp_passwords.Controls.Add(this.txt_password);
-            this.grp_passwords.Controls.Add(this.lbl_passwordConfirm);
-            this.grp_passwords.Controls.Add(this.lbl_password);
-            this.grp_passwords.Location = new System.Drawing.Point(16, 155);
-            this.grp_passwords.Name = "grp_passwords";
-            this.grp_passwords.Size = new System.Drawing.Size(271, 81);
-            this.grp_passwords.TabIndex = 14;
-            this.grp_passwords.TabStop = false;
+            this.gbox_passwords.BackColor = System.Drawing.Color.Transparent;
+            this.gbox_passwords.Controls.Add(this.txt_passwordConfirm);
+            this.gbox_passwords.Controls.Add(this.txt_password);
+            this.gbox_passwords.Controls.Add(this.lbl_passwordConfirm);
+            this.gbox_passwords.Controls.Add(this.lbl_password);
+            this.gbox_passwords.Location = new System.Drawing.Point(16, 155);
+            this.gbox_passwords.Name = "gbox_passwords";
+            this.gbox_passwords.Size = new System.Drawing.Size(271, 81);
+            this.gbox_passwords.TabIndex = 14;
+            this.gbox_passwords.TabStop = false;
             // 
             // txt_passwordConfirm
             // 
@@ -136,16 +139,17 @@
             this.lbl_password.TabIndex = 0;
             this.lbl_password.Text = "Password:";
             // 
-            // groupBox1
+            // gbox_role
             // 
-            this.groupBox1.Controls.Add(this.rdo_admin);
-            this.groupBox1.Controls.Add(this.lbl_status);
-            this.groupBox1.Controls.Add(this.rdo_user);
-            this.groupBox1.Location = new System.Drawing.Point(16, 36);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(271, 48);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
+            this.gbox_role.BackColor = System.Drawing.Color.Transparent;
+            this.gbox_role.Controls.Add(this.rdo_admin);
+            this.gbox_role.Controls.Add(this.lbl_status);
+            this.gbox_role.Controls.Add(this.rdo_user);
+            this.gbox_role.Location = new System.Drawing.Point(16, 36);
+            this.gbox_role.Name = "gbox_role";
+            this.gbox_role.Size = new System.Drawing.Size(271, 48);
+            this.gbox_role.TabIndex = 11;
+            this.gbox_role.TabStop = false;
             // 
             // rdo_admin
             // 
@@ -227,20 +231,20 @@
             this.BackColor = System.Drawing.Color.Tan;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(730, 480);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbox_createGroup);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_create);
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "CreateNewUser";
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.grp_groups.ResumeLayout(false);
-            this.grp_groups.PerformLayout();
-            this.grp_passwords.ResumeLayout(false);
-            this.grp_passwords.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbox_createGroup.ResumeLayout(false);
+            this.gbox_createGroup.PerformLayout();
+            this.gbox_groups.ResumeLayout(false);
+            this.gbox_groups.PerformLayout();
+            this.gbox_passwords.ResumeLayout(false);
+            this.gbox_passwords.PerformLayout();
+            this.gbox_role.ResumeLayout(false);
+            this.gbox_role.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -254,15 +258,15 @@
         private System.Windows.Forms.RadioButton rdo_user;
         private System.Windows.Forms.Label lbl_username;
         private System.Windows.Forms.Label lbl_status;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbox_role;
         private System.Windows.Forms.ComboBox ddl_groupList;
         private System.Windows.Forms.Label lbl_groups;
-        private System.Windows.Forms.GroupBox grp_passwords;
+        private System.Windows.Forms.GroupBox gbox_passwords;
         private System.Windows.Forms.TextBox txt_passwordConfirm;
         private System.Windows.Forms.TextBox txt_password;
         private System.Windows.Forms.Label lbl_passwordConfirm;
         private System.Windows.Forms.Label lbl_password;
-        private System.Windows.Forms.GroupBox grp_groups;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbox_groups;
+        private System.Windows.Forms.GroupBox gbox_createGroup;
     }
 }

@@ -60,6 +60,7 @@
             // 
             // gbox_userSpecific
             // 
+            this.gbox_userSpecific.BackColor = System.Drawing.Color.Transparent;
             this.gbox_userSpecific.Controls.Add(this.ddl_groups);
             this.gbox_userSpecific.Controls.Add(this.lbl_newPasswordConfirm);
             this.gbox_userSpecific.Controls.Add(this.lbl_group);
@@ -126,6 +127,7 @@
             // 
             // gbox_name
             // 
+            this.gbox_name.BackColor = System.Drawing.Color.Transparent;
             this.gbox_name.Controls.Add(this.lbl_newName);
             this.gbox_name.Controls.Add(this.lbl_currentName);
             this.gbox_name.Controls.Add(this.txt_newName);

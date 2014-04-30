@@ -25,6 +25,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.txt_answer.KeyPress += new KeyPressEventHandler(answerValidator);
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.gbox_problem.BackColor = Global.opaqueBackground;
         }
 
         #region UI

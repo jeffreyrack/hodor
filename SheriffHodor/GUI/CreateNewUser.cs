@@ -16,13 +16,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             this.AcceptButton = this.btn_create;
             this.ddl_groupList.DataSource = Data.GroupList.Instance;
+            this.gbox_createGroup.BackColor = Data.Global.opaqueBackground;
         }
 
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
             base.Entered(from, user, returnUser);
-            grp_groups.Visible = true;
-            grp_passwords.Visible = false;
+            gbox_groups.Visible = true;
+            gbox_passwords.Visible = false;
         }
 
         protected override void Accept()
@@ -109,14 +110,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         private void rdo_user_CheckedChanged(object sender, EventArgs e)
         {
-            grp_groups.Visible = true;
-            grp_passwords.Visible = false;
+            gbox_groups.Visible = true;
+            gbox_passwords.Visible = false;
         }
 
         private void rdo_admin_CheckedChanged(object sender, EventArgs e)
         {
-            grp_groups.Visible = false;
-            grp_passwords.Visible = true;
+            gbox_groups.Visible = false;
+            gbox_passwords.Visible = true;
         }
         #endregion
     }

@@ -20,12 +20,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public Login()
         {
             InitializeComponent();
-
-            //TODO figure out a color that we agree upon for the background elements. Define it and
-            //use it for all our stuff.
-
-            //background color bisque 2 (238, 213, 158) with opacity 50% (128)
-            lbl_title.BackColor = Color.FromArgb(128, 238, 213, 158);
+            lbl_title.BackColor = Data.Global.opaqueBackground;
             ddl_userList.DisplayMember = "Name";
             ddl_userList.DataSource = Data.UserList.Instance;
 

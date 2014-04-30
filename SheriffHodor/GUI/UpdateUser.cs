@@ -18,6 +18,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             ddl_groups.DisplayMember = "Name";
             ddl_groups.DataSource = Data.GroupList.Instance;
             this.AcceptButton = this.btn_submit;
+            this.gbox_updateUser.BackColor = Data.Global.opaqueBackground;
         }
 
         /*

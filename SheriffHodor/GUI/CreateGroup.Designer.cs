@@ -135,7 +135,7 @@
             // 
             // gbox_createUser
             // 
-            this.gbox_createUser.BackColor = System.Drawing.Color.Tan;
+            this.gbox_createUser.BackColor = System.Drawing.Color.Transparent;
             this.gbox_createUser.Controls.Add(this.label3);
             this.gbox_createUser.Controls.Add(this.rdo_easy);
             this.gbox_createUser.Controls.Add(this.rdo_hard);

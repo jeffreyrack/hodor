@@ -15,6 +15,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             this.AcceptButton = this.btn_create;
+            this.gbox_createGroup.BackColor = Data.Global.opaqueBackground;
         }
 
         protected override void Accept()
