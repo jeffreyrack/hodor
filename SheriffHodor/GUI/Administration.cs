@@ -94,6 +94,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     return;
                 }
 
+
                 var msg = string.Format("Are you sure you want to delete {0} ?",
                     (count > 1) ? (string.Format("{0} users", count))
                     : (string.Format("user '{0}'", toDel.First())));
@@ -139,6 +140,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 GUI.Helpers.DisplayError("You need to select one and only one group to edit");
                 return;
             }
+            if (grpNames.Contains("Ungrouped Users"))
+            {
+                GUI.Helpers.DisplayError("You can not edit the ungrouped users group.");
+                return;
+            }
             var grp = Data.GroupList.Instance[Data.GroupList.Instance.GetIdxByName(grpNames.First() as string)];
             MainWindow.Instance.SwitchForm<UpdateGroup>().SetCurrentGroup(grp);
         }
@@ -154,6 +160,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 if (toDel.Count == 0)
                 {
                     GUI.Helpers.DisplayError("You need to select at least one group to delete");
+                    return;
+                }
+
+                if (toDel.Contains("Ungrouped Users"))
+                {
+                    GUI.Helpers.DisplayError("You can not delete the ungrouped users group.");
                     return;
                 }
 

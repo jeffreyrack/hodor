@@ -41,10 +41,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                         "</User>",
                         "</ArrayOfUser>"};
 
-        public static readonly string[] GroupDefault = {"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
-"<ArrayOfGroup xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">",
-                        "</ArrayOfGroup>"};
-
+        public static readonly string[] GroupDefault = {"<?xml version=\"1.0\" encoding=\"utf-8\"?><ArrayOfGroup xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"> <Group> <Name>Ungrouped Users</Name>  <Difficulty>Easy</Difficulty></Group></ArrayOfGroup>"};
         #endregion
     }
 }
