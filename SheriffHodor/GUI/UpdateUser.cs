@@ -108,7 +108,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (txt_newName.Text != txt_currentName.Text)
                 this.CurrentUser.Name = txt_newName.Text;
 
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.returnUser);
         }
 
     }

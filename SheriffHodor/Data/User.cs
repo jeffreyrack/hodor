@@ -58,6 +58,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             this.Hash = hash;
             this.Status = status;
             this.Coins = 0;
+            this.TotalCoins = 0;
             this.Percentages = new List<double>();
             this.TotalPercentage = 0.0;
             this.Data = new Runtime();
@@ -87,10 +88,15 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public UserType Status { get; set; }
         /// <summary>
-        /// Keeps track of the total number of coins earned by a User
+        /// Keeps track of the current number of coins a user has.
         /// </summary>
         [System.ComponentModel.Browsable(false)]
         public int Coins { get; set; }
+        /// <summary>
+        /// Keeps track of the total number of coins earned by a User
+        /// </summary>
+        [System.ComponentModel.Browsable(false)]
+        public int TotalCoins { get; set; }
         // TODO display these in report
         /// <summary>
         /// Keep track of the game stats
@@ -130,6 +136,16 @@ namespace CSUSM.CS441.SheriffHodor.Data
 
         }
 
+        // Added By: Jeffrey Rackauckas
+        // Created on: 4/29/2014
+        // Is used to increment the number of coins a user has.
+        public void addCoins(int gained)
+        {
+            // This function should only be used for positive increments.
+            if (gained <= 0) return;
+            this.Coins += gained;
+            this.TotalCoins += gained;
+        }
         // Added by: Jeffrey Rackauckas
         // Added on: 04/21/2014
         // Purpose: To provide a single function to check whether or not a passed username is valid.

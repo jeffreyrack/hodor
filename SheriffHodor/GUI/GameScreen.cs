@@ -151,8 +151,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 //if all questions were answered correctly double the amount of coins gained
                 if (this.CurrentUser.Data.game.correctAnswers == this.CurrentUser.Data.game.totalProblems)
                 {
+                    /*
+                     * Removed by Jeffrey Rackauckas on 4/29/2014.
+                     * This method of doing this added double the coins AFTER they already gained coins the first time.
+                     * Therefore, they were earning triple the coins!
                     this.CurrentUser.Data.game.coinsGained *= 2;
                     this.CurrentUser.Coins += this.CurrentUser.Data.game.coinsGained;
+                     */
+                    this.CurrentUser.addCoins(this.CurrentUser.Data.game.coinsGained);
                     MessageBox.Show("All answers correct! Coins earned Doubled!");
                 }
 
@@ -178,7 +184,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 lbl_Responses.Visible = false;
 
                 //return to login form
-                MainWindow.Instance.SwitchForm<Login>(this.CurrentUser);
+                MainWindow.Instance.SwitchForm<StudentMenu>(this.CurrentUser);
             }
             else
             {

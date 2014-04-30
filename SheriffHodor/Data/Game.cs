@@ -61,10 +61,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
             game.correctStreak++;
             //display the coin change next to coins
             int thisProblemCoins = CoinsEarned(game.correctStreak);
-
- //           currentUser.Data.coinsGained += thisProblemCoins;
+            CurrentUser.addCoins(thisProblemCoins);
+ //         currentUser.Data.coinsGained += thisProblemCoins;
             game.coinsGained += thisProblemCoins;
-            CurrentUser.Coins += thisProblemCoins;
         }
 
         public static int CoinsEarned(int correctStreak)
