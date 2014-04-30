@@ -39,14 +39,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             MainWindow.Instance.SwitchForm<GameScreen>(this.CurrentUser);
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_rewards_Click(object sender, EventArgs e)
         {
-
+            MainWindow.Instance.SwitchForm<Rewards>(this.CurrentUser);
         }
     }
 }

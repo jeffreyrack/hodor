@@ -28,31 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbox_hats = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.gbox_hodor = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.gbox_hats.SuspendLayout();
+            this.gbox_hats = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
-            // gbox_hats
+            // btn_exit
             // 
-            this.gbox_hats.Controls.Add(this.groupBox1);
-            this.gbox_hats.Location = new System.Drawing.Point(25, 43);
-            this.gbox_hats.Name = "gbox_hats";
-            this.gbox_hats.Size = new System.Drawing.Size(304, 359);
-            this.gbox_hats.TabIndex = 0;
-            this.gbox_hats.TabStop = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(23, 20);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.btn_exit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exit.Location = new System.Drawing.Point(658, 408);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(72, 72);
+            this.btn_exit.TabIndex = 2;
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // gbox_hodor
             // 
@@ -65,14 +55,13 @@
             this.gbox_hodor.TabIndex = 1;
             this.gbox_hodor.TabStop = false;
             // 
-            // groupBox2
+            // gbox_hats
             // 
-            this.groupBox2.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.groupBox2.Location = new System.Drawing.Point(657, 408);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(74, 71);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
+            this.gbox_hats.Location = new System.Drawing.Point(25, 43);
+            this.gbox_hats.Name = "gbox_hats";
+            this.gbox_hats.Size = new System.Drawing.Size(304, 359);
+            this.gbox_hats.TabIndex = 0;
+            this.gbox_hats.TabStop = false;
             // 
             // Rewards
             // 
@@ -81,14 +70,13 @@
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(730, 480);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.gbox_hodor);
             this.Controls.Add(this.gbox_hats);
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "Rewards";
             this.Text = "Form1";
-            this.gbox_hats.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -97,7 +85,6 @@
 
         private System.Windows.Forms.GroupBox gbox_hats;
         private System.Windows.Forms.GroupBox gbox_hodor;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btn_exit;
     }
 }
