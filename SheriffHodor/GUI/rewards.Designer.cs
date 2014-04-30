@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.gbox_hats = new System.Windows.Forms.GroupBox();
-            this.gbox_hodor = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbox_hodor = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gbox_hats.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,16 @@
             this.gbox_hats.TabIndex = 0;
             this.gbox_hats.TabStop = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(23, 20);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
             // gbox_hodor
             // 
             this.gbox_hodor.BackColor = System.Drawing.Color.Transparent;
@@ -54,15 +65,14 @@
             this.gbox_hodor.TabIndex = 1;
             this.gbox_hodor.TabStop = false;
             // 
-            // groupBox1
+            // groupBox2
             // 
-            this.groupBox1.Location = new System.Drawing.Point(23, 20);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBox2.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.groupBox2.Location = new System.Drawing.Point(657, 408);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(74, 71);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
             // 
             // Rewards
             // 
@@ -71,6 +81,7 @@
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(730, 480);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.gbox_hodor);
             this.Controls.Add(this.gbox_hats);
             this.MaximumSize = new System.Drawing.Size(730, 480);
@@ -87,5 +98,6 @@
         private System.Windows.Forms.GroupBox gbox_hats;
         private System.Windows.Forms.GroupBox gbox_hodor;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
