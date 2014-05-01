@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace CSUSM.CS441.SheriffHodor.Data
 {
@@ -13,7 +14,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public Problem.Difficulty Difficulty { get; set; }
         [System.ComponentModel.DisplayName("Number of members")]
         public int NumberOfMember { get { return this.Members.Count; } }
-        [System.ComponentModel.Browsable(false)]
+        [XmlIgnore(), System.ComponentModel.Browsable(false)]
         public List<User> Members { get; set; }
         #endregion
 

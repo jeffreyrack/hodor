@@ -133,6 +133,26 @@ namespace CSUSM.CS441.SheriffHodor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap hat1_tier1 {
+            get {
+                object obj = ResourceManager.GetObject("hat1-tier1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap hat1_tier2 {
+            get {
+                object obj = ResourceManager.GetObject("hat1-tier2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap minusButton {
             get {
                 object obj = ResourceManager.GetObject("minusButton", resourceCulture);

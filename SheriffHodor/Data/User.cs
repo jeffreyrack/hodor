@@ -60,6 +60,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             this.Coins = 0;
             this.TotalCoins = 0;
             this.Percentages = new List<double>();
+            this.OwnedHats = new List<Hat>();
             this.TotalPercentage = 0.0;
             this.Data = new Runtime();
         }
@@ -103,6 +104,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         public List<double> Percentages { get; set; }
         /// <summary>
+        /// Keep track of all hats the user owns.
+        /// </summary>
+       [System.ComponentModel.Browsable(false)]
+        public List<Hat> OwnedHats { get; set; }
+        /// <summary>
         /// Total percentage of all games played
         /// </summary>
         public double TotalPercentage { get; set; }
@@ -114,7 +120,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// Name of the group the user is in
         /// </summary>
         public string GroupName { get; set; }
-
         [XmlIgnore(), System.ComponentModel.Browsable(false)]
         public User.Runtime Data { get; private set; }
         #endregion
@@ -152,6 +157,20 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public static bool ValidName(string name)
         {
             return Helpers.CheckRegexMatch(name, @"^[\w]{1,100}$");
+        }
+
+        // Added By: Jeffrey Rackauckas
+        // Added on: 4/30/2014
+        // Purpose: Let's the user buy a hat!
+        public bool BuyHat(Hat toBuy)
+        {
+            if (toBuy.getPrice() > this.Coins) return false;
+            else
+            {
+                this.Coins -= toBuy.getPrice();
+                this.OwnedHats.Add(toBuy);
+                return true;
+            }
         }
     }
 }

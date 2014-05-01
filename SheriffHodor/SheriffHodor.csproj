@@ -62,6 +62,7 @@
     <Compile Include="Data\Game.cs" />
     <Compile Include="Data\Group.cs" />
     <Compile Include="Data\GroupList.cs" />
+    <Compile Include="Data\Hat.cs" />
     <Compile Include="Data\Problem.cs" />
     <Compile Include="Data\Global.cs" />
     <Compile Include="Data\Helpers.cs" />
@@ -253,6 +254,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Propper Hodor Picture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hat1-tier1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hat1-tier2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
