@@ -32,18 +32,20 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
             this.CurrentGroup.Difficulty = getDifficulty();
             Cleanup();
-            MainWindow.Instance.SwitchForm<Administration>();
+   //         addStudentsToGroup(dtg_ungrouped_users, this.CurrentGroup, 0, 1);
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
         protected override void Decline()
         {
             Cleanup();
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
             base.Entered(from, user, returnUser);
             txt_newName.Text = string.Empty;
             txt_oldName.Text = string.Empty;
+            this.dtg_ungrouped_users = createUngroupedUserDataGrid(this.dtg_ungrouped_users);
         }
 
         private Data.Group CurrentGroup { get; set; }

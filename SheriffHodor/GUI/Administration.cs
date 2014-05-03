@@ -40,6 +40,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_users_list.Columns["GameCount"].Visible = false;
         }
 
+        public override void Entered(StateControl from, Data.User user, Data.User returnUser)
+        {
+            this.CurrentUser = user;
+            this.returnUser = returnUser;
+        }
+
         private List<object> getSelectedName(DataGridView dgv, string cellname)
         {
             // The ToList() is needed, as else it would stay lazy and request invalidated data (from SelectRows).
@@ -125,7 +131,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
         private void btn_groups_create_Click(object sender, EventArgs e)
         {
-            MainWindow.Instance.SwitchForm<CreateGroup>();
+            MainWindow.Instance.SwitchForm<CreateGroup>(this.returnUser);
         }
         private void btn_groups_edit_Click(object sender, EventArgs e)
         {
@@ -146,7 +152,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 return;
             }
             var grp = Data.GroupList.Instance[Data.GroupList.Instance.GetIdxByName(grpNames.First() as string)];
-            MainWindow.Instance.SwitchForm<UpdateGroup>().SetCurrentGroup(grp);
+            MainWindow.Instance.SwitchForm<UpdateGroup>(this.returnUser).SetCurrentGroup(grp);
         }
         private void btn_groups_delete_Click(object sender, EventArgs e)
         {

@@ -44,7 +44,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                         from mem in GroupList.Instance.GetByName(groupName).Members
                         where mem.Name == Instance[idx].Name
                         select mem;
-                    GroupList.Instance.GetByName(groupName).Members.Remove(toDel.First());
+ //                   GroupList.Instance.GetByName(groupName).Members.Remove(toDel.First());
                 }
 
                 this.RemoveItem(idx);

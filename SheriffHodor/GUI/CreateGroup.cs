@@ -16,12 +16,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             this.AcceptButton = this.btn_create;
             this.gbox_createGroup.BackColor = Data.Global.opaqueBackground;
-            this.dtg_ungrouped_users.DataSource = Data.UserList.Instance.ApplyGroupFilter("Ungrouped Users");
-            this.dtg_ungrouped_users.Columns["Status"].Visible = false;
-            this.dtg_ungrouped_users.Columns["TotalPercentage"].Visible = false;
-            this.dtg_ungrouped_users.Columns["GameCount"].Visible = false;
-            this.dtg_ungrouped_users.Columns["GroupName"].Visible = false;
-            this.dtg_ungrouped_users.Columns.Insert(1, CreateDataGridViewCheckbox());
         }
 
         protected override void Accept()
@@ -36,13 +30,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             newGroup.Name = grpName;
             newGroup.Difficulty = getDifficulty();
             Data.GroupList.Instance.Add(newGroup);
-            addStudentsToGroup(newGroup);
-            MainWindow.Instance.SwitchForm<Administration>();
+            addStudentsToGroup(dtg_ungrouped_users, newGroup, 0, 1);
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
 
         protected override void Decline()
         {
-            MainWindow.Instance.SwitchForm<Administration>();
+            MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
@@ -61,6 +55,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             base.Entered(from, user, returnUser);
             txt_name.Text = string.Empty;
+            this.CurrentUser = user;
+            this.dtg_ungrouped_users = createUngroupedUserDataGrid(this.dtg_ungrouped_users);
         }
 
         private void btn_create_Click(object sender, EventArgs e)
@@ -72,18 +68,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 return;
             }
                 Accept();
-        }
-
-        private void addStudentsToGroup(Data.Group ToAdd)
-        {
-            foreach (DataGridViewRow row in this.dtg_ungrouped_users.Rows)
-            {
-                DataGridViewCheckBoxCell checkbox = row.Cells[0] as DataGridViewCheckBoxCell;
-                if(checkbox.Value == checkbox.TrueValue)
-                {
-                    Data.UserList.Instance.GetByName(row.Cells[1].Value.ToString()).GroupName = ToAdd.Name;
-                }
-            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

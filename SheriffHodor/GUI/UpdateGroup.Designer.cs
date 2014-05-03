@@ -38,8 +38,11 @@
             this.lbl_newName = new System.Windows.Forms.Label();
             this.btn_accept = new System.Windows.Forms.Button();
             this.gbox_updateGroup = new System.Windows.Forms.GroupBox();
+            this.gbox_difficulty = new System.Windows.Forms.GroupBox();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.dtg_ungrouped_users = new System.Windows.Forms.DataGridView();
             this.gbox_updateGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_newName
@@ -129,19 +132,28 @@
             // 
             // gbox_updateGroup
             // 
-            this.gbox_updateGroup.Controls.Add(this.txt_newName);
-            this.gbox_updateGroup.Controls.Add(this.txt_oldName);
             this.gbox_updateGroup.Controls.Add(this.rdo_hard);
             this.gbox_updateGroup.Controls.Add(this.rdo_medium);
             this.gbox_updateGroup.Controls.Add(this.rdo_easy);
             this.gbox_updateGroup.Controls.Add(this.label3);
+            this.gbox_updateGroup.Controls.Add(this.gbox_difficulty);
+            this.gbox_updateGroup.Controls.Add(this.txt_newName);
+            this.gbox_updateGroup.Controls.Add(this.txt_oldName);
             this.gbox_updateGroup.Controls.Add(this.lbl_oldName);
             this.gbox_updateGroup.Controls.Add(this.lbl_newName);
-            this.gbox_updateGroup.Location = new System.Drawing.Point(158, 145);
+            this.gbox_updateGroup.Location = new System.Drawing.Point(12, 61);
             this.gbox_updateGroup.Name = "gbox_updateGroup";
-            this.gbox_updateGroup.Size = new System.Drawing.Size(418, 161);
+            this.gbox_updateGroup.Size = new System.Drawing.Size(418, 270);
             this.gbox_updateGroup.TabIndex = 10;
             this.gbox_updateGroup.TabStop = false;
+            // 
+            // gbox_difficulty
+            // 
+            this.gbox_difficulty.Location = new System.Drawing.Point(6, 79);
+            this.gbox_difficulty.Name = "gbox_difficulty";
+            this.gbox_difficulty.Size = new System.Drawing.Size(406, 35);
+            this.gbox_difficulty.TabIndex = 10;
+            this.gbox_difficulty.TabStop = false;
             // 
             // btn_cancel
             // 
@@ -154,6 +166,16 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
+            // dtg_ungrouped_users
+            // 
+            this.dtg_ungrouped_users.AllowUserToAddRows = false;
+            this.dtg_ungrouped_users.AllowUserToDeleteRows = false;
+            this.dtg_ungrouped_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_ungrouped_users.Location = new System.Drawing.Point(445, 61);
+            this.dtg_ungrouped_users.Name = "dtg_ungrouped_users";
+            this.dtg_ungrouped_users.Size = new System.Drawing.Size(273, 270);
+            this.dtg_ungrouped_users.TabIndex = 11;
+            // 
             // UpdateGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,6 +183,7 @@
             this.BackColor = System.Drawing.Color.Tan;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(730, 480);
+            this.Controls.Add(this.dtg_ungrouped_users);
             this.Controls.Add(this.gbox_updateGroup);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_accept);
@@ -169,6 +192,7 @@
             this.Name = "UpdateGroup";
             this.gbox_updateGroup.ResumeLayout(false);
             this.gbox_updateGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -186,5 +210,7 @@
         private System.Windows.Forms.Label lbl_oldName;
         private System.Windows.Forms.GroupBox gbox_updateGroup;
         private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.GroupBox gbox_difficulty;
+        private System.Windows.Forms.DataGridView dtg_ungrouped_users;
     }
 }
