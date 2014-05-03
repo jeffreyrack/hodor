@@ -26,6 +26,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
         }
         #endregion
 
+        public enum Filters{
+            Status, Group
+        }
         public bool RemoveByName(string name)
         {
             int idx = GetIdxByName(name);
@@ -48,6 +51,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             }
             return (idx >= 0);
         }
+
         public int GetIdxByName(string name)
         {
             for (int i = 0; i < this.Count; ++i)
@@ -69,6 +73,16 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public void Serialize()
         {
             XmlBackend.Serialize<UserList>(Global.UsersFilePath, this);
+        }
+
+        public BindingList<User> ApplyGroupFilter(string group)
+        {
+                return new BindingList<User>(this.Where(m => m.GroupName == group).ToList());
+        }
+
+        public BindingList<User> ApplyStatusFilter(User.UserType status) 
+        {
+            return new BindingList<User>(this.Where(m => m.Status == status).ToList());
         }
 
         public static void Reload()
