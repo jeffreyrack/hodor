@@ -38,8 +38,10 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.gbox_createGroup = new System.Windows.Forms.GroupBox();
             this.gbox_createUser = new System.Windows.Forms.GroupBox();
+            this.dtg_ungrouped_users = new System.Windows.Forms.DataGridView();
             this.gbox_createGroup.SuspendLayout();
             this.gbox_createUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_name
@@ -127,7 +129,7 @@
             this.gbox_createGroup.Controls.Add(this.gbox_createUser);
             this.gbox_createGroup.Controls.Add(this.lbl_name);
             this.gbox_createGroup.Controls.Add(this.txt_name);
-            this.gbox_createGroup.Location = new System.Drawing.Point(219, 65);
+            this.gbox_createGroup.Location = new System.Drawing.Point(47, 78);
             this.gbox_createGroup.Name = "gbox_createGroup";
             this.gbox_createGroup.Size = new System.Drawing.Size(334, 158);
             this.gbox_createGroup.TabIndex = 20;
@@ -146,12 +148,24 @@
             this.gbox_createUser.TabIndex = 21;
             this.gbox_createUser.TabStop = false;
             // 
+            // dtg_ungrouped_users
+            // 
+            this.dtg_ungrouped_users.AllowUserToAddRows = false;
+            this.dtg_ungrouped_users.AllowUserToDeleteRows = false;
+            this.dtg_ungrouped_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_ungrouped_users.Location = new System.Drawing.Point(422, 78);
+            this.dtg_ungrouped_users.Name = "dtg_ungrouped_users";
+            this.dtg_ungrouped_users.ReadOnly = true;
+            this.dtg_ungrouped_users.Size = new System.Drawing.Size(240, 150);
+            this.dtg_ungrouped_users.TabIndex = 21;
+            // 
             // CreateGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.second_desert_background;
             this.ClientSize = new System.Drawing.Size(730, 480);
+            this.Controls.Add(this.dtg_ungrouped_users);
             this.Controls.Add(this.gbox_createGroup);
             this.Controls.Add(this.btn_create);
             this.Controls.Add(this.btn_cancel);
@@ -162,6 +176,7 @@
             this.gbox_createGroup.PerformLayout();
             this.gbox_createUser.ResumeLayout(false);
             this.gbox_createUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,5 +193,6 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.GroupBox gbox_createGroup;
         private System.Windows.Forms.GroupBox gbox_createUser;
+        private System.Windows.Forms.DataGridView dtg_ungrouped_users;
     }
 }

@@ -16,6 +16,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             this.AcceptButton = this.btn_create;
             this.gbox_createGroup.BackColor = Data.Global.opaqueBackground;
+            this.dtg_ungrouped_users.DataSource = Data.UserList.Instance.ApplyGroupFilter("Ungrouped Users");
+            this.dtg_ungrouped_users.Columns["Status"].Visible = false;
+            this.dtg_ungrouped_users.Columns["TotalPercentage"].Visible = false;
+            this.dtg_ungrouped_users.Columns["GameCount"].Visible = false;
+            this.dtg_ungrouped_users.Columns["GroupName"].Visible = false;
         }
 
         protected override void Accept()
@@ -65,6 +70,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 return;
             }
                 Accept();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
