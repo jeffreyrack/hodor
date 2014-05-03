@@ -28,100 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txt_name = new System.Windows.Forms.TextBox();
-            this.rdo_hard = new System.Windows.Forms.RadioButton();
-            this.rdo_medium = new System.Windows.Forms.RadioButton();
-            this.rdo_easy = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbl_name = new System.Windows.Forms.Label();
-            this.btn_create = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
+            this.dtg_ungrouped_users = new System.Windows.Forms.DataGridView();
             this.gbox_createGroup = new System.Windows.Forms.GroupBox();
             this.gbox_createUser = new System.Windows.Forms.GroupBox();
-            this.dtg_ungrouped_users = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rdo_easy = new System.Windows.Forms.RadioButton();
+            this.rdo_hard = new System.Windows.Forms.RadioButton();
+            this.rdo_medium = new System.Windows.Forms.RadioButton();
+            this.lbl_name = new System.Windows.Forms.Label();
+            this.txt_name = new System.Windows.Forms.TextBox();
+            this.btn_create = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).BeginInit();
             this.gbox_createGroup.SuspendLayout();
             this.gbox_createUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).BeginInit();
             this.SuspendLayout();
             // 
-            // txt_name
+            // dtg_ungrouped_users
             // 
-            this.txt_name.Location = new System.Drawing.Point(77, 35);
-            this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(196, 20);
-            this.txt_name.TabIndex = 19;
-            // 
-            // rdo_hard
-            // 
-            this.rdo_hard.AutoSize = true;
-            this.rdo_hard.Location = new System.Drawing.Point(238, 47);
-            this.rdo_hard.Name = "rdo_hard";
-            this.rdo_hard.Size = new System.Drawing.Size(48, 17);
-            this.rdo_hard.TabIndex = 17;
-            this.rdo_hard.Text = "Hard";
-            this.rdo_hard.UseVisualStyleBackColor = true;
-            // 
-            // rdo_medium
-            // 
-            this.rdo_medium.AutoSize = true;
-            this.rdo_medium.Location = new System.Drawing.Point(154, 47);
-            this.rdo_medium.Name = "rdo_medium";
-            this.rdo_medium.Size = new System.Drawing.Size(62, 17);
-            this.rdo_medium.TabIndex = 16;
-            this.rdo_medium.Text = "Medium";
-            this.rdo_medium.UseVisualStyleBackColor = true;
-            // 
-            // rdo_easy
-            // 
-            this.rdo_easy.AutoSize = true;
-            this.rdo_easy.Checked = true;
-            this.rdo_easy.Location = new System.Drawing.Point(77, 47);
-            this.rdo_easy.Name = "rdo_easy";
-            this.rdo_easy.Size = new System.Drawing.Size(48, 17);
-            this.rdo_easy.TabIndex = 15;
-            this.rdo_easy.TabStop = true;
-            this.rdo_easy.Text = "Easy";
-            this.rdo_easy.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Difficulty:";
-            // 
-            // lbl_name
-            // 
-            this.lbl_name.AutoSize = true;
-            this.lbl_name.Location = new System.Drawing.Point(15, 38);
-            this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(38, 13);
-            this.lbl_name.TabIndex = 12;
-            this.lbl_name.Text = "Name:";
-            // 
-            // btn_create
-            // 
-            this.btn_create.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.resizedSubmit;
-            this.btn_create.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_create.Location = new System.Drawing.Point(607, 363);
-            this.btn_create.Name = "btn_create";
-            this.btn_create.Size = new System.Drawing.Size(125, 35);
-            this.btn_create.TabIndex = 11;
-            this.btn_create.UseVisualStyleBackColor = true;
-            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_cancel.Location = new System.Drawing.Point(648, 404);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(84, 78);
-            this.btn_cancel.TabIndex = 10;
-            this.btn_cancel.UseVisualStyleBackColor = true;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            this.dtg_ungrouped_users.AllowUserToAddRows = false;
+            this.dtg_ungrouped_users.AllowUserToDeleteRows = false;
+            this.dtg_ungrouped_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_ungrouped_users.Location = new System.Drawing.Point(422, 78);
+            this.dtg_ungrouped_users.Name = "dtg_ungrouped_users";
+            this.dtg_ungrouped_users.Size = new System.Drawing.Size(287, 210);
+            this.dtg_ungrouped_users.TabIndex = 21;
             // 
             // gbox_createGroup
             // 
@@ -148,16 +79,84 @@
             this.gbox_createUser.TabIndex = 21;
             this.gbox_createUser.TabStop = false;
             // 
-            // dtg_ungrouped_users
+            // label3
             // 
-            this.dtg_ungrouped_users.AllowUserToAddRows = false;
-            this.dtg_ungrouped_users.AllowUserToDeleteRows = false;
-            this.dtg_ungrouped_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_ungrouped_users.Location = new System.Drawing.Point(422, 78);
-            this.dtg_ungrouped_users.Name = "dtg_ungrouped_users";
-            this.dtg_ungrouped_users.ReadOnly = true;
-            this.dtg_ungrouped_users.Size = new System.Drawing.Size(240, 150);
-            this.dtg_ungrouped_users.TabIndex = 21;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Difficulty:";
+            // 
+            // rdo_easy
+            // 
+            this.rdo_easy.AutoSize = true;
+            this.rdo_easy.Checked = true;
+            this.rdo_easy.Location = new System.Drawing.Point(77, 47);
+            this.rdo_easy.Name = "rdo_easy";
+            this.rdo_easy.Size = new System.Drawing.Size(48, 17);
+            this.rdo_easy.TabIndex = 15;
+            this.rdo_easy.TabStop = true;
+            this.rdo_easy.Text = "Easy";
+            this.rdo_easy.UseVisualStyleBackColor = true;
+            // 
+            // rdo_hard
+            // 
+            this.rdo_hard.AutoSize = true;
+            this.rdo_hard.Location = new System.Drawing.Point(238, 47);
+            this.rdo_hard.Name = "rdo_hard";
+            this.rdo_hard.Size = new System.Drawing.Size(48, 17);
+            this.rdo_hard.TabIndex = 17;
+            this.rdo_hard.Text = "Hard";
+            this.rdo_hard.UseVisualStyleBackColor = true;
+            // 
+            // rdo_medium
+            // 
+            this.rdo_medium.AutoSize = true;
+            this.rdo_medium.Location = new System.Drawing.Point(154, 47);
+            this.rdo_medium.Name = "rdo_medium";
+            this.rdo_medium.Size = new System.Drawing.Size(62, 17);
+            this.rdo_medium.TabIndex = 16;
+            this.rdo_medium.Text = "Medium";
+            this.rdo_medium.UseVisualStyleBackColor = true;
+            // 
+            // lbl_name
+            // 
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Location = new System.Drawing.Point(15, 38);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(38, 13);
+            this.lbl_name.TabIndex = 12;
+            this.lbl_name.Text = "Name:";
+            // 
+            // txt_name
+            // 
+            this.txt_name.Location = new System.Drawing.Point(77, 35);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(196, 20);
+            this.txt_name.TabIndex = 19;
+            // 
+            // btn_create
+            // 
+            this.btn_create.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.resizedSubmit;
+            this.btn_create.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_create.Location = new System.Drawing.Point(607, 363);
+            this.btn_create.Name = "btn_create";
+            this.btn_create.Size = new System.Drawing.Size(125, 35);
+            this.btn_create.TabIndex = 11;
+            this.btn_create.UseVisualStyleBackColor = true;
+            this.btn_create.Click += new System.EventHandler(this.btn_create_Click);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_cancel.Location = new System.Drawing.Point(648, 404);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(84, 78);
+            this.btn_cancel.TabIndex = 10;
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // CreateGroup
             // 
@@ -172,11 +171,11 @@
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "CreateGroup";
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).EndInit();
             this.gbox_createGroup.ResumeLayout(false);
             this.gbox_createGroup.PerformLayout();
             this.gbox_createUser.ResumeLayout(false);
             this.gbox_createUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).EndInit();
             this.ResumeLayout(false);
 
         }

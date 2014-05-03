@@ -78,6 +78,17 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.Load += new System.EventHandler(this.StateControl_Load);
             this.ResumeLayout(false);
         }
+
+        // Based off of functionality found at: http://www.niteshluharuka.com/2014/02/how-to-add-custom-checkbox-column-to-datagridview-in-windows-forms/#
+        public static  DataGridViewCheckBoxColumn CreateDataGridViewCheckbox()
+        {
+            DataGridViewCheckBoxColumn checkbox = new DataGridViewCheckBoxColumn();
+            checkbox.Name = "ToAdd";
+            checkbox.HeaderText = "Add To Group";
+            checkbox.FalseValue = 0;
+            checkbox.TrueValue =1;
+            return checkbox;
+        }
         
         private void StateControl_Load(object sender, EventArgs e)
         {

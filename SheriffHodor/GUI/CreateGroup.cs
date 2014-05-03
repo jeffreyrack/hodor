@@ -21,6 +21,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.dtg_ungrouped_users.Columns["TotalPercentage"].Visible = false;
             this.dtg_ungrouped_users.Columns["GameCount"].Visible = false;
             this.dtg_ungrouped_users.Columns["GroupName"].Visible = false;
+            this.dtg_ungrouped_users.Columns.Insert(1, CreateDataGridViewCheckbox());
         }
 
         protected override void Accept()
@@ -35,6 +36,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             newGroup.Name = grpName;
             newGroup.Difficulty = getDifficulty();
             Data.GroupList.Instance.Add(newGroup);
+            addStudentsToGroup(newGroup);
             MainWindow.Instance.SwitchForm<Administration>();
         }
 
@@ -70,6 +72,18 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 return;
             }
                 Accept();
+        }
+
+        private void addStudentsToGroup(Data.Group ToAdd)
+        {
+            foreach (DataGridViewRow row in this.dtg_ungrouped_users.Rows)
+            {
+                DataGridViewCheckBoxCell checkbox = row.Cells[0] as DataGridViewCheckBoxCell;
+                if(checkbox.Value == checkbox.TrueValue)
+                {
+                    Data.UserList.Instance.GetByName(row.Cells[1].Value.ToString()).GroupName = ToAdd.Name;
+                }
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
