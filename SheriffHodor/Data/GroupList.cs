@@ -27,7 +27,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
          */
         public bool RemoveByName(string name)
         {
-            // int idx = GetIdxByName(name);
+             int idx = GetIdxByName(name);
             BindingList<User> users = UserList.Instance.ApplyGroupFilter(name);
           //  if (idx >= 0)
            // {
@@ -35,7 +35,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 {
                     member.GroupName = "Ungrouped Users";
                 }
-            //    this.RemoveItem(idx);
+                this.RemoveItem(idx);
            // }
           //  return (idx >= 0);
             return true;
