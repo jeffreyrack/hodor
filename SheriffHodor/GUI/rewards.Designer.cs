@@ -32,6 +32,10 @@
             this.btn_exit = new System.Windows.Forms.Button();
             this.gbox_hodor = new System.Windows.Forms.GroupBox();
             this.gbox_hats = new System.Windows.Forms.GroupBox();
+            this.rdo_hat_2_2 = new System.Windows.Forms.RadioButton();
+            this.btn_hat_2_2 = new System.Windows.Forms.Button();
+            this.txt_coins = new System.Windows.Forms.TextBox();
+            this.lbl_coins = new System.Windows.Forms.Label();
             this.btn_hat_1_2 = new System.Windows.Forms.Button();
             this.rdo_hat_2_1 = new System.Windows.Forms.RadioButton();
             this.btn_hat_2_1 = new System.Windows.Forms.Button();
@@ -39,8 +43,6 @@
             this.rdo_hat_1_2 = new System.Windows.Forms.RadioButton();
             this.rdo_hat_1_1 = new System.Windows.Forms.RadioButton();
             this.btn_hat_1_1 = new System.Windows.Forms.Button();
-            this.lbl_coins = new System.Windows.Forms.Label();
-            this.txt_coins = new System.Windows.Forms.TextBox();
             this.gbox_hats.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,14 +62,16 @@
             this.gbox_hodor.BackColor = System.Drawing.Color.Transparent;
             this.gbox_hodor.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
             this.gbox_hodor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gbox_hodor.Location = new System.Drawing.Point(383, 43);
+            this.gbox_hodor.Location = new System.Drawing.Point(383, 12);
             this.gbox_hodor.Name = "gbox_hodor";
-            this.gbox_hodor.Size = new System.Drawing.Size(304, 359);
+            this.gbox_hodor.Size = new System.Drawing.Size(304, 390);
             this.gbox_hodor.TabIndex = 1;
             this.gbox_hodor.TabStop = false;
             // 
             // gbox_hats
             // 
+            this.gbox_hats.Controls.Add(this.rdo_hat_2_2);
+            this.gbox_hats.Controls.Add(this.btn_hat_2_2);
             this.gbox_hats.Controls.Add(this.txt_coins);
             this.gbox_hats.Controls.Add(this.lbl_coins);
             this.gbox_hats.Controls.Add(this.btn_hat_1_2);
@@ -77,11 +81,52 @@
             this.gbox_hats.Controls.Add(this.rdo_hat_1_2);
             this.gbox_hats.Controls.Add(this.rdo_hat_1_1);
             this.gbox_hats.Controls.Add(this.btn_hat_1_1);
-            this.gbox_hats.Location = new System.Drawing.Point(25, 43);
+            this.gbox_hats.Location = new System.Drawing.Point(25, 12);
             this.gbox_hats.Name = "gbox_hats";
-            this.gbox_hats.Size = new System.Drawing.Size(304, 359);
+            this.gbox_hats.Size = new System.Drawing.Size(304, 390);
             this.gbox_hats.TabIndex = 0;
             this.gbox_hats.TabStop = false;
+            // 
+            // rdo_hat_2_2
+            // 
+            this.rdo_hat_2_2.AutoSize = true;
+            this.rdo_hat_2_2.Location = new System.Drawing.Point(170, 231);
+            this.rdo_hat_2_2.Name = "rdo_hat_2_2";
+            this.rdo_hat_2_2.Size = new System.Drawing.Size(75, 17);
+            this.rdo_hat_2_2.TabIndex = 9;
+            this.rdo_hat_2_2.Text = "Purple Hat";
+            this.rdo_hat_2_2.UseVisualStyleBackColor = true;
+            this.rdo_hat_2_2.CheckedChanged += new System.EventHandler(this.rdo_hat_changed);
+            // 
+            // btn_hat_2_2
+            // 
+            this.btn_hat_2_2.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat2_tier2;
+            this.btn_hat_2_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_hat_2_2.Enabled = false;
+            this.btn_hat_2_2.Location = new System.Drawing.Point(170, 157);
+            this.btn_hat_2_2.Name = "btn_hat_2_2";
+            this.btn_hat_2_2.Size = new System.Drawing.Size(115, 68);
+            this.btn_hat_2_2.TabIndex = 8;
+            this.btn_hat_2_2.UseVisualStyleBackColor = true;
+            this.btn_hat_2_2.Click += new System.EventHandler(this.hat_btn_click);
+            // 
+            // txt_coins
+            // 
+            this.txt_coins.BackColor = System.Drawing.SystemColors.Control;
+            this.txt_coins.Enabled = false;
+            this.txt_coins.Location = new System.Drawing.Point(49, 14);
+            this.txt_coins.Name = "txt_coins";
+            this.txt_coins.Size = new System.Drawing.Size(55, 20);
+            this.txt_coins.TabIndex = 7;
+            // 
+            // lbl_coins
+            // 
+            this.lbl_coins.AutoSize = true;
+            this.lbl_coins.Location = new System.Drawing.Point(7, 17);
+            this.lbl_coins.Name = "lbl_coins";
+            this.lbl_coins.Size = new System.Drawing.Size(36, 13);
+            this.lbl_coins.TabIndex = 6;
+            this.lbl_coins.Text = "Coins:";
             // 
             // btn_hat_1_2
             // 
@@ -120,7 +165,7 @@
             // 
             // btn_purchase
             // 
-            this.btn_purchase.Location = new System.Drawing.Point(99, 326);
+            this.btn_purchase.Location = new System.Drawing.Point(105, 361);
             this.btn_purchase.Name = "btn_purchase";
             this.btn_purchase.Size = new System.Drawing.Size(75, 23);
             this.btn_purchase.TabIndex = 5;
@@ -162,24 +207,6 @@
             this.btn_hat_1_1.UseVisualStyleBackColor = true;
             this.btn_hat_1_1.Click += new System.EventHandler(this.hat_btn_click);
             // 
-            // lbl_coins
-            // 
-            this.lbl_coins.AutoSize = true;
-            this.lbl_coins.Location = new System.Drawing.Point(7, 17);
-            this.lbl_coins.Name = "lbl_coins";
-            this.lbl_coins.Size = new System.Drawing.Size(36, 13);
-            this.lbl_coins.TabIndex = 6;
-            this.lbl_coins.Text = "Coins:";
-            // 
-            // txt_coins
-            // 
-            this.txt_coins.BackColor = System.Drawing.SystemColors.Control;
-            this.txt_coins.Enabled = false;
-            this.txt_coins.Location = new System.Drawing.Point(49, 14);
-            this.txt_coins.Name = "txt_coins";
-            this.txt_coins.Size = new System.Drawing.Size(55, 20);
-            this.txt_coins.TabIndex = 7;
-            // 
             // Rewards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,5 +242,7 @@
         private System.Windows.Forms.Button btn_hat_2_1;
         private System.Windows.Forms.Label lbl_coins;
         private System.Windows.Forms.TextBox txt_coins;
+        private System.Windows.Forms.Button btn_hat_2_2;
+        private System.Windows.Forms.RadioButton rdo_hat_2_2;
     }
 }

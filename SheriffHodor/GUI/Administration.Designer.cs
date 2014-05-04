@@ -44,12 +44,12 @@
             this.btn_groups_create = new System.Windows.Forms.Button();
             this.dtg_groups_groups = new System.Windows.Forms.DataGridView();
             this.tab_abt_us = new System.Windows.Forms.TabPage();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.lbl_about_us = new System.Windows.Forms.Label();
             this.gbox_about_us = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_createdBy = new System.Windows.Forms.Label();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_exit = new System.Windows.Forms.Button();
             this.tab_display.SuspendLayout();
             this.pg_report.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).BeginInit();
@@ -278,6 +278,17 @@
             this.tab_abt_us.TabIndex = 4;
             this.tab_abt_us.Text = "About Us";
             // 
+            // btn_exit
+            // 
+            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exit.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_exit.Location = new System.Drawing.Point(624, 354);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(84, 78);
+            this.btn_exit.TabIndex = 5;
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_log_out_Click);
+            // 
             // lbl_about_us
             // 
             this.lbl_about_us.AutoSize = true;
@@ -326,17 +337,6 @@
             this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Name.Width = 41;
             // 
-            // btn_exit
-            // 
-            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_exit.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_exit.Location = new System.Drawing.Point(624, 354);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(84, 78);
-            this.btn_exit.TabIndex = 5;
-            this.btn_exit.UseVisualStyleBackColor = true;
-            this.btn_exit.Click += new System.EventHandler(this.btn_log_out_Click);
-            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,7 +345,7 @@
             this.Controls.Add(this.tab_display);
             this.MaximumSize = new System.Drawing.Size(714, 451);
             this.MinimumSize = new System.Drawing.Size(714, 451);
-            //this.Name = "Administration";
+         //   this.Name = "Administration";
             this.tab_display.ResumeLayout(false);
             this.pg_report.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).EndInit();

@@ -163,6 +163,16 @@ namespace CSUSM.CS441.SheriffHodor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap hat2_tier2 {
+            get {
+                object obj = ResourceManager.GetObject("hat2-tier2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap hodor_1_1 {
             get {
                 object obj = ResourceManager.GetObject("hodor_1-1", resourceCulture);
@@ -186,6 +196,16 @@ namespace CSUSM.CS441.SheriffHodor.Properties {
         public static System.Drawing.Bitmap hodor_2_1 {
             get {
                 object obj = ResourceManager.GetObject("hodor_2-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap hodor_2_2 {
+            get {
+                object obj = ResourceManager.GetObject("hodor_2-2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

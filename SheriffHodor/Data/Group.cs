@@ -14,13 +14,13 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public Problem.Difficulty Difficulty { get; set; }
         [System.ComponentModel.DisplayName("Number of members")]
         public int NumberOfMember { get { return this.Members.Count; } }
-        [System.ComponentModel.Browsable(false)]
-        public List<User> Members { get; set; }
+        [XmlIgnore(), System.ComponentModel.Browsable(false)]
+        // racka001: Changed this to no longer be a get/set, but just pull directly from users everybody currently in the group.
+        public List<User> Members { get { return Data.UserList.Instance.ApplyGroupFilter(this.Name).ToList(); } }
         #endregion
 
         public Group()
         {
-            this.Members = new List<User>();
         }
 
         /*
@@ -35,6 +35,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /*
         // Added by: Jeffrey Rackauckas
         // Added on: 04/21/2014
+        // Removed By: Jeffrey Rackauckas
+        // Removed on: 5/4/2014
+        // Reason: This requirement still isn't in the SRS!
         // Purpose: To provide a single function to check whether or not a passed group name is valid.
         public static bool ValidName(string name)
         {

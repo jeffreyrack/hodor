@@ -76,9 +76,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void changeDisplayedHat(Data.Hat currentHat)
         {
             Bitmap newHat;
+            // TODO: This should be able to be figured out dynamically.
             if (currentHat.Tier == 1 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_1;
             else if (currentHat.Tier == 1 && currentHat.Number == 2) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_2;
             else if (currentHat.Tier == 2 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_2_1;
+            else if (currentHat.Tier == 2 && currentHat.Number == 2) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_2_2;
             else newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
             this.gbox_hodor.BackgroundImage = newHat;
         }
@@ -95,12 +97,18 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
             changeDisplayedHat(this.currentHat);
             enableHat(this.currentHat);
+            this.txt_coins.Text = this.CurrentUser.Coins.ToString();
         }
 
         private void hat_btn_click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             changeDisplayedHat(stripHatInfo(button.Name));
+        }
+
+        private void s(object sender, EventArgs e)
+        {
+
         }
     }
 }
