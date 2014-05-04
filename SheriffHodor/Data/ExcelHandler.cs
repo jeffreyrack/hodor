@@ -28,6 +28,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 xlWorkSheet.Cells[i, 1] = user.Name;
                 xlWorkSheet.Cells[i, 2] = user.GroupName;
          //       xlWorkSheet.Cells[i, 3] = user.Percentages;
+                ++i;
             }
             xlWorkBook.SaveAs(Global.UsersFilePath + "Sheriff_Hodor.xls", XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
