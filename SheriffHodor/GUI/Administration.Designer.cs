@@ -29,7 +29,6 @@
         {
             this.tab_display = new System.Windows.Forms.TabControl();
             this.pg_report = new System.Windows.Forms.TabPage();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_log_out = new System.Windows.Forms.Button();
             this.dtg_reports_list = new System.Windows.Forms.DataGridView();
             this.pg_users = new System.Windows.Forms.TabPage();
@@ -44,6 +43,12 @@
             this.btn_groups_edit = new System.Windows.Forms.Button();
             this.btn_groups_create = new System.Windows.Forms.Button();
             this.dtg_groups_groups = new System.Windows.Forms.DataGridView();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_abt_us = new System.Windows.Forms.TabPage();
+            this.gbox_about_us = new System.Windows.Forms.GroupBox();
+            this.lbl_about_us = new System.Windows.Forms.Label();
+            this.lbl_createdBy = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tab_display.SuspendLayout();
             this.pg_report.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).BeginInit();
@@ -51,6 +56,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtg_users_list)).BeginInit();
             this.pg_groups.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_groups_groups)).BeginInit();
+            this.tab_abt_us.SuspendLayout();
+            this.gbox_about_us.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_display
@@ -61,6 +68,7 @@
             this.tab_display.Controls.Add(this.pg_report);
             this.tab_display.Controls.Add(this.pg_users);
             this.tab_display.Controls.Add(this.pg_groups);
+            this.tab_display.Controls.Add(this.tab_abt_us);
             this.tab_display.Location = new System.Drawing.Point(0, 0);
             this.tab_display.Name = "tab_display";
             this.tab_display.SelectedIndex = 0;
@@ -79,13 +87,6 @@
             this.pg_report.Size = new System.Drawing.Size(722, 454);
             this.pg_report.TabIndex = 0;
             this.pg_report.Text = "Reports";
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Name.Width = 41;
             // 
             // btn_log_out
             // 
@@ -264,6 +265,65 @@
             this.dtg_groups_groups.StandardTab = true;
             this.dtg_groups_groups.TabIndex = 5;
             // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Name.Width = 41;
+            // 
+            // tab_abt_us
+            // 
+            this.tab_abt_us.BackColor = System.Drawing.Color.Tan;
+            this.tab_abt_us.Controls.Add(this.lbl_about_us);
+            this.tab_abt_us.Controls.Add(this.gbox_about_us);
+            this.tab_abt_us.Location = new System.Drawing.Point(4, 22);
+            this.tab_abt_us.Name = "tab_abt_us";
+            this.tab_abt_us.Size = new System.Drawing.Size(722, 454);
+            this.tab_abt_us.TabIndex = 4;
+            this.tab_abt_us.Text = "About Us";
+            // 
+            // gbox_about_us
+            // 
+            this.gbox_about_us.Controls.Add(this.label1);
+            this.gbox_about_us.Controls.Add(this.lbl_createdBy);
+            this.gbox_about_us.Location = new System.Drawing.Point(27, 70);
+            this.gbox_about_us.Name = "gbox_about_us";
+            this.gbox_about_us.Size = new System.Drawing.Size(671, 347);
+            this.gbox_about_us.TabIndex = 0;
+            this.gbox_about_us.TabStop = false;
+            // 
+            // lbl_about_us
+            // 
+            this.lbl_about_us.AutoSize = true;
+            this.lbl_about_us.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lbl_about_us.Location = new System.Drawing.Point(299, 18);
+            this.lbl_about_us.Name = "lbl_about_us";
+            this.lbl_about_us.Size = new System.Drawing.Size(126, 31);
+            this.lbl_about_us.TabIndex = 1;
+            this.lbl_about_us.Text = "About Us";
+            // 
+            // lbl_createdBy
+            // 
+            this.lbl_createdBy.AutoSize = true;
+            this.lbl_createdBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lbl_createdBy.Location = new System.Drawing.Point(22, 20);
+            this.lbl_createdBy.Name = "lbl_createdBy";
+            this.lbl_createdBy.Size = new System.Drawing.Size(230, 25);
+            this.lbl_createdBy.TabIndex = 0;
+            this.lbl_createdBy.Text = "Created By: Team Hodor";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(27, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(608, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Members: Jeffrey Rackauckas, Corey Paxton, John Fileccia, Mathias Lang, Juliette " +
+    "Ly";
+            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,6 +340,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtg_users_list)).EndInit();
             this.pg_groups.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_groups_groups)).EndInit();
+            this.tab_abt_us.ResumeLayout(false);
+            this.tab_abt_us.PerformLayout();
+            this.gbox_about_us.ResumeLayout(false);
+            this.gbox_about_us.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -303,6 +367,11 @@
         private System.Windows.Forms.Button btn_groups_edit;
         private System.Windows.Forms.Button btn_groups_create;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.TabPage tab_abt_us;
+        private System.Windows.Forms.Label lbl_about_us;
+        private System.Windows.Forms.GroupBox gbox_about_us;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_createdBy;
 
 
     }
