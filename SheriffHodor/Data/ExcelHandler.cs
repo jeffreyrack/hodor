@@ -53,8 +53,18 @@ namespace CSUSM.CS441.SheriffHodor.Data
             }
             xlWorkSheet.Columns.AutoFit();
             gameSheet.Columns.AutoFit();
-            xlWorkBook.SaveAs(Global.UsersFilePath + "Sheriff_Hodor.xls", XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            xlWorkBook.Close(true, misValue, misValue);
+            try
+            {
+                System.Windows.Forms.SaveFileDialog save = new System.Windows.Forms.SaveFileDialog();
+                if(save.CreatePrompt)
+                {
+                    xlWorkBook.SaveAs(save.FileName, XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+                    xlWorkBook.Close(true, misValue, misValue);
+                }
+            } catch(Exception e)
+            {
+                // TODO: What to do when the file handling fails.
+            }
             xlApp.Quit();
         }
     }

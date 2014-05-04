@@ -1,5 +1,4 @@
-﻿using AdvancedDataGridView;
-/*Team Hodor
+﻿/*Team Hodor
  *  The buttons just need to be linkd to the XML background functions andsaved for the user games
  */
 using System;
