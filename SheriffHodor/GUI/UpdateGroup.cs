@@ -45,6 +45,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             base.Entered(from, user, returnUser);
             txt_newName.Text = string.Empty;
             txt_oldName.Text = string.Empty;
+            dtg_ungrouped_users.DataSource = Data.UserList.Instance.ApplyGroupFilter("Ungrouped Users");
             this.dtg_ungrouped_users = createUngroupedUserDataGrid(this.dtg_ungrouped_users);
         }
 

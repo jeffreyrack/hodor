@@ -96,11 +96,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             enableHat(this.currentHat);
         }
 
-        private void btn_2_1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void hat_btn_click(object sender, EventArgs e)
         {
             Button button = (Button)sender;

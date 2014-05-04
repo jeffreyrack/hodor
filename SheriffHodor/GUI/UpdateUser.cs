@@ -16,7 +16,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             ddl_groups.DisplayMember = "Name";
-            ddl_groups.DataSource = Data.GroupList.Instance;
             this.AcceptButton = this.btn_submit;
             this.gbox_updateUser.BackColor = Data.Global.opaqueBackground;
         }
@@ -29,6 +28,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             base.Entered(from, user, returnUser);
             this.txt_currentName.Text = user.Name;
             this.txt_newName.Text = user.Name;
+            ddl_groups.DataSource = Data.GroupList.Instance;
 
             if (this.CurrentUser.Status == Data.User.UserType.Teacher)
             {

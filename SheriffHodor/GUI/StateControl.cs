@@ -117,12 +117,18 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         
         public static DataGridView createUngroupedUserDataGrid(DataGridView dtg_ungrouped_users)
         {
-            dtg_ungrouped_users.Columns["Status"].Visible = false;
-            dtg_ungrouped_users.Columns["TotalPercentage"].Visible = false;
-            dtg_ungrouped_users.Columns["GameCount"].Visible = false;
-            dtg_ungrouped_users.Columns["GroupName"].Visible = false;
-            dtg_ungrouped_users.Columns.Insert(1, CreateDataGridViewCheckbox());
-            return dtg_ungrouped_users;
+            try
+            {
+                dtg_ungrouped_users.Columns["Status"].Visible = false;
+                dtg_ungrouped_users.Columns["TotalPercentage"].Visible = false;
+                dtg_ungrouped_users.Columns["GameCount"].Visible = false;
+                dtg_ungrouped_users.Columns["GroupName"].Visible = false;
+                dtg_ungrouped_users.Columns.Insert(1, CreateDataGridViewCheckbox());
+                return dtg_ungrouped_users;
+            } catch(Exception e)
+            {
+                return dtg_ungrouped_users;
+            }
         }
 
         private void StateControl_Load(object sender, EventArgs e)

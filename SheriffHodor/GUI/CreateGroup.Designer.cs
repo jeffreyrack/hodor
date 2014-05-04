@@ -140,7 +140,7 @@
             // 
             this.btn_create.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.resizedSubmit;
             this.btn_create.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_create.Location = new System.Drawing.Point(607, 363);
+            this.btn_create.Location = new System.Drawing.Point(507, 447);
             this.btn_create.Name = "btn_create";
             this.btn_create.Size = new System.Drawing.Size(125, 35);
             this.btn_create.TabIndex = 11;
