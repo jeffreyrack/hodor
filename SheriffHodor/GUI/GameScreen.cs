@@ -168,6 +168,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     this.CurrentUser.Data.game.coinsGained.ToString()));
 
                 //Record the game
+                this.CurrentUser.PreviousGames.Add(new GameRecord(CurrentUser.Data.game.totalProblems, DateTime.Now, CurrentUser.Data.game.correctAnswers));
+/*
+ * Deprecated on: 5/4/2014
+ * No longer needed due to the use of the GameRecord class.
                 this.CurrentUser.GameCount++;
                 this.CurrentUser.Percentages.Add(Math.Round((double)this.CurrentUser.Data.game.correctAnswers
                     / (double)this.CurrentUser.Data.game.totalProblems, 4) * 100);
@@ -179,6 +183,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     this.CurrentUser.TotalPercentage += percent;
                 }
                 this.CurrentUser.TotalPercentage = Math.Round(this.CurrentUser.TotalPercentage / (double)this.CurrentUser.GameCount, 2);
+                */
 
                 //do some cleanup of the response labels
                 lbl_coinsGained.Visible = false;

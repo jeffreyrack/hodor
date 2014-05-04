@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Data\ExcelHandler.cs" />
     <Compile Include="Data\Game.cs" />
+    <Compile Include="Data\GameRecord.cs" />
     <Compile Include="Data\Group.cs" />
     <Compile Include="Data\GroupList.cs" />
     <Compile Include="Data\Hat.cs" />

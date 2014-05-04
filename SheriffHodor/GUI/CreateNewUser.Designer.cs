@@ -110,6 +110,7 @@
             // txt_passwordConfirm
             // 
             this.txt_passwordConfirm.Location = new System.Drawing.Point(63, 45);
+            this.txt_passwordConfirm.MaxLength = 100;
             this.txt_passwordConfirm.Name = "txt_passwordConfirm";
             this.txt_passwordConfirm.Size = new System.Drawing.Size(196, 20);
             this.txt_passwordConfirm.TabIndex = 16;
@@ -117,6 +118,7 @@
             // txt_password
             // 
             this.txt_password.Location = new System.Drawing.Point(64, 13);
+            this.txt_password.MaxLength = 100;
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(196, 20);
             this.txt_password.TabIndex = 15;
@@ -196,6 +198,7 @@
             // txt_username
             // 
             this.txt_username.Location = new System.Drawing.Point(80, 10);
+            this.txt_username.MaxLength = 100;
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(196, 20);
             this.txt_username.TabIndex = 6;

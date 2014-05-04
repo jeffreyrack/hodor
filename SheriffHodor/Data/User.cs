@@ -59,10 +59,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
             this.Status = status;
             this.Coins = 0;
             this.TotalCoins = 0;
-            this.Percentages = new List<double>();
             this.OwnedHats = new List<Hat>();
-            this.TotalPercentage = 0.0;
             this.Data = new Runtime();
+            this.PreviousGames = new List<GameRecord>();
         }
         /// <summary>
         /// Pretty print this object.
@@ -98,24 +97,35 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /// </summary>
         [System.ComponentModel.Browsable(false)]
         public int TotalCoins { get; set; }
-        // TODO display these in report
-        /// <summary>
-        /// Keep track of the game stats
-        /// </summary>
-        public List<double> Percentages { get; set; }
         /// <summary>
         /// Keep track of all hats the user owns.
         /// </summary>
        [System.ComponentModel.Browsable(false)]
         public List<Hat> OwnedHats { get; set; }
         /// <summary>
-        /// Total percentage of all games played
+        /// List of all games played by the user.
         /// </summary>
-        public double TotalPercentage { get; set; }
+       [System.ComponentModel.Browsable(false)]
+       public List<GameRecord> PreviousGames { get; set; }
+       /// <summary>
+       /// Total percentage of all games played
+       /// </summary>
+       public double TotalPercentage { get { 
+            int total = 0;
+            int correct = 0;
+           foreach(GameRecord record in this.PreviousGames)
+           {
+               total += record.numProblems;
+               correct += record.numCorrect;
+           }
+           return (double)correct / total;
+
+       }
+       }
         /// <summary>
         /// Number of games played
         /// </summary>
-        public int GameCount { get; set; }
+        public int GameCount { get { return this.PreviousGames.Count; } }
         /// <summary>
         /// Name of the group the user is in
         /// </summary>
