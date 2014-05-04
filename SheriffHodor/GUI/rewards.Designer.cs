@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rewards));
             this.btn_exit = new System.Windows.Forms.Button();
             this.gbox_hodor = new System.Windows.Forms.GroupBox();
             this.gbox_hats = new System.Windows.Forms.GroupBox();
@@ -35,10 +36,10 @@
             this.rdo_hat_1_2 = new System.Windows.Forms.RadioButton();
             this.rdo_hat_1_1 = new System.Windows.Forms.RadioButton();
             this.btn_1_1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_1_2 = new System.Windows.Forms.Button();
+            this.btn_2_1 = new System.Windows.Forms.Button();
+            this.rdo_hat_2_1 = new System.Windows.Forms.RadioButton();
             this.gbox_hats.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_exit
@@ -65,11 +66,13 @@
             // 
             // gbox_hats
             // 
+            this.gbox_hats.Controls.Add(this.btn_1_2);
+            this.gbox_hats.Controls.Add(this.rdo_hat_2_1);
+            this.gbox_hats.Controls.Add(this.btn_2_1);
             this.gbox_hats.Controls.Add(this.btn_purchase);
             this.gbox_hats.Controls.Add(this.rdo_hat_1_2);
             this.gbox_hats.Controls.Add(this.rdo_hat_1_1);
             this.gbox_hats.Controls.Add(this.btn_1_1);
-            this.gbox_hats.Controls.Add(this.groupBox1);
             this.gbox_hats.Location = new System.Drawing.Point(25, 43);
             this.gbox_hats.Name = "gbox_hats";
             this.gbox_hats.Size = new System.Drawing.Size(304, 359);
@@ -89,11 +92,10 @@
             // rdo_hat_1_2
             // 
             this.rdo_hat_1_2.AutoSize = true;
-            this.rdo_hat_1_2.Location = new System.Drawing.Point(152, 105);
+            this.rdo_hat_1_2.Location = new System.Drawing.Point(170, 104);
             this.rdo_hat_1_2.Name = "rdo_hat_1_2";
             this.rdo_hat_1_2.Size = new System.Drawing.Size(65, 17);
             this.rdo_hat_1_2.TabIndex = 3;
-            this.rdo_hat_1_2.TabStop = true;
             this.rdo_hat_1_2.Text = "Red Hat";
             this.rdo_hat_1_2.UseVisualStyleBackColor = true;
             this.rdo_hat_1_2.CheckedChanged += new System.EventHandler(this.rdo_hat_1_1_CheckedChanged);
@@ -101,12 +103,11 @@
             // rdo_hat_1_1
             // 
             this.rdo_hat_1_1.AutoSize = true;
-            this.rdo_hat_1_1.Location = new System.Drawing.Point(20, 104);
+            this.rdo_hat_1_1.Location = new System.Drawing.Point(40, 104);
             this.rdo_hat_1_1.Name = "rdo_hat_1_1";
-            this.rdo_hat_1_1.Size = new System.Drawing.Size(65, 17);
+            this.rdo_hat_1_1.Size = new System.Drawing.Size(75, 17);
             this.rdo_hat_1_1.TabIndex = 1;
-            this.rdo_hat_1_1.TabStop = true;
-            this.rdo_hat_1_1.Text = "Red Hat";
+            this.rdo_hat_1_1.Text = "Brown Hat";
             this.rdo_hat_1_1.UseVisualStyleBackColor = true;
             this.rdo_hat_1_1.CheckedChanged += new System.EventHandler(this.rdo_hat_1_1_CheckedChanged);
             // 
@@ -114,31 +115,44 @@
             // 
             this.btn_1_1.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat1_tier1;
             this.btn_1_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_1_1.Location = new System.Drawing.Point(20, 19);
+            this.btn_1_1.Enabled = false;
+            this.btn_1_1.Location = new System.Drawing.Point(29, 19);
             this.btn_1_1.Name = "btn_1_1";
             this.btn_1_1.Size = new System.Drawing.Size(108, 79);
             this.btn_1_1.TabIndex = 0;
             this.btn_1_1.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btn_1_2);
-            this.groupBox1.Location = new System.Drawing.Point(6, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(279, 122);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tier 1";
-            // 
             // btn_1_2
             // 
             this.btn_1_2.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat1_tier2;
             this.btn_1_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_1_2.Location = new System.Drawing.Point(146, 19);
+            this.btn_1_2.Location = new System.Drawing.Point(170, 19);
             this.btn_1_2.Name = "btn_1_2";
             this.btn_1_2.Size = new System.Drawing.Size(115, 79);
             this.btn_1_2.TabIndex = 2;
             this.btn_1_2.UseVisualStyleBackColor = true;
+            // 
+            // btn_2_1
+            // 
+            this.btn_2_1.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat2_tier1;
+            this.btn_2_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_2_1.Location = new System.Drawing.Point(20, 140);
+            this.btn_2_1.Name = "btn_2_1";
+            this.btn_2_1.Size = new System.Drawing.Size(108, 68);
+            this.btn_2_1.TabIndex = 0;
+            this.btn_2_1.UseVisualStyleBackColor = true;
+            this.btn_2_1.Click += new System.EventHandler(this.btn_2_1_Click);
+            // 
+            // rdo_hat_2_1
+            // 
+            this.rdo_hat_2_1.AutoSize = true;
+            this.rdo_hat_2_1.Location = new System.Drawing.Point(29, 214);
+            this.rdo_hat_2_1.Name = "rdo_hat_2_1";
+            this.rdo_hat_2_1.Size = new System.Drawing.Size(66, 17);
+            this.rdo_hat_2_1.TabIndex = 1;
+            this.rdo_hat_2_1.Text = "Cool Hat";
+            this.rdo_hat_2_1.UseVisualStyleBackColor = true;
+            this.rdo_hat_2_1.CheckedChanged += new System.EventHandler(this.rdo_hat_1_1_CheckedChanged);
             // 
             // Rewards
             // 
@@ -150,13 +164,13 @@
             this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.gbox_hodor);
             this.Controls.Add(this.gbox_hats);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "Rewards";
             this.Text = "Form1";
             this.gbox_hats.ResumeLayout(false);
             this.gbox_hats.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -170,7 +184,8 @@
         private System.Windows.Forms.Button btn_1_2;
         private System.Windows.Forms.RadioButton rdo_hat_1_1;
         private System.Windows.Forms.RadioButton rdo_hat_1_2;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_purchase;
+        private System.Windows.Forms.RadioButton rdo_hat_2_1;
+        private System.Windows.Forms.Button btn_2_1;
     }
 }

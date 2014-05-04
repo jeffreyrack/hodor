@@ -135,6 +135,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeGridView\TreeGridCell.cs" />
+    <Compile Include="TreeGridView\TreeGridEvents.cs" />
+    <Compile Include="TreeGridView\TreeGridNode.cs" />
+    <Compile Include="TreeGridView\TreeGridNodeCollection.cs" />
+    <Compile Include="TreeGridView\TreeGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="GUI\Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +270,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\hodor_1-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hodor_1-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hodor_2-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hat2-tier1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

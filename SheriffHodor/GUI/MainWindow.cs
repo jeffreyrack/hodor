@@ -86,5 +86,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             //Console.WriteLine("Switch to [{0}]", name);
             return form;
         }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

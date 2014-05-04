@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.pnl_display = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -48,11 +49,13 @@
             this.ClientSize = new System.Drawing.Size(720, 469);
             this.Controls.Add(this.pnl_display);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(736, 508);
             this.MinimumSize = new System.Drawing.Size(736, 508);
             this.Name = "MainWindow";
-            this.Text = "MainWindow";
+            this.Text = "Sheriff Hodor";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResumeLayout(false);
 
         }

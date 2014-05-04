@@ -29,6 +29,7 @@
         {
             this.tab_display = new System.Windows.Forms.TabControl();
             this.pg_report = new System.Windows.Forms.TabPage();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_log_out = new System.Windows.Forms.Button();
             this.dtg_reports_list = new System.Windows.Forms.DataGridView();
             this.pg_users = new System.Windows.Forms.TabPage();
@@ -78,6 +79,13 @@
             this.pg_report.Size = new System.Drawing.Size(722, 454);
             this.pg_report.TabIndex = 0;
             this.pg_report.Text = "Reports";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Name.Width = 41;
             // 
             // btn_log_out
             // 
@@ -264,7 +272,7 @@
             this.Controls.Add(this.tab_display);
             this.MaximumSize = new System.Drawing.Size(714, 451);
             this.MinimumSize = new System.Drawing.Size(714, 451);
-            this.Name = "Administration";
+   //         this.Name = "Administration";
             this.tab_display.ResumeLayout(false);
             this.pg_report.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).EndInit();
@@ -294,6 +302,7 @@
         private System.Windows.Forms.Button btn_groups_delete;
         private System.Windows.Forms.Button btn_groups_edit;
         private System.Windows.Forms.Button btn_groups_create;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
 
 
     }

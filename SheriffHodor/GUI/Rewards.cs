@@ -58,6 +58,17 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             string[] hatInfo = name.Split(seperates, StringSplitOptions.RemoveEmptyEntries);
             this.hatTier = Convert.ToInt32(hatInfo[2]);
             this.hatNumber = Convert.ToInt32(hatInfo[3]);
+            changeDisplayedHat();
+        }
+
+        private void changeDisplayedHat()
+        {
+            Bitmap newHat;
+            if (this.hatTier == 1 && this.hatNumber == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_1;
+            else if (this.hatTier == 1 && this.hatNumber == 2) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_2;
+            else if (this.hatTier == 2 && this.hatNumber == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_2_1;
+            else newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
+            this.gbox_hodor.BackgroundImage = newHat;
         }
 
         // Created By: Jeffrey Rackauckas
@@ -70,7 +81,12 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 Helpers.DisplayError("You don't have enough coins!");
                 return;
             }
-            this.gbox_hodor.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_1;
+            changeDisplayedHat();
+        }
+
+        private void btn_2_1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

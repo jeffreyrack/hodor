@@ -1,4 +1,5 @@
-﻿/*Team Hodor
+﻿using AdvancedDataGridView;
+/*Team Hodor
  *  The buttons just need to be linkd to the XML background functions andsaved for the user games
  */
 using System;
@@ -26,18 +27,16 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             dtg_users_list.DataSource = Data.UserList.Instance;
             dtg_groups_groups.DataSource = Data.GroupList.Instance;
+            /*
+            List<Data.User> students = Data.UserList.Instance.ApplyStatusFilter(Data.User.UserType.Student).ToList();
+            foreach(Data.User user in students)
+            {
+                TreeGridNode node = tgv_reports.Nodes.Add("test");
+            }
+             */
             dtg_reports_list.DataSource = Data.UserList.Instance.ApplyStatusFilter(Data.User.UserType.Student);
-            
-           
-            //TODO make this work
-            //var results = from user in Data.UserList.Instance where user.Status == Data.User.UserType.Student select user;
-            //dtg_reports_list.DataSource = results;
-            dtg_reports_list.Columns["TotalPercentage"].HeaderText = "Total %";
-            dtg_reports_list.Columns["GameCount"].HeaderText = "Games Played";
-            dtg_reports_list.Columns["Status"].Visible = false;
 
-            dtg_users_list.Columns["TotalPercentage"].Visible = false;
-            dtg_users_list.Columns["GameCount"].Visible = false;
+
         }
 
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)
