@@ -173,6 +173,7 @@
             // 
             this.dtg_ungrouped_users.AllowUserToAddRows = false;
             this.dtg_ungrouped_users.AllowUserToDeleteRows = false;
+            this.dtg_ungrouped_users.BackgroundColor = System.Drawing.Color.Tan;
             this.dtg_ungrouped_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_ungrouped_users.Location = new System.Drawing.Point(445, 61);
             this.dtg_ungrouped_users.Name = "dtg_ungrouped_users";

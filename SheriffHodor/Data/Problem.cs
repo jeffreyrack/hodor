@@ -232,6 +232,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         /*
          * Corey Paxton     - 3/20/2014 - Initial Version
          * Corey Paxton     - 3/20/2014 - Typecasted Difficulty enum
+         * Jeffrey Rackauckas - 5/4/2014 - Changed diff to be the max of the answer, not operand.
          */
         public static Problem AddProblem(Difficulty diff)
         {
@@ -239,14 +240,22 @@ namespace CSUSM.CS441.SheriffHodor.Data
             Random rand = new Random();
             int numOfTerms = rand.Next(2, 6);
             List<ushort> terms = new List<ushort>();
-
-
+            int total = 0;
             for (int i = 0; i < numOfTerms; i++)
             {
                 //terms.Add( (ushort)rand.Next(0, ((int)(diff) / (numOfTerms/2) ) + 1) );
                 terms.Add((ushort)rand.Next(0, (int)(diff) + 1));
+                total += terms.ElementAt(i);
             }
-
+            while(total > ((int) diff))
+            {
+                int toReduce = rand.Next(0, numOfTerms - 1);
+                ushort originalAmount = terms.ElementAt(toReduce);
+                ushort reduceAmount = (ushort)rand.Next(0, originalAmount);
+                terms.RemoveAt(toReduce);
+                terms.Add((ushort)(originalAmount - reduceAmount));
+                total -= reduceAmount;
+            }
             return (new Problem(terms, Problem.Operator.Addition));
         }
 

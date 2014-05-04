@@ -48,6 +48,7 @@
             // 
             this.dtg_ungrouped_users.AllowUserToAddRows = false;
             this.dtg_ungrouped_users.AllowUserToDeleteRows = false;
+            this.dtg_ungrouped_users.BackgroundColor = System.Drawing.Color.Tan;
             this.dtg_ungrouped_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_ungrouped_users.Location = new System.Drawing.Point(422, 78);
             this.dtg_ungrouped_users.Name = "dtg_ungrouped_users";
@@ -132,7 +133,6 @@
             // txt_name
             // 
             this.txt_name.Location = new System.Drawing.Point(77, 35);
-            this.txt_name.MaxLength = 100;
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(196, 20);
             this.txt_name.TabIndex = 19;
