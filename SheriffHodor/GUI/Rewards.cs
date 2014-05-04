@@ -31,6 +31,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             base.Entered(from, user, returnUser);
             this.Show();
             this.CurrentUser = user;
+            this.txt_coins.Text = this.CurrentUser.Coins.ToString();
             foreach(Data.Hat hat in user.OwnedHats)
             {
                 enableHat(hat);

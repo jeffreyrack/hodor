@@ -39,6 +39,8 @@
             this.rdo_hat_1_2 = new System.Windows.Forms.RadioButton();
             this.rdo_hat_1_1 = new System.Windows.Forms.RadioButton();
             this.btn_hat_1_1 = new System.Windows.Forms.Button();
+            this.lbl_coins = new System.Windows.Forms.Label();
+            this.txt_coins = new System.Windows.Forms.TextBox();
             this.gbox_hats.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +68,8 @@
             // 
             // gbox_hats
             // 
+            this.gbox_hats.Controls.Add(this.txt_coins);
+            this.gbox_hats.Controls.Add(this.lbl_coins);
             this.gbox_hats.Controls.Add(this.btn_hat_1_2);
             this.gbox_hats.Controls.Add(this.rdo_hat_2_1);
             this.gbox_hats.Controls.Add(this.btn_hat_2_1);
@@ -84,7 +88,7 @@
             this.btn_hat_1_2.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat1_tier2;
             this.btn_hat_1_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_1_2.Enabled = false;
-            this.btn_hat_1_2.Location = new System.Drawing.Point(170, 19);
+            this.btn_hat_1_2.Location = new System.Drawing.Point(170, 36);
             this.btn_hat_1_2.Name = "btn_hat_1_2";
             this.btn_hat_1_2.Size = new System.Drawing.Size(115, 79);
             this.btn_hat_1_2.TabIndex = 2;
@@ -94,7 +98,7 @@
             // rdo_hat_2_1
             // 
             this.rdo_hat_2_1.AutoSize = true;
-            this.rdo_hat_2_1.Location = new System.Drawing.Point(29, 214);
+            this.rdo_hat_2_1.Location = new System.Drawing.Point(29, 231);
             this.rdo_hat_2_1.Name = "rdo_hat_2_1";
             this.rdo_hat_2_1.Size = new System.Drawing.Size(66, 17);
             this.rdo_hat_2_1.TabIndex = 1;
@@ -107,7 +111,7 @@
             this.btn_hat_2_1.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat2_tier1;
             this.btn_hat_2_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_2_1.Enabled = false;
-            this.btn_hat_2_1.Location = new System.Drawing.Point(20, 140);
+            this.btn_hat_2_1.Location = new System.Drawing.Point(20, 157);
             this.btn_hat_2_1.Name = "btn_hat_2_1";
             this.btn_hat_2_1.Size = new System.Drawing.Size(108, 68);
             this.btn_hat_2_1.TabIndex = 0;
@@ -127,7 +131,7 @@
             // rdo_hat_1_2
             // 
             this.rdo_hat_1_2.AutoSize = true;
-            this.rdo_hat_1_2.Location = new System.Drawing.Point(170, 104);
+            this.rdo_hat_1_2.Location = new System.Drawing.Point(170, 121);
             this.rdo_hat_1_2.Name = "rdo_hat_1_2";
             this.rdo_hat_1_2.Size = new System.Drawing.Size(65, 17);
             this.rdo_hat_1_2.TabIndex = 3;
@@ -138,7 +142,7 @@
             // rdo_hat_1_1
             // 
             this.rdo_hat_1_1.AutoSize = true;
-            this.rdo_hat_1_1.Location = new System.Drawing.Point(40, 104);
+            this.rdo_hat_1_1.Location = new System.Drawing.Point(40, 121);
             this.rdo_hat_1_1.Name = "rdo_hat_1_1";
             this.rdo_hat_1_1.Size = new System.Drawing.Size(75, 17);
             this.rdo_hat_1_1.TabIndex = 1;
@@ -151,12 +155,30 @@
             this.btn_hat_1_1.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat1_tier1;
             this.btn_hat_1_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_1_1.Enabled = false;
-            this.btn_hat_1_1.Location = new System.Drawing.Point(29, 19);
+            this.btn_hat_1_1.Location = new System.Drawing.Point(29, 36);
             this.btn_hat_1_1.Name = "btn_hat_1_1";
             this.btn_hat_1_1.Size = new System.Drawing.Size(108, 79);
             this.btn_hat_1_1.TabIndex = 0;
             this.btn_hat_1_1.UseVisualStyleBackColor = true;
             this.btn_hat_1_1.Click += new System.EventHandler(this.hat_btn_click);
+            // 
+            // lbl_coins
+            // 
+            this.lbl_coins.AutoSize = true;
+            this.lbl_coins.Location = new System.Drawing.Point(7, 17);
+            this.lbl_coins.Name = "lbl_coins";
+            this.lbl_coins.Size = new System.Drawing.Size(36, 13);
+            this.lbl_coins.TabIndex = 6;
+            this.lbl_coins.Text = "Coins:";
+            // 
+            // txt_coins
+            // 
+            this.txt_coins.BackColor = System.Drawing.SystemColors.Control;
+            this.txt_coins.Enabled = false;
+            this.txt_coins.Location = new System.Drawing.Point(49, 14);
+            this.txt_coins.Name = "txt_coins";
+            this.txt_coins.Size = new System.Drawing.Size(55, 20);
+            this.txt_coins.TabIndex = 7;
             // 
             // Rewards
             // 
@@ -191,5 +213,7 @@
         private System.Windows.Forms.Button btn_purchase;
         private System.Windows.Forms.RadioButton rdo_hat_2_1;
         private System.Windows.Forms.Button btn_hat_2_1;
+        private System.Windows.Forms.Label lbl_coins;
+        private System.Windows.Forms.TextBox txt_coins;
     }
 }
