@@ -213,6 +213,26 @@ namespace CSUSM.CS441.SheriffHodor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap hodor_3_1 {
+            get {
+                object obj = ResourceManager.GetObject("hodor_3_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap hodor_3_3 {
+            get {
+                object obj = ResourceManager.GetObject("hodor_3_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap minusButton {
             get {
                 object obj = ResourceManager.GetObject("minusButton", resourceCulture);
@@ -286,6 +306,26 @@ namespace CSUSM.CS441.SheriffHodor.Properties {
         public static System.Drawing.Bitmap submit {
             get {
                 object obj = ResourceManager.GetObject("submit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap tier_3__boot_hat {
+            get {
+                object obj = ResourceManager.GetObject("tier 3- boot hat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Wabbit_Hat {
+            get {
+                object obj = ResourceManager.GetObject("Wabbit Hat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

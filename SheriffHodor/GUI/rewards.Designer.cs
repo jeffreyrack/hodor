@@ -32,6 +32,10 @@
             this.btn_exit = new System.Windows.Forms.Button();
             this.gbox_hodor = new System.Windows.Forms.GroupBox();
             this.gbox_hats = new System.Windows.Forms.GroupBox();
+            this.rdo_hat_3_3 = new System.Windows.Forms.RadioButton();
+            this.btn_hat_3_3 = new System.Windows.Forms.Button();
+            this.rdo_hat_3_1 = new System.Windows.Forms.RadioButton();
+            this.btn_hat_3_1 = new System.Windows.Forms.Button();
             this.rdo_hat_2_2 = new System.Windows.Forms.RadioButton();
             this.btn_hat_2_2 = new System.Windows.Forms.Button();
             this.txt_coins = new System.Windows.Forms.TextBox();
@@ -70,6 +74,10 @@
             // 
             // gbox_hats
             // 
+            this.gbox_hats.Controls.Add(this.rdo_hat_3_3);
+            this.gbox_hats.Controls.Add(this.btn_hat_3_3);
+            this.gbox_hats.Controls.Add(this.rdo_hat_3_1);
+            this.gbox_hats.Controls.Add(this.btn_hat_3_1);
             this.gbox_hats.Controls.Add(this.rdo_hat_2_2);
             this.gbox_hats.Controls.Add(this.btn_hat_2_2);
             this.gbox_hats.Controls.Add(this.txt_coins);
@@ -86,6 +94,52 @@
             this.gbox_hats.Size = new System.Drawing.Size(304, 390);
             this.gbox_hats.TabIndex = 0;
             this.gbox_hats.TabStop = false;
+            // 
+            // rdo_hat_3_3
+            // 
+            this.rdo_hat_3_3.AutoSize = true;
+            this.rdo_hat_3_3.Location = new System.Drawing.Point(179, 328);
+            this.rdo_hat_3_3.Name = "rdo_hat_3_3";
+            this.rdo_hat_3_3.Size = new System.Drawing.Size(79, 17);
+            this.rdo_hat_3_3.TabIndex = 13;
+            this.rdo_hat_3_3.Text = "Wabbit Hat";
+            this.rdo_hat_3_3.UseVisualStyleBackColor = true;
+            this.rdo_hat_3_3.CheckedChanged += new System.EventHandler(this.rdo_hat_changed);
+            // 
+            // btn_hat_3_3
+            // 
+            this.btn_hat_3_3.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Wabbit_Hat;
+            this.btn_hat_3_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_hat_3_3.Enabled = false;
+            this.btn_hat_3_3.Location = new System.Drawing.Point(170, 254);
+            this.btn_hat_3_3.Name = "btn_hat_3_3";
+            this.btn_hat_3_3.Size = new System.Drawing.Size(108, 68);
+            this.btn_hat_3_3.TabIndex = 12;
+            this.btn_hat_3_3.UseVisualStyleBackColor = true;
+            this.btn_hat_3_3.Click += new System.EventHandler(this.hat_btn_click);
+            // 
+            // rdo_hat_3_1
+            // 
+            this.rdo_hat_3_1.AutoSize = true;
+            this.rdo_hat_3_1.Location = new System.Drawing.Point(29, 328);
+            this.rdo_hat_3_1.Name = "rdo_hat_3_1";
+            this.rdo_hat_3_1.Size = new System.Drawing.Size(67, 17);
+            this.rdo_hat_3_1.TabIndex = 11;
+            this.rdo_hat_3_1.Text = "Boot Hat";
+            this.rdo_hat_3_1.UseVisualStyleBackColor = true;
+            this.rdo_hat_3_1.CheckedChanged += new System.EventHandler(this.rdo_hat_changed);
+            // 
+            // btn_hat_3_1
+            // 
+            this.btn_hat_3_1.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.tier_3__boot_hat;
+            this.btn_hat_3_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_hat_3_1.Enabled = false;
+            this.btn_hat_3_1.Location = new System.Drawing.Point(20, 254);
+            this.btn_hat_3_1.Name = "btn_hat_3_1";
+            this.btn_hat_3_1.Size = new System.Drawing.Size(108, 68);
+            this.btn_hat_3_1.TabIndex = 10;
+            this.btn_hat_3_1.UseVisualStyleBackColor = true;
+            this.btn_hat_3_1.Click += new System.EventHandler(this.hat_btn_click);
             // 
             // rdo_hat_2_2
             // 
@@ -244,5 +298,9 @@
         private System.Windows.Forms.TextBox txt_coins;
         private System.Windows.Forms.Button btn_hat_2_2;
         private System.Windows.Forms.RadioButton rdo_hat_2_2;
+        private System.Windows.Forms.RadioButton rdo_hat_3_1;
+        private System.Windows.Forms.Button btn_hat_3_1;
+        private System.Windows.Forms.RadioButton rdo_hat_3_3;
+        private System.Windows.Forms.Button btn_hat_3_3;
     }
 }

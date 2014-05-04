@@ -81,6 +81,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             else if (currentHat.Tier == 1 && currentHat.Number == 2) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_2;
             else if (currentHat.Tier == 2 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_2_1;
             else if (currentHat.Tier == 2 && currentHat.Number == 2) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_2_2;
+            else if (currentHat.Tier == 3 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_3_1;
+            else if (currentHat.Tier == 3 && currentHat.Number == 3) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_3_3;
             else newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
             this.gbox_hodor.BackgroundImage = newHat;
         }
@@ -106,9 +108,5 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             changeDisplayedHat(stripHatInfo(button.Name));
         }
 
-        private void s(object sender, EventArgs e)
-        {
-
-        }
     }
 }

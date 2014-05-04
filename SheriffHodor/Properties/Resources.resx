@@ -133,8 +133,11 @@
   <data name="minusButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minusButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="playButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playButton2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hodor_3_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hodor_3_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hodor_3_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hodor_3_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hodor_2-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hodor_2-1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,6 +148,9 @@
   <data name="plusButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plusButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="playButton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playButton3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hat1-tier1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hat1-tier1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,8 +160,11 @@
   <data name="door_button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\door_button1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="playButton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playButton3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="playButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playButton2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hat2-tier2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hat2-tier2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="desert_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\desert_background.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -168,6 +177,9 @@
   </data>
   <data name="Propper Hodor Picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Propper Hodor Picture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tier 3- boot hat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tier 3- boot hat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hodor_1-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hodor_1-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,7 +196,7 @@
   <data name="hat1-tier2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hat1-tier2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hat2-tier2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hat2-tier2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Wabbit Hat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wabbit Hat.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
