@@ -283,6 +283,16 @@ namespace CSUSM.CS441.SheriffHodor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Microsoft_Office_Excel_icon {
+            get {
+                object obj = ResourceManager.GetObject("Microsoft-Office-Excel-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap minusButton {
             get {
                 object obj = ResourceManager.GetObject("minusButton", resourceCulture);

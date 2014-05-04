@@ -29,27 +29,28 @@
         {
             this.tab_display = new System.Windows.Forms.TabControl();
             this.pg_report = new System.Windows.Forms.TabPage();
-            this.btn_log_out = new System.Windows.Forms.Button();
             this.dtg_reports_list = new System.Windows.Forms.DataGridView();
             this.pg_users = new System.Windows.Forms.TabPage();
-            this.btn_users_logout = new System.Windows.Forms.Button();
-            this.btn_users_del = new System.Windows.Forms.Button();
-            this.btn_users_edit = new System.Windows.Forms.Button();
             this.dtg_users_list = new System.Windows.Forms.DataGridView();
-            this.btn_users_add = new System.Windows.Forms.Button();
             this.pg_groups = new System.Windows.Forms.TabPage();
-            this.btn_groups_logout = new System.Windows.Forms.Button();
-            this.btn_groups_delete = new System.Windows.Forms.Button();
-            this.btn_groups_edit = new System.Windows.Forms.Button();
             this.dtg_groups_groups = new System.Windows.Forms.DataGridView();
-            this.btn_groups_create = new System.Windows.Forms.Button();
             this.tab_abt_us = new System.Windows.Forms.TabPage();
-            this.btn_exit = new System.Windows.Forms.Button();
             this.lbl_about_us = new System.Windows.Forms.Label();
             this.gbox_about_us = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_createdBy = new System.Windows.Forms.Label();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_export = new System.Windows.Forms.Button();
+            this.btn_log_out = new System.Windows.Forms.Button();
+            this.btn_users_logout = new System.Windows.Forms.Button();
+            this.btn_users_del = new System.Windows.Forms.Button();
+            this.btn_users_edit = new System.Windows.Forms.Button();
+            this.btn_users_add = new System.Windows.Forms.Button();
+            this.btn_groups_logout = new System.Windows.Forms.Button();
+            this.btn_groups_delete = new System.Windows.Forms.Button();
+            this.btn_groups_edit = new System.Windows.Forms.Button();
+            this.btn_groups_create = new System.Windows.Forms.Button();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.tab_display.SuspendLayout();
             this.pg_report.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).BeginInit();
@@ -80,6 +81,7 @@
             // pg_report
             // 
             this.pg_report.BackColor = System.Drawing.Color.BurlyWood;
+            this.pg_report.Controls.Add(this.btn_export);
             this.pg_report.Controls.Add(this.btn_log_out);
             this.pg_report.Controls.Add(this.dtg_reports_list);
             this.pg_report.Location = new System.Drawing.Point(4, 22);
@@ -88,19 +90,6 @@
             this.pg_report.Size = new System.Drawing.Size(722, 454);
             this.pg_report.TabIndex = 0;
             this.pg_report.Text = "Reports";
-            // 
-            // btn_log_out
-            // 
-            this.btn_log_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_log_out.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
-            this.btn_log_out.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_log_out.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_log_out.Location = new System.Drawing.Point(636, 356);
-            this.btn_log_out.Name = "btn_log_out";
-            this.btn_log_out.Size = new System.Drawing.Size(75, 75);
-            this.btn_log_out.TabIndex = 8;
-            this.btn_log_out.UseVisualStyleBackColor = true;
-            this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
             // dtg_reports_list
             // 
@@ -132,45 +121,6 @@
             this.pg_users.TabIndex = 2;
             this.pg_users.Text = "Users";
             // 
-            // btn_users_logout
-            // 
-            this.btn_users_logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_users_logout.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
-            this.btn_users_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_users_logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_users_logout.Location = new System.Drawing.Point(636, 356);
-            this.btn_users_logout.Name = "btn_users_logout";
-            this.btn_users_logout.Size = new System.Drawing.Size(75, 75);
-            this.btn_users_logout.TabIndex = 4;
-            this.btn_users_logout.UseVisualStyleBackColor = true;
-            this.btn_users_logout.Click += new System.EventHandler(this.btn_logout_Click);
-            // 
-            // btn_users_del
-            // 
-            this.btn_users_del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_users_del.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Close_icon;
-            this.btn_users_del.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_users_del.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_users_del.Location = new System.Drawing.Point(556, 356);
-            this.btn_users_del.Name = "btn_users_del";
-            this.btn_users_del.Size = new System.Drawing.Size(75, 75);
-            this.btn_users_del.TabIndex = 3;
-            this.btn_users_del.UseVisualStyleBackColor = true;
-            this.btn_users_del.Click += new System.EventHandler(this.btn_users_del_Click);
-            // 
-            // btn_users_edit
-            // 
-            this.btn_users_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_users_edit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Text_Edit_icon;
-            this.btn_users_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_users_edit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_users_edit.Location = new System.Drawing.Point(476, 356);
-            this.btn_users_edit.Name = "btn_users_edit";
-            this.btn_users_edit.Size = new System.Drawing.Size(75, 75);
-            this.btn_users_edit.TabIndex = 2;
-            this.btn_users_edit.UseVisualStyleBackColor = true;
-            this.btn_users_edit.Click += new System.EventHandler(this.btn_users_edit_Click);
-            // 
             // dtg_users_list
             // 
             this.dtg_users_list.AllowUserToAddRows = false;
@@ -185,19 +135,6 @@
             this.dtg_users_list.Size = new System.Drawing.Size(716, 354);
             this.dtg_users_list.StandardTab = true;
             this.dtg_users_list.TabIndex = 0;
-            // 
-            // btn_users_add
-            // 
-            this.btn_users_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_users_add.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Add_icon;
-            this.btn_users_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_users_add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_users_add.Location = new System.Drawing.Point(396, 356);
-            this.btn_users_add.Name = "btn_users_add";
-            this.btn_users_add.Size = new System.Drawing.Size(75, 75);
-            this.btn_users_add.TabIndex = 1;
-            this.btn_users_add.UseVisualStyleBackColor = true;
-            this.btn_users_add.Click += new System.EventHandler(this.btn_users_add_Click);
             // 
             // pg_groups
             // 
@@ -214,42 +151,6 @@
             this.pg_groups.TabIndex = 3;
             this.pg_groups.Text = "Groups";
             // 
-            // btn_groups_logout
-            // 
-            this.btn_groups_logout.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
-            this.btn_groups_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_groups_logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_groups_logout.Location = new System.Drawing.Point(636, 356);
-            this.btn_groups_logout.Name = "btn_groups_logout";
-            this.btn_groups_logout.Size = new System.Drawing.Size(75, 75);
-            this.btn_groups_logout.TabIndex = 4;
-            this.btn_groups_logout.UseVisualStyleBackColor = true;
-            this.btn_groups_logout.Click += new System.EventHandler(this.btn_groups_logout_Click);
-            // 
-            // btn_groups_delete
-            // 
-            this.btn_groups_delete.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Close_icon;
-            this.btn_groups_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_groups_delete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_groups_delete.Location = new System.Drawing.Point(556, 356);
-            this.btn_groups_delete.Name = "btn_groups_delete";
-            this.btn_groups_delete.Size = new System.Drawing.Size(75, 75);
-            this.btn_groups_delete.TabIndex = 3;
-            this.btn_groups_delete.UseVisualStyleBackColor = true;
-            this.btn_groups_delete.Click += new System.EventHandler(this.btn_groups_delete_Click);
-            // 
-            // btn_groups_edit
-            // 
-            this.btn_groups_edit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Text_Edit_icon;
-            this.btn_groups_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_groups_edit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_groups_edit.Location = new System.Drawing.Point(476, 356);
-            this.btn_groups_edit.Name = "btn_groups_edit";
-            this.btn_groups_edit.Size = new System.Drawing.Size(75, 75);
-            this.btn_groups_edit.TabIndex = 2;
-            this.btn_groups_edit.UseVisualStyleBackColor = true;
-            this.btn_groups_edit.Click += new System.EventHandler(this.btn_groups_edit_Click);
-            // 
             // dtg_groups_groups
             // 
             this.dtg_groups_groups.AllowUserToAddRows = false;
@@ -265,18 +166,6 @@
             this.dtg_groups_groups.StandardTab = true;
             this.dtg_groups_groups.TabIndex = 5;
             // 
-            // btn_groups_create
-            // 
-            this.btn_groups_create.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Add_icon;
-            this.btn_groups_create.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_groups_create.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_groups_create.Location = new System.Drawing.Point(396, 356);
-            this.btn_groups_create.Name = "btn_groups_create";
-            this.btn_groups_create.Size = new System.Drawing.Size(75, 75);
-            this.btn_groups_create.TabIndex = 1;
-            this.btn_groups_create.UseVisualStyleBackColor = true;
-            this.btn_groups_create.Click += new System.EventHandler(this.btn_groups_create_Click);
-            // 
             // tab_abt_us
             // 
             this.tab_abt_us.BackColor = System.Drawing.Color.Tan;
@@ -288,18 +177,6 @@
             this.tab_abt_us.Size = new System.Drawing.Size(722, 454);
             this.tab_abt_us.TabIndex = 4;
             this.tab_abt_us.Text = "About Us";
-            // 
-            // btn_exit
-            // 
-            this.btn_exit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
-            this.btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_exit.Location = new System.Drawing.Point(636, 356);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(75, 75);
-            this.btn_exit.TabIndex = 5;
-            this.btn_exit.UseVisualStyleBackColor = true;
-            this.btn_exit.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
             // lbl_about_us
             // 
@@ -348,6 +225,144 @@
             this.Name.Name = "Name";
             this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Name.Width = 41;
+            // 
+            // btn_export
+            // 
+            this.btn_export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_export.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Microsoft_Office_Excel_icon;
+            this.btn_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_export.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_export.Location = new System.Drawing.Point(555, 356);
+            this.btn_export.Name = "btn_export";
+            this.btn_export.Size = new System.Drawing.Size(75, 75);
+            this.btn_export.TabIndex = 9;
+            this.btn_export.UseVisualStyleBackColor = true;
+            this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
+            // 
+            // btn_log_out
+            // 
+            this.btn_log_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_log_out.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
+            this.btn_log_out.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_log_out.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_log_out.Location = new System.Drawing.Point(636, 356);
+            this.btn_log_out.Name = "btn_log_out";
+            this.btn_log_out.Size = new System.Drawing.Size(75, 75);
+            this.btn_log_out.TabIndex = 8;
+            this.btn_log_out.UseVisualStyleBackColor = true;
+            this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
+            // 
+            // btn_users_logout
+            // 
+            this.btn_users_logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_users_logout.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
+            this.btn_users_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_users_logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_users_logout.Location = new System.Drawing.Point(636, 356);
+            this.btn_users_logout.Name = "btn_users_logout";
+            this.btn_users_logout.Size = new System.Drawing.Size(75, 75);
+            this.btn_users_logout.TabIndex = 4;
+            this.btn_users_logout.UseVisualStyleBackColor = true;
+            this.btn_users_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
+            // btn_users_del
+            // 
+            this.btn_users_del.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_users_del.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Close_icon;
+            this.btn_users_del.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_users_del.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_users_del.Location = new System.Drawing.Point(556, 356);
+            this.btn_users_del.Name = "btn_users_del";
+            this.btn_users_del.Size = new System.Drawing.Size(75, 75);
+            this.btn_users_del.TabIndex = 3;
+            this.btn_users_del.UseVisualStyleBackColor = true;
+            this.btn_users_del.Click += new System.EventHandler(this.btn_users_del_Click);
+            // 
+            // btn_users_edit
+            // 
+            this.btn_users_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_users_edit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Text_Edit_icon;
+            this.btn_users_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_users_edit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_users_edit.Location = new System.Drawing.Point(476, 356);
+            this.btn_users_edit.Name = "btn_users_edit";
+            this.btn_users_edit.Size = new System.Drawing.Size(75, 75);
+            this.btn_users_edit.TabIndex = 2;
+            this.btn_users_edit.UseVisualStyleBackColor = true;
+            this.btn_users_edit.Click += new System.EventHandler(this.btn_users_edit_Click);
+            // 
+            // btn_users_add
+            // 
+            this.btn_users_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_users_add.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Add_icon;
+            this.btn_users_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_users_add.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_users_add.Location = new System.Drawing.Point(396, 356);
+            this.btn_users_add.Name = "btn_users_add";
+            this.btn_users_add.Size = new System.Drawing.Size(75, 75);
+            this.btn_users_add.TabIndex = 1;
+            this.btn_users_add.UseVisualStyleBackColor = true;
+            this.btn_users_add.Click += new System.EventHandler(this.btn_users_add_Click);
+            // 
+            // btn_groups_logout
+            // 
+            this.btn_groups_logout.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
+            this.btn_groups_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_groups_logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_groups_logout.Location = new System.Drawing.Point(636, 356);
+            this.btn_groups_logout.Name = "btn_groups_logout";
+            this.btn_groups_logout.Size = new System.Drawing.Size(75, 75);
+            this.btn_groups_logout.TabIndex = 4;
+            this.btn_groups_logout.UseVisualStyleBackColor = true;
+            this.btn_groups_logout.Click += new System.EventHandler(this.btn_groups_logout_Click);
+            // 
+            // btn_groups_delete
+            // 
+            this.btn_groups_delete.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Close_icon;
+            this.btn_groups_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_groups_delete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_groups_delete.Location = new System.Drawing.Point(556, 356);
+            this.btn_groups_delete.Name = "btn_groups_delete";
+            this.btn_groups_delete.Size = new System.Drawing.Size(75, 75);
+            this.btn_groups_delete.TabIndex = 3;
+            this.btn_groups_delete.UseVisualStyleBackColor = true;
+            this.btn_groups_delete.Click += new System.EventHandler(this.btn_groups_delete_Click);
+            // 
+            // btn_groups_edit
+            // 
+            this.btn_groups_edit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Text_Edit_icon;
+            this.btn_groups_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_groups_edit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_groups_edit.Location = new System.Drawing.Point(476, 356);
+            this.btn_groups_edit.Name = "btn_groups_edit";
+            this.btn_groups_edit.Size = new System.Drawing.Size(75, 75);
+            this.btn_groups_edit.TabIndex = 2;
+            this.btn_groups_edit.UseVisualStyleBackColor = true;
+            this.btn_groups_edit.Click += new System.EventHandler(this.btn_groups_edit_Click);
+            // 
+            // btn_groups_create
+            // 
+            this.btn_groups_create.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Add_icon;
+            this.btn_groups_create.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_groups_create.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_groups_create.Location = new System.Drawing.Point(396, 356);
+            this.btn_groups_create.Name = "btn_groups_create";
+            this.btn_groups_create.Size = new System.Drawing.Size(75, 75);
+            this.btn_groups_create.TabIndex = 1;
+            this.btn_groups_create.UseVisualStyleBackColor = true;
+            this.btn_groups_create.Click += new System.EventHandler(this.btn_groups_create_Click);
+            // 
+            // btn_exit
+            // 
+            this.btn_exit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
+            this.btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exit.Location = new System.Drawing.Point(636, 356);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(75, 75);
+            this.btn_exit.TabIndex = 5;
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
             // Administration
             // 
@@ -398,6 +413,7 @@
         private System.Windows.Forms.Button btn_groups_edit;
         private System.Windows.Forms.DataGridView dtg_groups_groups;
         private System.Windows.Forms.Button btn_groups_create;
+        private System.Windows.Forms.Button btn_export;
 
 
     }

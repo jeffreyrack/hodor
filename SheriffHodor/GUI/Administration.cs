@@ -199,6 +199,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
         }
 
+        private void btn_export_Click(object sender, EventArgs e)
+        {
+            Data.ExcelHandler.createExcelSheet(Data.UserList.Instance.ApplyStatusFilter(Data.User.UserType.Student).ToList());
+        }
+
 
     }
 }
