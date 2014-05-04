@@ -52,11 +52,12 @@
             // 
             // btn_exit
             // 
-            this.btn_exit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_exit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
+            this.btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_exit.Location = new System.Drawing.Point(658, 408);
+            this.btn_exit.Location = new System.Drawing.Point(654, 403);
             this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(72, 72);
+            this.btn_exit.Size = new System.Drawing.Size(75, 75);
             this.btn_exit.TabIndex = 2;
             this.btn_exit.UseVisualStyleBackColor = true;
             this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
@@ -207,6 +208,7 @@
             // 
             // btn_hat_2_1
             // 
+            this.btn_hat_2_1.BackColor = System.Drawing.SystemColors.Control;
             this.btn_hat_2_1.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat2_tier1;
             this.btn_hat_2_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_2_1.Enabled = false;
@@ -214,7 +216,7 @@
             this.btn_hat_2_1.Name = "btn_hat_2_1";
             this.btn_hat_2_1.Size = new System.Drawing.Size(108, 68);
             this.btn_hat_2_1.TabIndex = 0;
-            this.btn_hat_2_1.UseVisualStyleBackColor = true;
+            this.btn_hat_2_1.UseVisualStyleBackColor = false;
             this.btn_hat_2_1.Click += new System.EventHandler(this.hat_btn_click);
             // 
             // btn_purchase

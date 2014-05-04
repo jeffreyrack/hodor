@@ -16,6 +16,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             this.AcceptButton = this.btn_accept;
             this.gbox_updateGroup.BackColor = Data.Global.opaqueBackground;
+            dtg_ungrouped_users.DataSource = Data.UserList.Instance.ApplyGroupFilter("Ungrouped Users");
+            this.dtg_ungrouped_users = createUngroupedUserDataGrid(this.dtg_ungrouped_users);
         }
 
         protected override void Accept()
@@ -46,7 +48,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             txt_newName.Text = string.Empty;
             txt_oldName.Text = string.Empty;
             dtg_ungrouped_users.DataSource = Data.UserList.Instance.ApplyGroupFilter("Ungrouped Users");
-            this.dtg_ungrouped_users = createUngroupedUserDataGrid(this.dtg_ungrouped_users);
         }
 
         private Data.Group CurrentGroup { get; set; }

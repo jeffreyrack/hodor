@@ -173,22 +173,24 @@
             // 
             // btn_submit
             // 
-            this.btn_submit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.resizedSubmit;
+            this.btn_submit.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Add_icon;
+            this.btn_submit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_submit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_submit.Location = new System.Drawing.Point(504, 445);
+            this.btn_submit.Location = new System.Drawing.Point(575, 400);
             this.btn_submit.Name = "btn_submit";
-            this.btn_submit.Size = new System.Drawing.Size(125, 36);
+            this.btn_submit.Size = new System.Drawing.Size(75, 75);
             this.btn_submit.TabIndex = 2;
             this.btn_submit.UseVisualStyleBackColor = true;
             this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
             // btn_cancel
             // 
+            this.btn_cancel.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
+            this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_cancel.Location = new System.Drawing.Point(646, 403);
+            this.btn_cancel.Location = new System.Drawing.Point(656, 400);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(84, 78);
+            this.btn_cancel.Size = new System.Drawing.Size(75, 75);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.button_cancel_Click);
@@ -220,7 +222,6 @@
         private System.Windows.Forms.TextBox txt_currentName;
         private System.Windows.Forms.TextBox txt_newName;
         private System.Windows.Forms.Button btn_submit;
-        private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.GroupBox gbox_name;
         private System.Windows.Forms.ComboBox ddl_groups;
         private System.Windows.Forms.Label lbl_group;
@@ -232,5 +233,6 @@
         private System.Windows.Forms.TextBox txt_newPasswordConfirm;
         private System.Windows.Forms.GroupBox gbox_userSpecific;
         private System.Windows.Forms.GroupBox gbox_updateUser;
+        private System.Windows.Forms.Button btn_cancel;
     }
 }

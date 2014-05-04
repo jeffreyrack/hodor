@@ -121,11 +121,12 @@
             // 
             // btn_accept
             // 
-            this.btn_accept.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.resizedSubmit;
+            this.btn_accept.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Add_icon;
+            this.btn_accept.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_accept.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_accept.Location = new System.Drawing.Point(517, 450);
+            this.btn_accept.Location = new System.Drawing.Point(575, 400);
             this.btn_accept.Name = "btn_accept";
-            this.btn_accept.Size = new System.Drawing.Size(127, 32);
+            this.btn_accept.Size = new System.Drawing.Size(75, 75);
             this.btn_accept.TabIndex = 1;
             this.btn_accept.UseVisualStyleBackColor = true;
             this.btn_accept.Click += new System.EventHandler(this.btn_accept_Click);
@@ -157,11 +158,12 @@
             // 
             // btn_cancel
             // 
+            this.btn_cancel.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
+            this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
-            this.btn_cancel.Location = new System.Drawing.Point(650, 404);
+            this.btn_cancel.Location = new System.Drawing.Point(656, 400);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(84, 78);
+            this.btn_cancel.Size = new System.Drawing.Size(75, 75);
             this.btn_cancel.TabIndex = 0;
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);

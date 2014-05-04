@@ -27,7 +27,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public static readonly string GroupsFilePath = Path.Combine(ConfDirPath, "Groups.xml");
         #endregion
 
-        public static readonly System.Drawing.Color opaqueBackground = System.Drawing.Color.FromArgb(235, 240, 220, 165);
+        public static readonly System.Drawing.Color opaqueBackground = System.Drawing.Color.FromArgb(150, 240, 220, 165);
 
         // This is ugly.
         // Hash == Sha1Of("admin")
