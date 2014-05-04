@@ -14,7 +14,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         public Problem.Difficulty Difficulty { get; set; }
         [System.ComponentModel.DisplayName("Number of members")]
         public int NumberOfMember { get { return this.Members.Count; } }
-        [XmlIgnore(), System.ComponentModel.Browsable(false)]
+        [System.ComponentModel.Browsable(false)]
         public List<User> Members { get; set; }
         #endregion
 

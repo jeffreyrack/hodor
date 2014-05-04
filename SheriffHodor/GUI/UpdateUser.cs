@@ -83,6 +83,18 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 return;
             }
 
+            if(!Data.User.ValidName(this.txt_newName.Text))
+            {
+                Helpers.DisplayError("New name is already in use.  Please use a different name.");
+                return;
+            }
+
+            if(this.txt_newName.Text.Length >= 100)
+            {
+                Helpers.DisplayError("New Name is too long.  Names must be less than 100 characters long.");
+                return;
+            }
+
             if (this.CurrentUser.Status == Data.User.UserType.Teacher && txt_newPassword.Text != string.Empty)
             {
                 if (txt_newPasswordConfirm.Text != txt_newPassword.Text)
@@ -92,7 +104,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 }
                 this.CurrentUser.Hash = Data.Helpers.sha1Of(txt_newPassword.Text);
             }
-
             if (this.CurrentUser.Status == Data.User.UserType.Student)
             {
                 //delete the old group if they had one

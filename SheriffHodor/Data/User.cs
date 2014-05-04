@@ -156,7 +156,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
         // Purpose: To provide a single function to check whether or not a passed username is valid.
         public static bool ValidName(string name)
         {
-            return Helpers.CheckRegexMatch(name, @"^[\w]{1,100}$");
+            return Helpers.CheckRegexMatch(name, @"^[A-Za-z0-9. ]{1,100}$");
         }
 
         // Added By: Jeffrey Rackauckas

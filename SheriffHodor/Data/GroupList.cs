@@ -27,16 +27,18 @@ namespace CSUSM.CS441.SheriffHodor.Data
          */
         public bool RemoveByName(string name)
         {
-            int idx = GetIdxByName(name);
-            if (idx >= 0)
-            {
-                foreach (var member in this.Items[idx].Members)
+            // int idx = GetIdxByName(name);
+            BindingList<User> users = UserList.Instance.ApplyGroupFilter(name);
+          //  if (idx >= 0)
+           // {
+                foreach (var member in users)
                 {
-                    member.GroupName = null;
+                    member.GroupName = "Ungrouped Users";
                 }
-                this.RemoveItem(idx);
-            }
-            return (idx >= 0);
+            //    this.RemoveItem(idx);
+           // }
+          //  return (idx >= 0);
+            return true;
         }
 
         public int GetIdxByName(string name)

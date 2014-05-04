@@ -41,6 +41,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 Helpers.DisplayError("ERROR: Please enter a name");
                 return;
             }
+            if(name.Length > 100)
+            {
+                Helpers.DisplayError("ERROR: Your name is over 100 characters.  Please shorten it.");
+                return;
+            }
             if(!Data.User.ValidName(name))
             {
                 Helpers.DisplayError("ERROR: Your name cannot contain those characters");
@@ -48,7 +53,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
             if (Data.UserList.Instance.GetByName(name) != null)
             {
-                Helpers.DisplayError("ERROR: Your name is too long shorten it and try again");
+                Helpers.DisplayError("ERROR: Name is already in use.  Please use another name.");
                 return;
             }
 

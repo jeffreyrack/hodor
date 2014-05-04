@@ -68,7 +68,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (!this.CurrentUser.BuyHat(new Data.Hat(this.hatTier, this.hatNumber)))
             {
                 Helpers.DisplayError("You don't have enough coins!");
+                return;
             }
+            this.gbox_hodor.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_1;
         }
     }
 }

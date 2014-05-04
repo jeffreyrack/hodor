@@ -139,6 +139,9 @@
   <data name="hat1-tier1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hat1-tier1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hat1-tier2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hat1-tier2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="exit_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_button.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,7 +169,7 @@
   <data name="door_button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\door_button1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hat1-tier2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hat1-tier2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hodor_1-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hodor_1-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

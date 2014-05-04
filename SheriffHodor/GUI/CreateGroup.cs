@@ -30,7 +30,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             newGroup.Name = grpName;
             newGroup.Difficulty = getDifficulty();
             Data.GroupList.Instance.Add(newGroup);
-            addStudentsToGroup(dtg_ungrouped_users, newGroup, 0, 1);
+            addStudentsToGroup(dtg_ungrouped_users, newGroup, 1, 0);
             MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
 
