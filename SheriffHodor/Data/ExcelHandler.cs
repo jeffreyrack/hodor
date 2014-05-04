@@ -39,7 +39,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 if (user.Status == User.UserType.Teacher) continue;
                 xlWorkSheet.Cells[i, 1] = user.Name;
                 xlWorkSheet.Cells[i, 2] = user.GroupName;
-                xlWorkSheet.Cells[i, 3] = (user.TotalPercentage * 100).ToString() + "%";
+                xlWorkSheet.Cells[i, 3] = user.TotalPercentage;
                 xlWorkSheet.Cells[i, 4] = user.TotalCoins;
                 foreach(Data.GameRecord record in user.PreviousGames)
                 {

@@ -110,7 +110,8 @@ namespace CSUSM.CS441.SheriffHodor.Data
        /// <summary>
        /// Total percentage of all games played
        /// </summary>
-       public double TotalPercentage { get { 
+       public string TotalPercentage { get {
+           if (this.Status == UserType.Teacher) return "";
             int total = 0;
             int correct = 0;
            foreach(GameRecord record in this.PreviousGames)
@@ -118,7 +119,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                total += record.numProblems;
                correct += record.numCorrect;
            }
-           return (double)correct / total;
+           return (((double)correct / total)*100).ToString() + "%";
 
        }
        }
