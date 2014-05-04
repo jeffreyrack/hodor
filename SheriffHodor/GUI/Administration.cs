@@ -44,6 +44,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             this.CurrentUser = user;
             this.returnUser = returnUser;
+            dtg_users_list.DataSource = Data.UserList.Instance;
+            dtg_groups_groups.DataSource = Data.GroupList.Instance;
+            dtg_reports_list.DataSource = Data.UserList.Instance.ApplyStatusFilter(Data.User.UserType.Student);
         }
 
         private List<object> getSelectedName(DataGridView dgv, string cellname)
@@ -195,7 +198,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         private void onTabChange(object sender, EventArgs e)
         {
-
         }
 
 

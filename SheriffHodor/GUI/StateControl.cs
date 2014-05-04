@@ -92,6 +92,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
         public static void addStudentsToGroup(DataGridView dtg_ungrouped_users, Data.Group toAdd, int checkboxIndex, int nameIndex)
         {
+            Data.GroupList groups = Data.GroupList.Instance;
             foreach (DataGridViewRow row in dtg_ungrouped_users.Rows)
             {
                 for(int i=0; i<row.Cells.Count; i++)
@@ -102,7 +103,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                         if (checkbox.Value == checkbox.TrueValue)
                         {
                             int nameIndexGuess = (i > 0 ? i - 1 : i + 1);
-                            Data.UserList.Instance.GetByName(row.Cells[nameIndexGuess].Value.ToString()).GroupName = toAdd.Name;
+                            Data.User user = Data.UserList.Instance.GetByName(row.Cells[nameIndexGuess].Value.ToString());
+                            groups.GetByName(user.GroupName).Members.Remove(user);
+                            user.GroupName = toAdd.Name;
+                            toAdd.Members.Add(user);
                             break;
                         }
                     }
