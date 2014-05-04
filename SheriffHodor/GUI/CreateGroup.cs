@@ -16,6 +16,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             this.AcceptButton = this.btn_create;
             this.gbox_createGroup.BackColor = Data.Global.opaqueBackground;
+            dtg_ungrouped_users.DataSource = Data.UserList.Instance.ApplyGroupFilter("Ungrouped Users");
+            this.dtg_ungrouped_users = createUngroupedUserDataGrid(this.dtg_ungrouped_users);
         }
 
         protected override void Accept()
@@ -54,9 +56,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
             base.Entered(from, user, returnUser);
+            dtg_ungrouped_users.DataSource = Data.UserList.Instance.ApplyGroupFilter("Ungrouped Users");
             txt_name.Text = string.Empty;
             this.CurrentUser = user;
-            this.dtg_ungrouped_users = createUngroupedUserDataGrid(this.dtg_ungrouped_users);
         }
 
         private void btn_create_Click(object sender, EventArgs e)

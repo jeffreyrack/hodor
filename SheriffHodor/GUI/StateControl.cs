@@ -94,17 +94,25 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             foreach (DataGridViewRow row in dtg_ungrouped_users.Rows)
             {
-                DataGridViewCheckBoxCell checkbox = row.Cells[checkboxIndex] as DataGridViewCheckBoxCell;
-                if (checkbox.Value == checkbox.TrueValue)
+                for(int i=0; i<row.Cells.Count; i++)
                 {
-                    Data.UserList.Instance.GetByName(row.Cells[nameIndex].Value.ToString()).GroupName = toAdd.Name;
+                    DataGridViewCheckBoxCell checkbox = row.Cells[i] as DataGridViewCheckBoxCell;
+                    if(checkbox != null)
+                    {
+                        if (checkbox.Value == checkbox.TrueValue)
+                        {
+                            int nameIndexGuess = (i > 0 ? i - 1 : i + 1);
+                            Data.UserList.Instance.GetByName(row.Cells[nameIndexGuess].Value.ToString()).GroupName = toAdd.Name;
+                            break;
+                        }
+                    }
                 }
+
             }
         }
         
         public static DataGridView createUngroupedUserDataGrid(DataGridView dtg_ungrouped_users)
         {
-            dtg_ungrouped_users.DataSource = Data.UserList.Instance.ApplyGroupFilter("Ungrouped Users");
             dtg_ungrouped_users.Columns["Status"].Visible = false;
             dtg_ungrouped_users.Columns["TotalPercentage"].Visible = false;
             dtg_ungrouped_users.Columns["GameCount"].Visible = false;
