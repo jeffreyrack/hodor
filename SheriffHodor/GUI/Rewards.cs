@@ -16,9 +16,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
     public partial class Rewards : StateControl
     {
         // Stores the tier for the currently selected hat.
-        public int hatTier = 0;
-        // Stores the number for the currently selected hat.
-        public int hatNumber = 0;
+        public Data.Hat currentHat;
         public Rewards()
         {
             InitializeComponent();
@@ -33,6 +31,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             base.Entered(from, user, returnUser);
             this.Show();
             this.CurrentUser = user;
+            foreach(Data.Hat hat in user.OwnedHats)
+            {
+                enableHat(hat);
+            }
         }
 
         // Created By: Jeffrey Rackauckas
@@ -42,31 +44,40 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             MainWindow.Instance.SwitchForm<StudentMenu>(this.CurrentUser);
         }
-
+        private void enableHat(Data.Hat hat)
+        {
+            string hatName = String.Format("btn_hat_{0}_{1}", hat.Tier, hat.Number);
+            Button button = this.Controls.Find(hatName, true).FirstOrDefault() as Button;
+            button.Enabled = true;
+        }
         // Created By: Jeffrey Rackauckas
         // Created On: 4/30/2014
         // This is the function that will deal with changing which hat is displayed and storing the currently selected hat information.
-        private void rdo_hat_1_1_CheckedChanged(object sender, EventArgs e)
+        private void rdo_hat_changed(object sender, EventArgs e)
         {
             RadioButton radio = (RadioButton)sender;
             if (!radio.Checked) return;
 
-            string name = radio.Name;
-            string[] seperates = new string[] {"_" };
+            this.currentHat = stripHatInfo(radio.Name);
+        }
+
+        private Data.Hat stripHatInfo(string name)
+        {
+            string[] seperates = new string[] { "_" };
             // Name contains : hodor_tier-number
             // Thus hatInfo will be ['rdo', 'hat', tier, number]
             string[] hatInfo = name.Split(seperates, StringSplitOptions.RemoveEmptyEntries);
-            this.hatTier = Convert.ToInt32(hatInfo[2]);
-            this.hatNumber = Convert.ToInt32(hatInfo[3]);
-            changeDisplayedHat();
+            int hatTier = Convert.ToInt32(hatInfo[2]);
+            int hatNumber = Convert.ToInt32(hatInfo[3]);
+            return new Data.Hat(hatTier, hatNumber);
         }
 
-        private void changeDisplayedHat()
+        private void changeDisplayedHat(Data.Hat currentHat)
         {
             Bitmap newHat;
-            if (this.hatTier == 1 && this.hatNumber == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_1;
-            else if (this.hatTier == 1 && this.hatNumber == 2) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_2;
-            else if (this.hatTier == 2 && this.hatNumber == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_2_1;
+            if (currentHat.Tier == 1 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_1;
+            else if (currentHat.Tier == 1 && currentHat.Number == 2) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_2;
+            else if (currentHat.Tier == 2 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_2_1;
             else newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
             this.gbox_hodor.BackgroundImage = newHat;
         }
@@ -76,17 +87,24 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         // This is the onclick handler for the purchase button.
         private void purchase_hat(object sender, EventArgs e)
         {
-            if (!this.CurrentUser.BuyHat(new Data.Hat(this.hatTier, this.hatNumber)))
+            if (!this.CurrentUser.BuyHat(new Data.Hat(this.currentHat.Tier, this.currentHat.Number)))
             {
                 Helpers.DisplayError("You don't have enough coins!");
                 return;
             }
-            changeDisplayedHat();
+            changeDisplayedHat(this.currentHat);
+            enableHat(this.currentHat);
         }
 
         private void btn_2_1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void hat_btn_click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            changeDisplayedHat(stripHatInfo(button.Name));
         }
     }
 }
