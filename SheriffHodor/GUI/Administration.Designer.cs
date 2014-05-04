@@ -43,12 +43,13 @@
             this.btn_groups_edit = new System.Windows.Forms.Button();
             this.btn_groups_create = new System.Windows.Forms.Button();
             this.dtg_groups_groups = new System.Windows.Forms.DataGridView();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_abt_us = new System.Windows.Forms.TabPage();
-            this.gbox_about_us = new System.Windows.Forms.GroupBox();
             this.lbl_about_us = new System.Windows.Forms.Label();
-            this.lbl_createdBy = new System.Windows.Forms.Label();
+            this.gbox_about_us = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbl_createdBy = new System.Windows.Forms.Label();
+            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.tab_display.SuspendLayout();
             this.pg_report.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).BeginInit();
@@ -265,16 +266,10 @@
             this.dtg_groups_groups.StandardTab = true;
             this.dtg_groups_groups.TabIndex = 5;
             // 
-            // Name
-            // 
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Name.Width = 41;
-            // 
             // tab_abt_us
             // 
             this.tab_abt_us.BackColor = System.Drawing.Color.Tan;
+            this.tab_abt_us.Controls.Add(this.btn_exit);
             this.tab_abt_us.Controls.Add(this.lbl_about_us);
             this.tab_abt_us.Controls.Add(this.gbox_about_us);
             this.tab_abt_us.Location = new System.Drawing.Point(4, 22);
@@ -282,16 +277,6 @@
             this.tab_abt_us.Size = new System.Drawing.Size(722, 454);
             this.tab_abt_us.TabIndex = 4;
             this.tab_abt_us.Text = "About Us";
-            // 
-            // gbox_about_us
-            // 
-            this.gbox_about_us.Controls.Add(this.label1);
-            this.gbox_about_us.Controls.Add(this.lbl_createdBy);
-            this.gbox_about_us.Location = new System.Drawing.Point(27, 70);
-            this.gbox_about_us.Name = "gbox_about_us";
-            this.gbox_about_us.Size = new System.Drawing.Size(671, 347);
-            this.gbox_about_us.TabIndex = 0;
-            this.gbox_about_us.TabStop = false;
             // 
             // lbl_about_us
             // 
@@ -303,15 +288,15 @@
             this.lbl_about_us.TabIndex = 1;
             this.lbl_about_us.Text = "About Us";
             // 
-            // lbl_createdBy
+            // gbox_about_us
             // 
-            this.lbl_createdBy.AutoSize = true;
-            this.lbl_createdBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lbl_createdBy.Location = new System.Drawing.Point(22, 20);
-            this.lbl_createdBy.Name = "lbl_createdBy";
-            this.lbl_createdBy.Size = new System.Drawing.Size(230, 25);
-            this.lbl_createdBy.TabIndex = 0;
-            this.lbl_createdBy.Text = "Created By: Team Hodor";
+            this.gbox_about_us.Controls.Add(this.label1);
+            this.gbox_about_us.Controls.Add(this.lbl_createdBy);
+            this.gbox_about_us.Location = new System.Drawing.Point(27, 70);
+            this.gbox_about_us.Name = "gbox_about_us";
+            this.gbox_about_us.Size = new System.Drawing.Size(671, 278);
+            this.gbox_about_us.TabIndex = 0;
+            this.gbox_about_us.TabStop = false;
             // 
             // label1
             // 
@@ -324,6 +309,34 @@
             this.label1.Text = "Members: Jeffrey Rackauckas, Corey Paxton, John Fileccia, Mathias Lang, Juliette " +
     "Ly";
             // 
+            // lbl_createdBy
+            // 
+            this.lbl_createdBy.AutoSize = true;
+            this.lbl_createdBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lbl_createdBy.Location = new System.Drawing.Point(22, 20);
+            this.lbl_createdBy.Name = "lbl_createdBy";
+            this.lbl_createdBy.Size = new System.Drawing.Size(230, 25);
+            this.lbl_createdBy.TabIndex = 0;
+            this.lbl_createdBy.Text = "Created By: Team Hodor";
+            // 
+            // Name
+            // 
+            this.Name.HeaderText = "Name";
+            this.Name.Name = "Name";
+            this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Name.Width = 41;
+            // 
+            // btn_exit
+            // 
+            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exit.Image = global::CSUSM.CS441.SheriffHodor.Properties.Resources.exit_button3;
+            this.btn_exit.Location = new System.Drawing.Point(624, 354);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(84, 78);
+            this.btn_exit.TabIndex = 5;
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_log_out_Click);
+            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,7 +345,7 @@
             this.Controls.Add(this.tab_display);
             this.MaximumSize = new System.Drawing.Size(714, 451);
             this.MinimumSize = new System.Drawing.Size(714, 451);
-   //         this.Name = "Administration";
+            //this.Name = "Administration";
             this.tab_display.ResumeLayout(false);
             this.pg_report.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).EndInit();
@@ -372,6 +385,7 @@
         private System.Windows.Forms.GroupBox gbox_about_us;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_createdBy;
+        private System.Windows.Forms.Button btn_exit;
 
 
     }
