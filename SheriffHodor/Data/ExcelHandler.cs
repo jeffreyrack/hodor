@@ -56,7 +56,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
             try
             {
                 System.Windows.Forms.SaveFileDialog save = new System.Windows.Forms.SaveFileDialog();
-                if(save.CreatePrompt)
+                if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     xlWorkBook.SaveAs(save.FileName, XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
                     xlWorkBook.Close(true, misValue, misValue);
