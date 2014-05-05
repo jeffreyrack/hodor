@@ -81,7 +81,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (this.CurrentUser.Data.game.problemTime == 1)
             {
                 lbl_coinsGained.Visible = false;
-                lbl_Responses.Visible = false;
+                if (this.CurrentUser.Data.game.correctStreak > 0)
+                {
+                    lbl_Responses.Visible = false;
+                }
             }
         }
 
@@ -252,7 +255,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             //do some cleanup of the response labels
             lbl_coinsGained.Visible = false;
             lbl_Responses.Visible = true;
-            lbl_Responses.Text = String.Format("Wrong.  The correct answer is: {0}", this.CurrentUser.Data.game.currentProblem.Answer().ToString());
+            lbl_Responses.Text = String.Format("Incorrect.  The correct answer is: {0}", this.CurrentUser.Data.game.currentProblem.Answer().ToString());
         }
         #endregion
 
