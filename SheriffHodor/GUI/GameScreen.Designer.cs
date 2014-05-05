@@ -59,11 +59,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // gbox_problem
             // 
             this.gbox_problem.BackColor = System.Drawing.Color.Tan;
+            this.gbox_problem.Controls.Add(this.lbl_Responses);
             this.gbox_problem.Controls.Add(this.lbl_coinsGained);
             this.gbox_problem.Controls.Add(this.lbl_coins);
             this.gbox_problem.Controls.Add(this.lbl_index);
             this.gbox_problem.Controls.Add(this.lbl_problem);
-            this.gbox_problem.Controls.Add(this.lbl_Responses);
             this.gbox_problem.Controls.Add(this.txt_answer);
             this.gbox_problem.Controls.Add(this.btn_next);
             this.gbox_problem.Location = new System.Drawing.Point(174, 140);
@@ -112,13 +112,13 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // lbl_problem
             // 
             this.lbl_problem.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_problem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_problem.Location = new System.Drawing.Point(81, 75);
+            this.lbl_problem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_problem.Location = new System.Drawing.Point(80, 35);
             this.lbl_problem.Name = "lbl_problem";
-            this.lbl_problem.Size = new System.Drawing.Size(233, 89);
+            this.lbl_problem.Size = new System.Drawing.Size(233, 129);
             this.lbl_problem.TabIndex = 1;
             this.lbl_problem.Text = "{operand0} {operator} {operand1} =";
-            this.lbl_problem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_problem.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbl_Responses
             // 
@@ -126,7 +126,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.lbl_Responses.BackColor = System.Drawing.Color.Tan;
             this.lbl_Responses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Responses.ForeColor = System.Drawing.Color.Black;
-            this.lbl_Responses.Location = new System.Drawing.Point(150, 44);
+            this.lbl_Responses.Location = new System.Drawing.Point(99, 35);
             this.lbl_Responses.Name = "lbl_Responses";
             this.lbl_Responses.Size = new System.Drawing.Size(78, 16);
             this.lbl_Responses.TabIndex = 7;
@@ -136,16 +136,16 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             // txt_answer
             // 
             this.txt_answer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_answer.Location = new System.Drawing.Point(84, 164);
+            this.txt_answer.Location = new System.Drawing.Point(247, 164);
             this.txt_answer.MaxLength = 4;
             this.txt_answer.Name = "txt_answer";
-            this.txt_answer.Size = new System.Drawing.Size(129, 22);
+            this.txt_answer.Size = new System.Drawing.Size(49, 22);
             this.txt_answer.TabIndex = 0;
             // 
             // btn_next
             // 
             this.btn_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_next.Location = new System.Drawing.Point(219, 164);
+            this.btn_next.Location = new System.Drawing.Point(302, 164);
             this.btn_next.Name = "btn_next";
             this.btn_next.Size = new System.Drawing.Size(75, 23);
             this.btn_next.TabIndex = 2;

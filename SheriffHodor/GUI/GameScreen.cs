@@ -255,7 +255,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             //do some cleanup of the response labels
             lbl_coinsGained.Visible = false;
             lbl_Responses.Visible = true;
-            lbl_Responses.Text = String.Format("Incorrect.  The correct answer is: {0}", this.CurrentUser.Data.game.currentProblem.Answer().ToString());
+            // lbl_Responses.Text = String.Format("Incorrect.  The correct answer is: {0}", this.CurrentUser.Data.game.currentProblem.Answer().ToString());
+            Helpers.DisplayInfo(String.Format("Incorrect.  The correct answer is: {0}", this.CurrentUser.Data.game.currentProblem.Answer().ToString()));
         }
         #endregion
 
