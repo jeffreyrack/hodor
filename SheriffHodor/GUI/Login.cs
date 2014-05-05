@@ -22,7 +22,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             InitializeComponent();
             lbl_title.BackColor = Data.Global.opaqueBackground;
             ddl_userList.DisplayMember = "Name";
-            ddl_userList.DataSource = Data.UserList.Instance;
 
             this.ddl_userList.SelectedIndexChanged +=
                 new System.EventHandler(ddl_userList_SelectionChangeCommitted);
@@ -37,6 +36,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             {
                 txt_password.Focus();
             }
+            ddl_userList.DataSource = Data.UserList.Instance.GetGroupedUsers();
         }
 
         /*

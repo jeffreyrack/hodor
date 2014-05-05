@@ -80,6 +80,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 return new BindingList<User>(this.Where(m => m.GroupName == group).ToList());
         }
 
+        public BindingList<User> GetGroupedUsers()
+        {
+            return new BindingList<User>(this.Where(m => m.GroupName != "Ungrouped Users").ToList());
+        }
+
         public BindingList<User> ApplyStatusFilter(User.UserType status) 
         {
             return new BindingList<User>(this.Where(m => m.Status == status).ToList());
