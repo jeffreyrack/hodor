@@ -32,6 +32,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.Show();
             this.CurrentUser = user;
             this.txt_coins.Text = this.CurrentUser.Coins.ToString();
+            colorPurchasableHats();
             foreach(Data.Hat hat in user.OwnedHats)
             {
                 enableHat(hat);
@@ -45,6 +46,34 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             MainWindow.Instance.SwitchForm<StudentMenu>(this.CurrentUser);
         }
+
+        // Created By: Jeffrey Rackauckas
+        // Created On: 5/4/2014
+        // Changes the background color of a hat button to indicate whether or not the hat can be purchased.
+        private void colorPurchasableHats()
+        {
+            // racka001: This isn't working with regex.  Kind've useless until I find out how to run a regex through it.
+            //Control[] btns = this.Controls.Find(@"/btn_hat/", true);
+            // Hardcode this crap in until the regex stuff works.
+            Button[] btns = {this.btn_hat_1_1, this.btn_hat_1_2, this.btn_hat_2_1, this.btn_hat_2_2, this.btn_hat_3_1, this.btn_hat_3_3};
+            foreach(Button button in btns)
+            {
+                //Button button = (Button)control;
+                Data.Hat hat = this.stripHatInfo(button.Name);
+                if(hat.getPrice() <= this.CurrentUser.Coins)
+                {
+                    button.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
+                }
+                else
+                {
+                    button.BackColor = System.Drawing.Color.FromArgb(255, 192, 192, 192);
+                }
+            }
+        }
+
+        // Created By: Jeffrey Rackauckas
+        // Created On: 5/4/2014
+        // Enables the button if the user owns the hat.
         private void enableHat(Data.Hat hat)
         {
             string hatName = String.Format("btn_hat_{0}_{1}", hat.Tier, hat.Number);

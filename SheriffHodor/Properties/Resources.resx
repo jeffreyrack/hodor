@@ -118,20 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="door_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\door_button.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hodor_3_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hodor_3_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Text-Edit-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Text-Edit-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="door_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\door_button.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hat2-tier1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hat2-tier1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logout-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="playButton1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playButton3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Microsoft-Office-Excel-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Microsoft-Office-Excel-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="plusButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plusButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,14 +166,11 @@
   <data name="resizedSubmit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\resizedSubmit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tier 3- boot hat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tier 3- boot hat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Propper Hodor Picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Propper Hodor Picture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Button-Reload-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button-Reload-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button-Add-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button-Add-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="door_button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\door_button1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,9 +181,6 @@
   <data name="exit_button2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logout-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logout-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="hodor_2-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hodor_2-1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,8 +190,8 @@
   <data name="exit_button3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_button1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hodor_1-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hodor_1-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tier 3- boot hat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tier 3- boot hat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="desert_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\desert_background.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,25 +199,31 @@
   <data name="Wabbit Hat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Wabbit Hat.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="exit_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit_button.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="hat2-tier2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hat2-tier2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Propper Hodor Picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Propper Hodor Picture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hodor_1-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hodor_1-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="System-Logout-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\System-Logout-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Button-Add-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button-Add-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hat2-tier1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hat2-tier1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="playButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playButton2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exit_button.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="System-Logout-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\System-Logout-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="back button" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Microsoft-Office-Excel-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Microsoft-Office-Excel-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Wabbit Hat1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Wabbit Hat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

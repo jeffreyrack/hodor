@@ -47,7 +47,9 @@
             this.rdo_hat_1_2 = new System.Windows.Forms.RadioButton();
             this.rdo_hat_1_1 = new System.Windows.Forms.RadioButton();
             this.btn_hat_1_1 = new System.Windows.Forms.Button();
+            this.gbox_hats_and_hodor = new System.Windows.Forms.GroupBox();
             this.gbox_hats.SuspendLayout();
+            this.gbox_hats_and_hodor.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_exit
@@ -67,9 +69,9 @@
             this.gbox_hodor.BackColor = System.Drawing.Color.Transparent;
             this.gbox_hodor.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
             this.gbox_hodor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gbox_hodor.Location = new System.Drawing.Point(383, 12);
+            this.gbox_hodor.Location = new System.Drawing.Point(392, 0);
             this.gbox_hodor.Name = "gbox_hodor";
-            this.gbox_hodor.Size = new System.Drawing.Size(304, 390);
+            this.gbox_hodor.Size = new System.Drawing.Size(304, 399);
             this.gbox_hodor.TabIndex = 1;
             this.gbox_hodor.TabStop = false;
             // 
@@ -109,7 +111,7 @@
             // 
             // btn_hat_3_3
             // 
-            this.btn_hat_3_3.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Wabbit_Hat;
+            this.btn_hat_3_3.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Wabbit_Hat1;
             this.btn_hat_3_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_3_3.Enabled = false;
             this.btn_hat_3_3.Location = new System.Drawing.Point(170, 254);
@@ -263,6 +265,15 @@
             this.btn_hat_1_1.UseVisualStyleBackColor = true;
             this.btn_hat_1_1.Click += new System.EventHandler(this.hat_btn_click);
             // 
+            // gbox_hats_and_hodor
+            // 
+            this.gbox_hats_and_hodor.Controls.Add(this.gbox_hodor);
+            this.gbox_hats_and_hodor.Location = new System.Drawing.Point(13, 3);
+            this.gbox_hats_and_hodor.Name = "gbox_hats_and_hodor";
+            this.gbox_hats_and_hodor.Size = new System.Drawing.Size(696, 399);
+            this.gbox_hats_and_hodor.TabIndex = 3;
+            this.gbox_hats_and_hodor.TabStop = false;
+            // 
             // Rewards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,8 +282,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(730, 480);
             this.Controls.Add(this.btn_exit);
-            this.Controls.Add(this.gbox_hodor);
             this.Controls.Add(this.gbox_hats);
+            this.Controls.Add(this.gbox_hats_and_hodor);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
@@ -280,6 +291,7 @@
             this.Text = "Form1";
             this.gbox_hats.ResumeLayout(false);
             this.gbox_hats.PerformLayout();
+            this.gbox_hats_and_hodor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -304,5 +316,6 @@
         private System.Windows.Forms.Button btn_hat_3_1;
         private System.Windows.Forms.RadioButton rdo_hat_3_3;
         private System.Windows.Forms.Button btn_hat_3_3;
+        private System.Windows.Forms.GroupBox gbox_hats_and_hodor;
     }
 }
