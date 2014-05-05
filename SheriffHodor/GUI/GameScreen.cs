@@ -243,13 +243,16 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             //Incorrect
             //Display an indicator that they were wrong and the drawing representation of the correct answer
-            MessageBox.Show(this.CurrentUser.Data.game.currentProblem.DrawingRepresentation());
+            // Deprecated on: 5/4/2014.
+            // Added By: Jeffrey Rackauckas
+  //          MessageBox.Show(this.CurrentUser.Data.game.currentProblem.DrawingRepresentation());
 
             this.CurrentUser.Data.game.correctStreak = 0;
 
             //do some cleanup of the response labels
             lbl_coinsGained.Visible = false;
-            lbl_Responses.Visible = false;
+            lbl_Responses.Visible = true;
+            lbl_Responses.Text = String.Format("Wrong.  The correct answer is: {0}", this.CurrentUser.Data.game.currentProblem.Answer().ToString());
         }
         #endregion
 
