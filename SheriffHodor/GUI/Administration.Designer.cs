@@ -128,12 +128,11 @@
             this.dtg_reports_list.AllowUserToDeleteRows = false;
             this.dtg_reports_list.BackgroundColor = System.Drawing.Color.Tan;
             this.dtg_reports_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_reports_list.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtg_reports_list.Location = new System.Drawing.Point(3, 3);
             this.dtg_reports_list.Name = "dtg_reports_list";
             this.dtg_reports_list.ReadOnly = true;
             this.dtg_reports_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_reports_list.Size = new System.Drawing.Size(716, 350);
+            this.dtg_reports_list.Size = new System.Drawing.Size(700, 350);
             this.dtg_reports_list.StandardTab = true;
             this.dtg_reports_list.TabIndex = 1;
             // 
@@ -202,12 +201,11 @@
             this.dtg_users_list.AllowUserToDeleteRows = false;
             this.dtg_users_list.BackgroundColor = System.Drawing.Color.Tan;
             this.dtg_users_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_users_list.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtg_users_list.Location = new System.Drawing.Point(3, 3);
             this.dtg_users_list.Name = "dtg_users_list";
             this.dtg_users_list.ReadOnly = true;
             this.dtg_users_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_users_list.Size = new System.Drawing.Size(716, 350);
+            this.dtg_users_list.Size = new System.Drawing.Size(700, 350);
             this.dtg_users_list.StandardTab = true;
             this.dtg_users_list.TabIndex = 0;
             // 
@@ -285,12 +283,11 @@
             this.dtg_groups_groups.AllowUserToDeleteRows = false;
             this.dtg_groups_groups.BackgroundColor = System.Drawing.Color.Tan;
             this.dtg_groups_groups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_groups_groups.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtg_groups_groups.Location = new System.Drawing.Point(3, 3);
             this.dtg_groups_groups.Name = "dtg_groups_groups";
             this.dtg_groups_groups.ReadOnly = true;
             this.dtg_groups_groups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_groups_groups.Size = new System.Drawing.Size(716, 350);
+            this.dtg_groups_groups.Size = new System.Drawing.Size(700, 350);
             this.dtg_groups_groups.StandardTab = true;
             this.dtg_groups_groups.TabIndex = 5;
             // 
@@ -387,7 +384,7 @@
             this.Controls.Add(this.tab_display);
             this.MaximumSize = new System.Drawing.Size(714, 451);
             this.MinimumSize = new System.Drawing.Size(714, 451);
-      //      this.Name = "Administration";
+        //    this.Name = "Administration";
             this.tab_display.ResumeLayout(false);
             this.pg_report.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).EndInit();
