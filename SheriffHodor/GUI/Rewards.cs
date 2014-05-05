@@ -69,6 +69,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 {
                     button.BackColor = System.Drawing.Color.FromArgb(255, 192, 192, 192);
                 }
+                button.Enabled = false;
                 button.Cursor = System.Windows.Forms.Cursors.Default;
             }
         }

@@ -32,9 +32,9 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 }
                 this.CurrentGroup.Name = grpName;
             }
+            addStudentsToGroup(dtg_ungrouped_users, this.CurrentGroup, 1, 0);
             this.CurrentGroup.Difficulty = getDifficulty();
             Cleanup();
-            addStudentsToGroup(dtg_ungrouped_users, this.CurrentGroup, 1, 0);
             MainWindow.Instance.SwitchForm<Administration>(this.CurrentUser);
         }
         protected override void Decline()

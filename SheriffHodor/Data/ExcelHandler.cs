@@ -10,6 +10,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
     {
         public static void createExcelSheet(List<User> users)
         {
+
             int i = 1;
             int gameIndex = 1;
             Application xlApp;
@@ -56,6 +57,8 @@ namespace CSUSM.CS441.SheriffHodor.Data
             try
             {
                 System.Windows.Forms.SaveFileDialog save = new System.Windows.Forms.SaveFileDialog();
+                save.DefaultExt = "xls";
+                save.Filter = "Excel Spreadsheet(*.xls)|*.*";
                 if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     xlWorkBook.SaveAs(save.FileName, XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
