@@ -27,16 +27,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.txt_password = new System.Windows.Forms.TextBox();
             this.ddl_userList = new System.Windows.Forms.ComboBox();
             this.lbl_title = new System.Windows.Forms.Label();
             this.btn_login = new System.Windows.Forms.Button();
-            this.txt_password = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // txt_password
+            // 
+            this.txt_password.AccessibleDescription = "Enter your password here";
+            this.txt_password.AccessibleName = "Password";
+            this.txt_password.Location = new System.Drawing.Point(265, 234);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.PasswordChar = '*';
+            this.txt_password.Size = new System.Drawing.Size(144, 20);
+            this.txt_password.TabIndex = 11;
             // 
             // ddl_userList
             // 
+            this.ddl_userList.DropDownHeight = 100;
             this.ddl_userList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddl_userList.FormattingEnabled = true;
+            this.ddl_userList.IntegralHeight = false;
             this.ddl_userList.Location = new System.Drawing.Point(264, 207);
             this.ddl_userList.Name = "ddl_userList";
             this.ddl_userList.Size = new System.Drawing.Size(145, 21);
@@ -62,16 +74,6 @@
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = true;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
-            // 
-            // txt_password
-            // 
-            this.txt_password.AccessibleDescription = "Enter your password here";
-            this.txt_password.AccessibleName = "Password";
-            this.txt_password.Location = new System.Drawing.Point(265, 234);
-            this.txt_password.Name = "txt_password";
-            this.txt_password.PasswordChar = '*';
-            this.txt_password.Size = new System.Drawing.Size(144, 20);
-            this.txt_password.TabIndex = 11;
             // 
             // Login
             // 
