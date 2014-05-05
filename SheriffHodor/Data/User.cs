@@ -174,15 +174,16 @@ namespace CSUSM.CS441.SheriffHodor.Data
         // Added By: Jeffrey Rackauckas
         // Added on: 4/30/2014
         // Purpose: Let's the user buy a hat!
-        public bool BuyHat(Hat toBuy)
+        public int BuyHat(Hat toBuy)
         {
-            if (toBuy.getPrice() > this.Coins) return false;
-            else
+            if (toBuy.getPrice() > this.Coins) return 1;
+            foreach(Data.Hat hat in this.OwnedHats)
             {
-                this.Coins -= toBuy.getPrice();
-                this.OwnedHats.Add(toBuy);
-                return true;
+                if(hat.Tier == toBuy.Tier && hat.Number == toBuy.Number) return 2;
             }
+            this.Coins -= toBuy.getPrice();
+            this.OwnedHats.Add(toBuy);
+            return 0;
         }
     }
 }

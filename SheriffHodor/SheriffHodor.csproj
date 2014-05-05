@@ -83,12 +83,6 @@
     <Compile Include="GUI\CreateGroup.Designer.cs">
       <DependentUpon>CreateGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Rewards.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Rewards.Designer.cs">
-      <DependentUpon>Rewards.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\StudentMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,9 +136,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\CreateGroup.resx">
       <DependentUpon>CreateGroup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\rewards.resx">
-      <DependentUpon>Rewards.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\StudentMenu.resx">
       <DependentUpon>StudentMenu.cs</DependentUpon>
