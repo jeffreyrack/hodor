@@ -77,6 +77,7 @@
             // 
             // btn_rewards
             // 
+            this.btn_rewards.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_rewards.Location = new System.Drawing.Point(97, 103);
             this.btn_rewards.Name = "btn_rewards";
             this.btn_rewards.Size = new System.Drawing.Size(75, 23);
