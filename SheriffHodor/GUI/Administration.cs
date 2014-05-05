@@ -46,23 +46,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_users_list.DataSource = Data.UserList.Instance;
             dtg_groups_groups.DataSource = Data.GroupList.Instance;
             dtg_reports_list.DataSource = Data.UserList.Instance.ApplyStatusFilter(Data.User.UserType.Student);
-            if(dtg_users_list.Rows.Count >= 100)
-            {
-                btn_users_add.Visible = false;
-            }
-            else
-            {
-                btn_users_add.Visible = true;
-            }
-
-            if(dtg_groups_groups.Rows.Count >= 10)
-            {
-                btn_groups_create.Visible = false;
-            }
-            else
-            {
-                btn_groups_create.Visible = true;
-            }
+            manageAddButtons();
         }
 
         private List<object> getSelectedName(DataGridView dgv, string cellname)
@@ -127,6 +111,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 if (Helpers.AskQuestion(msg) == DialogResult.Yes)
                     foreach (string u in toDel)
                         Data.UserList.Instance.RemoveByName(u);
+                manageAddButtons();
             }
             catch (Exception ex)
             {
@@ -201,6 +186,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 if (Helpers.AskQuestion(msg) == DialogResult.Yes)
                     foreach (string u in toDel)
                         Data.GroupList.Instance.RemoveByName(u);
+                manageAddButtons();
             }
             catch (Exception ex)
             {
@@ -234,6 +220,27 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             tltp.SetToolTip(btn_users_del, "Delete User");
             tltp.SetToolTip(btn_users_edit, "Edit User");
             tltp.SetToolTip(btn_users_logout, "Logout");
+        }
+
+        private void manageAddButtons()
+        {
+            if (dtg_users_list.Rows.Count >= 100)
+            {
+                btn_users_add.Visible = false;
+            }
+            else
+            {
+                btn_users_add.Visible = true;
+            }
+
+            if (dtg_groups_groups.Rows.Count >= 10)
+            {
+                btn_groups_create.Visible = false;
+            }
+            else
+            {
+                btn_groups_create.Visible = true;
+            }
         }
 
 
