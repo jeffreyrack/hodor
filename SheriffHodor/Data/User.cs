@@ -120,7 +120,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                correct += record.numCorrect;
            }
            if (total == 0) return "";
-           return (((double)correct / total)*100).ToString() + "%";
+           return Math.Floor(((double)correct / total)*100).ToString() + "%";
 
        }
        }
