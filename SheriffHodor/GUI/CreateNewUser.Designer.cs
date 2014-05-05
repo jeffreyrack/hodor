@@ -27,6 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbox_createGroup = new System.Windows.Forms.GroupBox();
             this.gbox_groups = new System.Windows.Forms.GroupBox();
             this.ddl_groupList = new System.Windows.Forms.ComboBox();
@@ -44,6 +45,7 @@
             this.txt_username = new System.Windows.Forms.TextBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_create = new System.Windows.Forms.Button();
+            this.tltp = new System.Windows.Forms.ToolTip(this.components);
             this.gbox_createGroup.SuspendLayout();
             this.gbox_groups.SuspendLayout();
             this.gbox_passwords.SuspendLayout();
@@ -273,5 +275,6 @@
         private System.Windows.Forms.Label lbl_password;
         private System.Windows.Forms.GroupBox gbox_groups;
         private System.Windows.Forms.GroupBox gbox_createGroup;
+        private System.Windows.Forms.ToolTip tltp;
     }
 }

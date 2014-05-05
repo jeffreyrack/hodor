@@ -33,13 +33,14 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btn_return_to_menu = new System.Windows.Forms.Button();
             this.gbox_problem = new System.Windows.Forms.GroupBox();
+            this.lbl_Responses = new System.Windows.Forms.Label();
             this.lbl_coinsGained = new System.Windows.Forms.Label();
             this.lbl_coins = new System.Windows.Forms.Label();
             this.lbl_index = new System.Windows.Forms.Label();
             this.lbl_problem = new System.Windows.Forms.Label();
-            this.lbl_Responses = new System.Windows.Forms.Label();
             this.txt_answer = new System.Windows.Forms.TextBox();
             this.btn_next = new System.Windows.Forms.Button();
+            this.tltp = new System.Windows.Forms.ToolTip(this.components);
             this.gbox_problem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +72,19 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.gbox_problem.Size = new System.Drawing.Size(510, 289);
             this.gbox_problem.TabIndex = 8;
             this.gbox_problem.TabStop = false;
+            // 
+            // lbl_Responses
+            // 
+            this.lbl_Responses.AutoSize = true;
+            this.lbl_Responses.BackColor = System.Drawing.Color.Tan;
+            this.lbl_Responses.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Responses.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Responses.Location = new System.Drawing.Point(171, 35);
+            this.lbl_Responses.Name = "lbl_Responses";
+            this.lbl_Responses.Size = new System.Drawing.Size(135, 29);
+            this.lbl_Responses.TabIndex = 7;
+            this.lbl_Responses.Text = "Responses";
+            this.lbl_Responses.Visible = false;
             // 
             // lbl_coinsGained
             // 
@@ -120,19 +134,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.lbl_problem.Text = "{operand0} {operator} {operand1} =";
             this.lbl_problem.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lbl_Responses
-            // 
-            this.lbl_Responses.AutoSize = true;
-            this.lbl_Responses.BackColor = System.Drawing.Color.Tan;
-            this.lbl_Responses.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Responses.ForeColor = System.Drawing.Color.Black;
-            this.lbl_Responses.Location = new System.Drawing.Point(171, 35);
-            this.lbl_Responses.Name = "lbl_Responses";
-            this.lbl_Responses.Size = new System.Drawing.Size(135, 29);
-            this.lbl_Responses.TabIndex = 7;
-            this.lbl_Responses.Text = "Responses";
-            this.lbl_Responses.Visible = false;
-            // 
             // txt_answer
             // 
             this.txt_answer.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -152,6 +153,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.btn_next.Text = "Next";
             this.btn_next.UseVisualStyleBackColor = true;
             this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+            // 
+            // tltp
+            // 
+            this.tltp.Popup += new System.Windows.Forms.PopupEventHandler(this.tltp_btn_exit_Popup);
             // 
             // GameScreen
             // 
@@ -183,5 +188,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private System.Windows.Forms.GroupBox gbox_problem;
         private System.Windows.Forms.Button btn_return_to_menu;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolTip tltp;
     }
 }

@@ -17,6 +17,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.AcceptButton = this.btn_create;
             this.ddl_groupList.DataSource = Data.GroupList.Instance;
             this.gbox_createGroup.BackColor = Data.Global.opaqueBackground;
+            tltp.SetToolTip(btn_cancel, "Return to Admin Form");
+            tltp.SetToolTip(btn_create, "Create User");
         }
 
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)
@@ -24,6 +26,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             base.Entered(from, user, returnUser);
             gbox_groups.Visible = true;
             gbox_passwords.Visible = false;
+            this.txt_username.Focus();
         }
 
         protected override void Accept()

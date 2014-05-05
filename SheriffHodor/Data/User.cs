@@ -98,6 +98,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
         [System.ComponentModel.Browsable(false)]
         public int TotalCoins { get; set; }
         /// <summary>
+        /// Keeps track of the currently selected hat.
+        /// </summary>
+        [System.ComponentModel.Browsable(false)]
+        public Hat selectedHat { get; set; }
+        /// <summary>
         /// Keep track of all hats the user owns.
         /// </summary>
        [System.ComponentModel.Browsable(false)]

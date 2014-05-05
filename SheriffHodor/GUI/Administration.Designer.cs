@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tab_display = new System.Windows.Forms.TabControl();
             this.pg_report = new System.Windows.Forms.TabPage();
             this.btn_export = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_createdBy = new System.Windows.Forms.Label();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tltp = new System.Windows.Forms.ToolTip(this.components);
             this.tab_display.SuspendLayout();
             this.pg_report.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).BeginInit();
@@ -385,7 +387,7 @@
             this.Controls.Add(this.tab_display);
             this.MaximumSize = new System.Drawing.Size(714, 451);
             this.MinimumSize = new System.Drawing.Size(714, 451);
-            //this.Name = "Administration";
+      //      this.Name = "Administration";
             this.tab_display.ResumeLayout(false);
             this.pg_report.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).EndInit();
@@ -427,6 +429,7 @@
         private System.Windows.Forms.DataGridView dtg_groups_groups;
         private System.Windows.Forms.Button btn_groups_create;
         private System.Windows.Forms.Button btn_export;
+        private System.Windows.Forms.ToolTip tltp;
 
 
     }

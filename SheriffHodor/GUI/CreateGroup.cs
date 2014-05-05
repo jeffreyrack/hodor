@@ -18,6 +18,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.gbox_createGroup.BackColor = Data.Global.opaqueBackground;
             dtg_ungrouped_users.DataSource = Data.UserList.Instance.ApplyGroupFilter("Ungrouped Users");
             this.dtg_ungrouped_users = createUngroupedUserDataGrid(this.dtg_ungrouped_users);
+            tltp.SetToolTip(btn_cancel, "Return to Admin Form");
+            tltp.SetToolTip(btn_create, "Create Group");
         }
 
         protected override void Accept()

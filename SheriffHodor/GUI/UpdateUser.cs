@@ -18,6 +18,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             ddl_groups.DisplayMember = "Name";
             this.AcceptButton = this.btn_submit;
             this.gbox_updateUser.BackColor = Data.Global.opaqueBackground;
+            tltp.SetToolTip(btn_cancel, "Return to Admin Form");
+            tltp.SetToolTip(btn_submit , "Update User");
         }
 
         /*

@@ -26,6 +26,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             this.gbox_problem.BackColor = Global.opaqueBackground;
+            tltp.SetToolTip(btn_return_to_menu, "Exit");
         }
 
         #region UI
@@ -81,10 +82,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             if (this.CurrentUser.Data.game.problemTime == 1)
             {
                 lbl_coinsGained.Visible = false;
-                if (this.CurrentUser.Data.game.correctStreak > 0)
-                {
-                    lbl_Responses.Visible = false;
-                }
+                lbl_Responses.Visible = false;
             }
         }
 
@@ -254,7 +252,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
 
             //do some cleanup of the response labels
             lbl_coinsGained.Visible = false;
-            lbl_Responses.Visible = true;
+    //        lbl_Responses.Visible = true;
             // lbl_Responses.Text = String.Format("Incorrect.  The correct answer is: {0}", this.CurrentUser.Data.game.currentProblem.Answer().ToString());
             Helpers.DisplayInfo(String.Format("Incorrect.  The correct answer is: {0}", this.CurrentUser.Data.game.currentProblem.Answer().ToString()));
         }
@@ -267,6 +265,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
 
         private void lbl_coinsGained_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tltp_btn_exit_Popup(object sender, PopupEventArgs e)
         {
 
         }

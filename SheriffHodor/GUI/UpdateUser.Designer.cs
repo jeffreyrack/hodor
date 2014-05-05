@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbox_updateUser = new System.Windows.Forms.GroupBox();
             this.gbox_userSpecific = new System.Windows.Forms.GroupBox();
             this.ddl_groups = new System.Windows.Forms.ComboBox();
@@ -43,6 +44,7 @@
             this.txt_currentName = new System.Windows.Forms.TextBox();
             this.btn_submit = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.tltp = new System.Windows.Forms.ToolTip(this.components);
             this.gbox_updateUser.SuspendLayout();
             this.gbox_userSpecific.SuspendLayout();
             this.gbox_name.SuspendLayout();
@@ -168,6 +170,7 @@
             // 
             // txt_currentName
             // 
+            this.txt_currentName.Enabled = false;
             this.txt_currentName.Location = new System.Drawing.Point(137, 31);
             this.txt_currentName.Name = "txt_currentName";
             this.txt_currentName.ReadOnly = true;
@@ -237,5 +240,6 @@
         private System.Windows.Forms.GroupBox gbox_userSpecific;
         private System.Windows.Forms.GroupBox gbox_updateUser;
         private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.ToolTip tltp;
     }
 }

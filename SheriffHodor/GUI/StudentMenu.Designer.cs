@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbox_hats = new System.Windows.Forms.GroupBox();
             this.lbl_t3_cost = new System.Windows.Forms.Label();
             this.lbl_t2_cost = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@
             this.txt_coins = new System.Windows.Forms.TextBox();
             this.lbl_coins = new System.Windows.Forms.Label();
             this.lbl_current_name = new System.Windows.Forms.Label();
+            this.tltp = new System.Windows.Forms.ToolTip(this.components);
             this.gbox_hats.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -380,5 +382,6 @@
         private System.Windows.Forms.Label lbl_coins;
         private System.Windows.Forms.TextBox txt_coins;
         private System.Windows.Forms.Button btn_play_game;
+        private System.Windows.Forms.ToolTip tltp;
     }
 }

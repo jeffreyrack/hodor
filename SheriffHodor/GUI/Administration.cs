@@ -36,7 +36,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_reports_list.DataSource = Data.UserList.Instance.ApplyStatusFilter(Data.User.UserType.Student);
             dtg_users_list.Columns["TotalPercentage"].Visible = false;
             dtg_users_list.Columns["GameCount"].Visible = false;
-
+            setTooltips();
         }
 
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)
@@ -219,6 +219,21 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         private void btn_export_Click(object sender, EventArgs e)
         {
             Data.ExcelHandler.createExcelSheet(Data.UserList.Instance.ApplyStatusFilter(Data.User.UserType.Student).ToList());
+        }
+
+        private void setTooltips()
+        {
+            tltp.SetToolTip(btn_export, "Export To Excel");
+            tltp.SetToolTip(btn_exit, "Logout");
+            tltp.SetToolTip(btn_groups_create, "Create New Group");
+            tltp.SetToolTip(btn_groups_delete, "Delete Group");
+            tltp.SetToolTip(btn_groups_edit, "Edit Group");
+            tltp.SetToolTip(btn_groups_logout, "Logout");
+            tltp.SetToolTip(btn_log_out, "Logout");
+            tltp.SetToolTip(btn_users_add, "Create New User");
+            tltp.SetToolTip(btn_users_del, "Delete User");
+            tltp.SetToolTip(btn_users_edit, "Edit User");
+            tltp.SetToolTip(btn_users_logout, "Logout");
         }
 
 

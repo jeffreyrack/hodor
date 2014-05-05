@@ -134,6 +134,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
             return (returnStr.ToString());
         }
 
+        /* Removed By: Jeffrey Rackauckas
+         *  Removed On: 5/4/2014
+         * Was removed from the SRS, so we don't need the function anymore.
         public string DrawingRepresentation()
         {
             System.Text.StringBuilder returnStr = new System.Text.StringBuilder();
@@ -188,12 +191,12 @@ namespace CSUSM.CS441.SheriffHodor.Data
                         }
 
                     }
-                }*/
+                }
             }
 
             return (returnStr.ToString());
         }
-
+        */
         /*
          * Corey Paxton     - 3/20/2014 - Initial Version
          */

@@ -19,6 +19,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             this.AcceptButton = btn_play_game;
             btn_play_game.BackColor = Data.Global.opaqueBackground;
             this.gbox_hats.BackColor = Data.Global.opaqueBackground;
+            tltp.SetToolTip(btn_log_out, "Logout");
+            tltp.SetToolTip(btn_play_game, "Play Game!");
         }
 
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dtg_ungrouped_users = new System.Windows.Forms.DataGridView();
             this.gbox_createGroup = new System.Windows.Forms.GroupBox();
             this.gbox_createUser = new System.Windows.Forms.GroupBox();
@@ -39,6 +40,7 @@
             this.txt_name = new System.Windows.Forms.TextBox();
             this.btn_create = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.tltp = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).BeginInit();
             this.gbox_createGroup.SuspendLayout();
             this.gbox_createUser.SuspendLayout();
@@ -196,5 +198,6 @@
         private System.Windows.Forms.GroupBox gbox_createGroup;
         private System.Windows.Forms.GroupBox gbox_createUser;
         private System.Windows.Forms.DataGridView dtg_ungrouped_users;
+        private System.Windows.Forms.ToolTip tltp;
     }
 }

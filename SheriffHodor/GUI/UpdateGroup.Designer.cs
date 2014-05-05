@@ -28,38 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txt_newName = new System.Windows.Forms.TextBox();
-            this.txt_oldName = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            this.dtg_ungrouped_users = new System.Windows.Forms.DataGridView();
+            this.gbox_updateGroup = new System.Windows.Forms.GroupBox();
             this.rdo_hard = new System.Windows.Forms.RadioButton();
             this.rdo_medium = new System.Windows.Forms.RadioButton();
             this.rdo_easy = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
+            this.gbox_difficulty = new System.Windows.Forms.GroupBox();
+            this.txt_newName = new System.Windows.Forms.TextBox();
+            this.txt_oldName = new System.Windows.Forms.TextBox();
             this.lbl_oldName = new System.Windows.Forms.Label();
             this.lbl_newName = new System.Windows.Forms.Label();
-            this.btn_accept = new System.Windows.Forms.Button();
-            this.gbox_updateGroup = new System.Windows.Forms.GroupBox();
-            this.gbox_difficulty = new System.Windows.Forms.GroupBox();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.dtg_ungrouped_users = new System.Windows.Forms.DataGridView();
-            this.gbox_updateGroup.SuspendLayout();
+            this.btn_accept = new System.Windows.Forms.Button();
+            this.tltp = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).BeginInit();
+            this.gbox_updateGroup.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txt_newName
+            // dtg_ungrouped_users
             // 
-            this.txt_newName.Location = new System.Drawing.Point(129, 50);
-            this.txt_newName.MaxLength = 100;
-            this.txt_newName.Name = "txt_newName";
-            this.txt_newName.Size = new System.Drawing.Size(196, 20);
-            this.txt_newName.TabIndex = 9;
+            this.dtg_ungrouped_users.AllowUserToAddRows = false;
+            this.dtg_ungrouped_users.AllowUserToDeleteRows = false;
+            this.dtg_ungrouped_users.BackgroundColor = System.Drawing.Color.Tan;
+            this.dtg_ungrouped_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_ungrouped_users.Location = new System.Drawing.Point(445, 61);
+            this.dtg_ungrouped_users.Name = "dtg_ungrouped_users";
+            this.dtg_ungrouped_users.Size = new System.Drawing.Size(273, 270);
+            this.dtg_ungrouped_users.TabIndex = 11;
             // 
-            // txt_oldName
+            // gbox_updateGroup
             // 
-            this.txt_oldName.Location = new System.Drawing.Point(129, 14);
-            this.txt_oldName.Name = "txt_oldName";
-            this.txt_oldName.ReadOnly = true;
-            this.txt_oldName.Size = new System.Drawing.Size(196, 20);
-            this.txt_oldName.TabIndex = 8;
+            this.gbox_updateGroup.Controls.Add(this.rdo_hard);
+            this.gbox_updateGroup.Controls.Add(this.rdo_medium);
+            this.gbox_updateGroup.Controls.Add(this.rdo_easy);
+            this.gbox_updateGroup.Controls.Add(this.label3);
+            this.gbox_updateGroup.Controls.Add(this.gbox_difficulty);
+            this.gbox_updateGroup.Controls.Add(this.txt_newName);
+            this.gbox_updateGroup.Controls.Add(this.txt_oldName);
+            this.gbox_updateGroup.Controls.Add(this.lbl_oldName);
+            this.gbox_updateGroup.Controls.Add(this.lbl_newName);
+            this.gbox_updateGroup.Location = new System.Drawing.Point(12, 61);
+            this.gbox_updateGroup.Name = "gbox_updateGroup";
+            this.gbox_updateGroup.Size = new System.Drawing.Size(418, 270);
+            this.gbox_updateGroup.TabIndex = 10;
+            this.gbox_updateGroup.TabStop = false;
             // 
             // rdo_hard
             // 
@@ -102,6 +116,31 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Difficulty:";
             // 
+            // gbox_difficulty
+            // 
+            this.gbox_difficulty.Location = new System.Drawing.Point(6, 79);
+            this.gbox_difficulty.Name = "gbox_difficulty";
+            this.gbox_difficulty.Size = new System.Drawing.Size(406, 35);
+            this.gbox_difficulty.TabIndex = 10;
+            this.gbox_difficulty.TabStop = false;
+            // 
+            // txt_newName
+            // 
+            this.txt_newName.Location = new System.Drawing.Point(129, 50);
+            this.txt_newName.MaxLength = 100;
+            this.txt_newName.Name = "txt_newName";
+            this.txt_newName.Size = new System.Drawing.Size(196, 20);
+            this.txt_newName.TabIndex = 9;
+            // 
+            // txt_oldName
+            // 
+            this.txt_oldName.Enabled = false;
+            this.txt_oldName.Location = new System.Drawing.Point(129, 14);
+            this.txt_oldName.Name = "txt_oldName";
+            this.txt_oldName.ReadOnly = true;
+            this.txt_oldName.Size = new System.Drawing.Size(196, 20);
+            this.txt_oldName.TabIndex = 8;
+            // 
             // lbl_oldName
             // 
             this.lbl_oldName.AutoSize = true;
@@ -120,43 +159,6 @@
             this.lbl_newName.TabIndex = 2;
             this.lbl_newName.Text = "New name:";
             // 
-            // btn_accept
-            // 
-            this.btn_accept.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Add_icon;
-            this.btn_accept.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_accept.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_accept.Location = new System.Drawing.Point(575, 400);
-            this.btn_accept.Name = "btn_accept";
-            this.btn_accept.Size = new System.Drawing.Size(75, 75);
-            this.btn_accept.TabIndex = 1;
-            this.btn_accept.UseVisualStyleBackColor = true;
-            this.btn_accept.Click += new System.EventHandler(this.btn_accept_Click);
-            // 
-            // gbox_updateGroup
-            // 
-            this.gbox_updateGroup.Controls.Add(this.rdo_hard);
-            this.gbox_updateGroup.Controls.Add(this.rdo_medium);
-            this.gbox_updateGroup.Controls.Add(this.rdo_easy);
-            this.gbox_updateGroup.Controls.Add(this.label3);
-            this.gbox_updateGroup.Controls.Add(this.gbox_difficulty);
-            this.gbox_updateGroup.Controls.Add(this.txt_newName);
-            this.gbox_updateGroup.Controls.Add(this.txt_oldName);
-            this.gbox_updateGroup.Controls.Add(this.lbl_oldName);
-            this.gbox_updateGroup.Controls.Add(this.lbl_newName);
-            this.gbox_updateGroup.Location = new System.Drawing.Point(12, 61);
-            this.gbox_updateGroup.Name = "gbox_updateGroup";
-            this.gbox_updateGroup.Size = new System.Drawing.Size(418, 270);
-            this.gbox_updateGroup.TabIndex = 10;
-            this.gbox_updateGroup.TabStop = false;
-            // 
-            // gbox_difficulty
-            // 
-            this.gbox_difficulty.Location = new System.Drawing.Point(6, 79);
-            this.gbox_difficulty.Name = "gbox_difficulty";
-            this.gbox_difficulty.Size = new System.Drawing.Size(406, 35);
-            this.gbox_difficulty.TabIndex = 10;
-            this.gbox_difficulty.TabStop = false;
-            // 
             // btn_cancel
             // 
             this.btn_cancel.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.logout_icon;
@@ -169,16 +171,17 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // dtg_ungrouped_users
+            // btn_accept
             // 
-            this.dtg_ungrouped_users.AllowUserToAddRows = false;
-            this.dtg_ungrouped_users.AllowUserToDeleteRows = false;
-            this.dtg_ungrouped_users.BackgroundColor = System.Drawing.Color.Tan;
-            this.dtg_ungrouped_users.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtg_ungrouped_users.Location = new System.Drawing.Point(445, 61);
-            this.dtg_ungrouped_users.Name = "dtg_ungrouped_users";
-            this.dtg_ungrouped_users.Size = new System.Drawing.Size(273, 270);
-            this.dtg_ungrouped_users.TabIndex = 11;
+            this.btn_accept.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Button_Add_icon;
+            this.btn_accept.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_accept.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_accept.Location = new System.Drawing.Point(575, 400);
+            this.btn_accept.Name = "btn_accept";
+            this.btn_accept.Size = new System.Drawing.Size(75, 75);
+            this.btn_accept.TabIndex = 1;
+            this.btn_accept.UseVisualStyleBackColor = true;
+            this.btn_accept.Click += new System.EventHandler(this.btn_accept_Click);
             // 
             // UpdateGroup
             // 
@@ -194,9 +197,9 @@
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "UpdateGroup";
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).EndInit();
             this.gbox_updateGroup.ResumeLayout(false);
             this.gbox_updateGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -216,5 +219,6 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.GroupBox gbox_difficulty;
         private System.Windows.Forms.DataGridView dtg_ungrouped_users;
+        private System.Windows.Forms.ToolTip tltp;
     }
 }
