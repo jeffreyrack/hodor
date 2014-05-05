@@ -47,21 +47,21 @@
             this.btn_hat_1_1 = new System.Windows.Forms.Button();
             this.gbox_hodor = new System.Windows.Forms.GroupBox();
             this.btn_log_out = new System.Windows.Forms.Button();
-            this.gbox_studentmenu = new System.Windows.Forms.GroupBox();
-            this.gbox_user = new System.Windows.Forms.GroupBox();
-            this.lbl_current_name = new System.Windows.Forms.Label();
-            this.lbl_coins = new System.Windows.Forms.Label();
-            this.txt_coins = new System.Windows.Forms.TextBox();
             this.btn_play_game = new System.Windows.Forms.Button();
+            this.txt_coins = new System.Windows.Forms.TextBox();
+            this.lbl_coins = new System.Windows.Forms.Label();
+            this.lbl_current_name = new System.Windows.Forms.Label();
             this.gbox_hats.SuspendLayout();
-            this.gbox_studentmenu.SuspendLayout();
-            this.gbox_user.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbox_hats
             // 
+            this.gbox_hats.Controls.Add(this.txt_coins);
+            this.gbox_hats.Controls.Add(this.lbl_coins);
+            this.gbox_hats.Controls.Add(this.lbl_current_name);
             this.gbox_hats.Controls.Add(this.lbl_t3_cost);
             this.gbox_hats.Controls.Add(this.lbl_t2_cost);
+            this.gbox_hats.Controls.Add(this.btn_play_game);
             this.gbox_hats.Controls.Add(this.lbl_t1_cost);
             this.gbox_hats.Controls.Add(this.rdo_hat_3_3);
             this.gbox_hats.Controls.Add(this.btn_hat_3_3);
@@ -78,7 +78,7 @@
             this.gbox_hats.Controls.Add(this.btn_hat_1_1);
             this.gbox_hats.Location = new System.Drawing.Point(-1, -2);
             this.gbox_hats.Name = "gbox_hats";
-            this.gbox_hats.Size = new System.Drawing.Size(356, 399);
+            this.gbox_hats.Size = new System.Drawing.Size(494, 399);
             this.gbox_hats.TabIndex = 9;
             this.gbox_hats.TabStop = false;
             // 
@@ -291,71 +291,49 @@
             this.btn_log_out.UseVisualStyleBackColor = true;
             this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
-            // gbox_studentmenu
-            // 
-            this.gbox_studentmenu.BackColor = System.Drawing.Color.Tan;
-            this.gbox_studentmenu.Controls.Add(this.gbox_user);
-            this.gbox_studentmenu.Controls.Add(this.btn_play_game);
-            this.gbox_studentmenu.Location = new System.Drawing.Point(228, -2);
-            this.gbox_studentmenu.Name = "gbox_studentmenu";
-            this.gbox_studentmenu.Size = new System.Drawing.Size(271, 399);
-            this.gbox_studentmenu.TabIndex = 7;
-            this.gbox_studentmenu.TabStop = false;
-            // 
-            // gbox_user
-            // 
-            this.gbox_user.Controls.Add(this.lbl_current_name);
-            this.gbox_user.Controls.Add(this.lbl_coins);
-            this.gbox_user.Controls.Add(this.txt_coins);
-            this.gbox_user.Location = new System.Drawing.Point(128, 19);
-            this.gbox_user.Name = "gbox_user";
-            this.gbox_user.Size = new System.Drawing.Size(162, 189);
-            this.gbox_user.TabIndex = 6;
-            this.gbox_user.TabStop = false;
-            // 
-            // lbl_current_name
-            // 
-            this.lbl_current_name.AutoSize = true;
-            this.lbl_current_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_current_name.Location = new System.Drawing.Point(31, 16);
-            this.lbl_current_name.Name = "lbl_current_name";
-            this.lbl_current_name.Size = new System.Drawing.Size(72, 16);
-            this.lbl_current_name.TabIndex = 0;
-            this.lbl_current_name.Text = "Welcome: ";
-            // 
-            // lbl_coins
-            // 
-            this.lbl_coins.AutoSize = true;
-            this.lbl_coins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_coins.Location = new System.Drawing.Point(43, 73);
-            this.lbl_coins.Name = "lbl_coins";
-            this.lbl_coins.Size = new System.Drawing.Size(48, 16);
-            this.lbl_coins.TabIndex = 3;
-            this.lbl_coins.Text = "Coins: ";
-            // 
-            // txt_coins
-            // 
-            this.txt_coins.Enabled = false;
-            this.txt_coins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_coins.Location = new System.Drawing.Point(6, 92);
-            this.txt_coins.Name = "txt_coins";
-            this.txt_coins.ReadOnly = true;
-            this.txt_coins.Size = new System.Drawing.Size(121, 22);
-            this.txt_coins.TabIndex = 4;
-            this.txt_coins.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // btn_play_game
             // 
             this.btn_play_game.BackColor = System.Drawing.Color.Transparent;
             this.btn_play_game.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.playButton1;
             this.btn_play_game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_play_game.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_play_game.Location = new System.Drawing.Point(128, 228);
+            this.btn_play_game.Location = new System.Drawing.Point(350, 271);
             this.btn_play_game.Name = "btn_play_game";
-            this.btn_play_game.Size = new System.Drawing.Size(137, 128);
+            this.btn_play_game.Size = new System.Drawing.Size(144, 128);
             this.btn_play_game.TabIndex = 1;
             this.btn_play_game.UseVisualStyleBackColor = false;
             this.btn_play_game.Click += new System.EventHandler(this.btn_play_game_Click);
+            // 
+            // txt_coins
+            // 
+            this.txt_coins.Enabled = false;
+            this.txt_coins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_coins.Location = new System.Drawing.Point(363, 124);
+            this.txt_coins.Name = "txt_coins";
+            this.txt_coins.ReadOnly = true;
+            this.txt_coins.Size = new System.Drawing.Size(121, 22);
+            this.txt_coins.TabIndex = 4;
+            this.txt_coins.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lbl_coins
+            // 
+            this.lbl_coins.AutoSize = true;
+            this.lbl_coins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_coins.Location = new System.Drawing.Point(363, 102);
+            this.lbl_coins.Name = "lbl_coins";
+            this.lbl_coins.Size = new System.Drawing.Size(48, 16);
+            this.lbl_coins.TabIndex = 3;
+            this.lbl_coins.Text = "Coins: ";
+            // 
+            // lbl_current_name
+            // 
+            this.lbl_current_name.AutoSize = true;
+            this.lbl_current_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_current_name.Location = new System.Drawing.Point(363, 39);
+            this.lbl_current_name.Name = "lbl_current_name";
+            this.lbl_current_name.Size = new System.Drawing.Size(72, 16);
+            this.lbl_current_name.TabIndex = 0;
+            this.lbl_current_name.Text = "Welcome: ";
             // 
             // StudentMenu
             // 
@@ -368,28 +346,18 @@
             this.Controls.Add(this.gbox_hats);
             this.Controls.Add(this.gbox_hodor);
             this.Controls.Add(this.btn_log_out);
-            this.Controls.Add(this.gbox_studentmenu);
             this.MaximumSize = new System.Drawing.Size(730, 480);
             this.MinimumSize = new System.Drawing.Size(730, 480);
             this.Name = "StudentMenu";
             this.gbox_hats.ResumeLayout(false);
             this.gbox_hats.PerformLayout();
-            this.gbox_studentmenu.ResumeLayout(false);
-            this.gbox_user.ResumeLayout(false);
-            this.gbox_user.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbl_current_name;
-        private System.Windows.Forms.Button btn_play_game;
         private System.Windows.Forms.Button btn_log_out;
-        private System.Windows.Forms.TextBox txt_coins;
-        private System.Windows.Forms.Label lbl_coins;
-        private System.Windows.Forms.GroupBox gbox_studentmenu;
-        private System.Windows.Forms.GroupBox gbox_user;
         private System.Windows.Forms.GroupBox gbox_hodor;
         private System.Windows.Forms.GroupBox gbox_hats;
         private System.Windows.Forms.Label lbl_t3_cost;
@@ -408,5 +376,9 @@
         private System.Windows.Forms.RadioButton rdo_hat_1_2;
         private System.Windows.Forms.RadioButton rdo_hat_1_1;
         private System.Windows.Forms.Button btn_hat_1_1;
+        private System.Windows.Forms.Label lbl_current_name;
+        private System.Windows.Forms.Label lbl_coins;
+        private System.Windows.Forms.TextBox txt_coins;
+        private System.Windows.Forms.Button btn_play_game;
     }
 }

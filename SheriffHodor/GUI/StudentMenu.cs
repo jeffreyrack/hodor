@@ -17,8 +17,8 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             InitializeComponent();
             this.AcceptButton = btn_play_game;
-            this.gbox_studentmenu.BackColor = Data.Global.opaqueBackground;
             btn_play_game.BackColor = Data.Global.opaqueBackground;
+            this.gbox_hats.BackColor = Data.Global.opaqueBackground;
         }
 
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)
