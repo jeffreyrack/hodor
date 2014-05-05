@@ -119,6 +119,7 @@ namespace CSUSM.CS441.SheriffHodor.Data
                total += record.numProblems;
                correct += record.numCorrect;
            }
+           if (total == 0) return "";
            return (((double)correct / total)*100).ToString() + "%";
 
        }

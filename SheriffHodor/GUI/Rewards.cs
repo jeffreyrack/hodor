@@ -37,6 +37,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             {
                 enableHat(hat);
             }
+            this.gbox_hodor.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
         }
 
         // Created By: Jeffrey Rackauckas
@@ -68,6 +69,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 {
                     button.BackColor = System.Drawing.Color.FromArgb(255, 192, 192, 192);
                 }
+                button.Cursor = System.Windows.Forms.Cursors.Default;
             }
         }
 
@@ -79,6 +81,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             string hatName = String.Format("btn_hat_{0}_{1}", hat.Tier, hat.Number);
             Button button = this.Controls.Find(hatName, true).FirstOrDefault() as Button;
             button.Enabled = true;
+            button.Cursor = System.Windows.Forms.Cursors.Hand;
         }
         // Created By: Jeffrey Rackauckas
         // Created On: 4/30/2014
