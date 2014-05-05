@@ -45,6 +45,23 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             dtg_users_list.DataSource = Data.UserList.Instance;
             dtg_groups_groups.DataSource = Data.GroupList.Instance;
             dtg_reports_list.DataSource = Data.UserList.Instance.ApplyStatusFilter(Data.User.UserType.Student);
+            if(dtg_users_list.Rows.Count >= 100)
+            {
+                btn_users_add.Visible = false;
+            }
+            else
+            {
+                btn_users_add.Visible = true;
+            }
+
+            if(dtg_groups_groups.Rows.Count >= 10)
+            {
+                btn_groups_create.Visible = false;
+            }
+            else
+            {
+                btn_groups_create.Visible = true;
+            }
         }
 
         private List<object> getSelectedName(DataGridView dgv, string cellname)
