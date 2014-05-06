@@ -2,6 +2,7 @@
 *.user
 *.suo
 obj/
+bin/
 
 # Emacs
 *~
