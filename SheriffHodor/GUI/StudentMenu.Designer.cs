@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tltp = new System.Windows.Forms.ToolTip(this.components);
-            this.gbox_hodor = new System.Windows.Forms.GroupBox();
             this.gbox_hats = new System.Windows.Forms.GroupBox();
             this.btn_purchase_3_1 = new System.Windows.Forms.Button();
             this.btn_purchase_2_2 = new System.Windows.Forms.Button();
@@ -52,19 +51,10 @@
             this.btn_purchase_1_1 = new System.Windows.Forms.Button();
             this.btn_hat_1_1 = new System.Windows.Forms.Button();
             this.btn_log_out = new System.Windows.Forms.Button();
+            this.gbox_hodor = new System.Windows.Forms.PictureBox();
             this.gbox_hats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbox_hodor)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gbox_hodor
-            // 
-            this.gbox_hodor.BackColor = System.Drawing.Color.Transparent;
-            this.gbox_hodor.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
-            this.gbox_hodor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gbox_hodor.Location = new System.Drawing.Point(420, -2);
-            this.gbox_hodor.Name = "gbox_hodor";
-            this.gbox_hodor.Size = new System.Drawing.Size(319, 399);
-            this.gbox_hodor.TabIndex = 8;
-            this.gbox_hodor.TabStop = false;
             // 
             // gbox_hats
             // 
@@ -318,6 +308,16 @@
             this.btn_log_out.UseVisualStyleBackColor = true;
             this.btn_log_out.Click += new System.EventHandler(this.btn_log_out_Click);
             // 
+            // gbox_hodor
+            // 
+            this.gbox_hodor.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
+            this.gbox_hodor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.gbox_hodor.Location = new System.Drawing.Point(419, -2);
+            this.gbox_hodor.Name = "gbox_hodor";
+            this.gbox_hodor.Size = new System.Drawing.Size(310, 399);
+            this.gbox_hodor.TabIndex = 22;
+            this.gbox_hodor.TabStop = false;
+            // 
             // StudentMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,6 +334,7 @@
             this.Name = "StudentMenu";
             this.gbox_hats.ResumeLayout(false);
             this.gbox_hats.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gbox_hodor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,6 +363,6 @@
         private System.Windows.Forms.Button btn_purchase_2_1;
         private System.Windows.Forms.Button btn_purchase_1_2;
         private System.Windows.Forms.Button btn_purchase_3_3;
-        private System.Windows.Forms.GroupBox gbox_hodor;
+        private System.Windows.Forms.PictureBox gbox_hodor;
     }
 }
