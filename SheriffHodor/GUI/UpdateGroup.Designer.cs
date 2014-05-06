@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.tltp = new System.Windows.Forms.ToolTip(this.components);
             this.dtg_ungrouped_users = new System.Windows.Forms.DataGridView();
             this.gbox_updateGroup = new System.Windows.Forms.GroupBox();
             this.rdo_hard = new System.Windows.Forms.RadioButton();
@@ -42,7 +43,6 @@
             this.lbl_newName = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_accept = new System.Windows.Forms.Button();
-            this.tltp = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ungrouped_users)).BeginInit();
             this.gbox_updateGroup.SuspendLayout();
             this.SuspendLayout();

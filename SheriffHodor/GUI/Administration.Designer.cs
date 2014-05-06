@@ -54,6 +54,7 @@
             this.lbl_createdBy = new System.Windows.Forms.Label();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tltp = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.tab_display.SuspendLayout();
             this.pg_report.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).BeginInit();
@@ -339,6 +340,7 @@
             // 
             // gbox_about_us
             // 
+            this.gbox_about_us.Controls.Add(this.label2);
             this.gbox_about_us.Controls.Add(this.label1);
             this.gbox_about_us.Controls.Add(this.lbl_createdBy);
             this.gbox_about_us.Location = new System.Drawing.Point(27, 70);
@@ -375,6 +377,16 @@
             this.Name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Name.Width = 41;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(27, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "rackarackarackarackas©";
+            // 
             // Administration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,7 +395,7 @@
             this.Controls.Add(this.tab_display);
             this.MaximumSize = new System.Drawing.Size(714, 451);
             this.MinimumSize = new System.Drawing.Size(714, 451);
-     //       this.Name = "Administration";
+            this.Name = "Administration";
             this.tab_display.ResumeLayout(false);
             this.pg_report.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).EndInit();
@@ -426,6 +438,7 @@
         private System.Windows.Forms.Button btn_groups_create;
         private System.Windows.Forms.Button btn_export;
         private System.Windows.Forms.ToolTip tltp;
+        private System.Windows.Forms.Label label2;
 
 
     }
