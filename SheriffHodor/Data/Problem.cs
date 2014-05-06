@@ -1,4 +1,5 @@
 ﻿/* Problem.cs
+ * Purpose: Contain all information related to a specific problem in a game.
  * 
  * Version - 3.0.1 - 4/24/2014 - Jeffrey Rackauckas - Moved things directly related to the game into the new Game.cs class.
  * Version - 3.0.0 - Cycle 2 Release

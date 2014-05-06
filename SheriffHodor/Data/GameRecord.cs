@@ -1,8 +1,7 @@
-﻿// Created By: Jeffrey Rackauckas
-// Created On: 5/4/2014.
-// Created to store all of the information that we are currently storing about previous games.
+﻿// GameRecord.cs
+// The purpose of this class is to provide an object of what to store for games a user has already played.
 //
-// Version: 3.0.0 -- Jeffrey Rackauckas -- Initial Draft.
+// Version: 3.0.0 -5/4/2014 - Jeffrey Rackauckas -- Initial Draft.
 using System;
 using System.Collections.Generic;
 using System.Linq;

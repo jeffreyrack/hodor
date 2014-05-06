@@ -1,4 +1,5 @@
 ﻿/* Group.cs
+ * Purpose: To hold all of the information related to a group of users.
  * 
  * Version - 3.0.1 - 4/21/2014 - Jeffrey Rackauckas - Added the ValidName function to check that a passed name is valid.
  * Version - 3.0.0 - Cycle 2 Release

@@ -1,5 +1,5 @@
 ﻿/* Hat.cs
- * 
+ * Purpose: Create an object to store all of the information related to a hat.
  * 
  * Version - 3.0.0 - 4/30/2014 - Jeffrey Rackauckas - Initial Release/Draft.
  */

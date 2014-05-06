@@ -1,4 +1,5 @@
 ﻿/* ExcelHandler.cs
+ * Purpose: The purpose of this class is to handle all of the functionality for exporting user data into an excel spreadsheet.
  * 
  * Version - 3.0.0 - 5/4/2014 - Initial Version/Draft.
  */

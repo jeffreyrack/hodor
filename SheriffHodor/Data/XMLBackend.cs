@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* XmlBackend.cs
+ * Purpose: Handles the reads/writes to the xml file.
+ * 
+ * Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

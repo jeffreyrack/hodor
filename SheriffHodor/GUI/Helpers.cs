@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* Helpers.cs
+ * 
+ * Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.Windows.Forms;
 
 namespace CSUSM.CS441.SheriffHodor.GUI

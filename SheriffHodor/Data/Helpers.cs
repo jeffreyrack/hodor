@@ -1,4 +1,5 @@
 ﻿/* Helpers.cs
+ * Purpose: General Purpose function class.
  * 
  * Version - 3.0.1 - 4/21/2014 - Jeffrey Rackauckas - Added the CheckRegexMatch function to make sure users only use valid characters.
  * Version - 3.0.0 - Cycle 2 Release

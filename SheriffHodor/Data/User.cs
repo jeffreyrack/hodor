@@ -1,4 +1,5 @@
 ﻿/* User.cs
+ * Purpose: Provides all functionality for handling users.
  * 
  * Version - 3.0.6 - 5/4/2014 - Jeffrey Rackauckas - Changed TotalPercentage to return a string.
  * Version - 3.0.5 - 5/3/2014 - Jeffrey Rackauckas - Changed ValidName to accept spaces, .'s, and numbers. 

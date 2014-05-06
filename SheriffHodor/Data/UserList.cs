@@ -1,5 +1,5 @@
 ﻿/* UserList.cs
- * 
+ * Purpose: Provide an easy to access Bindinglist<User>
  * Version - 3.0.1 - Added the ApplyGroupFilter and ApplyStatusFilter functions.
  * Version - 3.0.0 - Cycle 2 Release
  */

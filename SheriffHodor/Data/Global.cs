@@ -1,4 +1,5 @@
 ﻿/* Global.cs
+ * Purpose: The purpose of this class is to contain all of the global variables of the program.
  * 
  * Version - 3.0.1 - 4/24/2014 - Jeffrey Rackauckas - Added the opaquebackground variable, changed default group xml to include Ungrouped Users.
  * Version - 3.0.0 - Cycle 2 Release

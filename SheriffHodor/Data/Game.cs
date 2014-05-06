@@ -1,4 +1,5 @@
 ﻿/* Game.cs
+ * Purpose: The purpose of this class is to handle all information directly related to the game.
  * 
  * Version - 3.0.1 - 4/29/2014 - Jeffrey Rackauckas  - Adding coins to a user now uses addCoins instead of accessing the coins directly.
  * Version - 3.0.0 - 4/24/2014 - Jeffrey Rackauckas - Initial Version.
