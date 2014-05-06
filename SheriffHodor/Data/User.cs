@@ -187,16 +187,21 @@ namespace CSUSM.CS441.SheriffHodor.Data
             return Helpers.CheckRegexMatch(name, @"^[A-Za-z0-9. ]{1,100}$");
         }
 
+        public bool ownsHat(Hat toCheck){
+            foreach(Data.Hat hat in this.OwnedHats)
+            {
+                if(hat.Tier == toCheck.Tier && hat.Number == toCheck.Number) return true;
+            }
+            return false;
+        }
+
         // Added By: Jeffrey Rackauckas
         // Added on: 4/30/2014
         // Purpose: Let's the user buy a hat!
         public int BuyHat(Hat toBuy)
         {
             if (toBuy.getPrice() > this.Coins) return 1;
-            foreach(Data.Hat hat in this.OwnedHats)
-            {
-                if(hat.Tier == toBuy.Tier && hat.Number == toBuy.Number) return 2;
-            }
+            if (ownsHat(toBuy)) return 2;
             this.Coins -= toBuy.getPrice();
             this.OwnedHats.Add(toBuy);
             return 0;

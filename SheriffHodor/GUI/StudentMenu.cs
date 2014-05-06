@@ -43,7 +43,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             {
                 enableHat(hat);
             }
-            this.gbox_hodor.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
+            changeDisplayedHat(this.CurrentUser.selectedHat);
         }
 
         private void btn_log_out_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             {
                 //Button button = (Button)control;
                 Data.Hat hat = this.stripHatInfo(button.Name);
-                if (hat.getPrice() <= this.CurrentUser.Coins)
+                if (this.CurrentUser.ownsHat(hat))
                 {
                     button.BackColor = System.Drawing.Color.FromArgb(255, 255, 255, 255);
                 }
@@ -149,13 +149,15 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         {
             Bitmap newHat;
             // TODO: This should be able to be figured out dynamically.
-            if (currentHat.Tier == 1 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_1;
+            if (currentHat == null) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
+            else if (currentHat.Tier == 1 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_1;
             else if (currentHat.Tier == 1 && currentHat.Number == 2) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_1_2;
             else if (currentHat.Tier == 2 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_2_1;
             else if (currentHat.Tier == 2 && currentHat.Number == 2) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_2_2;
             else if (currentHat.Tier == 3 && currentHat.Number == 1) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_3_1;
             else if (currentHat.Tier == 3 && currentHat.Number == 3) newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hodor_3_3;
             else newHat = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
+            this.CurrentUser.selectedHat = currentHat;
             this.gbox_hodor.BackgroundImage = newHat;
         }
 

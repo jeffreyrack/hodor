@@ -31,9 +31,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
             xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.Add();
             xlWorkSheet.Name = "Users";
             xlWorkSheet.Cells[i, 1] = "Name";
-            xlWorkSheet.Cells[i, 2] = "Group";
-            xlWorkSheet.Cells[i, 3] = "Total Percentage";
-            xlWorkSheet.Cells[i, 4] = "Total Coins";
+            xlWorkSheet.Cells[i, 2] = "Total Percentage";
+            xlWorkSheet.Cells[i, 3] = "Game Count";
+            xlWorkSheet.Cells[i, 4] = "Group";
             gameSheet.Cells[gameIndex, 1] = "Name";
             gameSheet.Cells[gameIndex, 2] = "Date Taken";
             gameSheet.Cells[gameIndex, 3] = "Correct Answers";
@@ -44,9 +44,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
             {
                 if (user.Status == User.UserType.Teacher) continue;
                 xlWorkSheet.Cells[i, 1] = user.Name;
-                xlWorkSheet.Cells[i, 2] = user.GroupName;
-                xlWorkSheet.Cells[i, 3] = user.TotalPercentage;
-                xlWorkSheet.Cells[i, 4] = user.TotalCoins;
+                xlWorkSheet.Cells[i, 2] = user.TotalPercentage;
+                xlWorkSheet.Cells[i, 3] = user.GameCount;
+                xlWorkSheet.Cells[i, 4] = user.GroupName;
                 foreach(Data.GameRecord record in user.PreviousGames)
                 {
                     gameSheet.Cells[gameIndex, 1] = user.Name;
