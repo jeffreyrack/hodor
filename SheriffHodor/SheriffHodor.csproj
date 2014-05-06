@@ -65,6 +65,7 @@
     <Compile Include="Data\Group.cs" />
     <Compile Include="Data\GroupList.cs" />
     <Compile Include="Data\Hat.cs" />
+    <Compile Include="Data\ListWatcher.cs" />
     <Compile Include="Data\Problem.cs" />
     <Compile Include="Data\Global.cs" />
     <Compile Include="Data\Helpers.cs" />
