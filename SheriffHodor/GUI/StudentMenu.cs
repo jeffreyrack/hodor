@@ -81,6 +81,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 button.Enabled = false;
                 button.Cursor = System.Windows.Forms.Cursors.Default;
             }
+            btns = new Button[]{ this.btn_purchase_1_1, this.btn_purchase_1_2, this.btn_purchase_2_1, this.btn_purchase_2_2, this.btn_purchase_3_1, this.btn_purchase_3_3 };
+            foreach (Button button in btns)
+            {
+                button.Visible = true;
+            }
         }
 
         // Created By: Jeffrey Rackauckas
@@ -92,15 +97,31 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             Button button = this.Controls.Find(hatName, true).FirstOrDefault() as Button;
             button.Enabled = true;
             button.Cursor = System.Windows.Forms.Cursors.Hand;
+            hatName = String.Format("btn_purchase_{0}_{1}", hat.Tier, hat.Number);
+            button = this.Controls.Find(hatName, true).FirstOrDefault() as Button;
+            button.Visible = false;
         }
         // Created By: Jeffrey Rackauckas
         // Created On: 4/30/2014
         // This is the function that will deal with changing which hat is displayed and storing the currently selected hat information.
-        private void rdo_hat_changed(object sender, EventArgs e)
+        private void btn_hat_purchase(object sender, EventArgs e)
         {
-            RadioButton radio = (RadioButton)sender;
-            if (!radio.Checked) return;
-            this.currentHat = stripHatInfo(radio.Name);
+            Button radio = (Button)sender;
+            Data.Hat toBuy = stripHatInfo(radio.Name);
+            int status = this.CurrentUser.BuyHat(toBuy);
+            if (status == 1)
+            {
+                Helpers.DisplayError("You don't have enough coins!");
+                return;
+            }
+            else if (status == 2)
+            {
+                Helpers.DisplayError("You already own that hat!");
+                return;
+            }
+            changeDisplayedHat(toBuy);
+            enableHat(toBuy);
+            this.txt_coins.Text = this.CurrentUser.Coins.ToString();
         }
 
         private Data.Hat stripHatInfo(string name)
@@ -138,19 +159,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 Helpers.DisplayError("You did not select a hat!");
                 return;
             }
-            int status = this.CurrentUser.BuyHat(new Data.Hat(this.currentHat.Tier, this.currentHat.Number));
-            if (status == 1)
-            {
-                Helpers.DisplayError("You don't have enough coins!");
-                return;
-            } else if(status ==2)
-            {
-                Helpers.DisplayError("You already own that hat!");
-                return;
-            }
-            changeDisplayedHat(this.currentHat);
-            enableHat(this.currentHat);
-            this.txt_coins.Text = this.CurrentUser.Coins.ToString();
+           
         }
 
         private void hat_btn_click(object sender, EventArgs e)
