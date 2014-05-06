@@ -84,7 +84,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             btns = new Button[]{ this.btn_purchase_1_1, this.btn_purchase_1_2, this.btn_purchase_2_1, this.btn_purchase_2_2, this.btn_purchase_3_1, this.btn_purchase_3_3 };
             foreach (Button button in btns)
             {
-                button.Visible = true;
+                Data.Hat hat = this.stripHatInfo(button.Name);
+                if (hat.getPrice() <= this.CurrentUser.Coins)
+                {
+                    button.Visible = true;
+                }
             }
         }
 
