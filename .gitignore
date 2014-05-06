@@ -1,6 +1,10 @@
 # VS
 *.user
 *.suo
+*.exe
+*.obj
+obj/
+bin/
 
 
 # Emacs
