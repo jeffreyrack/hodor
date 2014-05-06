@@ -60,9 +60,9 @@
             this.gbox_hodor.BackColor = System.Drawing.Color.Transparent;
             this.gbox_hodor.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Propper_Hodor_Picture;
             this.gbox_hodor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gbox_hodor.Location = new System.Drawing.Point(457, -2);
+            this.gbox_hodor.Location = new System.Drawing.Point(420, -2);
             this.gbox_hodor.Name = "gbox_hodor";
-            this.gbox_hodor.Size = new System.Drawing.Size(282, 399);
+            this.gbox_hodor.Size = new System.Drawing.Size(319, 399);
             this.gbox_hodor.TabIndex = 8;
             this.gbox_hodor.TabStop = false;
             // 
@@ -96,7 +96,7 @@
             // btn_purchase_3_1
             // 
             this.btn_purchase_3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_purchase_3_1.Location = new System.Drawing.Point(94, 289);
+            this.btn_purchase_3_1.Location = new System.Drawing.Point(59, 293);
             this.btn_purchase_3_1.Name = "btn_purchase_3_1";
             this.btn_purchase_3_1.Size = new System.Drawing.Size(75, 23);
             this.btn_purchase_3_1.TabIndex = 21;
@@ -107,7 +107,7 @@
             // btn_purchase_2_2
             // 
             this.btn_purchase_2_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_purchase_2_2.Location = new System.Drawing.Point(210, 177);
+            this.btn_purchase_2_2.Location = new System.Drawing.Point(175, 181);
             this.btn_purchase_2_2.Name = "btn_purchase_2_2";
             this.btn_purchase_2_2.Size = new System.Drawing.Size(75, 23);
             this.btn_purchase_2_2.TabIndex = 20;
@@ -118,7 +118,7 @@
             // btn_purchase_2_1
             // 
             this.btn_purchase_2_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_purchase_2_1.Location = new System.Drawing.Point(94, 177);
+            this.btn_purchase_2_1.Location = new System.Drawing.Point(59, 181);
             this.btn_purchase_2_1.Name = "btn_purchase_2_1";
             this.btn_purchase_2_1.Size = new System.Drawing.Size(75, 23);
             this.btn_purchase_2_1.TabIndex = 19;
@@ -129,7 +129,7 @@
             // btn_purchase_1_2
             // 
             this.btn_purchase_1_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_purchase_1_2.Location = new System.Drawing.Point(210, 66);
+            this.btn_purchase_1_2.Location = new System.Drawing.Point(175, 70);
             this.btn_purchase_1_2.Name = "btn_purchase_1_2";
             this.btn_purchase_1_2.Size = new System.Drawing.Size(75, 23);
             this.btn_purchase_1_2.TabIndex = 18;
@@ -140,7 +140,7 @@
             // btn_purchase_3_3
             // 
             this.btn_purchase_3_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_purchase_3_3.Location = new System.Drawing.Point(210, 289);
+            this.btn_purchase_3_3.Location = new System.Drawing.Point(175, 293);
             this.btn_purchase_3_3.Name = "btn_purchase_3_3";
             this.btn_purchase_3_3.Size = new System.Drawing.Size(75, 23);
             this.btn_purchase_3_3.TabIndex = 17;
@@ -152,10 +152,10 @@
             // 
             this.txt_coins.Enabled = false;
             this.txt_coins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_coins.Location = new System.Drawing.Point(331, 112);
+            this.txt_coins.Location = new System.Drawing.Point(316, 116);
             this.txt_coins.Name = "txt_coins";
             this.txt_coins.ReadOnly = true;
-            this.txt_coins.Size = new System.Drawing.Size(121, 22);
+            this.txt_coins.Size = new System.Drawing.Size(54, 22);
             this.txt_coins.TabIndex = 4;
             this.txt_coins.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -163,7 +163,7 @@
             // 
             this.lbl_coins.AutoSize = true;
             this.lbl_coins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_coins.Location = new System.Drawing.Point(357, 87);
+            this.lbl_coins.Location = new System.Drawing.Point(322, 91);
             this.lbl_coins.Name = "lbl_coins";
             this.lbl_coins.Size = new System.Drawing.Size(48, 16);
             this.lbl_coins.TabIndex = 3;
@@ -173,7 +173,7 @@
             // 
             this.lbl_current_name.AutoSize = true;
             this.lbl_current_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_current_name.Location = new System.Drawing.Point(348, 40);
+            this.lbl_current_name.Location = new System.Drawing.Point(313, 44);
             this.lbl_current_name.Name = "lbl_current_name";
             this.lbl_current_name.Size = new System.Drawing.Size(72, 16);
             this.lbl_current_name.TabIndex = 0;
@@ -185,9 +185,9 @@
             this.lbl_t3_cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_t3_cost.Location = new System.Drawing.Point(7, 292);
             this.lbl_t3_cost.Name = "lbl_t3_cost";
-            this.lbl_t3_cost.Size = new System.Drawing.Size(66, 16);
+            this.lbl_t3_cost.Size = new System.Drawing.Size(29, 16);
             this.lbl_t3_cost.TabIndex = 16;
-            this.lbl_t3_cost.Text = "200 Coins";
+            this.lbl_t3_cost.Text = "200";
             // 
             // lbl_t2_cost
             // 
@@ -195,9 +195,9 @@
             this.lbl_t2_cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_t2_cost.Location = new System.Drawing.Point(7, 177);
             this.lbl_t2_cost.Name = "lbl_t2_cost";
-            this.lbl_t2_cost.Size = new System.Drawing.Size(66, 16);
+            this.lbl_t2_cost.Size = new System.Drawing.Size(29, 16);
             this.lbl_t2_cost.TabIndex = 15;
-            this.lbl_t2_cost.Text = "150 Coins";
+            this.lbl_t2_cost.Text = "150";
             // 
             // btn_play_game
             // 
@@ -205,7 +205,7 @@
             this.btn_play_game.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.play_button_transparent;
             this.btn_play_game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_play_game.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_play_game.Location = new System.Drawing.Point(312, 157);
+            this.btn_play_game.Location = new System.Drawing.Point(277, 161);
             this.btn_play_game.Name = "btn_play_game";
             this.btn_play_game.Size = new System.Drawing.Size(144, 128);
             this.btn_play_game.TabIndex = 1;
@@ -218,16 +218,16 @@
             this.lbl_t1_cost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_t1_cost.Location = new System.Drawing.Point(7, 73);
             this.lbl_t1_cost.Name = "lbl_t1_cost";
-            this.lbl_t1_cost.Size = new System.Drawing.Size(66, 16);
+            this.lbl_t1_cost.Size = new System.Drawing.Size(29, 16);
             this.lbl_t1_cost.TabIndex = 14;
-            this.lbl_t1_cost.Text = "100 Coins";
+            this.lbl_t1_cost.Text = "100";
             // 
             // btn_hat_3_3
             // 
             this.btn_hat_3_3.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.Wabbit_Hat1;
             this.btn_hat_3_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_3_3.Enabled = false;
-            this.btn_hat_3_3.Location = new System.Drawing.Point(184, 244);
+            this.btn_hat_3_3.Location = new System.Drawing.Point(149, 248);
             this.btn_hat_3_3.Name = "btn_hat_3_3";
             this.btn_hat_3_3.Size = new System.Drawing.Size(115, 113);
             this.btn_hat_3_3.TabIndex = 12;
@@ -239,7 +239,7 @@
             this.btn_hat_3_1.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.tier_3__boot_hat;
             this.btn_hat_3_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_3_1.Enabled = false;
-            this.btn_hat_3_1.Location = new System.Drawing.Point(79, 244);
+            this.btn_hat_3_1.Location = new System.Drawing.Point(44, 248);
             this.btn_hat_3_1.Name = "btn_hat_3_1";
             this.btn_hat_3_1.Size = new System.Drawing.Size(108, 113);
             this.btn_hat_3_1.TabIndex = 10;
@@ -251,7 +251,7 @@
             this.btn_hat_2_2.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat2_tier2;
             this.btn_hat_2_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_2_2.Enabled = false;
-            this.btn_hat_2_2.Location = new System.Drawing.Point(184, 132);
+            this.btn_hat_2_2.Location = new System.Drawing.Point(149, 136);
             this.btn_hat_2_2.Name = "btn_hat_2_2";
             this.btn_hat_2_2.Size = new System.Drawing.Size(115, 113);
             this.btn_hat_2_2.TabIndex = 8;
@@ -263,7 +263,7 @@
             this.btn_hat_1_2.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat1_tier2;
             this.btn_hat_1_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_1_2.Enabled = false;
-            this.btn_hat_1_2.Location = new System.Drawing.Point(184, 21);
+            this.btn_hat_1_2.Location = new System.Drawing.Point(149, 25);
             this.btn_hat_1_2.Name = "btn_hat_1_2";
             this.btn_hat_1_2.Size = new System.Drawing.Size(115, 113);
             this.btn_hat_1_2.TabIndex = 2;
@@ -276,7 +276,7 @@
             this.btn_hat_2_1.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat2_tier1;
             this.btn_hat_2_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_2_1.Enabled = false;
-            this.btn_hat_2_1.Location = new System.Drawing.Point(79, 132);
+            this.btn_hat_2_1.Location = new System.Drawing.Point(44, 136);
             this.btn_hat_2_1.Name = "btn_hat_2_1";
             this.btn_hat_2_1.Size = new System.Drawing.Size(108, 113);
             this.btn_hat_2_1.TabIndex = 0;
@@ -286,7 +286,7 @@
             // btn_purchase_1_1
             // 
             this.btn_purchase_1_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_purchase_1_1.Location = new System.Drawing.Point(94, 66);
+            this.btn_purchase_1_1.Location = new System.Drawing.Point(59, 70);
             this.btn_purchase_1_1.Name = "btn_purchase_1_1";
             this.btn_purchase_1_1.Size = new System.Drawing.Size(75, 23);
             this.btn_purchase_1_1.TabIndex = 5;
@@ -299,7 +299,7 @@
             this.btn_hat_1_1.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.hat1_tier1;
             this.btn_hat_1_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_hat_1_1.Enabled = false;
-            this.btn_hat_1_1.Location = new System.Drawing.Point(79, 21);
+            this.btn_hat_1_1.Location = new System.Drawing.Point(44, 25);
             this.btn_hat_1_1.Name = "btn_hat_1_1";
             this.btn_hat_1_1.Size = new System.Drawing.Size(108, 113);
             this.btn_hat_1_1.TabIndex = 0;
