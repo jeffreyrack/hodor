@@ -1,5 +1,13 @@
-﻿/*Team Hodor
- *  The buttons just need to be linkd to the XML background functions andsaved for the user games
+﻿/* Administration.cs
+ * 
+ * Version - 3.0.7 - 5/4/2014 - Jeffrey Rackauckas - Added the max users/groups restrictions by hiding the add buttons when there are too many.
+ * Version - 3.0.6 - 5/4/2014 - Jeffrey Rackauckas - Added the export to excel icon.
+ * Version - 3.0.5 - 5/4/2014 - Jeffrey Rackauckas - Added the About Us tab.
+ * Version - 3.0.4 - 5/3/2014 - Jeffrey Rackauckas - Fixed the bug where returnUser was being set to null and crashing the app.
+ * Version - 3.0.3 - 4/30/2014 - Jeffrey Rackauckas - Reports now only display students (filters out teachers).
+ * Version - 3.0.2 - 4/29/2014 - Jeffrey Rackauckas - Added the Ungrouped Users functionality.
+ * Version - 3.0.1 - 4/16/2014 - Jeffrey Rackauckas - Added the returnUser parameter.
+ * Version -  3.0.0 - Cycle 2 Release.
  */
 using System;
 using System.Collections.Generic;
@@ -197,10 +205,6 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             }
         }
         #endregion
-
-        private void onTabChange(object sender, EventArgs e)
-        {
-        }
 
         private void btn_export_Click(object sender, EventArgs e)
         {

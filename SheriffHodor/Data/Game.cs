@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Game.cs
+ * 
+ * Version - 3.0.1 - 4/29/2014 - Jeffrey Rackauckas  - Adding coins to a user now uses addCoins instead of accessing the coins directly.
+ * Version - 3.0.0 - 4/24/2014 - Jeffrey Rackauckas - Initial Version.
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,9 +75,9 @@ namespace CSUSM.CS441.SheriffHodor.Data
         {
             if (correctStreak >= 5)
             {
-                return 2;
+                return 3;
             }
-            else if (correctStreak == 3)
+            else if (correctStreak == 3 || correctStreak == 4)
             {
                 return 2;
             }

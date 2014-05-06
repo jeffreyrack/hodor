@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Hat.cs
+ * 
+ * 
+ * Version - 3.0.0 - 4/30/2014 - Jeffrey Rackauckas - Initial Release/Draft.
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* StateControl.cs
+ * 
+ * Version - 3.0.3 - 5/3/2014 - Jeffrey Rackauckas - Added the createUngroupedUserDataGrid and addStudentsToGroup functions.
+ * Version - 3.0.2 - 5/3/2014 - Jeffrey Rackauckas - Added the CreateDataGridView function.
+ * Version - 3.0.1 - 4/16/2014 - Jeffrey Rackauckas - Added the returnUser parameter to the Entered function.
+ * Version - 3.0.0 - Cycle 2 Release.
+ */
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;

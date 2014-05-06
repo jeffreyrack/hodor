@@ -1,4 +1,14 @@
-﻿using System;
+﻿/* User.cs
+ * 
+ * Version - 3.0.6 - 5/4/2014 - Jeffrey Rackauckas - Changed TotalPercentage to return a string.
+ * Version - 3.0.5 - 5/3/2014 - Jeffrey Rackauckas - Changed ValidName to accept spaces, .'s, and numbers. 
+ * Version - 3.0.4 - 4/30/2014 - Jeffrey Rackauckas - Added the OwnedHats variable, and the BuyHat function.
+ * Version - 3.0.3 - 4/29/2014 - Jeffrey Rackauckas - Added the total coins value, and created the addCoins function.
+ * Version - 3.0.2 - 4/24/2014 - Jeffrey Rackauckas - Moved game related functionality into Game.cs
+ * Version - 3.0.1 - 4/21/2014 - Jeffrey Rackauckas - Added the ValidName function to make sure the passed name is valid.
+ * Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;

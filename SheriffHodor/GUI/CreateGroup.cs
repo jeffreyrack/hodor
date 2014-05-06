@@ -1,4 +1,12 @@
-﻿using System;
+﻿/* CreateGroup.cs
+ * 
+ * Version - 3.0.4 - 5/3/2014 - Jeffrey Rackauckas - Fixed a bug where returnUser was being sent as null.
+ * Version - 3.0.3 - 5/3/2014 - Jeffrey Rackauckas - Added the ungrouped users Datagrid View.
+ * Version - 3.0.2 - 4/21/2014 - Jeffrey Rackauckas - Changed the error messages to match the SRS.
+ * Version - 3.0.1 - 4/16/2014 - Jeffrey Rackauckas - Added the returnUser parameter.
+ * Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;

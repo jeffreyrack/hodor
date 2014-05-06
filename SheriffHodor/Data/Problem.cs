@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Problem.cs
+ * 
+ * Version - 3.0.1 - 4/24/2014 - Jeffrey Rackauckas - Moved things directly related to the game into the new Game.cs class.
+ * Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

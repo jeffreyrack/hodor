@@ -1,4 +1,8 @@
-﻿using System;
+﻿/* ExcelHandler.cs
+ * 
+ * Version - 3.0.0 - 5/4/2014 - Initial Version/Draft.
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -62,12 +66,12 @@ namespace CSUSM.CS441.SheriffHodor.Data
                 if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     xlWorkBook.SaveAs(save.FileName, XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-                    xlWorkBook.Close(true, misValue, misValue);
                 }
             } catch(Exception e)
             {
                 // TODO: What to do when the file handling fails.
             }
+            xlWorkBook.Close(false, misValue, misValue);
             xlApp.Quit();
         }
     }

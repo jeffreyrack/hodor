@@ -79,7 +79,6 @@
             this.tab_display.SelectedIndex = 0;
             this.tab_display.Size = new System.Drawing.Size(730, 480);
             this.tab_display.TabIndex = 19;
-            this.tab_display.SelectedIndexChanged += new System.EventHandler(this.onTabChange);
             // 
             // pg_report
             // 
@@ -384,7 +383,7 @@
             this.Controls.Add(this.tab_display);
             this.MaximumSize = new System.Drawing.Size(714, 451);
             this.MinimumSize = new System.Drawing.Size(714, 451);
-        //    this.Name = "Administration";
+   //         this.Name = "Administration";
             this.tab_display.ResumeLayout(false);
             this.pg_report.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_reports_list)).EndInit();

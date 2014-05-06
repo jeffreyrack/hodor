@@ -1,7 +1,9 @@
-﻿/*This file just needs to be sinked up with the XMl call file to display the users in the dropdown menu and 
- * display the proper screen for if the actor is a user or admin. 
+﻿/* Login.cs
  * 
- * */
+ * Version - 3.0.2 - 5/4/2014 - Now only displays users that are not in Ungrouped Users, and made the drop-down size smaller.
+ * Version - 3.0.1 - 4/16/2014 - Jeffrey Rackauckas - Added the returnUser parameter.
+ * Version - 3.0.0 - Cycle 2 Release
+ */
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;

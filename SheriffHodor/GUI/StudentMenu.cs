@@ -1,4 +1,12 @@
-﻿using System;
+﻿/* StudentMenu.cs
+ * 
+ * Version - 3.0.4 - 5/4/2014 - Jeffrey Rackauckas - Hats are no fully functional.
+ * Version - 3.0.3 - 4/30/2014 - Jeffrey Rackauckas - Hats are now purchasable!
+ * Version - 3.0.2 - 4/29/2014 - Jeffrey Rackauckas - Started adding the rewards functionality.
+ * Version - 3.0.1 - 4/16/2014 - Jeffrey Rackauckas - Added the returnUser parameter.
+ * Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Global.cs
+ * 
+ * Version - 3.0.1 - 4/24/2014 - Jeffrey Rackauckas - Added the opaquebackground variable, changed default group xml to include Ungrouped Users.
+ * Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.IO;
 
 namespace CSUSM.CS441.SheriffHodor.Data

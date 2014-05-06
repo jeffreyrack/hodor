@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* UpdateUser.cs
+ * 
+ * Version - 3.0.3 - 5/3/2014 - Jeffrey Rackauckas - Added checks for the max name length, and made updates also use User.ValidName
+ * Version - 3.0.2 - 4/29/2014 - Jeffrey Rackauckas - Fixed a bug with returnUser.
+ *  Version - 3.0.1 - 4/16/2014 - Jeffrey Rackauckas - Added the returnUser parameter.
+ * Version - 3.0.0
+ */
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;

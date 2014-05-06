@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* GroupList.cs
+ * 
+ * Version - 3.0.1 - Fixed a bug where members groups where being set to null when their group was deleted.
+ *  Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;

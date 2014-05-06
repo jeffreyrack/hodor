@@ -1,4 +1,21 @@
-﻿using CSUSM.CS441.SheriffHodor.Data;
+﻿/* GameScreen.cs
+ * 
+ * Version - 3.0.4 - 5/4/2014 - Jeffrey Rackauckas - Removed California standards pop-up due to SRS changes.
+ * Version - 3.0.3 - 4/29/2014 - Jeffrey Rackauckas - Changed to use the addCoins function, finishing a game now returns a user to the StudentMenu.
+ * Version - 3.0.2 - 4/24/2014 - Jeffrey Rackauckas - Moved things that are non-UI related into Game.cs
+ * Version - 3.0.1 - 4/16/2014 - Jeffrey Rackauckas - Added the returnUser parameter.
+ * Version - 3.0.0 - Cycle 2 Release
+*         /*
+    * Matthias Lang    - 3/17/2014 - Initial Version
+    * Corey Paxton     - 3/17/2014 - Beginning of making it work with refactor
+    * Corey Paxton     - 3/20/2014 - Setup new problem generator
+    * Corey Paxton     - 3/24/2014 - Made it so the text field is active
+    * Corey Paxton     - 3/24/2014 - Added coin stuff
+    * Corey Paxton     - 4/3/2014 - Equation and top to bottom form
+    * Jeffrey Rackauckas - 4/24/2014 - Refactored for the new Game.cs Data class.
+ */
+ 
+using CSUSM.CS441.SheriffHodor.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,15 +47,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
         }
 
         #region UI
-        /*
-         * Matthias Lang    - 3/17/2014 - Initial Version
-         * Corey Paxton     - 3/17/2014 - Beginning of making it work with refactor
-         * Corey Paxton     - 3/20/2014 - Setup new problem generator
-         * Corey Paxton     - 3/24/2014 - Made it so the text field is active
-         * Corey Paxton     - 3/24/2014 - Added coin stuff
-         * Corey Paxton     - 4/3/2014 - Equation and top to bottom form
-         * Jeffrey Rackauckas - 4/24/2014 - Refactored for the new Game.cs Data class.
-         */
+
         public override void Entered(StateControl from, Data.User user, Data.User returnUser)
         {
             base.Entered(from, user, returnUser);

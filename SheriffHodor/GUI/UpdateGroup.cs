@@ -1,4 +1,10 @@
-﻿using System;
+﻿/* UpdateGroup.cs
+ * 
+ * Version - 3.0.2 - 5/3/2014 - Jeffrey Rackauckas - Fixed a bug where returnUser was being set to null, and added the Ungrouped Users box.
+ * Version - 3.0.1 - 4/16/2014 - Jeffrey Rackauckas - Added the returnUser parameter.
+ * Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;

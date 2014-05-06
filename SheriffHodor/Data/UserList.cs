@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* UserList.cs
+ * 
+ * Version - 3.0.1 - Added the ApplyGroupFilter and ApplyStatusFilter functions.
+ * Version - 3.0.0 - Cycle 2 Release
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
@@ -26,9 +31,6 @@ namespace CSUSM.CS441.SheriffHodor.Data
         }
         #endregion
 
-        public enum Filters{
-            Status, Group
-        }
         public bool RemoveByName(string name)
         {
             int idx = GetIdxByName(name);
