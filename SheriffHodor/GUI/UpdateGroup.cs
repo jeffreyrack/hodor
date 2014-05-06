@@ -4,6 +4,7 @@
  * Version - 3.0.1 - 4/16/2014 - Jeffrey Rackauckas - Added the returnUser parameter.
  * Version - 3.0.0 - Cycle 2 Release
  */
+using CSUSM.CS441.SheriffHodor.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,11 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                     return;
                 }
                 this.CurrentGroup.Name = grpName;
+                List<User> users = UserList.Instance.ApplyGroupFilter(txt_oldName.Text).ToList();
+                foreach(User student in users)
+                {
+                    student.GroupName = txt_newName.Text;
+                }
             }
             addStudentsToGroup(dtg_ungrouped_users, this.CurrentGroup, 1, 0);
             this.CurrentGroup.Difficulty = getDifficulty();

@@ -174,6 +174,11 @@ namespace CSUSM.CS441.SheriffHodor.Data
         // Is used to increment the number of coins a user has.
         public void addCoins(int gained)
         {
+            if (this.Coins + gained >= 2147483647)
+            {
+                this.Coins = 2147483647;
+                this.TotalCoins = 2147483647;
+            }
             // This function should only be used for positive increments.
             if (gained <= 0) return;
             this.Coins += gained;
