@@ -152,10 +152,10 @@
             // 
             this.txt_coins.Enabled = false;
             this.txt_coins.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_coins.Location = new System.Drawing.Point(316, 116);
+            this.txt_coins.Location = new System.Drawing.Point(310, 116);
             this.txt_coins.Name = "txt_coins";
             this.txt_coins.ReadOnly = true;
-            this.txt_coins.Size = new System.Drawing.Size(54, 22);
+            this.txt_coins.Size = new System.Drawing.Size(75, 22);
             this.txt_coins.TabIndex = 4;
             this.txt_coins.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -205,7 +205,7 @@
             this.btn_play_game.BackgroundImage = global::CSUSM.CS441.SheriffHodor.Properties.Resources.play_button_transparent;
             this.btn_play_game.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_play_game.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_play_game.Location = new System.Drawing.Point(277, 161);
+            this.btn_play_game.Location = new System.Drawing.Point(270, 161);
             this.btn_play_game.Name = "btn_play_game";
             this.btn_play_game.Size = new System.Drawing.Size(144, 128);
             this.btn_play_game.TabIndex = 1;
