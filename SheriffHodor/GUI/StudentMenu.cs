@@ -81,6 +81,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 button.Enabled = false;
                 button.Cursor = System.Windows.Forms.Cursors.Default;
             }
+
             btns = new Button[]{ this.btn_purchase_1_1, this.btn_purchase_1_2, this.btn_purchase_2_1, this.btn_purchase_2_2, this.btn_purchase_3_1, this.btn_purchase_3_3 };
             foreach (Button button in btns)
             {
@@ -88,6 +89,10 @@ namespace CSUSM.CS441.SheriffHodor.GUI
                 if (hat.getPrice() <= this.CurrentUser.Coins)
                 {
                     button.Visible = true;
+                }
+                else
+                {
+                    button.Visible = false;
                 }
             }
         }
@@ -105,6 +110,7 @@ namespace CSUSM.CS441.SheriffHodor.GUI
             button = this.Controls.Find(hatName, true).FirstOrDefault() as Button;
             button.Visible = false;
         }
+
         // Created By: Jeffrey Rackauckas
         // Created On: 4/30/2014
         // This is the function that will deal with changing which hat is displayed and storing the currently selected hat information.
